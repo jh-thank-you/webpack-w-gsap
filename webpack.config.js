@@ -37,24 +37,17 @@ const plugins = PRODUCTION
   ?   [
     new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin({
-      filename:  (getPath) => {
-        return getPath('assets/css/styles-[contenthash:6].css').replace('assets/css/', ''); // has the same issues as the below commented out setting
-      },
+      filename: 'assets/css/styles-[contenthash:6].css', // this will put the css in asset/css directoy.
+                                                         // You also need to resolve the path in the
+                                                         // ExtractTextPlugin.extract see const cssLoader below
       allChunks: true
     }),
-    // new ExtractTextPlugin({
-    //   filename: 'styles-[contenthash:6].css', // removed assets/css - css goes to root now - all path aliases resolve correctly
-    // }),                                       // If you make it 'assets/css/styles-[contenthash:6]'
-                                              // the CSS file will get saved into the assets/css folder but the 
-                                              // plugin will prepend all the webpack path aliases 
-                                              // in the CSS with 'assets/css' and break all the links
-                                              // doesn't look like the plugin has any options to address this.
     new HTMLWebpackPlugin({
       template: 'index-template.html'
     }),
     new PreloadWebpackPlugin({
-        // For settings see - https://github.com/googlechrome/preload-webpack-plugin
-        // Below is the default setting
+      // For settings see - https://github.com/googlechrome/preload-webpack-plugin
+      // Below is the default setting
       rel: 'preload',
       as: 'script',
       include: 'asyncChunks',
@@ -65,6 +58,7 @@ const plugins = PRODUCTION
       inject: true, // Inject the html into the html-webpack-plugin
       persistentCache: true,  // Generate a cache file with control hashes and
                               // don't rebuild the favicons until those hashes change
+
       // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
       icons: {
         android: false, // Set to true for Production
@@ -148,6 +142,9 @@ const projectMap = PRODUCTION ? '#source-map' : '#eval-source-map';
 
 const cssLoader = PRODUCTION
   ? ExtractTextPlugin.extract({
+    publicPath: '../../', // since the ExtractTextPlugin is saving 
+                          // the CSS file to assets/css directory (see const plugins above) 
+                          // you need to resolve the publicPath to take this into account.
     use: ['css-loader?minimize&localIdentName=' + cssIdentifier, 'postcss-loader'],
   })
   :   ['style-loader', 'css-loader?localIdentName=' + cssIdentifier, 'postcss-loader'];

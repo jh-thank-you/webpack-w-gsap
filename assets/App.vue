@@ -18,8 +18,6 @@
 <script>
 
   // Import the components your template will need.
-  import Counter from 'components/Counter.vue';
-  import Message from 'components/Message.vue';
   import navCornerMenu from 'components/nav-corner-menu.vue';
   import modalSlideshow from 'components/modal-slideshow.vue';
   import nameTitleTag from 'components/name-title-tag.vue';
