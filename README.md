@@ -31,13 +31,12 @@ Will update when sorted, any help is appreciated.
 
 ** Note not all sections and modals have images **
 
-Note only: 
+Note only the following have images: 
 - print/advil
 - print/amex
 - print/bayer
-have images that will load into the modals
-Also, video, outdoor and online sections are blank.
-Work in progress...
+- Also, video, outdoor and online sections are blank.
+- Work in progress...
 
 ======================================================
 
