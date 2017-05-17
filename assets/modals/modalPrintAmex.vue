@@ -51,7 +51,7 @@
 
 
 <script>
-	export default {
+  export default {
 
     methods: {
 
@@ -61,14 +61,14 @@
 
     }, // END mounted
 
-	}; // END export default
+  }; // END export default
 
 </script>
 
 
 
 <style>
-	
+  
 
 
 </style>
