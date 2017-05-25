@@ -14,7 +14,7 @@ Feel free to contact me anytime.
 Dev build works great.
 
 Production build has ISSUES:
-1. The modal templates are dynamically loaded (this works great) BUT all of the hard/static coded src links in these templates are not processed. ** - SOLVED - Thanks to Evan You & Thorsten Lünborg ** by adding a ~ (tilde) to the front of the path name. This still raises issues - why webpack path aliases are not being honored in Vue template files? For example:
+1. The modal templates are dynamically loaded (this works great) BUT all of the hard/static coded src links in these templates are not processed. **- SOLVED - Thanks to Evan You & Thorsten Lünborg** by adding a ~ (tilde) to the front of the path name. This still raises issues - why webpack path aliases are not being honored in Vue template files? For example:
 
 This path alias does not work:
 `src="~assets/modalPrintAdvil1c.jpg"`
