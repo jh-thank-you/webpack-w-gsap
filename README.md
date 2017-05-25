@@ -39,7 +39,7 @@ Will update when sorted, any help is appreciated.
 
 ======================================================
 
-** Note not all sections and modals have images **
+**Note not all sections and modals have images**
 
 Note only the following have images: 
 - print/advil
