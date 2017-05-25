@@ -29,7 +29,7 @@ This relative path does not work:
 
 
 
-2 - To solve programmatic link images not being processed in the modal-button.vue component the programmatic source path had to be called a different way
+2 - To solve programmatic link images not being processed in the modal-button.vue component the programmatic source path had to be called a different way (details at https://github.com/vuejs/vue-loader/issues/814)
 ```
 // template html
 <img class="fadeMe" :src="getPic()" :alt="this.id + ' advertisment'">
@@ -41,7 +41,6 @@ methods: {
 
 				this.imageSrc = this.id;
 				this.$emit('imageSelectChanged', this.imageSrc);
-				console.log(this.imageSrc + " = this.imageSrc - modal button clicked");
 			},
 
 			getPic() {
