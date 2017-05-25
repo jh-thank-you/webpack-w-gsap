@@ -27,14 +27,31 @@ This relative path does not work:
 
 
 
-2 - To solve programmatic link images not being processed (currently only the Print section has button thumbnail place holders) I created a subdirectory - 'assets/img-dynamic' - with all of the programmatically called thumbnail images. This directory is then copied over by Copy Webpack Plugin:
+2 - To solve programmatic link images not being processed in the modal-button.vue component the programmatic source path had to be called a different way
+```
+// template html
+<img class="fadeMe" :src="getPic()" :alt="this.id + ' advertisment'">
 
-{ from: 'assets/img-dynamic', to: 'assets/img-dynamic/[name].[ext]' } 
+//.vue
 
-This copies the images as expected but it does not take advantage of hashed image names and links for caching. Need to research how to accomplish this.
+methods: {
+			exampleSelected() {
 
+				this.imageSrc = this.id;
+				this.$emit('imageSelectChanged', this.imageSrc);
+				console.log(this.imageSrc + " = this.imageSrc - modal button clicked");
+			},
 
-Will update when sorted, any help is appreciated. 
+			getPic() {
+			  return require('assets/img/' + this.id + '1a-sm.png');
+		      return 'assets/img/' + this.id + '1a-sm.png';
+		    },
+
+		}, // END methods 
+
+``` 
+
+(Note: currently only the Print section has button thumbnail placeholders)
 
 
 ======================================================

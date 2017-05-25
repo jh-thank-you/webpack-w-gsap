@@ -6,7 +6,7 @@
 		<div class="innerFrame3 hoverMe"></div>
 		<span class="clientLabel handwritten"><p>{{ client }}</p></span>
 
-		<img class="fadeMe" :src="'assets/img-dynamic/' + this.id + '1a-sm.png'" :alt="alt">
+		<img class="fadeMe" :src="getPic()" :alt="this.id + ' advertisment'">
 	</div>
 
 </template>
@@ -35,7 +35,12 @@
 				this.imageSrc = this.id;
 				this.$emit('imageSelectChanged', this.imageSrc);
 				console.log(this.imageSrc + " = this.imageSrc - modal button clicked");
-			}
+			},
+
+			getPic() {
+			  return require('assets/img/' + this.id + '1a-sm.png');
+		      return 'assets/img/' + this.id + '1a-sm.png';
+		    },
 
 		}, // END methods
 		mounted() {

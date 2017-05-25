@@ -15,7 +15,7 @@ var ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 // var DashboardPlugin = require('webpack-dashboard/plugin');
 var PrerenderSpaPlugin = require('prerender-spa-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+// var CopyWebpackPlugin = require('copy-webpack-plugin');  // No longer needed - solved with https://github.com/vuejs/vue-loader/issues/814
 
 let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
@@ -81,9 +81,10 @@ const plugins = PRODUCTION
           names: ['vendor']
     }), // split vendor library from app code
     new FriendlyErrorsWebpackPlugin(),
-    new CopyWebpackPlugin([
-        { from: 'assets/img-dynamic', to: 'assets/img-dynamic/[name].[ext]' }
-    ]),
+    // new CopyWebpackPlugin([]
+    // No longer needed - solved with https://github.com/vuejs/vue-loader/issues/814
+    //     { from: 'assets/img-dynamic', to: 'assets/img-dynamic/[name].[ext]' }
+    // ]),
     new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery"
