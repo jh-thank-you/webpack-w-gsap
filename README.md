@@ -1,4 +1,4 @@
-** bHainis Art Direction - Portfolio **
+**Hainis Art Direction - Portfolio**
 
 ================================
 
@@ -9,7 +9,7 @@ Feel free to contact me anytime.
 
 ======================================================
 
-** IMPORTANT NOTE: **
+**IMPORTANT NOTE:**
 
 Dev build works great.
 
