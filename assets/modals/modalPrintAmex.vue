@@ -15,26 +15,26 @@
           <div class="slide" id="slide-1">
               <div class="centered" id="print-amex-1">
                   <!-- Empty Div for boxFrame Overlay Clone -->
-                  <img src="assets/img/modalPrintAmex1c.jpg" alt="Amex Ad 01">
+                  <img src="~assets/img/modalPrintAmex1c.jpg" alt="Amex Ad 01">
                   <!-- Will Fade On Scroll -->
               </div>
           </div>
 
           <div class="slide" id="slide-2">
               <div class="centered" id="print-amex-2">
-                  <img src="assets/img/modalPrintAmex2.jpg" alt="Amex Ad 02">
+                  <img src="~assets/img/modalPrintAmex2.jpg" alt="Amex Ad 02">
               </div>
           </div>
 
           <div class="slide" id="slide-3">
               <div class="centered" id="print-amex-3">
-                  <img src="assets/img/modalPrintAmex3.jpg" alt="Amex Ad 03">
+                  <img src="~assets/img/modalPrintAmex3.jpg" alt="Amex Ad 03">
               </div>
           </div>
 
           <div class="slide" id="slide-4">
               <div class="centered" id="print-amex-4">
-                  <img src="assets/img/modalPrintAmex4.jpg" alt="Amex Ad 04">
+                  <img src="~assets/img/modalPrintAmex4.jpg" alt="Amex Ad 04">
               </div>
           </div>
 

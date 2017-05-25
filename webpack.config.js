@@ -82,7 +82,7 @@ const plugins = PRODUCTION
     }), // split vendor library from app code
     new FriendlyErrorsWebpackPlugin(),
     new CopyWebpackPlugin([
-        { from: 'assets/img', to: 'assets/img' }
+        { from: 'assets/img-dynamic', to: 'assets/img-dynamic/[name].[ext]' }
     ]),
     new webpack.ProvidePlugin({
         $: "jquery",

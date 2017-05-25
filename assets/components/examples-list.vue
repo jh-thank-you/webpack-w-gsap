@@ -40,7 +40,7 @@
 
 					{id: 'modalPrintCigna', alt: 'CIGNA Ad', client: 'CIGNA', sector: 'default-select btob insurance healthcare', },
 
-					{id: 'locked', alt: 'Cimzia Ad', client: 'Cimzia', sector: 'default-select healthcare pharma locked', },
+					{id: 'modalPrintCimzia', alt: 'Cimzia Ad', client: 'Cimzia', sector: 'default-select healthcare pharma locked', },
 
 					{id: 'modalPrintDell', alt: 'Dell Ad', client: 'Dell', sector: 'default-select technology', },
 

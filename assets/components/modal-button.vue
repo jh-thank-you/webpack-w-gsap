@@ -6,7 +6,7 @@
 		<div class="innerFrame3 hoverMe"></div>
 		<span class="clientLabel handwritten"><p>{{ client }}</p></span>
 
-		<img class="fadeMe" :src="'assets/img/' + this.id + '1a-sm.png'" :alt="alt">
+		<img class="fadeMe" :src="'assets/img-dynamic/' + this.id + '1a-sm.png'" :alt="alt">
 	</div>
 
 </template>

@@ -14,20 +14,20 @@
           <div class="slide" id="slide-1">
               <div class="centered" id="print-bayer-1">
                   <!-- Empty Div for boxFrame Overlay Clone -->
-                  <img src="assets/img/modalPrintBayer1c.jpg" alt="Bayer Ad 01">
+                  <img src="~assets/img/modalPrintBayer1c.jpg" alt="Bayer Ad 01">
                   <!-- Will Fade On Scroll -->
               </div>
           </div>
 
           <div class="slide" id="slide-2">
               <div class="centered" id="print-bayer-2">
-                  <img src="assets/img/modalPrintBayer2.jpg" alt="Bayer Ad 02">
+                  <img src="~assets/img/modalPrintBayer2.jpg" alt="Bayer Ad 02">
               </div>
           </div>
 
           <div class="slide" id="slide-3">
               <div class="centered" id="print-bayer-3">
-                  <img src="assets/img/modalPrintBayer3.jpg" alt="Bayer Ad 03">
+                  <img src="~assets/img/modalPrintBayer3.jpg" alt="Bayer Ad 03">
               </div>
           </div>
 
