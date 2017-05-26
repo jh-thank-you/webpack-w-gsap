@@ -16,7 +16,7 @@ var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 // var DashboardPlugin = require('webpack-dashboard/plugin');
 var PrerenderSpaPlugin = require('prerender-spa-plugin');
 // var CopyWebpackPlugin = require('copy-webpack-plugin');  // No longer needed - solved with https://github.com/vuejs/vue-loader/issues/814
-
+var GitRevisionPlugin = require('git-revision-webpack-plugin');
 let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
@@ -35,6 +35,9 @@ const build = PRODUCTION
 
 const plugins = PRODUCTION
   ?   [
+    new webpack.BannerPlugin({
+      banner: new GitRevisionPlugin().version(),
+    }),
     new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin({
       filename: 'assets/css/styles-[contenthash:6].css', // this will put the css in asset/css directoy.
