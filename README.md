@@ -20,7 +20,7 @@ Feel free to contact me anytime.
 
 **Note not all sections and modals have images**
 
-Note only the following modals have slideshow images: 
+Only the following modals have slideshow images: 
 - print/advil
 - print/amex
 - print/bayer
