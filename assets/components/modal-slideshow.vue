@@ -2,12 +2,12 @@
 
   <div class="overlay"> <!-- START Modal -->
 
-   	<div class="closeSectionModal close-button" @click="$emit('close')">
+    <div class="closeSectionModal close-button" @click="$emit('close')">
       <div aria-hidden='true'>&times;</div>
     </div>
 
     <keep-alive>
-      <component :is="selectedComponent">
+      <component :is="getModal()">
         <!-- content set dynamically -->
       </component>
     </keep-alive>
@@ -21,10 +21,7 @@
   import { eventBus } from 'assets/main.js';
   import buttonCloseSectionVector from 'components/button-close-section-vector.vue';
 
-  // Need to research how to make dynamic component Var and Path
-  import modalPrintAdvil from 'modals/modalPrintAdvil.vue';
-  import modalPrintAmex from 'modals/modalPrintAmex.vue';
-  import modalPrintBayer from 'modals/modalPrintBayer.vue'; 
+  // modal content is now imported and registered by the getModal() function within methods section below 
 
   
   const selectedModal = null;
@@ -33,18 +30,22 @@
   export default {
 
                
-                  // Need to research how to make dynamic component name
-    components: { buttonCloseSectionVector, modalPrintAdvil, modalPrintAmex, modalPrintBayer }, // END components
+    components: { 
+
+      buttonCloseSectionVector, 
+      // modal content is now imported and registered by the getModal() function within methods section below 
+
+    }, // END components
     props: [ 'imageSrc' ],// END props
-  	data() {
-  		return { 
+    data() {
+      return { 
 
         isVisible: true, // return property for modal visibility 
         // modalData: [], // Set an empty string for the modal html ajax call - response.data will fill this
         selectedComponent: this.imageSrc,
 
       }; 
-  	}, // END data
+    }, // END data
     created() {
 
       eventBus.$on('imageSelectChanged', (imagesource) => {
@@ -54,13 +55,16 @@
     }, // END created
     methods: {
 
-
+      getModal() {
+        return require('assets/modals/' + this.imageSrc + '.vue');
+        return 'assets/modals/' + this.imageSrc + '.vue';
+      },
 
 
     }, // END methods
-  	mounted() {
+    mounted() {
 
-
+      // Not using axios anymnore using a dynamic slot to load content
       // Make an ajax request with axios
       // axios.get( 'src/assets/modals/' + this.imageSrc + '.vue' ).then(response => this.modalData = response.data); // send the html data string to the modal definition in data above
 
