@@ -12,9 +12,12 @@ import jquery from 'jquery';
 import axios from 'axios';
 import TweenMax from 'gsap/TweenMax';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
-import App from './App.vue';
 import VueRouter from 'vue-router';
 import router from 'js/routes.js';
+
+import contactAndPrefs from 'components/contact-and-prefs.vue';
+Vue.component('contactandprefs', require('components/contact-and-prefs.vue'));
+
 import navCornerMenu from 'components/nav-corner-menu.vue';
 Vue.component('navcornermenu', require('components/nav-corner-menu.vue'));
 
@@ -24,7 +27,7 @@ export const eventBus = new Vue({
       this.$emit('imageSelectChanged', imagesource);
     },
   },
-});
+}); // END export eventBus
 
 // Setup some global objects/items that will persist across all new windows objects.
 // By doing this when you need to use the objects/items anywhere else in the Vue
@@ -36,13 +39,12 @@ window.jquery = jquery;
 window.axios = axios;
 window.TweenMax = TweenMax;
 window.ScrollToPlugin = ScrollToPlugin;
-window.App = App;
 window.styles = styles;
 
 window.addEventListener('load', function () {
   new Vue({
     el: '#app',
-    components: { navCornerMenu },
+    components: { navCornerMenu, contactAndPrefs },
     router: router,
     // render: h => h('router-view'),
     // render: h => h(App),
