@@ -4,6 +4,8 @@
 
 		<nav-button v-for="navigationButton in navigationButtons" v-bind:key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button>
 
+		<hero-image><!-- Registering so data can pass to it --></hero-image>
+
 	</nav>
 
 </template>
@@ -12,12 +14,15 @@
 <script>
 
 	import navButton from 'components/nav-button.vue';
+	import heroImage from 'components/hero-image.vue';
+
 
 	export default {
 
 		components: {
 		 
 			navButton,
+			heroImage,
 
 		}, // END components
 		data() {
@@ -25,10 +30,10 @@
 
 				navigationButtons: [ 
 
-				{id: 'nav-print', section: 'PRINT', },
-				{id: 'nav-video', section: 'VIDEO', },
-				{id: 'nav-outdoor', section: 'OUTDOOR', },
-				{id: 'nav-online', section: 'ONLINE', },
+					{id: 'nav-print', section: 'PRINT', },
+					{id: 'nav-video', section: 'VIDEO', },
+					{id: 'nav-outdoor', section: 'OUTDOOR', },
+					{id: 'nav-online', section: 'ONLINE', },
 
 				], // END navButtons
 
@@ -45,6 +50,11 @@
 
 
 <style scoped>
+
+.hero-image {
+	display: none;
+	background-image: none;
+}
 	
 
 

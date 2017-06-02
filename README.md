@@ -54,7 +54,7 @@ Nav Buttons Component:
 - Vue-Router with routes for Print, Video, Outdoor and Online.
 
 Section and Hero Image Component:
-- Each Section (Print, Video, Outdoor and Online) have duplicate code - need to research how to have the props update along with the corresponding examples-list dynamically based on the nav button clicked.
+- Each Section (Print, Video, Outdoor and Online) has duplicate code - need to research how to have the props update along with the corresponding examples-list dynamically based on the nav button clicked. Need/Trying to make this part DRY.
 - Cleaned up CSS grid.
 - Hero image data is passed en by an eventBus - ISSUE - only loads images on second load of a section (for example: click on the PRINT Nav button the first time and the Hero Image will not load, close out and click on PRINT Nav button again and the Hero Image loads. Need to figure out why the eventBus data is not working on first load.
 
@@ -66,5 +66,5 @@ Modal Slideshow Overlay Component:
 - modal-slideshow listens for Event Bus change and loads the appropriate Vue Modal file. 
 - Solved having to make individual import statements and component registration for each modal's slideshow content - based on the Event Bus data - see the getModal() function in modal-slideshow.vue file.
 
-Prefeence & Contact Tab:
+Preference & Contact Tab:
 - Placeholder for now.

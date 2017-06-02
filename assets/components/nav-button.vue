@@ -19,19 +19,16 @@
 		data() {
 			return {
 
-				// heroSrc: '',
 			}
 		}, // END data  
 		methods: {
 
 			heroImageSelected() {
-
 				this.heroSrc = this.id;
 				eventBus.$emit('heroImageSelected', this.heroSrc);
 				console.log(this.heroSrc + " = this.heroSrc - nav button clicked");
 			},
 	
-
 		}, // END methods
 
 

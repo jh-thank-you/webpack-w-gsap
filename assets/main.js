@@ -40,7 +40,5 @@ window.addEventListener('load', function () {
     el: '#app',
     components: { navCornerMenu, contactAndPrefs },
     router: router,
-    // render: h => h('router-view'),
-    // render: h => h(App),
   });
 });

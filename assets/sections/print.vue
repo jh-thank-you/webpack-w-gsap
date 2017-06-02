@@ -1,6 +1,6 @@
 <template>
 
-	<div id="section-wrap" class="texture-paper-bkg"><!-- START section-content-djax  -->
+	<div id="section-wrap" class="texture-paper-bkg">
 	    
 	    <button-close-section-raster></button-close-section-raster>
 
@@ -8,7 +8,7 @@
 	        	
 	    <examples-list-print></examples-list-print>
 
-	</div><!-- END section-content-djax  -->
+	</div>
 
 </template>
 
@@ -23,6 +23,11 @@
 	export default {
 
 		props: [ 'imageSrc' ],// END props
+		data() {
+	      return {
+	        heroSrc: '',
+	      }
+	    }, // END data
 		components: { 
 			
 			buttonCloseSectionRaster, 
@@ -30,6 +35,25 @@
 			examplesListPrint, 
 
 		}, // END components
+		mounted() {
+
+			// use $once instead of $on - so the event bus does not compound listening
+			eventBus.$once('heroImageSelected', (herosource) => {
+				this.heroSrc = herosource;
+
+				currentClass = [ `${this.heroSrc}`, 'hero-image' ];
+
+				currentAnimation = ( this.heroSrc + '-hero-animation');
+
+				return currentClass, currentAnimation;
+
+				getHero(currentClass, currentAnimation);
+
+				return this.heroSrc
+
+			}); // END eventBus
+
+		}, // END created
 
 	}; // END export default
 

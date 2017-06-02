@@ -11,10 +11,9 @@
 <script>
 
   import { eventBus } from 'assets/main.js';
-
   let currentClass = ['hero-image'];
-
   let currentAnimation = null;
+
 
   export default {
 
@@ -25,6 +24,10 @@
         currentAnimation: currentAnimation,
       }
     }, // END data
+    computed() {
+
+
+    },// END computed
     created() {
       
       // use $once instead of $on - so the event bus does not compound listening
@@ -44,9 +47,6 @@
     }, // END created
     destroyed() {
 
-      // May not need to use $off - using $once on eventBus listener
-      // turn off binding to prevent multiple instances
-      // eventBus.$off('heroImageSelected', this.heroSrc);
 
     }, // END destroyed
     methods: {
@@ -57,6 +57,10 @@
 
 
     }, // END mounted
+     watch: {
+
+
+    },
 
   }; // END export default
 
