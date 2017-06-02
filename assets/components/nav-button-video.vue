@@ -1,18 +1,10 @@
 <template>
     
-	<div id="broadcast" class="media-type">
-	    <div id="sectionAnimationHeroBroadcast" class="sectionAnimationHero">
-	      <div id="heroAnimationHoverBroadcast">
-	        <div id="linkSpaceBroadcast" class="linkSpaceClick">
-	        </div>
-	      </div>
-	    </div>
-	    <router-link to="/video">
-	      <div class="linkSpace">
-	        <span id="broadcast-title" class="centerImg navTitle"></span>
-	      </div>
-	    </router-link>
-	</div>
+	<router-link to="/video">
+		<div id="nav-video" class="media-type">
+			<div class="media-title"><p>VIDEO</p></div>
+		</div>
+	</router-link>
 
 </template>
 
@@ -28,7 +20,7 @@
 
 
 
-<style>
+<style scoped>
 	
 
 

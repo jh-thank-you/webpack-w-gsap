@@ -1,8 +1,10 @@
 <template>
-    
-    <router-link class="handwritten" to="/" exact>
-		<div id="closeSection"></div>
-	</router-link>
+
+  <router-link to="/" exact>
+    <div id="button-close-raster" class='close-button' aria-label='Close alert' type='button'>
+      <div aria-hidden='true'>&times;</div>
+    </div>
+  </router-link>
 
 
 </template>
@@ -19,8 +21,7 @@
 
 
 
-<style>
-	
+<style scoped>
 
 
 </style>

@@ -21,13 +21,7 @@ Vue.component('contactandprefs', require('components/contact-and-prefs.vue'));
 import navCornerMenu from 'components/nav-corner-menu.vue';
 Vue.component('navcornermenu', require('components/nav-corner-menu.vue'));
 
-export const eventBus = new Vue({
-  methods: {
-    changeImage(imagesource) {
-      this.$emit('imageSelectChanged', imagesource);
-    },
-  },
-}); // END export eventBus
+export const eventBus = new Vue(); // END export eventBus
 
 // Setup some global objects/items that will persist across all new windows objects.
 // By doing this when you need to use the objects/items anywhere else in the Vue

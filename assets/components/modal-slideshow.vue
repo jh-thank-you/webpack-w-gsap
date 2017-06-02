@@ -2,7 +2,7 @@
 
   <div class="overlay"> <!-- START Modal -->
 
-    <div class="closeSectionModal close-button" @click="$emit('close')">
+    <div id="button-close-vector" @click="$emit('close')">
       <div aria-hidden='true'>&times;</div>
     </div>
 
@@ -18,22 +18,16 @@
 
 <script>
 
-  import { eventBus } from 'assets/main.js';
-  import buttonCloseSectionVector from 'components/button-close-section-vector.vue';
+  // import { eventBus } from 'assets/main.js';
 
   // modal content is now imported and registered by the getModal() function within methods section below 
-
-  
-  const selectedModal = null;
-
 
   export default {
 
                
     components: { 
 
-      buttonCloseSectionVector, 
-      // modal content is now imported and registered by the getModal() function within methods section below 
+    // modal content is now imported and registered by the getModal() function within methods section below 
 
     }, // END components
     props: [ 'imageSrc' ],// END props
@@ -41,14 +35,12 @@
       return { 
 
         isVisible: true, // return property for modal visibility 
-        // modalData: [], // Set an empty string for the modal html ajax call - response.data will fill this
-        selectedComponent: this.imageSrc,
 
       }; 
     }, // END data
     created() {
 
-      eventBus.$on('imageSelectChanged', (imagesource) => {
+      this.$on('imageSelectChanged', (imagesource) => {
          this.imageSrc = imagesource;
       });
 
@@ -62,12 +54,15 @@
 
 
     }, // END methods
+    destroyed() {
+      
+      // turn off binding to prevent multiple instances
+      this.$off('imageSelectChanged');
+
+    }, // END destroyed
     mounted() {
 
-      // Not using axios anymnore using a dynamic slot to load content
-      // Make an ajax request with axios
-      // axios.get( 'src/assets/modals/' + this.imageSrc + '.vue' ).then(response => this.modalData = response.data); // send the html data string to the modal definition in data above
-
+      // Using jquery for now
 
       // START GSAP Slideshow ====================================================
 
@@ -77,7 +72,7 @@
           var $window = $(window);
           var $document = $(document);
           //Only links that starts with #
-          var $navButtons = $(".modalNavLink").filter("[href^=\\#]");
+          var $navButtons = $(".modal-nav-link").filter("[href^=\\#]");
           var $navGoPrev = $(".go-prev");
           var $navGoNext = $(".go-next");
           var $slidesContainer = $(".slides-container");
@@ -249,7 +244,7 @@
           }; // END onResize
 
           // Apply click event to closeSectionModal
-          $(".closeSectionModal").on("click", function() {
+          $("#button-close-vector").on("click", function() {
 
               // Unbind the event handlers/listeners from the Modal/Ovrlay Function
               $window.off("resize", onResize).resize();
@@ -273,7 +268,7 @@
 </script>
 
 
-<style>
+<style scoped>
 
 
 </style>

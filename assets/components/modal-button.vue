@@ -1,10 +1,9 @@
 <template>
     
-	<div @click="exampleSelected" :id="id" class="grid-isotope-item boxFrame" :sector="sector">
-		<div class="innerFrame1"></div>
-		<div class="innerFrame2"></div>
-		<div class="innerFrame3 hoverMe"></div>
-		<span class="clientLabel handwritten"><p>{{ client }}</p></span>
+	<div @click="exampleSelected" :id="id" class="boxframe" :sector="sector">
+
+		<div class="inner-frame-3 hover-me"></div>
+		<span class="client-label handwritten"><p>{{ client }}</p></span>
 
 		<img class="fadeMe" :src="getPic()" :alt="this.id + ' advertisment'">
 	</div>
@@ -14,7 +13,7 @@
 
 <script>
 
-	import { eventBus } from 'assets/main.js';
+	// import { eventBus } from 'assets/main.js';
 
 	export default {
 
@@ -22,7 +21,6 @@
 		data() {
 			return {
 
-				imageSrc: '',
 			}
 		}, // END data
 		computed: {
@@ -54,7 +52,7 @@
 
 
 
-<style>
+<style scoped>
 	
 
 

@@ -14,7 +14,7 @@ let routes = [
   {
 
     path: '/video',
-    component: require('../sections/broadcast.vue'),
+    component: require('../sections/video.vue'),
 
   },
   {

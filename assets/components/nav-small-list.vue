@@ -3,8 +3,8 @@
   <div id="smallNavList" class="centerImg"> <!-- START Small Nav Menu -->
   
     <div class="name-and-tag-small">
-      <p id="name-title-small">Hainis Art Direction</p>
-      <p id="tagline-small">concept to completion</p>
+      <p class="name-title-small">Title Goes Here</p>
+      <p class="tagline-small">tagline goes here.</p>
     </div>
 
     <a href="print.html"><div id="smallNavListPrint"><!--CSS Image--></div></a>
@@ -30,7 +30,8 @@
 
 
 
-<style>
+<style scoped>
+
 	
 
 

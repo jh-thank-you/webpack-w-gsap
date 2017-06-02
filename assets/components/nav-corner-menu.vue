@@ -2,13 +2,7 @@
 
 	<nav class="conrner-nav">
 
-		<nav-button-print></nav-button-print>
-
-		<nav-button-video></nav-button-video>
-
-		<nav-button-outdoor></nav-button-outdoor>
-
-		<nav-button-online></nav-button-online>
+		<nav-button v-for="navigationButton in navigationButtons" v-bind:key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button>
 
 	</nav>
 
@@ -17,16 +11,32 @@
 
 <script>
 
-	import navButtonPrint from 'components/nav-button-print.vue';
-	import navButtonVideo from 'components/nav-button-video.vue';
-	import navButtonOutdoor from 'components/nav-button-outdoor.vue';
-	import navButtonOnline from 'components/nav-button-online.vue';
-	import buttonCloseSectionRaster from 'components/button-close-section-raster.vue';
-
+	import navButton from 'components/nav-button.vue';
 
 	export default {
 
-		components: { navButtonPrint, navButtonVideo, navButtonOutdoor, navButtonOnline, buttonCloseSectionRaster }, // END components
+		components: {
+		 
+			navButton,
+
+		}, // END components
+		data() {
+			return {
+
+				navigationButtons: [ 
+
+				{id: 'nav-print', section: 'PRINT', },
+				{id: 'nav-video', section: 'VIDEO', },
+				{id: 'nav-outdoor', section: 'OUTDOOR', },
+				{id: 'nav-online', section: 'ONLINE', },
+
+				], // END navButtons
+
+				id: '',
+				section: '',
+
+			}; // END return
+		}, // END data
 
 	}; // END export default
 
@@ -34,7 +44,7 @@
 
 
 
-<style>
+<style scoped>
 	
 
 

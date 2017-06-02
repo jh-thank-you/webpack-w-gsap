@@ -1,18 +1,10 @@
 <template>
     
-	<div id="print" class="media-type">
-	    <div id="sectionAnimationHeroPrint" class="sectionAnimationHero">
-	      <div id="heroAnimationHoverPrint">
-	        <div id="linkSpacePrint" class="linkSpaceClick">
-	        </div>
-	      </div>
-	    </div>
-	    <router-link to="/print">
-	      <div class="linkSpace">
-	        <span id="print-title" @click="exampleSelected" class="centerImg navTitle"></span>
-	      </div>
-	    </router-link>
-	</div>
+	<router-link to="/print">
+		<div id="nav-print" class="media-type">
+			<div class="media-title"><p>PRINT</p></div>
+		</div>
+	</router-link>
 
 </template>
 
@@ -49,7 +41,7 @@
 
 
 
-<style>
+<style scoped>
 	
 
 

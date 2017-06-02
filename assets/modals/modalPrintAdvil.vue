@@ -3,10 +3,10 @@
   <div slot="modalPrintAdvil1a">    
       <nav class="modalNav">
           <ul>
-              <li><a href="#slide-1" class="modalNavLink">&nbsp;</a></li>
-              <li><a href="#slide-2" class="modalNavLink">&nbsp;</a></li>
-              <li><a href="#slide-3" class="modalNavLink">&nbsp;</a></li>
-              <li><a href="#slide-4" class="modalNavLink">&nbsp;</a></li>
+              <li><a href="#slide-1" class="modal-nav-link">&nbsp;</a></li>
+              <li><a href="#slide-2" class="modal-nav-link">&nbsp;</a></li>
+              <li><a href="#slide-3" class="modal-nav-link">&nbsp;</a></li>
+              <li><a href="#slide-4" class="modal-nav-link">&nbsp;</a></li>
           </ul>
       </nav>
 
