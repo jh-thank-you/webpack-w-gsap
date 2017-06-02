@@ -56,7 +56,7 @@ Nav Buttons Component:
 Section and Hero Image Component:
 - Each Section (Print, Video, Outdoor and Online) has duplicate code - need to research how to have the props update along with the corresponding examples-list dynamically based on the nav button clicked. Need/Trying to make this part DRY.
 - Cleaned up CSS grid.
-- Hero image data is passed en by an eventBus - ISSUE - only loads images on second load of a section (for example: click on the PRINT Nav button the first time and the Hero Image will not load, close out and click on PRINT Nav button again and the Hero Image loads. Need to figure out why the eventBus data is not working on first load.
+- Hero image data is passed in by an eventBus - ISSUE - only loads images on second load of a section - POSSIBLE Fix Applied.
 
 Modal Buttons Component:
 - Section thumbnails will call up a Modal Overlay (not accomplished by a sub-route - sub-routes may be a better way - need to research).
