@@ -56,7 +56,8 @@ Nav Buttons Component:
 Section and Hero Image Component:
 - Each Section (Print, Video, Outdoor and Online) has duplicate code - need to research how to have the props update along with the corresponding examples-list dynamically based on the nav button clicked. Need/Trying to make this part DRY.
 - Cleaned up CSS grid.
-- Hero image data is passed in by an eventBus - ISSUE - only loads images on second load of a section - POSSIBLE Fix Applied.
+- Hero image data is passed in by an eventBus - ISSUE - only loads images on second load of a section
+	- POSSIBLE Fix Applied. Imported/Registered hero-image.vue component within the nav-menu.vue component and set `<style scoped> .hero-image { display: none; background-image: none }`  
 
 Modal Buttons Component:
 - Section thumbnails will call up a Modal Overlay (not accomplished by a sub-route - sub-routes may be a better way - need to research).
