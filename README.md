@@ -52,7 +52,7 @@ Nav Buttons Component:
 - Vue-Router with routes for Print, Video, Outdoor and Online.
 
 Section and Hero Image Component:
-- SOLVED: section hero-image. vue component now loads the correct with the prior hack
+- SOLVED: section hero-image.vue component now loads the correct images without the prior hack:
 	- Solved by passing an ID prop through the vue-router to the section.vue component.
 	- Then binding the hero-image class to the the ID value of the parent.
 	- Used more explicit CSS to target the divs 
