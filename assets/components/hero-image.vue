@@ -1,27 +1,19 @@
 <template>
     
-  <div :class="classArray">
+    <div id="hero-wrap">
 
-       <div :class="currentAnimation"></div>
+         <div class="current-animation"></div>
 
-  </div>
+    </div>
 
 </template>
 
 <script>
-
-  import { eventBus } from 'assets/main.js';
-  let currentClass = ['hero-image'];
-  let currentAnimation = null;
-
-
   export default {
 
-    props: [ 'heroSrc' ],// END props
     data() {
       return {
-        classArray: currentClass,
-        currentAnimation: currentAnimation,
+        heroSrc: '',
       }
     }, // END data
     computed() {
@@ -29,20 +21,8 @@
 
     },// END computed
     created() {
-      
-      // use $once instead of $on - so the event bus does not compound listening
-      eventBus.$once('heroImageSelected', (herosource) => {
-        this.heroSrc = herosource;
-        
-        currentClass = [ `${this.heroSrc}`, 'hero-image' ];
 
-        currentAnimation = ( this.heroSrc + '-hero-animation');
 
-        return currentClass, currentAnimation;
-
-        getHero(currentClass, currentAnimation);
-
-      }); // END eventBus
 
     }, // END created
     destroyed() {
@@ -70,14 +50,64 @@
 
 <style scoped>
 
-.nav-print {
+
+
+/* Tried Pseudo CSS element and Multiple Images to cleanup file build */
+/* 
+.nav-print,
+.hero-wrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  border: solid 5px orange;
+  overflow: hidden;
+  padding: 0;
+  margin: 0 auto;
+}
+
+
+.nav-print:before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  left: -25%;
+  top:  -25%;
+  z-index: -1;
+  background: url('~img/marker-pad-btm.png') center center no-repeat;
+  background-size: contain;
+  transform: rotate(90deg);
+  border: solid 1px red;
+    padding: 0;
+  margin: 0 auto;
+}
+*/
+
+.section-print,
+.section-video,
+.section-outdoor,
+.section-online {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  width: 65vw;
+  max-width: 800px;
+  height: 48vw;
+  max-height: 600px;
+  margin: 0 auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border: solid 1px red;
+}
+
+.section-print {
   background-image: url('~img/marker-pad-btm.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-.nav-print-hero-animation {
+.section-print > .current-animation {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -85,16 +115,19 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+  mix-blend-mode: multiply;
+  opacity: .70;
+  overflow: visible;
 }
 
-.nav-video {
+.section-video {
   background-image: url('~img/envelope-5x7.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-.nav-video-hero-animation {
+.section-video > .current-animation {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -102,16 +135,18 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+  mix-blend-mode: multiply;
+  opacity: .70;
 }
 
-.nav-outdoor {
+.section-outdoor {
   background-image: url('~img/napkin.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-.nav-outdoor-hero-animation {
+.section-outdoor > .current-animation {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -119,16 +154,18 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+  mix-blend-mode: multiply;
+  opacity: .70;
 }
 
-.nav-online {
+.section-online {
   background-image: url('~img/graph-paper.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-.nav-online-hero-animation {
+.section-online > .current-animation {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -136,6 +173,8 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+  mix-blend-mode: multiply;
+  opacity: .70;
 }
 
 

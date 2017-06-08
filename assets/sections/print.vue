@@ -22,10 +22,10 @@
 
 	export default {
 
-		props: [ 'imageSrc' ],// END props
+		// props: [ 'imageSrc' ],// END props
 		data() {
 	      return {
-	        heroSrc: '',
+	        // heroSrc: '',
 	      }
 	    }, // END data
 		components: { 
@@ -38,20 +38,20 @@
 		mounted() {
 
 			// use $once instead of $on - so the event bus does not compound listening
-			eventBus.$once('heroImageSelected', (herosource) => {
-				this.heroSrc = herosource;
+			// eventBus.$once('heroImageSelected', (herosource) => {
+			// 	this.heroSrc = herosource;
 
-				currentClass = [ `${this.heroSrc}`, 'hero-image' ];
+			// 	currentClass = [ `${this.heroSrc}`, 'hero-image' ];
 
-				currentAnimation = ( this.heroSrc + '-hero-animation');
+			// 	currentAnimation = ( this.heroSrc + '-hero-animation');
 
-				return currentClass, currentAnimation;
+			// 	return currentClass, currentAnimation;
 
-				getHero(currentClass, currentAnimation);
+			// 	getHero(currentClass, currentAnimation);
 
-				return this.heroSrc
+			// 	return this.heroSrc
 
-			}); // END eventBus
+			// }); // END eventBus
 
 		}, // END created
 

@@ -3,30 +3,35 @@ import VueRouter from 'vue-router';
 let routes = [
   {
     path: '/',
+    props: { id: 'section-home' },
     component: require('../sections/home.vue'),
 
   },
   {
     path: '/print',
-    component: require('../sections/print.vue'),
+    props: { id: 'section-print' },
+    component: require('../sections/section.vue'),
 
   },
   {
 
     path: '/video',
-    component: require('../sections/video.vue'),
+    props: { id: 'section-video' },
+    component: require('../sections/section.vue'),
 
   },
   {
 
     path: '/outdoor',
-    component: require('../sections/outdoor.vue'),
+    props: { id: 'section-outdoor' },
+    component: require('../sections/section.vue'),
 
   },
   {
 
     path: '/online',
-    component: require('../sections/online.vue'),
+    props: { id: 'section-online' },
+    component: require('../sections/section.vue'),
 
   },
 

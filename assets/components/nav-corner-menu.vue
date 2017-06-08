@@ -4,7 +4,7 @@
 
 		<nav-button v-for="navigationButton in navigationButtons" v-bind:key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button>
 
-		<hero-image><!-- Registering so data can pass to it --></hero-image>
+		<!-- <hero-image></hero-image> -->
 
 	</nav>
 
@@ -14,7 +14,7 @@
 <script>
 
 	import navButton from 'components/nav-button.vue';
-	import heroImage from 'components/hero-image.vue';
+	// import heroImage from 'components/hero-image.vue';
 
 
 	export default {
@@ -22,7 +22,7 @@
 		components: {
 		 
 			navButton,
-			heroImage,
+			// heroImage,
 
 		}, // END components
 		data() {
@@ -51,6 +51,7 @@
 
 <style scoped>
 
+#hero-wrap,
 .hero-image {
 	display: none;
 	background-image: none;

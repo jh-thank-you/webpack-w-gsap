@@ -171,6 +171,7 @@ module.exports = {
       js: path.resolve(__dirname, './assets/js'),
       modals: path.resolve(__dirname, './assets/modals'),
       scss: path.resolve(__dirname, './assets/scss'),
+      sections: path.resolve(__dirname, './assets/sections'),
     },
   },
   plugins: plugins,

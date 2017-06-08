@@ -1,7 +1,7 @@
 <template>
     
 	<router-link v-bind:to="'/' + section">
-		<div @click="heroImageSelected" :id="id" class="media-type">
+		<div @click="getHeroImage" :id="id" class="media-type">
 			<div class="handwritten media-title"><p>{{ section }}</p></div>
 		</div>
 	</router-link>
@@ -23,10 +23,11 @@
 		}, // END data  
 		methods: {
 
-			heroImageSelected() {
-				this.heroSrc = this.id;
-				eventBus.$emit('heroImageSelected', this.heroSrc);
-				console.log(this.heroSrc + " = this.heroSrc - nav button clicked");
+			getHeroImage() {
+
+				eventBus.heroImageSource(this.id);
+
+				console.log(this.id + " = this.id - nav button clicked");
 			},
 	
 		}, // END methods

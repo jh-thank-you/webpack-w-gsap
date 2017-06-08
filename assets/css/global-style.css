@@ -542,10 +542,11 @@ body {
 /*                hero-image.vue                   */
 /* *********************************************** */ 
 
-
+/* see hero-image.vue component for <style scoped> CSS */
+/*
 .hero-image {
   position: relative;
-  dismplay: block;
+  display: block;
   cursor: pointer;
   width: 65vw;
   max-width: 800px;
@@ -556,6 +557,7 @@ body {
   margin-bottom: 2em;
   border: solid 1px red;
 }
+*/
 
 
 
@@ -569,6 +571,7 @@ body {
   position: relative;
   cursor: pointer;
   max-width: 1150px;
+  mix-blend-mode: multiply;
 }
 
 .inner-frame-3 {
@@ -1105,7 +1108,8 @@ a {
 /*              nav-button-online.vue              */
 /* *********************************************** */ 
 
-#section-wrap {
+#section-wrap,
+.section-wrap {
   position: absolute;
   display: block; /* GreenSock Sets Display */
   opacity: 1;

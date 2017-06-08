@@ -13,9 +13,6 @@ Feel free to contact me anytime.
 
 **Webpack Production build works.**
 
-- Added ```--max_old_space_size=2048``` to dev build to sort out of memory error. 
-- Added git information banner via git-revision-webpack-plugin.
-
 ======================================================
 
 **Note not all sections and modals have images**
@@ -48,24 +45,28 @@ GSAP Animation (only modal-slideshow has GSAP animations applied but not in a Vu
 
 Simplifying the Build:
 - Cleaning up the CSS
+	- Cleaned up CSS grid.
 - Cleaning up the HTML 
 
 Nav Buttons Component:
 - Vue-Router with routes for Print, Video, Outdoor and Online.
 
 Section and Hero Image Component:
-- Each Section (Print, Video, Outdoor and Online) has duplicate code - need to research how to have the props update along with the corresponding examples-list dynamically based on the nav button clicked. Need/Trying to make this part DRY.
-- Cleaned up CSS grid.
-- Hero image data is passed in by an eventBus - ISSUE - only loads images on second load of a section
-	- POSSIBLE Fix Applied. Imported/Registered hero-image.vue component within the nav-menu.vue component and set `<style scoped> .hero-image { display: none; background-image: none }`  
+- SOLVED: section hero-image. vue component now loads the correct with the prior hack
+	- Solved by passing an ID prop through the vue-router to the section.vue component.
+	- Then binding the hero-image class to the the ID value of the parent.
+	- Used more explicit CSS to target the divs 
+	- Got rid of the unused logic to change div class in hero-image component.
+- Looking into DRYing up the section code 
+	- Trying to set section content vue `example in examples` based on the section ID
+		- A Dynamic Slot - maybe?
 
 Modal Buttons Component:
-- Section thumbnails will call up a Modal Overlay (not accomplished by a sub-route - sub-routes may be a better way - need to research).
-- Event Bus passes modal-button ID to modal-slideshow.
+- Looking into options to load Modals via sub-routes
 
 Modal Slideshow Overlay Component:
-- modal-slideshow listens for Event Bus change and loads the appropriate Vue Modal file. 
-- Solved having to make individual import statements and component registration for each modal's slideshow content - based on the Event Bus data - see the getModal() function in modal-slideshow.vue file.
+- Looking into options to load Modal content via sub-routes
+- Sub-routes may help with history and bookmarking etc.
 
 Preference & Contact Tab:
 - Placeholder for now.
