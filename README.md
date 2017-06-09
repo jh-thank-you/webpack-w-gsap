@@ -57,9 +57,9 @@ Section and Hero Image Component:
 	- Then binding the hero-image class to the the ID value of the parent.
 	- Used more explicit CSS to target the divs 
 	- Got rid of the unused logic to change div class in hero-image component.
-- Looking into DRYing up the section code 
-	- Trying to set section content vue `example in examples` based on the section ID
-		- A Dynamic Slot - maybe?
+- section.vue code is DRY:
+	- Deleted individual .vue section files (print, video, outdoor and online).
+	- Deleted example-list .vue files (moved the arrays into the section file).
 
 Modal Buttons Component:
 - Looking into options to load Modals via sub-routes
