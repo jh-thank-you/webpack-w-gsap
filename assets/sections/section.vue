@@ -7,9 +7,9 @@
 		<!-- id data is passed in by routes see notes below-->
 	    <hero-image :class="id"></hero-image>
 	        	
-		<modal-slideshow v-if="showModal" @close="showModal = false" :imageSrc="imagesource"></modal-slideshow>
+		<modal-slideshow v-if="showModal" @close="showModal = false; tabDisplay();" :imageSrc="imagesource"></modal-slideshow>
 
-		<div  @click="showModal = true" :imageSrc="imagesource" id="section-content" class="grid-isotope justify-content handwritten">
+		<div  @click="showModal = true; tabDisplay();" :imageSrc="imagesource" id="section-content" class="grid-isotope justify-content handwritten">
 			<modal-button v-for="example in getExamples()" v-bind:key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :src="example.src" :imageSrc="imagesource" @imageSelectChanged="imagesource = $event"></modal-button>
 		</div>
 
@@ -19,12 +19,12 @@
 
 
 <script>
+	import { eventBus } from 'assets/main.js';
 
 	import buttonCloseSectionRaster from 'components/button-close-section-raster.vue';
 	import heroImage from 'components/hero-image.vue';
 	import modalSlideshow from 'components/modal-slideshow.vue';
 	import modalButton from 'components/modal-button.vue';
-
 	let currentExamples = null;
 
 	export default {
@@ -101,7 +101,7 @@
 
 				{exampleid: 'modalPrintTradestream', alt: 'Tradestream Ad', client: 'Tradestream', sector: 'btob shipping', },
 
-				{exampleid: 'modalPrintVertexLinens', alt: 'Vertex Linens Ad', client: 'Vertex Linens', sector: 'btob laundry', },
+				{exampleid: 'modalPrintVertexLinens', alt: 'Vertex Linens Ad', client: 'Vertex Linens', sector: 'btob cleaning', },
 
 			],
 			'section-video': [ 
@@ -129,7 +129,7 @@
 
 				{exampleid: 'modalPrintMallyBeauty', alt: 'Mally Beauty Ad', client: 'Mally Beauty', sector: 'default-select beauty fashion fragrance', },
 
-				{exampleid: 'modalPrintVertexLinens', alt: 'Vertex Linens Ad', client: 'Metro Card', sector: 'btob laundry', },
+				{exampleid: 'modalPrintVertexLinens', alt: 'Vertex Linens Ad', client: 'Metro Card', sector: 'btob cleaning', },
 
 			],
 			'section-online': [ 
@@ -144,7 +144,7 @@
 
 				{exampleid: 'modalPrintMallyBeauty', alt: 'Mally Beauty Ad', client: 'HEART Martial Arts', sector: 'default-select beauty fashion fragrance', },
 
-				{exampleid: 'modalPrintVertexLinens', alt: 'Vertex Linens Ad', client: 'Vertex Linens', sector: 'btob laundry', },
+				{exampleid: 'modalPrintVertexLinens', alt: 'Vertex Linens Ad', client: 'Vertex Linens', sector: 'btob cleaning', },
 
 			],
 
@@ -159,6 +159,11 @@
 
 		}, // END computed
 		methods: {
+
+			tabDisplay() {
+		      	var showTab = !this.showModal;
+		        eventBus.$emit('setTabVisibility', showTab);
+		     },
 
 			// dynamically set which array is passed based on the Parent ID data
 		 	getExamples() {
@@ -222,7 +227,7 @@
 
 						{exampleid: 'modalPrintTradestream', alt: 'Tradestream Ad', client: 'Tradestream', sector: 'btob shipping', },
 
-						{exampleid: 'modalPrintVertexLinens', alt: 'Vertex Linens Ad', client: 'Vertex Linens', sector: 'btob laundry', },
+						{exampleid: 'modalPrintVertexLinens', alt: 'Vertex Linens Ad', client: 'Vertex Linens', sector: 'btob cleaning', },
 
 					]; // END currentExamples
 
@@ -264,7 +269,7 @@
 
 						{exampleid: 'modalPrintMallyBeauty', alt: 'Mally Beauty Ad', client: 'Mally Beauty', sector: 'default-select beauty fashion fragrance', },
 
-						{exampleid: 'modalPrintVertexLinens', alt: 'Vertex Linens Ad', client: 'Metro Card', sector: 'btob laundry', },
+						{exampleid: 'modalPrintVertexLinens', alt: 'Vertex Linens Ad', client: 'Metro Card', sector: 'btob cleaning', },
 
 					]; // END currentExamples
 
@@ -286,7 +291,7 @@
 
 						{exampleid: 'modalPrintMallyBeauty', alt: 'Mally Beauty Ad', client: 'HEART Martial Arts', sector: 'default-select beauty fashion fragrance', },
 
-						{exampleid: 'modalPrintVertexLinens', alt: 'Vertex Linens Ad', client: 'Vertex Linens', sector: 'btob laundry', },
+						{exampleid: 'modalPrintVertexLinens', alt: 'Vertex Linens Ad', client: 'Vertex Linens', sector: 'btob cleaning', },
 
 					]; // END currentExamples
 

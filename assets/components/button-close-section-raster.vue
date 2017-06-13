@@ -2,7 +2,6 @@
 
   <router-link to="/" exact>
     <div id="button-close-raster" class='close-button' aria-label='Close alert' type='button'>
-      <div aria-hidden='true'>&times;</div>
     </div>
   </router-link>
 

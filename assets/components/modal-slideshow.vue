@@ -34,7 +34,7 @@
     data() {
       return { 
 
-        isVisible: true, // return property for modal visibility 
+        // isVisible: false, // return property for modal visibility 
 
       }; 
     }, // END data

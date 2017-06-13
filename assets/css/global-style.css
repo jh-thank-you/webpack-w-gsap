@@ -52,6 +52,7 @@ html {
        url('~fonts/JimHandwritten-Reg.svg#JimHandwritten-Reg') format('svg');
 }
 
+
 .handwritten {
     font-family: 'JimHandwritten', Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
     font-weight: 400;
@@ -320,7 +321,7 @@ body {
 .end-spacer {
   position: relative;
   width: 100%;
-  height: 75px;
+  height: 150px;
 }
 
 
@@ -350,46 +351,30 @@ body {
     cursor: pointer;
     top: 0;
     right: 0;
-    border: 1px solid #114469;
-    color: #114469;
+    background-image: url('~img/closeButton-base.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
     background-color: none;
-     -webkit-transition: background-color .25s ease-out;
-    -moz-transition: background-color .25s ease-out;
-    -o-transition: background-color .25s ease-out;
-    transition: background-color .25s ease-out;
     z-index: 102;
 }
 
-#button-close-raster > div {
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  top: 50%;
-  margin: auto;
-  transform: perspective(1px) translateY(-50%);  
-}
-
-
       @media all and (max-width: 400px) {
       #button-close-raster {
-          margin-top: 18px;
-          margin-right: 19px;
-          width: 37px;
-          height: 37px;
-          font-size: 2em;
-          padding-bottom: .16em;
+          margin-top: 7px;
+          margin-right: 8px;
+          width: 58px;
+          height: 58px;
         }
       }
 
 
       @media all and (min-width: 401px) {
       #button-close-raster {
-          margin-top: 25px;
-          margin-right: 25px;
-          width: 39px;
-          height: 39px;
-          font-size: 1.75em;
-          padding-bottom: .16em;
+          margin-top: 12px;
+          margin-right: 14px;
+          width: 60px;
+          height: 60px;
         }
       }
 
@@ -397,8 +382,7 @@ body {
 #button-close-raster:hover, 
 #button-close-raster:focus, 
 #button-close-raster:active {
-  background-color: #08385d;
-  border: 1px solid #C00000;
+  background-image: url('~img/closeButton-hover.png');
 }
 
 
@@ -475,6 +459,111 @@ body {
 /*                contact-and-prefs.vue            */
 /* *********************************************** */
 
+#modal-overlay {
+    position: fixed;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 98;
+}
+
+#contact-prefs-tab h4 {
+  text-shadow:
+     -.25px -.25px 0 #000,  
+      .25px -.25px 0 #000,
+      -.25px .25px 0 #000,
+       .25px .25px 0 #000;
+}
+
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.scroll-area {
+  position: absolute;
+  padding: 0 15% 0 15%;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0 auto;
+  /* border: solid 1px red; */
+}
+
+#contact-prefs-tab label,
+#contact-prefs-tab p { 
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-weight: normal;
+  font-stretch: normal;
+  font-variant: normal;
+  font-size: 1rem;
+  color: black; 
+  line-height: 1.5;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  padding: 0 0 0 0;
+  text-align: justify; 
+}
+
+
+#industry-settings {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+#which-industry {
+  position: absolute;
+  left: 0;
+  margin:0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+#default-settings {
+  position: absolute;
+  right: 0;
+  padding: 0 0 0 0;
+  line-height: 0;
+}
+
+
+.pref-button {
+  display: inline-block;
+  border: solid 1px #3c3c3c;
+  line-height: 0;
+  opacity: .3;
+  background: none;
+  padding: 1rem;
+  margin-left: .5rem;
+  text-shadow: -.3px 0 #3c3c3c, 0 .3px #3c3c3c, .3px 0 #3c3c3c, 0 -.3px #3c3c3c;
+  transform: translate(0);
+}
+
+.button-selected {
+    border: solid 1px #c42127;
+    color: #c42127;
+    opacity: 1;
+    text-shadow: -0.3px 0 #c42127, 0 0.3px #c42127, 0.3px 0 #c42127, 0 -0.3px #c42127;
+}
+
+.button-selected:hover, 
+.button-selected:focus, 
+.button-selected:active {
+  color: white;
+  background-color: #c42127;
+  text-shadow: -.3px 0 white, 0 .3px white, .3px 0 white, 0 -.3px white;
+  transform: translate(0); 
+} 
+
+.checkbox-wrap {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 #contact-prefs-tab {
   position: fixed;
@@ -482,7 +571,8 @@ body {
   bottom: 0;
   left: 50%;
   width: 100%;
-  height: 48px;
+  height: 5.3%;
+  /* height: 48px; original 48px or 5.3% - animate to 98% */
   /* background-color: #b9b9b9; */
   background-image: url('~img/folder-tab-middle.png');
   background-size: 100%;
@@ -491,7 +581,7 @@ body {
   transform: translate(-50%, 0);
   max-width: 800px;
   min-width: 500px;
-  z-index: -1;
+  z-index: 99;
 }
 
 #contact-prefs-tab img {
@@ -502,7 +592,10 @@ body {
   cursor: pointer;
   width: 100%;
   height: 48px;
+  max-height: 48px;
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
   /* background-color: #b9b9b9; */
 }
 
@@ -523,6 +616,166 @@ body {
   background-size: 35% 135%;
   }
 }
+
+#preferences-form label > input[type="checkbox"] {
+-webkit-appearance: none;
+   -moz-appearance: none;
+        appearance: none;
+    cursor: pointer;
+    background-color: none;
+    border: solid 1px #3c3c3c;
+    opacity: .3;
+    width: .8rem;
+    height:  .8rem;
+    margin-right: .35rem;
+    margin-bottom: -.1rem;
+    margin-left: 0;
+}
+
+#preferences-form label > input[type="checkbox"]:checked {
+ background-color:#c42127;
+ border: solid 1px #c42127;
+ opacity: 1;
+}
+
+
+#default-settings > label {
+  cursor: pointer;
+  display: inline-block;
+  white-space:nowrap;
+  margin-right: 12px;
+  margin-left: -2px;
+  margin-top: .75rem;
+  color: #3c3c3c;
+  text-shadow: -.3px 0 #3c3c3c, 0 .3px #3c3c3c, .3px 0 #3c3c3c, 0 -.3px #3c3c3c;
+}
+
+
+fieldset > label,
+a #contact-prefs:link,
+#contact-prefs p {
+  line-height: 1.5;
+}
+
+a #contact-prefs:visited {
+  color: #777777;
+}
+
+a #contact-prefs:hover {
+  color: #bf0100;
+}
+
+      @media all and (max-width: 400px) {
+        #preferences-form label {
+                display: inline-block;
+                float: none;
+                width: 100%;
+                margin-top: 15px;
+                text-align: center;
+                }
+        #preferences-form label > input[type="checkbox"] {
+                  width: 1.25rem;
+                  height:  1.25rem;
+                }
+                input {
+                  padding-top: .625rem;
+                  padding-bottom: .625rem;
+                  vertical-align: text-bottom;
+                }
+                #industry-settings h4,
+                .form-section > legend {
+                  font-size: 1.3rem;
+                  text-align: center;
+                  margin: 0 0 0 0;
+                  position: relative;
+                  display: block;
+                  width: 100%;
+                }
+                #default-settings {
+                  position: relative;
+                  margin: 20px 0 0 0;
+                  text-align: center;
+                }
+                #contact-prefs-tab {
+                    height: 5.3%;
+                }
+                #contact-prefs-tab h4 {
+                  /* margin: -7px 0 20px 0; */
+                }
+                #pref-contact-title {
+                  margin: -7px 0 20px 0;
+                }
+              }
+
+      @media all and (min-width: 401px) and (max-width: 800px) {
+        #preferences-form label {
+                display: inline-block;
+                float: none;
+                display: inline-block;
+                width: 65%;
+                }
+                #preferences-form label:nth-of-type(even) {
+                  width:35%;
+                }
+                #industry-settings {
+                  font-size: 1.3rem;
+                  margin: 0 0 45px 0;
+                }
+                .form-section > legend {
+                  font-size: 1.3rem;
+                  padding: 0;
+                }
+                #contact-prefs-tab h4 {
+                  /* margin: 5px 0 20px 0; */
+                }
+                #pref-contact-title {
+                  margin: -5px 0 20px 0;
+                }
+                #contact-prefs-tab {
+                  height: 5.3%;
+                }
+                .scroll-area {
+                  padding: 0 10% 0 10%;
+                }
+                .pref-button {
+                   padding: .85rem;
+                }
+              }
+
+      @media all and (min-width: 801px) {
+        #preferences-form label {
+                display: inline-block;
+                float: none;
+                display: inline-block;
+                width: 40%;
+                }
+                #preferences-form label:nth-of-type(3n+3) {
+                  width:20%;
+                }
+                #industry-settings {
+                  font-size: 1.3rem;
+                  margin: 10px 0 45px 0;
+                  padding: 0;
+                }
+                .form-section > legend {
+                  font-size: 1.3rem;
+                  margin: 0 0 0 0;
+                  padding: 0;
+                }
+                #contact-prefs-tab h4 {
+                  margin: 10px 0 20px 0;
+                }
+                #contact-prefs-tab {
+                  height: 7%;
+                }
+              }
+
+#contact-prefs-tab p.note {
+  font-size: .75rem;
+  padding: 10px 0 10px 0;
+}
+
+
 
 
 /* *********************************************** */
@@ -636,7 +889,6 @@ body {
   /* height: auto; */
   /* display: inline-block; */
 }
-
 .justify-content:after {
   content: '';
   width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
@@ -656,6 +908,9 @@ body {
 
 .client-label p {
   position: relative;
+  font-family: 'JimHandwritten', Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
   top: -.25em;
   text-align: center;
   -webkit-text-stroke: .25px white;
@@ -918,7 +1173,8 @@ a {
 
       @media all and (max-width: 40em) {
       .slide .centered {
-      padding: 14%;
+      /* ORIGINAL padding: 14%; */
+      padding: 3%;
       width: 85vw;
       height: auto;
         }
@@ -929,7 +1185,8 @@ a {
 
       @media all and (min-width: 40.063em) and (max-width: 90em) {
       .slide .centered {
-      padding: 10%;
+        /* ORIGINAL padding: 10%; */
+      padding: 0;
       width: 75vw;
       height: auto;
         }
@@ -940,7 +1197,7 @@ a {
 
       @media all and (min-width: 90.063em) {
       .slide .centered {
-      padding: 0%;
+      padding: 0;
       width: 65vw;
       height: auto;
         }
@@ -1030,7 +1287,8 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center; 
+    text-align: center;
+    z-index: -2; 
   }
 
 
@@ -1118,7 +1376,7 @@ a {
   top: 0;
   left: 0;
   overflow: scroll;
-  z-index: 100;
+  z-index: 97;
 }
 
 

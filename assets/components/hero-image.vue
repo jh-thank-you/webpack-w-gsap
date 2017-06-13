@@ -89,7 +89,7 @@
 .section-online {
   position: relative;
   display: block;
-  cursor: pointer;
+  cursor: default; 
   width: 65vw;
   max-width: 800px;
   height: 48vw;
@@ -97,7 +97,7 @@
   margin: 0 auto;
   margin-top: 2em;
   margin-bottom: 2em;
-  border: solid 1px red;
+  /* border: solid 1px red; */
 }
 
 .section-print {
