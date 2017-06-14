@@ -73,7 +73,7 @@ Modal Password:
 - CSS styles, including media queries applied.
 - Todo:
 	- Add vue functionality for wrong password message
-	- Pass props to modal-slideshow when correct the correct password is entered.
+	- Pass props to modal-slideshow when the correct password is entered.
 
 Modal Buttons Component:
 - Looking into options to load Modals via sub-routes
