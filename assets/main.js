@@ -21,6 +21,9 @@ Vue.component('contactandprefs', require('components/contact-and-prefs.vue'));
 import navCornerMenu from 'components/nav-corner-menu.vue';
 Vue.component('navcornermenu', require('components/nav-corner-menu.vue'));
 
+import modalPassword from 'components/modal-password.vue';
+Vue.component('modalpassword', require('components/modal-password.vue'));
+
 export const eventBus = new Vue(); // END export eventBus
 
 // export const eventBus = new Vue({
@@ -62,7 +65,7 @@ window.styles = styles;
 window.addEventListener('load', function () {
   new Vue({
     el: '#app',
-    components: { navCornerMenu, contactAndPrefs },
+    components: { navCornerMenu, contactAndPrefs, modalPassword },
     router: router,
   });
 });

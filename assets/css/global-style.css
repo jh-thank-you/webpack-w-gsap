@@ -461,10 +461,11 @@ body {
 
 #modal-overlay {
     position: fixed;
+    position: -ms-device-fixed;
     display: none;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.85);
     z-index: 98;
 }
 
@@ -487,6 +488,7 @@ fieldset {
   position: absolute;
   padding: 0 15% 0 15%;
   width: 100%;
+  /* left: 5%; */
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -567,12 +569,14 @@ fieldset {
 
 #contact-prefs-tab {
   position: fixed;
+  position: -ms-device-fixed;
   left: 0;
   bottom: 0;
   left: 50%;
   width: 100%;
-  height: 5.3%;
-  /* height: 48px; original 48px or 5.3% - animate to 98% */
+  height: 48px;
+  max-height: 1000px;
+  /* animate from 48px to 65% */
   /* background-color: #b9b9b9; */
   background-image: url('~img/folder-tab-middle.png');
   background-size: 100%;
@@ -595,7 +599,7 @@ fieldset {
   max-height: 48px;
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   /* background-color: #b9b9b9; */
 }
 
@@ -665,6 +669,11 @@ a #contact-prefs:hover {
   color: #bf0100;
 }
 
+#contact-prefs-tab p.note {
+  font-size: .75rem;
+  padding: 10px 0 10px 0;
+}
+
       @media all and (max-width: 400px) {
         #preferences-form label {
                 display: inline-block;
@@ -697,7 +706,7 @@ a #contact-prefs:hover {
                   text-align: center;
                 }
                 #contact-prefs-tab {
-                    height: 5.3%;
+                    /* height: 3.5%; */
                 }
                 #contact-prefs-tab h4 {
                   /* margin: -7px 0 20px 0; */
@@ -732,7 +741,7 @@ a #contact-prefs:hover {
                   margin: -5px 0 20px 0;
                 }
                 #contact-prefs-tab {
-                  height: 5.3%;
+                  /* height: 5.3%; */
                 }
                 .scroll-area {
                   padding: 0 10% 0 10%;
@@ -766,14 +775,9 @@ a #contact-prefs:hover {
                   margin: 10px 0 20px 0;
                 }
                 #contact-prefs-tab {
-                  height: 7%;
+                  /* height: 7%; */
                 }
               }
-
-#contact-prefs-tab p.note {
-  font-size: .75rem;
-  padding: 10px 0 10px 0;
-}
 
 
 
@@ -983,6 +987,175 @@ a #contact-prefs:hover {
 
 
 
+/* *********************************************** */
+/*                modal-password.vue               */
+/* *********************************************** */ 
+
+.password-modal {
+  position: fixed;
+  position: -ms-device-fixed;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, Helvetica, sans-serif;
+  letter-spacing: .08rem;
+  display: block; /* set by GSAP */
+  opacity: 1; /* set by GSAP */
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background-color: rgba(0,0,0,.85);
+  z-index: 105;
+}
+
+.log-in-form {
+  position: absolute;
+  display: block;
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+.password-modal > form > label {
+  width: 100%;
+  color: #6D6E70;
+  // color: #59595B;
+  opacity: 1;
+}
+
+
+.password-title {
+  display: block;
+  width: 100%;
+  cursor: default;
+  display: inline-block;
+  white-space: nowrap;
+  font-size: .8rem;
+  margin-right: 0;
+}
+
+.password-modal > form > label > input {
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, Helvetica, sans-serif;
+  display: block;
+  width: 100%;
+  height: 3rem;
+  background-color: #A0A1A3;
+  margin: 0 auto;
+  margin-top: .25rem;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: .65rem;
+}
+
+[type='text'], [type='password'], 
+[type='date'], [type='datetime'], 
+[type='datetime-local'], [type='month'], 
+[type='week'], [type='email'], 
+[type='number'], [type='search'], 
+[type='tel'], [type='time'], 
+[type='url'], [type='color'], textarea {
+    display: block;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border: 1px solid #cacaca;
+    margin: 0 0 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #8a8a8a;
+    background-color: #fefefe;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    border-radius: 0;
+    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    }
+
+[type='text']:focus, [type='password']:focus, 
+[type='date']:focus, [type='datetime']:focus, 
+[type='datetime-local']:focus, [type='month']:focus, 
+[type='week']:focus, [type='email']:focus, 
+[type='number']:focus, [type='search']:focus, 
+[type='tel']:focus, [type='time']:focus, 
+[type='url']:focus, [type='color']:focus, textarea:focus {
+    border: 1px solid #8a8a8a;
+    background-color: #fefefe;
+    outline: 0;
+    box-shadow: 0 0 5px #cacaca;
+    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+}
+
+input::placeholder {
+  color: #cacaca;
+}
+
+.password-modal .button {
+    display: block;
+    text-align: center;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    vertical-align: middle;
+    border-radius: 0;
+    padding: 0.85em 1em;
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+    font-size: 0.9rem;
+    background-color:#741519 ;
+    border: solid 1px #741519;
+    color: #C42127;
+}
+
+
+.password-modal > form > p > input.button:active,
+.password-modal > form > p > input.button:focus,
+.password-modal > form > p > input.button:hover {
+  background-color: #93191E;
+  border: solid 1px #93191E;
+  color: #fff;
+}
+
+.password-modal > form > p > a.cancel-me {
+  /* background-color: #1D1D1D; */
+  background-color: rgba(0,0,0,.01);
+  color: #C42127;
+  border: solid 1px #93191E;
+}
+
+.password-modal > form > p > a.cancel-me:active,
+.password-modal > form > p > a.cancel-me:focus,
+.password-modal > form > p > a.cancel-me:hover {
+  background-color: #93191E;
+  border: solid 1px #93191E;
+  color: white;
+}
+
+@media all and (max-width: 40em) {
+.log-in-form { 
+    width: 80%; 
+  }
+}
+
+@media all and (min-width: 40.063em) and (max-width: 90em) {
+.log-in-form{
+  width: 25%;
+  min-width: 250px;
+  max-width: 400px;
+  }
+}
+
+@media all and (min-width: 90.063em) {
+.log-in-form {
+  width: 15%;
+  min-width: 250px;
+  max-width: 400px;
+  }
+}
+
+
+
+
 
 /* *********************************************** */
 /*                modal-slideshow.vue              */
@@ -992,9 +1165,9 @@ a #contact-prefs:hover {
 .overlay {
   display: block; 
   position: fixed;
+  position: -ms-device-fixed;
   top: 0;
   left: 0;
-  position: -ms-device-fixed;
   width: 100%;
   height: 100%;
   background-image: url('~img/seamless-paper-texture-drk-blu.jpg');
@@ -1023,7 +1196,8 @@ a #contact-prefs:hover {
 
 
 .modal-close { 
-  position: fixed; 
+  position: fixed;
+  position: -ms-device-fixed; 
   width: 35px; 
   height: 35px; 
   top: 2rem; 
@@ -1051,6 +1225,7 @@ a {
 
 .modalNav {
     position: fixed;
+    position: -ms-device-fixed;
     top: 50%;
     left: 0;
     width: 45px;
@@ -1286,6 +1461,7 @@ a {
     position: -ms-device-fixed;
     top: 50%;
     left: 50%;
+    margin-top: -10px;
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: -2; 

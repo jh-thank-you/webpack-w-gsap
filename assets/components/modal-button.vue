@@ -13,7 +13,7 @@
 
 <script>
 
-	// import { eventBus } from 'assets/main.js';
+	import { eventBus } from 'assets/main.js';
 
 	export default {
 

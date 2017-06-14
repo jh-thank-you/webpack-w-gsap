@@ -13,6 +13,10 @@ Feel free to contact me anytime.
 
 **Webpack Production build works.**
 
+- Added scripts to package.json: 
+	- "preinstall" script adds `.metadata_never_index` file to `node_modules` directory
+	- "build" script adds `.metadata_never_index` file to `dist` directory
+
 ======================================================
 
 **Note not all sections and modals have images**
@@ -51,15 +55,25 @@ Simplifying the Build:
 Nav Buttons Component:
 - Vue-Router with routes for Print, Video, Outdoor and Online.
 
+Nav Small Screen Menu
+-Todo:
+	- Create small screen nave menu.
+	- CSS style and set media queries.
+	- Animation based on queries (from small screen nav to medium-up screen nav).
+
 Section and Hero Image Component:
-- SOLVED: section hero-image.vue component now loads the correct images without the prior hack:
-	- Solved by passing an ID prop through the vue-router to the section.vue component.
-	- Then binding the hero-image class to the the ID value of the parent.
-	- Used more explicit CSS to target the divs 
-	- Got rid of the unused logic to change div class in hero-image component.
-- section.vue code is DRY:
-	- Deleted individual .vue section files (print, video, outdoor and online).
-	- Deleted example-list .vue files (moved the arrays into the section file).
+- Todo:
+	- Set corner nav button image as a full screen background image
+		- Maybe transition to a repeatable/small background texture.
+	- Set hero-image animated gif to fade out when buttons animate into frame.
+	- Animate modal-buttons in from bottom.
+
+Modal Password:
+- Added a modal to enter a password to view certain content
+- CSS styles, including media queries applied.
+- Todo:
+	- Add vue functionality for wrong password message
+	- Pass props to modal-slideshow when correct the correct password is entered.
 
 Modal Buttons Component:
 - Looking into options to load Modals via sub-routes
@@ -69,4 +83,8 @@ Modal Slideshow Overlay Component:
 - Sub-routes may help with history and bookmarking etc.
 
 Preference & Contact Tab:
-- Placeholder for now.
+- Tab added, CSS styles including media queries applied.
+- Tab visibility set with v-if directive (bound to showTab prop).
+	- Todo:
+		- Create filtering.
+		- Create local storage to save settings across page loads.
