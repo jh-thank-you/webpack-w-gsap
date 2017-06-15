@@ -1,12 +1,12 @@
 <template>
 
   <div>
-  <div v-if="showTab" id="modal-overlay"></div>
+  <div v-if="showOverlay" @click="showOverlay = !showOverlay" id="modal-overlay"></div>
 
   <div v-if="showTab" id="contact-prefs-tab"> <!-- START contact-prefs -->
 
       <div class="inner-tab-wrap"> <!-- START Inner Contact Pref Wrap -->
-        <div class="tab-title">
+        <div @click="showOverlay = !showOverlay" class="tab-title">
           <span class="tab-bkg"><h4 id="pref-contact-title" class="handwritten">Preferences / Contact</h4></span>
         </div>
 
@@ -66,6 +66,7 @@
       return {
 
         showTab: true,
+        showOverlay: false,
         selects: [ 
 
             {id: 'automotive', name: 'Automotive', class: 'industry'},

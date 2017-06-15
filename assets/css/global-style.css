@@ -462,7 +462,7 @@ body {
 #modal-overlay {
     position: fixed;
     position: -ms-device-fixed;
-    display: none;
+    display: block;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.85);
@@ -1044,8 +1044,44 @@ a #contact-prefs:hover {
   margin-top: .25rem;
   margin-left: 0;
   margin-right: 0;
-  margin-bottom: .65rem;
+  margin-bottom: .85rem;
 }
+
+.password-response {
+  cursor: default;
+  position: relative;
+  display: block;
+  height: 2rem;
+  /* line-height: 2rem; /* vertically aligns text - match to height - works for single line */
+  left: 0;
+  padding: 0 auto;
+  width: 100%;
+  font-size: .75rem;
+  text-align: center;
+  vertical-align: middle;
+  font-style: italic;
+  color: white; 
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+.password-response span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: perspective(1px) translateY(-50%);
+}
+
+.password-response.v-enter {
+    animation: fadein .5s;
+}
+
+.password-response.v-leave {
+    animation: fadeout .5s;
+}
+
 
 [type='text'], [type='password'], 
 [type='date'], [type='datetime'], 
@@ -1130,6 +1166,7 @@ input::placeholder {
   border: solid 1px #93191E;
   color: white;
 }
+
 
 @media all and (max-width: 40em) {
 .log-in-form { 
