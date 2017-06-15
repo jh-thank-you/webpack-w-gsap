@@ -72,7 +72,7 @@ Modal Password:
 - Added a modal to enter a password to view certain content
 - CSS styles, including media queries applied.
 - Todo:
-	- Add vue functionality for wrong password message
+	- Add vue functionality for wrong password message - **DONE**
 	- Pass props to modal-slideshow when the correct password is entered.
 
 Modal Buttons Component:
