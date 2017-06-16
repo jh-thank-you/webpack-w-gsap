@@ -1,9 +1,9 @@
 <template>
     
-	<div id="name-title-tag" class="center-name-and-tag">
+	<div class="center-name-and-tag">
 	  <div id="name-and-tag">
 	    <p id="name-title">Hainis Art Direction</p>
-	    <p id="tagline">bad name. good work.</p>
+	    <p id="tagline">&thinsp;bad name. good work.</p>
 	  </div>
 	</div>
 

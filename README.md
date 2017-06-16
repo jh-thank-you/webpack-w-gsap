@@ -57,8 +57,8 @@ Nav Buttons Component:
 
 Nav Small Screen Menu
 -Todo:
-	- Create small screen nave menu.
-	- CSS style and set media queries.
+	- Create small screen nav menu. - **DONE**
+	- CSS style and set media queries. - **DONE**
 	- Animation based on queries (from small screen nav to medium-up screen nav).
 
 Section and Hero Image Component:
@@ -87,4 +87,4 @@ Preference & Contact Tab:
 - Tab visibility set with v-if directive (bound to showTab prop).
 	- Todo:
 		- Create filtering.
-		- Create local storage to save settings across page loads.
+		- Create local storage to save filter settings across page loads.

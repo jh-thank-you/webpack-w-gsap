@@ -126,9 +126,9 @@ a:focus {
 }
 
 
-/* *************************************** */
-/* ***************** Nav ***************** */
-/* *************************************** */
+/* *********************************************** */
+/*               nav-corner--menu.vue              */
+/* *********************************************** */
 
 .media-type {
   position: fixed;
@@ -160,6 +160,7 @@ a:focus {
   margin-bottom: 10px;
   background-blend-mode: multiply;
 }
+
 #nav-print > .media-title div {
 background-color: red;
 }
@@ -167,7 +168,7 @@ background-color: red;
 #nav-print:hover .media-title, 
 #nav-print:focus .media-title, 
 #nav-print:active .media-title {
-  position: relative;
+  position: absolute;
   overflow: visible;
   width: 100%;
   height: 100%;
@@ -228,7 +229,7 @@ background-color: red;
 }
 
 #nav-outdoor:hover .media-title, 
-#nav-outdoor:focus > .media-title, 
+#nav-outdoor:focus .media-title, 
 #nav-outdoor:active .media-title {
   position: absolute;
   overflow: visible;
@@ -271,6 +272,7 @@ background-color: red;
   background-position: 8px 16px;
 }
 
+
 .media-title > p {
   font-size: 1.1em;
   -webkit-text-stroke: .25px #000;
@@ -282,6 +284,205 @@ background-color: red;
      .25px .25px 0 #000;
   letter-spacing: .10em;
 }
+
+
+
+
+/* *********************************************** */
+/*             nav-small-screen-menu.vue           */
+/* *********************************************** */
+
+.conrner-nav-small {
+  position: fixed;
+  display: block;
+  overflow: scroll;
+  padding: 0 auto;
+  width: 100%;
+  height: 100%;
+  background-image: url('~img/graph-paper-patch.jpg');
+  background-size: 25px;
+  background-repeat: repeat;
+  z-index: 1;
+}
+
+@media all and (min-width: 501px) and (min-height: 601px) {
+.conrner-nav-small {
+    display: none;
+  }
+}
+
+#name-and-tag-small {
+  position: fixed;
+  display: block;
+  top: 0;
+  height: 10vh;
+  min-height: 4.5rem;
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  /* border: solid 1px red; */
+}
+
+@media all and (max-height: 275px) {
+      #name-and-tag-small {
+          height: 8vh;
+          min-height: 3.25rem;
+          margin-top: 0;
+        }
+      }
+
+.inner-wrap-fixed-scroll {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 6rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* border: solid 1px purple; */
+}
+
+@media all and (max-height: 275px) {
+.inner-wrap-fixed-scroll {
+    top: 3.25rem;
+  }
+}
+
+.inner-wrap {
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+  /* border: solid 5px green; */
+}
+
+#small-nav-title {
+position: relative;
+disply: block;
+width: 100%;
+height: 6rem;
+}
+
+
+#nav-print-small,
+#nav-video-small,
+#nav-outdoor-small,
+#nav-online-small {
+  padding: 10px auto;
+  margin: 15px auto;
+  height: 4rem;
+  font-size: 1.5em;
+  text-align: center;
+  border: solid 1px transparent;
+}
+
+.small-nav-top-spacer {
+  height: 5vh;
+  /* border: solid 5px blue; */
+}
+
+@media all and (max-height: 275px) {
+.small-nav-top-spacer {
+    height: 0;
+  }
+}
+
+@media all and (min-height: 526px) {
+.small-nav-top-spacer {
+    height: 5vh;
+  }
+}
+
+@media all and (min-height: 626px) {
+.small-nav-top-spacer {
+    height: 10vh;
+  }
+}
+
+@media all and (min-height: 701px) {
+.small-nav-top-spacer {
+    height: 0;
+  }
+  .inner-wrap {
+    position: relative;
+    display: block;
+    height: 50%;
+    top: 45%;
+    transform: perspective(1px) translateY(-50%);
+    /* border: solid 5px blue; */ 
+  }
+  #name-and-tag-small {
+    margin-top: 30%;
+  }
+  .inner-wrap-fixed-scroll {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+}
+
+@media all and (min-height: 901px) {
+  .inner-wrap {
+    top: 47%;
+  }
+  #name-and-tag-small {
+    margin-top: 52%;
+  }
+}
+
+.small-nav-bottom-spacer {
+  height: 55vh;
+  min-height: 100px;
+  /* border: solid 5px blue; */
+}
+
+@media all and (max-height: 275px) {
+.small-nav-bottom-spacer {
+    height: 45vh;
+    min-height: 60px;
+  }
+}
+
+#nav-print-small:hover, 
+#nav-print-small:focus, 
+#nav-print-small:active {
+  overflow: visible;
+  background-image: url('~img/line-underline.gif');
+  background-size: 89px 10px;
+  background-repeat: no-repeat;
+  background-position: 50% 85%;
+}
+
+#nav-video-small:hover, 
+#nav-video-small:focus, 
+#nav-video-small:active {
+  overflow: visible;
+  background-image: url('~img/line-video.gif');
+  background-size: 84px 30px;
+  background-repeat: no-repeat;
+  background-position:  50% 68%;
+}
+
+#nav-outdoor-small:hover, 
+#nav-outdoor-small:focus, 
+#nav-outdoor-small:active {
+  overflow: visible;
+  background-image: url('~img/line-box.gif');
+  background-size: 135px 35px;
+  background-repeat: no-repeat;
+  background-position:  50% 65%;
+}
+
+#nav-online-small:hover, 
+#nav-online-small:focus, 
+#nav-online-small:active {
+  overflow: visible;
+  background-image: url('~img/line-circle.gif');
+  background-size: 120px 35px;
+  background-repeat: no-repeat;
+  background-position:  50% 70%;
+}
+
+
 
 /* *************************************** */
 /* ******** Title Landing - Styles ******* */
@@ -502,7 +703,7 @@ fieldset {
   font-weight: normal;
   font-stretch: normal;
   font-variant: normal;
-  font-size: 1rem;
+  font-size: 1em;
   color: black; 
   line-height: 1.5;
   margin-top: -20px;
@@ -670,7 +871,7 @@ a #contact-prefs:hover {
 }
 
 #contact-prefs-tab p.note {
-  font-size: .75rem;
+  font-size: .75em;
   padding: 10px 0 10px 0;
 }
 
@@ -693,7 +894,7 @@ a #contact-prefs:hover {
                 }
                 #industry-settings h4,
                 .form-section > legend {
-                  font-size: 1.3rem;
+                  font-size: 1.3em;
                   text-align: center;
                   margin: 0 0 0 0;
                   position: relative;
@@ -727,11 +928,11 @@ a #contact-prefs:hover {
                   width:35%;
                 }
                 #industry-settings {
-                  font-size: 1.3rem;
+                  font-size: 1.3em;
                   margin: 0 0 45px 0;
                 }
                 .form-section > legend {
-                  font-size: 1.3rem;
+                  font-size: 1.3em;
                   padding: 0;
                 }
                 #contact-prefs-tab h4 {
@@ -762,12 +963,12 @@ a #contact-prefs:hover {
                   width:20%;
                 }
                 #industry-settings {
-                  font-size: 1.3rem;
+                  font-size: 1.3em;
                   margin: 10px 0 45px 0;
                   padding: 0;
                 }
                 .form-section > legend {
-                  font-size: 1.3rem;
+                  font-size: 1.3em;
                   margin: 0 0 0 0;
                   padding: 0;
                 }
@@ -799,12 +1000,13 @@ a #contact-prefs:hover {
 /*                hero-image.vue                   */
 /* *********************************************** */ 
 
-/* see hero-image.vue component for <style scoped> CSS */
-/*
-.hero-image {
+.section-print,
+.section-video,
+.section-outdoor,
+.section-online {
   position: relative;
   display: block;
-  cursor: pointer;
+  cursor: default; 
   width: 65vw;
   max-width: 800px;
   height: 48vw;
@@ -812,9 +1014,86 @@ a #contact-prefs:hover {
   margin: 0 auto;
   margin-top: 2em;
   margin-bottom: 2em;
-  border: solid 1px red;
+  /* border: solid 1px red; */
 }
-*/
+
+.section-print {
+  background-image: url('~img/marker-pad-btm.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.section-print > .current-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('~img/nav-print-hero-animation.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  mix-blend-mode: multiply;
+  opacity: .70;
+  overflow: visible;
+}
+
+.section-video {
+  background-image: url('~img/envelope-5x7.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.section-video > .current-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('~img/nav-video-hero-animation.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  mix-blend-mode: multiply;
+  opacity: .70;
+}
+
+.section-outdoor {
+  background-image: url('~img/napkin.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.section-outdoor > .current-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('~img/nav-outdoor-hero-animation.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  mix-blend-mode: multiply;
+  opacity: .70;
+}
+
+.section-online {
+  background-image: url('~img/graph-paper.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.section-online > .current-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('~img/nav-online-hero-animation.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  mix-blend-mode: multiply;
+  opacity: .70;
+}
+
 
 
 
@@ -1030,7 +1309,7 @@ a #contact-prefs:hover {
   cursor: default;
   display: inline-block;
   white-space: nowrap;
-  font-size: .8rem;
+  font-size: .8em;
   margin-right: 0;
 }
 
@@ -1056,7 +1335,7 @@ a #contact-prefs:hover {
   left: 0;
   padding: 0 auto;
   width: 100%;
-  font-size: .75rem;
+  font-size: .75em;
   text-align: center;
   vertical-align: middle;
   font-style: italic;
@@ -1096,7 +1375,7 @@ a #contact-prefs:hover {
     border: 1px solid #cacaca;
     margin: 0 0 1rem;
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 1em;
     color: #8a8a8a;
     background-color: #fefefe;
     box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
@@ -1137,7 +1416,7 @@ input::placeholder {
     width: 80%;
     margin-right: 10%;
     margin-left: 10%;
-    font-size: 0.9rem;
+    font-size: 0.9em;
     background-color:#741519 ;
     border: solid 1px #741519;
     color: #C42127;

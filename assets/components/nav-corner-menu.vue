@@ -1,12 +1,17 @@
 <template>
 
-	<nav class="conrner-nav">
+	
+	<div>
+	
+		<nav-small-screen-menu></nav-small-screen-menu>
 
-		<nav-button v-for="navigationButton in navigationButtons" v-bind:key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button>
+		<nav class="conrner-nav">
 
-		<!-- <hero-image></hero-image> -->
+			<nav-button v-for="navigationButton in navigationButtons" v-bind:key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button>
 
-	</nav>
+		</nav>
+
+	</div>
 
 </template>
 
@@ -14,15 +19,15 @@
 <script>
 
 	import navButton from 'components/nav-button.vue';
-	// import heroImage from 'components/hero-image.vue';
 
+	import navSmallScreenMenu from 'components/nav-small-screen-menu.vue';
 
 	export default {
 
 		components: {
 		 
 			navButton,
-			// heroImage,
+			navSmallScreenMenu,
 
 		}, // END components
 		data() {
