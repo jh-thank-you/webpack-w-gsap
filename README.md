@@ -57,8 +57,8 @@ Nav Buttons Component:
 
 Nav Small Screen Menu
 -Todo:
-	- Create small screen nav menu. - **DONE**
-	- CSS style and set media queries. - **DONE**
+	- Create small screen nav menu. **DONE**
+	- CSS style and set media queries. **DONE**
 	- Animation based on queries (from small screen nav to medium-up screen nav).
 
 Section and Hero Image Component:
@@ -72,7 +72,7 @@ Modal Password:
 - Added a modal to enter a password to view certain content
 - CSS styles, including media queries applied.
 - Todo:
-	- Add vue functionality for wrong password message - **DONE**
+	- Add vue functionality for wrong password message. **DONE**
 	- Pass props to modal-slideshow when the correct password is entered.
 
 Modal Buttons Component:
