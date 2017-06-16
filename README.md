@@ -55,7 +55,7 @@ Simplifying the Build:
 Nav Buttons Component:
 - Vue-Router with routes for Print, Video, Outdoor and Online.
 
-Nav Small Screen Menu
+Nav Small Screen Menu:
 - Todo:
 	- Create small screen nav menu. **DONE**
 	- CSS style and set media queries. **DONE**
