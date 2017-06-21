@@ -1,6 +1,6 @@
 <template>
 
-  <nav class="conrner-nav-small">
+  <nav class="corner-nav-small">
       
       <div id="name-and-tag-small">
         <p id="name-title">Hainis Art Direction</p>

@@ -6,10 +6,10 @@
 		
 		<!-- id data is passed in by routes see notes below-->
 	    <hero-image :class="id"></hero-image>
-	        	
-		<modal-slideshow v-if="showModal" @close="showModal = false; tabDisplay();" :imageSrc="imagesource"></modal-slideshow>
-		
-		<div @click="tabDisplay();" id="section-content" class="grid-isotope justify-content handwritten">
+
+		<modal-slideshow v-if="showModal" @close="showModal = false" :imageSrc="imagesource"></modal-slideshow>
+
+		<div id="section-content" class="grid-isotope justify-content handwritten">
 			<modal-button v-for="example in getExamples()" v-bind:key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access" @imageSelectChanged="imagesource = $event"></modal-button>
 		</div>
 
@@ -69,11 +69,6 @@
 
 		}, // END computed
 		methods: {
-
-			tabDisplay() {
-		      	var showTab = !this.showModal;
-		        eventBus.$emit('setTabVisibility', showTab);
-		     }, // END tabDisplay
 
 			// dynamically set which array is passed based on the Parent ID data
 		 	getExamples() {

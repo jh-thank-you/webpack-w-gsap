@@ -2,7 +2,7 @@
 
   <div class="overlay"> <!-- START Modal -->
 
-    <div id="button-close-vector" @click="$emit('close')">
+    <div id="button-close-vector" @click="$emit('close'); hideTab();">
       <div aria-hidden='true'>&times;</div>
     </div>
 
@@ -18,16 +18,13 @@
 
 <script>
 
-  // import { eventBus } from 'assets/main.js';
+  import { eventBus } from 'assets/main.js';
 
   // modal content is now imported and registered by the getModal() function within methods section below 
 
   export default {
 
-               
     components: { 
-
-    // modal content is now imported and registered by the getModal() function within methods section below 
 
     }, // END components
     props: [ 'imageSrc' ],// END props
@@ -52,12 +49,17 @@
         return 'assets/modals/' + this.imageSrc + '.vue';
       },
 
+      hideTab() {
+          var tabHidden = false;
+          eventBus.$emit('tabVisibility', tabHidden);
+      },
 
     }, // END methods
     destroyed() {
       
       // turn off binding to prevent multiple instances
       this.$off('imageSelectChanged');
+      this.$off('tabVisibility');
 
     }, // END destroyed
     mounted() {

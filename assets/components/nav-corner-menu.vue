@@ -5,7 +5,7 @@
 	
 		<nav-small-screen-menu></nav-small-screen-menu>
 
-		<nav class="conrner-nav">
+		<nav class="corner-nav">
 
 			<nav-button v-for="navigationButton in navigationButtons" v-bind:key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button>
 

@@ -1,6 +1,6 @@
 <template>
     
-	<div @click="exampleSelected" :id="id" class="boxframe" :sector="sector" :access="access">
+	<div @click="exampleSelected(); hideTab();" :id="id" class="boxframe" :sector="sector" :access="access">
 
 		<div :class="currentClassArray()"></div>
 		<span class="client-label handwritten"><p>{{ client }}</p></span>
@@ -36,6 +36,11 @@
 
 		}, // END created
 		methods: {
+
+			hideTab() {
+		      var tabHidden = true;
+		      eventBus.$emit('tabVisibility', tabHidden);
+		     },
 
 			currentClassArray() {
 
@@ -81,6 +86,15 @@
 
 
 		}, // END mounted
+		 destroyed() {
+	      
+	      // turn off binding to prevent multiple instances
+	      this.$off('tabVisibility');
+	      this.$off('modalVisibility');
+	      this.$off('imageSelectChanged');
+	      this.$off('passwordStatus');
+
+	    }, // END destroyed
 
 	}; // END export default
 

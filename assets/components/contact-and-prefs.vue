@@ -1,12 +1,17 @@
 <template>
 
   <div>
-  <div v-if="showOverlay" @click="showOverlay = !showOverlay" id="modal-overlay"></div>
 
-  <div v-if="showTab" id="contact-prefs-tab"> <!-- START contact-prefs -->
+  <transition name="fade">
+  <div v-if="showOverlay" @click="showOverlay = !showOverlay; moveTab();" id="modal-overlay"></div>
+  </transition>
+
+   <transition name="updown"> 
+  <div v-if="showTab" @click="showOverlay = !showOverlay; moveTab();" :key="moveTab" id="contact-prefs-tab"> <!-- START contact-prefs -->
 
       <div class="inner-tab-wrap"> <!-- START Inner Contact Pref Wrap -->
-        <div @click="showOverlay = !showOverlay" class="tab-title">
+        
+        <div class="tab-title">
           <span class="tab-bkg"><h4 id="pref-contact-title" class="handwritten">Preferences / Contact</h4></span>
         </div>
 
@@ -50,6 +55,7 @@
 
       </div> <!-- END inner-tab-wrap -->
   </div> <!-- END contact-prefs -->
+  </transition>
   </div>
 
 </template>
@@ -61,12 +67,13 @@
 
 	export default {
 
-    props: [ 'showModal' ], // END props
+    // props: [ 'showModal' ], // END props
     data() {
       return {
 
         showTab: true,
         showOverlay: false,
+        tabHidden: false,
         selects: [ 
 
             {id: 'automotive', name: 'Automotive', class: 'industry'},
@@ -120,14 +127,25 @@
     }, // END data
     created() {
 
-      eventBus.$on('setTabVisibility', (showTab) => {
+      eventBus.$on('tabVisibility', (tabHidden) => {
+        var tabIsVisible = !tabHidden;
+        console.log(tabIsVisible + ' = tab visibility - contacts & prefs');
+        document.getElementById("contact-prefs-tab").classList.toggle("is-hidden");
+      });
+
+    }, // END created
+    methods: {
+
+     moveTab() {
+      document.getElementById("contact-prefs-tab").classList.toggle("is-active");
+     },
+
+    }, // END methods
+    destroyed() {
+        // turn off binding to prevent multiple instances
+        this.$off('tabVisibility');
         
-        this.showTab = showTab;
-        return this.showTab;
-
-      }); // END eventBus
-
-    }, // END created 
+    }, // END destroyed
 
 	}; // END export default
 
@@ -136,6 +154,73 @@
 
 
 <style scoped>
+    #contact-prefs-tab {
+        height: 48px;
+        transition: height 500ms ease-in-out;
+    }
 
+    #contact-prefs-tab.is-active {
+        height: 65vh;
+    }
+
+     #contact-prefs-tab.is-hidden {
+        height: 0;
+    }
+
+/* fade in or out overlay */
+  
+  .fade-enter {
+    opacity: 0;
+  }
+
+  .fade-enter-active {
+    transition: opacity .35s ease-in-out;
+  }
+
+  .fade-enter-to {
+    /* Vue JS Default is opacity: 1; */
+  }
+
+  .fade-leave {
+    /* Vue JS Default is opacity: 1; */
+  }
+
+  .fade-leave-active {
+    transition: opacity .35s ease-in-out;
+  }
+
+   .fade-leave-to {
+    opacity: 0;
+  }
+
+/* move tab up or down */
+
+ .updown-enter {
+    height: 48px;
+    max-height: 48px;
+  }
+
+  .updown-enter-active {
+    transition: all .35s ease-in-out;
+  }
+
+   .updown-enter-to {
+    height: 65vh;
+    max-height: 65vh;
+  }
+
+  .updown-leave {
+    height: 65vh;
+    max-height: 65vh;
+  }
+
+  .updown-leave-active {
+    transition: all .35s ease-in-out;
+  }
+
+  .updown-leave-to {
+    height: 48px;
+    max-height: 48px;
+  }
 
 </style>

@@ -1,18 +1,20 @@
 <template>
 
+	<transition name="fade">
 	<div v-if="showPasswordModal" class='password-modal'>
 
 		<form id='password-form' class='log-in-form'>
 
 			<label class="password-title">Password<input type='text' name='password' placeholder='Password' v-model="password"></label>
 
-			<label class='password-response' v-model="message"><transition name="fade" @after-enter="show = false"><span v-if="show">{{ message }}</span></transition></label>
+			<label class='password-response' v-model="message"><transition name="fade-response" @after-enter="showMessage = false"><span v-if="showMessage">{{ message }}</span></transition></label>
 
 			<p><input @click.prevent="passwordSubmit()" id='submit-button' type='submit' class='button expanded'></p>
 
-			<p><a @click="show = false; password = ''; showPasswordModal = false;" type='cancel' class='button expanded cancel-me'>Cancel</a></p>
+			<p><a @click="showMessage = false; password = ''; hideTab(); showPasswordModal = false;" type='cancel' class='button expanded cancel-me'>Cancel</a></p>
 		</form>
 	</div>
+	</transition>
 
 </template>
 
@@ -23,12 +25,12 @@
 
 	export default {
 
-		props: [ 'id', 'alt', 'client', 'sector', 'lockit', ], // END props
+		props: [ 'id', 'alt', 'client', 'sector', 'lockit' ], // END props
 		data() {
 			return {
 
 				showPasswordModal: false,
-				show: false,
+				showMessage: false,
 				message: '',
 				password: '',
 				selectResponse: [
@@ -79,6 +81,11 @@
 		}, // END created
 		methods: {
 
+			hideTab() {
+			  var tabHidden = false;
+			  eventBus.$emit('tabVisibility', tabHidden);
+			},
+
 			passwordSubmit() {
 
 				var password = this.password 
@@ -87,6 +94,7 @@
 
 					// then animate the modal
 					console.log('Correct password entered');
+					this.hideTab();
 					
 					this.password = '';
 					return this.password;
@@ -94,7 +102,7 @@
 				} else {
 					console.log('Wrong password entered');
 
-						this.show = true;
+						this.showMessage = true;
 
 						this.password = '';
 
@@ -102,13 +110,21 @@
 
 						console.log(this.message + ' = currentResponse');
 						
-						return this.message, this.password, this.show;
+						return this.message, this.password, this.showMessage;
 
 				} // END IF ELSE
 
 			}, // END passwordSubmit
 
-		} // END methods
+		}, // END methods
+		 destroyed() {
+	      
+	      // turn off binding to prevent multiple instances
+	      this.$off('passwordStatus');
+	      this.$off('tabVisibility');
+
+
+	    }, // END destroyed
 		
 
 	}; // END export default
@@ -119,23 +135,56 @@
 
 <style scoped>
 
-	/* fade the wrong password response text */
-	
+	/* fade in or out overlay */
+
 	.fade-enter {
 		opacity: 0;
 	}
 
 	.fade-enter-active {
-		transition: opacity 1.75s ease;
+		transition: opacity .35s ease;
 	}
 
-	.fade-leave-leave {
+	.fade-enter-to {
 		/* Vue JS Default is opacity: 1; */
-		/* opacity: 1; */
+	}
+
+	.fade-leave {
+		/* Vue JS Default is opacity: 1; */
 	}
 
 	.fade-leave-active {
+		transition: opacity .35s ease;
+	}
+
+	.fade-leave-to {
+		opacity: 0;
+	}
+
+
+	/* fade the wrong password response text */
+	
+	.fade-response-enter {
+		opacity: 0;
+	}
+
+	.fade-response-enter-active {
 		transition: opacity 1.75s ease;
+	}
+
+	.fade-response-enter-to {
+		/* Vue JS Default is opacity: 1; */
+	}
+
+	.fade-response-leave {
+		/* Vue JS Default is opacity: 1; */
+	}
+
+	.fade-response-leave-active {
+		transition: opacity 1.75s ease;
+	}
+
+	.fade-response-leave-to {
 		opacity: 0;
 	}
 
