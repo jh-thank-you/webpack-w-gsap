@@ -85,6 +85,8 @@ Modal Slideshow Overlay Component:
 Preference & Contact Tab:
 - Tab added, CSS styles including media queries applied.
 - Tab visibility set with v-if directive (bound to showTab prop).
+- Added open and close animation.
+- Tab hides completely when slideshow modal is open.
 	- Todo:
 		- Create filtering.
 		- Create local storage to save filter settings across page loads.
