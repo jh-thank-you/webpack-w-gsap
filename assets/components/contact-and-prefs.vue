@@ -7,7 +7,7 @@
   </transition>
 
    <transition name="updown"> 
-  <div v-if="showTab" @click="showOverlay = !showOverlay; moveTab();" :key="moveTab" id="contact-prefs-tab"> <!-- START contact-prefs -->
+  <div v-if="showTab" @click="showOverlay = !showOverlay; moveTab();" :key="moveTab" id="contact-prefs-tab" :class="currentClass"> <!-- START contact-prefs -->
 
       <div class="inner-tab-wrap"> <!-- START Inner Contact Pref Wrap -->
         
@@ -74,6 +74,7 @@
         showTab: true,
         showOverlay: false,
         tabHidden: false,
+        currentClass: '',
         selects: [ 
 
             {id: 'automotive', name: 'Automotive', class: 'industry'},
@@ -128,10 +129,17 @@
     created() {
 
       eventBus.$on('tabVisibility', (tabHidden) => {
-        var tabIsVisible = !tabHidden;
-        console.log(tabIsVisible + ' = tab visibility - contacts & prefs');
-        document.getElementById("contact-prefs-tab").classList.toggle("is-hidden");
-      });
+        
+        var myClass = this.currentClass;
+
+        if (myClass == 'is-hidden') {
+          this.currentClass = '';
+          return this.currentClass;
+        } else {
+          this.currentClass = 'is-hidden';
+          return this.currentClass;   
+        }
+      }); // END eventBus
 
     }, // END created
     methods: {
@@ -206,12 +214,10 @@
 
    .updown-enter-to {
     height: 65vh;
-    max-height: 65vh;
   }
 
   .updown-leave {
     height: 65vh;
-    max-height: 65vh;
   }
 
   .updown-leave-active {
@@ -222,5 +228,32 @@
     height: 48px;
     max-height: 48px;
   }
+
+/* media queries not working with vue transitions
+      @media all and (max-width: 405px) {
+        .updown-enter-to,
+        .updown-leave {
+          height: 95vh;
+          max-height: 1000px;
+          }
+        }
+
+      @media all and (min-width: 406px) and (max-width: 800px) {
+        .updown-enter-to,
+        .updown-leave {
+          height: 75vh;
+          max-height: 75vh;
+          }
+        }
+
+      @media all and (min-width: 801px) {
+        .updown-enter-to,
+        .updown-leave {
+            height: 65vh;
+            max-height: 65vh;
+          }
+        }
+
+*/
 
 </style>
