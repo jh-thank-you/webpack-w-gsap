@@ -709,7 +709,7 @@ fieldset {
   margin-top: -20px;
   margin-bottom: 10px;
   padding: 0 0 0 0;
-  text-align: justify; 
+  text-align: left; 
 }
 
 
@@ -779,7 +779,7 @@ fieldset {
   max-height: 1000px;
   /* animate from 48px to 65% */
   /* background-color: #b9b9b9; */
-  background-image: url('~img/folder-tab-middle.png');
+  background-image: url('~img/folder-tab-middle-v02-top.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center top 0;
@@ -787,6 +787,18 @@ fieldset {
   max-width: 800px;
   min-width: 500px;
   z-index: 99;
+}
+
+.scroll-area {
+  left: 50%;
+  background-image: url('~img/folder-tab-middle-v02-strip.png');
+  background-size: 100%;
+  background-repeat: repeat;
+  background-position: center bottom 0;
+  transform: translate(-50%, 0);
+  max-width: 800px;
+  min-width: 500px;
+  /* border: solid 1px red; */
 }
 
 #contact-prefs-tab img {

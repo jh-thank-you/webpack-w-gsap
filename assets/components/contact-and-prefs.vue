@@ -166,11 +166,11 @@
         height: 48px;
         transition: height 500ms ease-in-out;
     }
-
+/*
     #contact-prefs-tab.is-active {
         height: 65vh;
     }
-
+*/
      #contact-prefs-tab.is-hidden {
         height: 0;
     }
@@ -212,6 +212,7 @@
     transition: all .35s ease-in-out;
   }
 
+/*
    .updown-enter-to {
     height: 65vh;
   }
@@ -219,7 +220,7 @@
   .updown-leave {
     height: 65vh;
   }
-
+*/
   .updown-leave-active {
     transition: all .35s ease-in-out;
   }
@@ -229,8 +230,9 @@
     max-height: 48px;
   }
 
-/* media queries not working with vue transitions
-      @media all and (max-width: 405px) {
+
+      @media all and (max-width: 400px) {
+        #contact-prefs-tab.is-active,
         .updown-enter-to,
         .updown-leave {
           height: 95vh;
@@ -238,7 +240,8 @@
           }
         }
 
-      @media all and (min-width: 406px) and (max-width: 800px) {
+      @media all and (min-width: 401px) and (max-width: 800px) {
+        #contact-prefs-tab.is-active,
         .updown-enter-to,
         .updown-leave {
           height: 75vh;
@@ -247,6 +250,7 @@
         }
 
       @media all and (min-width: 801px) {
+        #contact-prefs-tab.is-active,
         .updown-enter-to,
         .updown-leave {
             height: 65vh;
@@ -254,6 +258,5 @@
           }
         }
 
-*/
 
 </style>
