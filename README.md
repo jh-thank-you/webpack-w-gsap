@@ -87,6 +87,8 @@ Preference & Contact Tab:
 - Tab visibility set with v-if directive (bound to showTab prop).
 - Added open and close animation.
 - Tab hides completely when slideshow modal is open.
+- Updated tab background image with repeating texture.
+- Select All and Default checkboxes are styled like buttons.
 	- Todo:
 		- Create filtering.
 		- Create local storage to save filter settings across page loads.
