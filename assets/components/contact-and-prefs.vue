@@ -7,11 +7,11 @@
   </transition>
 
    <transition name="updown"> 
-  <div v-if="showTab" @click="showOverlay = !showOverlay; moveTab();" :key="moveTab" id="contact-prefs-tab" :class="currentClass"> <!-- START contact-prefs -->
+  <div v-if="showTab" :key="moveTab" id="contact-prefs-tab" :class="currentClass"> <!-- START contact-prefs -->
 
       <div class="inner-tab-wrap"> <!-- START Inner Contact Pref Wrap -->
         
-        <div class="tab-title">
+        <div @click="showOverlay = !showOverlay; moveTab();" class="tab-title">
           <span class="tab-bkg"><h4 id="pref-contact-title" class="handwritten">Preferences / Contact</h4></span>
         </div>
 
@@ -25,14 +25,23 @@
                   <h4 id="which-industry" class="handwritten">Select Which Industries To View</h4>
                 
                 <div id="default-settings">
-                  <button id="default-selects" data-filter=".default-select" class="pref-button button-selected">Default</button>
 
-                  <button id="select-all" data-filter="*" class="pref-button">Select All</button>
+                  <!-- <button id="default-selects" data-filter=".default-select" class="pref-button button-selected">Default</button> -->
+
+                 <!--  <button @click="selectAll" v-model="selectAll" id="select-all" data-filter="*" class="pref-button">Select All</button> -->
+
+                  <label class="pref-button"><input type="checkbox" v-model="selectAll"><span>Default</span></label>
+
+                 <label class="pref-button"><input type="checkbox" v-model="selectAll"><span>Select All</span></label>
+
                 </div>
               </legend>
 
               <div class="checkbox-wrap">
-              <label :for="select.id" v-for="select in selects" v-bind:key="select.id"><input :id="select.id" :sector="select.id" :class="select.class" type="checkbox">{{ select.name }}</label>
+
+              <!-- <span>Checked Sectors: {{ selected }}</span> -->
+
+              <label :for="select.id" v-for="select in selectsArray" v-bind:key="select.id"><input :value="select.id" v-model="selected" :id="select.id" :sector="select.id" :class="select.class" type="checkbox">{{ select.name }}</label>
               </div>
 
             </fieldset>
@@ -65,6 +74,22 @@
 
   import { eventBus } from 'assets/main.js';
 
+  // localStorage persistence
+  // var STORAGE_KEY = 'selectedsector-vuejs-2.x';
+  // var sectorStorage = {
+  //   fetch: function () {
+  //     var selectedsector = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+  //     selectedsector.forEach(function (selectedsector, index) {
+  //       selectedsector.id = index
+  //     })
+  //     sectorStorage.uid = selectedsector.length
+  //     return selectedsector
+  //   },
+  //   save: function (selectedsector) {
+  //     localStorage.setItem(STORAGE_KEY, JSON.stringify(selectedsector))
+  //   }
+  // };
+
 	export default {
 
     // props: [ 'showModal' ], // END props
@@ -75,7 +100,8 @@
         showOverlay: false,
         tabHidden: false,
         currentClass: '',
-        selects: [ 
+        selected: [],
+        selectsArray: [ 
 
             {id: 'automotive', name: 'Automotive', class: 'industry'},
 
@@ -84,6 +110,8 @@
             {id: 'branding', name: 'Branding', class: 'industry default-select-pref-tab'},
 
             {id: 'btob', name: 'B to B', class: 'industry'},
+
+            {id: 'cleaning', name: 'Cleaning Services', class: 'industry'},
 
             {id: 'communication', name: 'Communication', class: 'industry'},
 
@@ -100,8 +128,6 @@
             {id: 'hotel', name: 'Hotel', class: 'industry'},
 
             {id: 'insurance', name: 'Insurance', class: 'industry'},
-
-            {id: 'cleaning', name: 'Cleaning Services', class: 'industry'},
 
             {id: 'nutrition', name: 'Nutrition', class: 'industry'},
 
@@ -142,6 +168,27 @@
       }); // END eventBus
 
     }, // END created
+     computed: {
+
+      selectAll: {
+            get: function () {
+                return this.selectsArray ? this.selected.length == this.selectsArray.length : false;
+            },
+            set: function (value) {
+                var selected = [];
+
+                if (value) {
+                    this.selectsArray.forEach(function (select) {
+                        selected.push(select.id.toString());
+                    });
+                }
+
+                this.selected = selected;
+            }
+        }, // END selectAll
+
+
+    }, // END computed
     methods: {
 
      moveTab() {
@@ -244,8 +291,8 @@
         #contact-prefs-tab.is-active,
         .updown-enter-to,
         .updown-leave {
-          height: 75vh;
-          max-height: 75vh;
+          height: 80vh;
+          max-height: 80vh;
           }
         }
 

@@ -689,12 +689,10 @@ fieldset {
   position: absolute;
   padding: 0 15% 0 15%;
   width: 100%;
-  /* left: 5%; */
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
   margin: 0 auto;
-  /* border: solid 1px red; */
 }
 
 #contact-prefs-tab label,
@@ -733,34 +731,46 @@ fieldset {
   line-height: 0;
 }
 
-
-.pref-button {
-  display: inline-block;
-  border: solid 1px #3c3c3c;
-  line-height: 0;
-  opacity: .3;
-  background: none;
-  padding: 1rem;
-  margin-left: .5rem;
-  text-shadow: -.3px 0 #3c3c3c, 0 .3px #3c3c3c, .3px 0 #3c3c3c, 0 -.3px #3c3c3c;
-  transform: translate(0);
+.pref-button span {
+  cursor: pointer;
+  display: absolute;
+  white-space:nowrap;
+  margin: 0 0 0 0;
+  font-size: .9rem;
+  color: #B4B4B4;
+  text-shadow: -.3px 0 #B4B4B4, 0 .3px #B4B4B4, .3px 0 #B4B4B4, 0 -.3px #B4B4B4;
 }
 
-.button-selected {
-    border: solid 1px #c42127;
-    color: #c42127;
-    opacity: 1;
-    text-shadow: -0.3px 0 #c42127, 0 0.3px #c42127, 0.3px 0 #c42127, 0 -0.3px #c42127;
+.pref-button input {
+    position:absolute;
+    display: none;
+    top: 0;
 }
 
-.button-selected:hover, 
-.button-selected:focus, 
-.button-selected:active {
+#default-settings label:hover span,
+.pref-button:hover span,
+.pref-button:focus span, 
+.pref-button:active span {
   color: white;
   background-color: #c42127;
   text-shadow: -.3px 0 white, 0 .3px white, .3px 0 white, 0 -.3px white;
-  transform: translate(0); 
-} 
+  transform: translate(0);
+  transition: all 0.25s ease-in-out; 
+}
+
+.pref-button span {
+  width: 100%;
+  height: 100%;
+  padding: .25rem .75rem .25rem .75rem;
+  border: solid 1px #B4B4B4;
+  transition: all 0.25s ease-in-out;
+}
+
+.pref-button input:checked + span {
+    color: #c42127;
+    border: solid 1px #c42127;
+    text-shadow: -.3px 0 #c42127, 0 .3px #c42127, .3px 0 #c42127, 0 -.3px #c42127;
+}
 
 .checkbox-wrap {
   width: 100%;
@@ -798,7 +808,6 @@ fieldset {
   transform: translate(-50%, 0);
   max-width: 800px;
   min-width: 500px;
-  /* border: solid 1px red; */
 }
 
 #contact-prefs-tab img {
@@ -813,7 +822,6 @@ fieldset {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 30px;
-  /* background-color: #b9b9b9; */
 }
 
 .tab-title:hover, 
@@ -855,19 +863,6 @@ fieldset {
  opacity: 1;
 }
 
-
-#default-settings > label {
-  cursor: pointer;
-  display: inline-block;
-  white-space:nowrap;
-  margin-right: 12px;
-  margin-left: -2px;
-  margin-top: .75rem;
-  color: #3c3c3c;
-  text-shadow: -.3px 0 #3c3c3c, 0 .3px #3c3c3c, .3px 0 #3c3c3c, 0 -.3px #3c3c3c;
-}
-
-
 fieldset > label,
 a #contact-prefs:link,
 #contact-prefs p {
@@ -888,21 +883,28 @@ a #contact-prefs:hover {
 }
 
       @media all and (max-width: 400px) {
-        #preferences-form label {
-                display: inline-block;
-                float: none;
-                width: 100%;
-                margin-top: 15px;
-                text-align: center;
+                #preferences-form label {
+                  display: inline-block;
+                  float: none;
+                  width: 100%;
+                  margin-top: 10px;
+                  text-align: center;
                 }
-        #preferences-form label > input[type="checkbox"] {
+                #preferences-form label > input[type="checkbox"] {
                   width: 1.25rem;
                   height:  1.25rem;
+                }
+                .pref-button span {
+                  width: 100%;
+                  display: block;
                 }
                 input {
                   padding-top: .625rem;
                   padding-bottom: .625rem;
                   vertical-align: text-bottom;
+                }
+                #industry-settings {
+                  margin-bottom: 10px;
                 }
                 #industry-settings h4,
                 .form-section > legend {
@@ -915,14 +917,8 @@ a #contact-prefs:hover {
                 }
                 #default-settings {
                   position: relative;
-                  margin: 20px 0 0 0;
+                  margin: 5px 0 0 0;
                   text-align: center;
-                }
-                #contact-prefs-tab {
-                    /* height: 3.5%; */
-                }
-                #contact-prefs-tab h4 {
-                  /* margin: -7px 0 20px 0; */
                 }
                 #pref-contact-title {
                   margin: -7px 0 20px 0;
@@ -930,31 +926,50 @@ a #contact-prefs:hover {
               }
 
       @media all and (min-width: 401px) and (max-width: 800px) {
-        #preferences-form label {
-                display: inline-block;
-                float: none;
-                display: inline-block;
-                width: 65%;
+                .checkbox-wrap label {
+                  display: inline-block;
+                  float: none;
+                  display: inline-block;
+                  width: 60%;
                 }
-                #preferences-form label:nth-of-type(even) {
-                  width:35%;
+                .checkbox-wrap label:nth-of-type(even) {
+                  width: 40%;
                 }
-                #industry-settings {
+                .pref-button span {
+                  width: 100%;
+                  display: block;
+                }
+                .pref-button span:nth-of-type(even) {
+                }
+                #industry-settings h4{
+                  position: relative;
+                  width: 100%;
                   font-size: 1.3em;
-                  margin: 0 0 45px 0;
                 }
                 .form-section > legend {
                   font-size: 1.3em;
                   padding: 0;
                 }
-                #contact-prefs-tab h4 {
-                  /* margin: 5px 0 20px 0; */
+                #default-settings {
+                  display: block;
+                  position: relative;
+                  margin: 15px 0 0 0;
+                  text-align: left;
+                  padding: 0 auto;
+                }
+                #default-settings label {
+                  display: inline-block;
+                  float: none;
+                  width: 48%;
+                  margin: 0 0 0 0;
+                  text-align: center;
+                }
+                 #default-settings label:nth-of-type(even) {
+                   margin: 0 0 0 0;
+                   float: right;
                 }
                 #pref-contact-title {
                   margin: -5px 0 20px 0;
-                }
-                #contact-prefs-tab {
-                  /* height: 5.3%; */
                 }
                 .scroll-area {
                   padding: 0 10% 0 10%;
@@ -962,22 +977,37 @@ a #contact-prefs:hover {
                 .pref-button {
                    padding: .85rem;
                 }
+                .end-spacer {
+                  height: 100px;
+                }
+              }
+
+      @media all and (min-width: 541px) and (max-width: 800px) {
+                .checkbox-wrap label {
+                  width: 65%;
+                }
+                .checkbox-wrap label:nth-of-type(even) {
+                  width:35%;
+                }
               }
 
       @media all and (min-width: 801px) {
-        #preferences-form label {
-                display: inline-block;
-                float: none;
-                display: inline-block;
-                width: 40%;
+                .checkbox-wrap label {
+                  display: inline-block;
+                  float: none;
+                  display: inline-block;
+                  width: 36.5%;
                 }
-                #preferences-form label:nth-of-type(3n+3) {
-                  width:20%;
+                .checkbox-wrap label:nth-of-type(3n+3) {
+                  width:27%;
                 }
                 #industry-settings {
                   font-size: 1.3em;
                   margin: 10px 0 45px 0;
                   padding: 0;
+                }
+                #default-settings {
+                  margin: 0 0 0 0;
                 }
                 .form-section > legend {
                   font-size: 1.3em;
@@ -986,9 +1016,6 @@ a #contact-prefs:hover {
                 }
                 #contact-prefs-tab h4 {
                   margin: 10px 0 20px 0;
-                }
-                #contact-prefs-tab {
-                  /* height: 7%; */
                 }
               }
 
