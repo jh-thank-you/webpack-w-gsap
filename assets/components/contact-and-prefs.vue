@@ -26,10 +26,6 @@
                 
                 <div id="default-settings">
 
-                  <!-- <button id="default-selects" data-filter=".default-select" class="pref-button button-selected">Default</button> -->
-
-                 <!--  <button @click="selectAll" v-model="selectAll" id="select-all" data-filter="*" class="pref-button">Select All</button> -->
-
                   <label class="pref-button"><input type="checkbox" v-model="selectAll"><span>Default</span></label>
 
                  <label class="pref-button"><input type="checkbox" v-model="selectAll"><span>Select All</span></label>
@@ -41,7 +37,7 @@
 
               <!-- <span>Checked Sectors: {{ selected }}</span> -->
 
-              <label :for="select.id" v-for="select in selectsArray" v-bind:key="select.id"><input :value="select.id" v-model="selected" :id="select.id" :sector="select.id" :class="select.class" type="checkbox">{{ select.name }}</label>
+              <label :for="select.id" v-for="select in selectsArray" v-bind:key="select.id"><input :value="select.id" v-model="selected" :id="select.id" :sector="select.id" :class="select.class" :default="select.default" type="checkbox">{{ select.name }}</label>
               </div>
 
             </fieldset>
@@ -74,21 +70,22 @@
 
   import { eventBus } from 'assets/main.js';
 
-  // localStorage persistence
-  // var STORAGE_KEY = 'selectedsector-vuejs-2.x';
-  // var sectorStorage = {
-  //   fetch: function () {
-  //     var selectedsector = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-  //     selectedsector.forEach(function (selectedsector, index) {
-  //       selectedsector.id = index
-  //     })
-  //     sectorStorage.uid = selectedsector.length
-  //     return selectedsector
-  //   },
-  //   save: function (selectedsector) {
-  //     localStorage.setItem(STORAGE_KEY, JSON.stringify(selectedsector))
-  //   }
-  // };
+// https://codepen.io/jh-thank-you/pen/rwGOzZ
+// localStorage persistence
+var STORAGE_KEY = 'todos-vuejs-2.0'
+var todoStorage = {
+  fetch: function () {
+    var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+    todos.forEach(function (todo, index) {
+      todo.id = index
+    })
+    todoStorage.uid = todos.length
+    return todos
+  },
+  save: function (todos) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
+  }
+}
 
 	export default {
 
@@ -101,51 +98,52 @@
         tabHidden: false,
         currentClass: '',
         selected: [],
+        defaultSelects: [],
         selectsArray: [ 
 
-            {id: 'automotive', name: 'Automotive', class: 'industry'},
+            {id: 'automotive', name: 'Automotive', class: 'industry', default: 'false'},
 
-            {id: 'beauty', name: 'Beauty', class: 'industry default-select-pref-tab'},
+            {id: 'beauty', name: 'Beauty', class: 'industry', default: 'true'},
 
-            {id: 'branding', name: 'Branding', class: 'industry default-select-pref-tab'},
+            {id: 'branding', name: 'Branding', class: 'industry', default: 'true'},
 
-            {id: 'btob', name: 'B to B', class: 'industry'},
+            {id: 'btob', name: 'B to B', class: 'industry', default: 'false'},
 
-            {id: 'cleaning', name: 'Cleaning Services', class: 'industry'},
+            {id: 'cleaning', name: 'Cleaning Services', class: 'industry', default: 'false'},
 
-            {id: 'communication', name: 'Communication', class: 'industry'},
+            {id: 'communication', name: 'Communication', class: 'industry', default: 'false'},
 
-            {id: 'fashion', name: 'Fashion', class: 'industry default-select-pref-tab'},
+            {id: 'fashion', name: 'Fashion', class: 'industry', default: 'true'},
 
-            {id: 'financial', name: 'Financial', class: 'industry default-select-pref-tab'},
+            {id: 'financial', name: 'Financial', class: 'industry', default: 'true'},
 
-            {id: 'fitness', name: 'Fitness', class: 'industry default-select-pref-tab'},
+            {id: 'fitness', name: 'Fitness', class: 'industry', default: 'true'},
 
-            {id: 'fragrance', name: 'Fragrance', class: 'industry'},
+            {id: 'fragrance', name: 'Fragrance', class: 'industry', default: 'false'},
 
-            {id: 'healthcare', name: 'Healthcare', class: 'industry default-select-pref-tab'},
+            {id: 'healthcare', name: 'Healthcare', class: 'industry', default: 'true'},
 
-            {id: 'hotel', name: 'Hotel', class: 'industry'},
+            {id: 'hotel', name: 'Hotel', class: 'industry', default: 'false'},
 
-            {id: 'insurance', name: 'Insurance', class: 'industry'},
+            {id: 'insurance', name: 'Insurance', class: 'industry', default: 'false'},
 
-            {id: 'nutrition', name: 'Nutrition', class: 'industry'},
+            {id: 'nutrition', name: 'Nutrition', class: 'industry', default: 'false'},
 
-            {id: 'pharma', name: 'Pharma', class: 'industry default-select-pref-tab'},
+            {id: 'pharma', name: 'Pharma', class: 'industry', default: 'true'},
 
-            {id: 'publicservice', name: 'P. S. A.', class: 'industry default-select-pref-tab'},
+            {id: 'publicservice', name: 'P. S. A.', class: 'industry', default: 'true'},
 
-            {id: 'realestate', name: 'Real Estate', class: 'industry'},
+            {id: 'realestate', name: 'Real Estate', class: 'industry', default: 'false'},
 
-            {id: 'shipping', name: 'Shipping', class: 'industry'},
+            {id: 'shipping', name: 'Shipping', class: 'industry', default: 'false'},
 
-            {id: 'sports', name: 'Sports', class: 'industry default-select-pref-tab'},
+            {id: 'sports', name: 'Sports', class: 'industry', default: 'true'},
 
-            {id: 'technology', name: 'Technology', class: 'industry default-select-pref-tab'},
+            {id: 'technology', name: 'Technology', class: 'industry', default: 'true'},
 
-            {id: 'tourism', name: 'Tourism', class: 'industry default-select-pref-tab'},
+            {id: 'tourism', name: 'Tourism', class: 'industry', default: 'true'},
 
-            {id: 'transportation', name: 'Transportation', class: 'industry default-select-pref-tab'},
+            {id: 'transportation', name: 'Transportation', class: 'industry', default: 'true'},
 
           ], // END selects
 
