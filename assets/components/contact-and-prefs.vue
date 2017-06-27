@@ -76,10 +76,10 @@ var STORAGE_KEY = 'myselects-vuejs-2.0'
 var mySelectsStorage = {
   fetch: function () {
     var myselects = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-    myselects.forEach(function (myselect, index) {
-      todo.id = index
-    })
-    todoStorage.uid = myselects.length
+    // myselects.forEach(function (myselect, index) {
+    //   // myselect.id = index
+    // })
+    mySelectsStorage.uid = myselects.length
     return myselects
   },
   save: function (myselects) {
@@ -97,8 +97,8 @@ var mySelectsStorage = {
         showOverlay: false,
         tabHidden: false,
         currentClass: '',
-        selected: [],
-        defaultSelects: [],
+        // selected: [], // using localStorage now
+        selected: mySelectsStorage.fetch(),
         selectsArray: [ 
 
             {id: 'automotive', name: 'Automotive', class: 'industry', default: false},
@@ -183,7 +183,7 @@ var mySelectsStorage = {
               if (select.default) {
                 this.selected.push(select.id)
                 var checkboxValues = this.selected;
-              console.log(checkboxValues + " = default select value");
+                // console.log(checkboxValues + " = default select value");
               }
             });
           }
@@ -201,7 +201,7 @@ var mySelectsStorage = {
             this.selectsArray.forEach((select) => {
               this.selected.push(select.id)
               var checkboxValues = this.selected;
-              console.log(checkboxValues + " = select all value");
+              // console.log(checkboxValues + " = select all value");
             })
           }
         }
@@ -216,6 +216,15 @@ var mySelectsStorage = {
      }, // END moveTab
 
     }, // END methods
+    // watch selected change for localStorage persistence
+    watch: {
+      selected: {
+        handler: function (myselects) {
+          mySelectsStorage.save(myselects)
+        },
+        deep: true
+      }
+    },
     destroyed() {
         // turn off binding to prevent multiple instances
         this.$off('tabVisibility');
