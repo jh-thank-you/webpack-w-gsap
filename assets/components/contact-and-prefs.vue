@@ -26,7 +26,7 @@
                 
                 <div id="default-settings">
 
-                  <label class="pref-button"><input type="checkbox" v-model="selectAll"><span>Default</span></label>
+                  <label class="pref-button"><input type="checkbox" v-model="defaultChecked"><span>Default</span></label>
 
                  <label class="pref-button"><input type="checkbox" v-model="selectAll"><span>Select All</span></label>
 
@@ -72,18 +72,18 @@
 
 // https://codepen.io/jh-thank-you/pen/rwGOzZ
 // localStorage persistence
-var STORAGE_KEY = 'todos-vuejs-2.0'
-var todoStorage = {
+var STORAGE_KEY = 'myselects-vuejs-2.0'
+var mySelectsStorage = {
   fetch: function () {
-    var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-    todos.forEach(function (todo, index) {
+    var myselects = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+    myselects.forEach(function (myselect, index) {
       todo.id = index
     })
-    todoStorage.uid = todos.length
-    return todos
+    todoStorage.uid = myselects.length
+    return myselects
   },
-  save: function (todos) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
+  save: function (myselects) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(myselects))
   }
 }
 
@@ -101,49 +101,49 @@ var todoStorage = {
         defaultSelects: [],
         selectsArray: [ 
 
-            {id: 'automotive', name: 'Automotive', class: 'industry', default: 'false'},
+            {id: 'automotive', name: 'Automotive', class: 'industry', default: false},
 
-            {id: 'beauty', name: 'Beauty', class: 'industry', default: 'true'},
+            {id: 'beauty', name: 'Beauty', class: 'industry', default: true},
 
-            {id: 'branding', name: 'Branding', class: 'industry', default: 'true'},
+            {id: 'branding', name: 'Branding', class: 'industry', default: true},
 
-            {id: 'btob', name: 'B to B', class: 'industry', default: 'false'},
+            {id: 'btob', name: 'B to B', class: 'industry', default: false},
 
-            {id: 'cleaning', name: 'Cleaning Services', class: 'industry', default: 'false'},
+            {id: 'cleaning', name: 'Cleaning Services', class: 'industry', default: false},
 
-            {id: 'communication', name: 'Communication', class: 'industry', default: 'false'},
+            {id: 'communication', name: 'Communication', class: 'industry', default: false},
 
-            {id: 'fashion', name: 'Fashion', class: 'industry', default: 'true'},
+            {id: 'fashion', name: 'Fashion', class: 'industry', default: true},
 
-            {id: 'financial', name: 'Financial', class: 'industry', default: 'true'},
+            {id: 'financial', name: 'Financial', class: 'industry', default: true},
 
-            {id: 'fitness', name: 'Fitness', class: 'industry', default: 'true'},
+            {id: 'fitness', name: 'Fitness', class: 'industry', default: true},
 
-            {id: 'fragrance', name: 'Fragrance', class: 'industry', default: 'false'},
+            {id: 'fragrance', name: 'Fragrance', class: 'industry', default: false},
 
-            {id: 'healthcare', name: 'Healthcare', class: 'industry', default: 'true'},
+            {id: 'healthcare', name: 'Healthcare', class: 'industry', default: true},
 
-            {id: 'hotel', name: 'Hotel', class: 'industry', default: 'false'},
+            {id: 'hotel', name: 'Hotel', class: 'industry', default: false},
 
-            {id: 'insurance', name: 'Insurance', class: 'industry', default: 'false'},
+            {id: 'insurance', name: 'Insurance', class: 'industry', default: false},
 
-            {id: 'nutrition', name: 'Nutrition', class: 'industry', default: 'false'},
+            {id: 'nutrition', name: 'Nutrition', class: 'industry', default: false},
 
-            {id: 'pharma', name: 'Pharma', class: 'industry', default: 'true'},
+            {id: 'pharma', name: 'Pharma', class: 'industry', default: true},
 
-            {id: 'publicservice', name: 'P. S. A.', class: 'industry', default: 'true'},
+            {id: 'publicservice', name: 'P. S. A.', class: 'industry', default: true},
 
-            {id: 'realestate', name: 'Real Estate', class: 'industry', default: 'false'},
+            {id: 'realestate', name: 'Real Estate', class: 'industry', default: false},
 
-            {id: 'shipping', name: 'Shipping', class: 'industry', default: 'false'},
+            {id: 'shipping', name: 'Shipping', class: 'industry', default: false},
 
-            {id: 'sports', name: 'Sports', class: 'industry', default: 'true'},
+            {id: 'sports', name: 'Sports', class: 'industry', default: true},
 
-            {id: 'technology', name: 'Technology', class: 'industry', default: 'true'},
+            {id: 'technology', name: 'Technology', class: 'industry', default: true},
 
-            {id: 'tourism', name: 'Tourism', class: 'industry', default: 'true'},
+            {id: 'tourism', name: 'Tourism', class: 'industry', default: true},
 
-            {id: 'transportation', name: 'Transportation', class: 'industry', default: 'true'},
+            {id: 'transportation', name: 'Transportation', class: 'industry', default: true},
 
           ], // END selects
 
@@ -168,22 +168,44 @@ var todoStorage = {
     }, // END created
      computed: {
 
+      defaultChecked: {
+        get () {
+          let defaults = this.selectsArray.filter(item => item.default).map(item => item.id)
+          const hasAllItems = (baseArr, haystack) => haystack.every(item => baseArr.includes(item))
+          const hasSameItems = (baseArr, haystack) => hasAllItems(baseArr, haystack) && hasAllItems(haystack, baseArr)
+          return hasSameItems(this.selected, defaults)
+        },
+        set (value) {
+          this.selected = []
+
+          if (value) {
+            this.selectsArray.forEach((select) => {
+              if (select.default) {
+                this.selected.push(select.id)
+                var checkboxValues = this.selected;
+              console.log(checkboxValues + " = default select value");
+              }
+            });
+          }
+        }
+      }, // END defaultChecked
+
       selectAll: {
-            get: function () {
-                return this.selectsArray ? this.selected.length == this.selectsArray.length : false;
-            },
-            set: function (value) {
-                var selected = [];
+        get () {
+          return this.selected.length === this.selectsArray.length
+        },
+        set (value) {
+          this.selected = []
 
-                if (value) {
-                    this.selectsArray.forEach(function (select) {
-                        selected.push(select.id.toString());
-                    });
-                }
-
-                this.selected = selected;
-            }
-        }, // END selectAll
+          if (value) {
+            this.selectsArray.forEach((select) => {
+              this.selected.push(select.id)
+              var checkboxValues = this.selected;
+              console.log(checkboxValues + " = select all value");
+            })
+          }
+        }
+      }, // END selectAll
 
 
     }, // END computed
@@ -191,7 +213,7 @@ var todoStorage = {
 
      moveTab() {
       document.getElementById("contact-prefs-tab").classList.toggle("is-active");
-     },
+     }, // END moveTab
 
     }, // END methods
     destroyed() {
