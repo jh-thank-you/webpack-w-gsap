@@ -11,7 +11,11 @@
 
 		<modal-slideshow v-if="showModal" @close="showModal = false" :imageSrc="imagesource"></modal-slideshow>
 
-		<div id="section-content" class="grid-isotope justify-content handwritten">
+		<!-- 
+		have too research v-cloak more: 
+		https://stackoverflow.com/questions/34870926/v-cloak-does-not-work-in-vue-js 
+		-->
+		<div v-cloak id="section-content" class="grid-isotope justify-content handwritten">
 			<modal-button v-for="example in getExamples()" v-bind:key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access" @imageSelectChanged="imagesource = $event"></modal-button>
 		</div>
 
