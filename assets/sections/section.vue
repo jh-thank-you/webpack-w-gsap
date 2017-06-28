@@ -56,7 +56,7 @@
 			alt: '',
 			imagesource: '',
 			access: '',
-			// selected: [],
+			selected: [],
 			examples: currentExamples,
 			// checkedSector: [],
 
@@ -64,15 +64,18 @@
 	    }, // END data
 		created() {
 
+			eventBus.$emit('sendSelected')
+
 			eventBus.$on('modalVisibility', (showModal) => {
 			    this.showModal = showModal
 			    return this.showModal
 			})
 			eventBus.$on('selectedChanged', (selected) => {
 			    this.selected = selected
-			    
+
 			    console.log(selected + " = checkbox selected value passed to section.vue");
 			 })
+
 
 		}, // END created
 		computed: {

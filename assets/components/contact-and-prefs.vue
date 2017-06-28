@@ -152,6 +152,8 @@ var mySelectsStorage = {
     }, // END data
     created() {
 
+      eventBus.$on('sendSelected', this.emitSelected)
+
       eventBus.$on('tabVisibility', (tabHidden) => {
         
         var myClass = this.currentClass;
@@ -166,6 +168,11 @@ var mySelectsStorage = {
       }); // END eventBus
 
     }, // END created
+    mounted() {
+
+      mySelectsStorage.save(this.selected);
+
+    }, // END mounted
      computed: {
 
       defaultChecked: {
@@ -210,6 +217,11 @@ var mySelectsStorage = {
 
     }, // END computed
     methods: {
+
+    emitSelected() {
+        eventBus.$emit('selectedChanged', this.selected)
+        eventBus.$off('sendSelected', this.emitSelected) // after initally sending once the watcher will do the rest, so remove this listener for performance
+    }, // END emitSelected
 
      moveTab() {
       document.getElementById("contact-prefs-tab").classList.toggle("is-active");
