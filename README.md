@@ -89,6 +89,7 @@ Preference & Contact Tab:
 - Tab hides completely when slideshow modal is open.
 - Updated tab background image with repeating texture.
 - Select All and Default checkboxes are styled like buttons.
+- localStorage in place for cross page load persistence of the selected industries.
+- Filtering based on sector/selected idustry - big Thank you to Sven for his help with this.
 	- Todo:
-		- Create filtering.
-		- Create local storage to save filter settings across page loads.
+		- Add transition-group animations for the filtering
