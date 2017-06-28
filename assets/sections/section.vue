@@ -64,7 +64,7 @@
 	    }, // END data
 		created() {
 
-			eventBus.$emit('sendSelected')
+			console.log('im created')
 
 			eventBus.$on('modalVisibility', (showModal) => {
 			    this.showModal = showModal
@@ -86,6 +86,8 @@
 
 			// dynamically set which array is passed based on the Parent ID data
 		 	getExamples() {
+
+		 		eventBus.$emit('sendSelected') // get the current preferece form value from the contacts-and-prefs component
 				
 		 		var currentID = this.id;
 
@@ -229,8 +231,15 @@
 
 		    // Filter the results from the checkboxes
 		    filteredExamples(currentExamples) {
+		    	console.log(this.selected + " = filteredExamples - current selected industries form value");
 
-				return currentExamples;
+		    	return currentExamples.filter((sector) => { // loop over all items in currentExamples
+				    return sector.sector.some((el) => { // check every item in the 'sector' array
+				      return this.selected.indexOf(el) > -1 // check if it exists in this.selected
+				    })
+				 })
+
+				// return currentExamples;
 
 			}, // END filteredExamples
 
