@@ -75,7 +75,7 @@
 var STORAGE_KEY = 'myselects-vuejs-2.0'
 var mySelectsStorage = {
   fetch: function () {
-    var myselects = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+    var myselects = JSON.parse(localStorage.getItem(STORAGE_KEY) || '["beauty","branding","fashion","financial","fitness","healthcare","pharma","publicservice","sports","technology","tourism","transportation"]')
     // myselects.forEach(function (myselect, index) {
     //   // myselect.id = index
     // })
