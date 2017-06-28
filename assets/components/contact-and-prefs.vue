@@ -183,7 +183,7 @@ var mySelectsStorage = {
               if (select.default) {
                 this.selected.push(select.id)
                 var checkboxValues = this.selected;
-                // console.log(checkboxValues + " = default select value");
+                console.log(checkboxValues + " = default select value");
               }
             });
           }
@@ -201,7 +201,7 @@ var mySelectsStorage = {
             this.selectsArray.forEach((select) => {
               this.selected.push(select.id)
               var checkboxValues = this.selected;
-              // console.log(checkboxValues + " = select all value");
+              console.log(checkboxValues + " = select all value");
             })
           }
         }
@@ -221,6 +221,7 @@ var mySelectsStorage = {
       selected: {
         handler: function (myselects) {
           mySelectsStorage.save(myselects)
+          eventBus.$emit('selectedChanged', this.selected) // or eventBus.$emit('selectedChanged', myselects)
         },
         deep: true
       }
