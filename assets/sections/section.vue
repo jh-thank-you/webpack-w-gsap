@@ -230,6 +230,17 @@
 
 		    }, // END getExamples
 
+		    /* ****************************************************** 
+					A Big thank you to Sven for helping me with
+					the filter and eventBus communication.
+					https://github.com/svevil
+
+					To Everyone, he is Super nice! 
+					Super fast! and Super knowledgeable!
+
+						- P.S. Sven, I promise to learn Vuex!
+		    ******************************************************* */
+
 		    // Filter the results from the checkboxes
 		    filteredExamples(currentExamples) {
 		    	console.log(this.selected + " = filteredExamples - current selected industries form value");
