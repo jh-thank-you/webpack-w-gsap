@@ -87,6 +87,7 @@
 			// dynamically set which array is passed based on the Parent ID data
 		 	getExamples() {
 
+		 		console.log('getExamples called')
 		 		eventBus.$emit('sendSelected') // get the current preferece form value from the contacts-and-prefs component
 				
 		 		var currentID = this.id;

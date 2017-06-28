@@ -151,7 +151,8 @@ var mySelectsStorage = {
 
     }, // END data
     created() {
-
+      
+      console.log('created - contacts-and-prefs - eventBus $on sendSelected')
       eventBus.$on('sendSelected', this.emitSelected)
 
       eventBus.$on('tabVisibility', (tabHidden) => {
@@ -220,7 +221,8 @@ var mySelectsStorage = {
 
     emitSelected() {
         eventBus.$emit('selectedChanged', this.selected)
-        eventBus.$off('sendSelected', this.emitSelected) // after initally sending once the watcher will do the rest, so remove this listener for performance
+        // eventBus.$off('sendSelected', this.emitSelected) // after initally sending once the watcher will do the rest, so remove this listener for performance
+        console.log('this.selected data requested - emitSelected contacts-and-prefs')
     }, // END emitSelected
 
      moveTab() {
