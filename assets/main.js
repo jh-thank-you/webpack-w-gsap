@@ -66,6 +66,11 @@ window.addEventListener('load', function () {
   new Vue({
     el: '#app',
     components: { navCornerMenu, contactAndPrefs, modalPassword },
+    data() {
+      return {
+        debug: true,
+      };
+    },
     router: router,
   });
 });

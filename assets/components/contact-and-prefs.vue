@@ -152,7 +152,7 @@ var mySelectsStorage = {
     }, // END data
     created() {
       
-      console.log('created - contacts-and-prefs - eventBus $on sendSelected')
+     if (this.$root.debug) console.log('created - contacts-and-prefs - eventBus $on sendSelected')
       eventBus.$on('sendSelected', this.emitSelected)
 
       eventBus.$on('tabVisibility', (tabHidden) => {

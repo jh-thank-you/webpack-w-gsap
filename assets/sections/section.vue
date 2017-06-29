@@ -16,7 +16,9 @@
 		https://stackoverflow.com/questions/34870926/v-cloak-does-not-work-in-vue-js 
 		-->
 		<div v-cloak id="section-content" class="grid-isotope justify-content handwritten">
-			<modal-button v-for="example in getExamples()" v-bind:key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access" @imageSelectChanged="imagesource = $event"></modal-button>
+			<transition-group name="slideme">
+				<modal-button v-for="example in getExamples()" v-bind:key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access" @imageSelectChanged="imagesource = $event"></modal-button>
+			</transition-group>
 		</div>
 
 	</div>
@@ -37,7 +39,7 @@
 	export default {
 
 		// passing in ID data from nav-button to hero-image through vue-router 
-		// need to be passed here in the parent level vs at the hero-image child level
+		// needs to be passed here in the parent level vs at the hero-image child level
 		props: [ 'id' ],// END props
 		components: { 
 			buttonCloseSectionRaster, 
@@ -263,6 +265,88 @@
 
 
 <style scoped>
+
+	/* slideme in or out - modal-button */
+
+	.slideme-enter {
+		opacity: 0;
+		width: 0;
+		/* height: 0; */
+	}
+
+	.slideme-enter-active {
+		transition: all .35s ease-in;
+	}
+
+
+	@media all and (min-width: 801px) {
+		.slideme-enter-to {
+			/* Vue JS Default is opacity: 1; */
+			width: 32%;
+			/* height: 100%; */
+		}
+	}
+
+	@media all and (min-width: 501px) and (max-width: 800px) {
+	  .slideme-enter-to {
+			/* Vue JS Default is opacity: 1; */
+			width: 49%;
+			/* height: 100%; */
+		}
+	}
+
+	@media all and (max-width: 500px) {
+	  .slideme-enter-to {
+			/* Vue JS Default is opacity: 1; */
+			width: 100%;
+			/* height: 100%; */
+		}
+	}
+
+
+
+	@media all and (min-width: 801px) {
+		.slideme-leave {
+			/* Vue JS Default is opacity: 1; */
+			width: 32%;
+			/* height: 100%; */
+		}
+	}
+
+	@media all and (min-width: 501px) and (max-width: 800px) {
+	  .slideme-leave {
+			/* Vue JS Default is opacity: 1; */
+			width: 49%;
+			/* height: 100%; */
+		}
+	}
+
+	@media all and (max-width: 500px) {
+	  .slideme-leave {
+			/* Vue JS Default is opacity: 1; */
+			width: 100%;
+			/* height: 100%; */
+		}
+	}
+
+	.slideme-leave-active {
+		transition: all .35s ease-out;
+		/* position: absolute; */
+		/* would normally result in a smoother 
+		animation but div size os based on a 
+		percentage when position is absolute 
+		it scales too large */
+	}
+
+	.slideme-leave-to {
+		opacity: 0;
+		width: 0;
+		/* height: 0; */
+	}
+	
+	.slideme-move {
+		transition: transform .35s;
+	}
 
 
 </style>
