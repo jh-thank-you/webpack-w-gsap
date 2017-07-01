@@ -1,10 +1,3 @@
-// Import all your vendor libraries here/in your entry point JS file
-// Also, add any other needed JS files for your main entry point
-// Note you can make import statements at the top of each of your
-// JS files or Vue Modules - this helps you to see what dependencies
-// each file has. ** Note ** not just for JS files CSS, images, etc.
-//  Read each vendor's documentation on what the preferred import path is.
-
 var styles = require('css/global-style.css');
 
 import Vue from 'vue';

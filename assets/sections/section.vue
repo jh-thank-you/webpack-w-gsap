@@ -4,9 +4,7 @@
 	    
 	    <button-close-section-raster></button-close-section-raster>
 
-<!-- 	    <span>Checked Sectors: {{ checkedSector }}</span>
- -->		
-		<!-- id data is passed in by routes see notes below-->
+			<!-- id data is passed in by routes see notes below-->
 	    <hero-image :class="id"></hero-image>
 
 		<modal-slideshow v-if="showModal" @close="showModal = false" :imageSrc="imagesource"></modal-slideshow>

@@ -21,11 +21,6 @@
 
 			}
 		}, // END data  
-		methods: {
-
-	
-		}, // END methods
-
 
 	}; // END export default
 

@@ -35,8 +35,6 @@
 
               <div class="checkbox-wrap">
 
-              <!-- <span>Checked Sectors: {{ selected }}</span> -->
-
               <label :for="select.id" v-for="select in selectsArray" v-bind:key="select.id"><input :value="select.id" v-model="selected" :id="select.id" :sector="select.id" :class="select.class" :default="select.default" type="checkbox">{{ select.name }}</label>
               </div>
 

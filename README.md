@@ -93,3 +93,7 @@ Preference & Contact Tab:
 - Filtering based on sector/selected idustry - big Thank you to Sven for his help with this.
 	- Todo:
 		- Add transition-group animations for the filtering
+
+General Todo:
+- Add linting for Vue files.
+- Code Cleanup.

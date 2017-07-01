@@ -20,8 +20,6 @@
 
   import { eventBus } from 'assets/main.js';
 
-  // modal content is now imported and registered by the getModal() function within methods section below 
-
   export default {
 
     components: { 
@@ -30,8 +28,6 @@
     props: [ 'imageSrc' ],// END props
     data() {
       return { 
-
-        // isVisible: false, // return property for modal visibility 
 
       }; 
     }, // END data
@@ -59,7 +55,6 @@
       
       // turn off binding to prevent multiple instances
       this.$off('imageSelectChanged');
-      this.$off('tabVisibility');
 
     }, // END destroyed
     mounted() {
@@ -68,7 +63,7 @@
 
       // START GSAP Slideshow ====================================================
 
-      //First the variables our app is going to use need to be declared
+      // First the variables our app is going to use need to be declared
 
           //References to DOM elements
           var $window = $(window);
