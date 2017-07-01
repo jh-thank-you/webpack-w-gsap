@@ -1,0 +1,36 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww24420\viewh12400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 Latest Vue files Throw an Error "Failed to mount component: template or render function not defined."\
+
+\b0 \
+I narrowed it down to the package.json.\
+- I went through every component\'85 (from last working to new). Nothing made a difference.\
+- I updated everything to the latest version in the package.json.\
+- Then stepped back until the error went away...\
+- Something with the Vue files:\
+\
+"vue-loader": "^13.0.0", ------------------
+\b DOWNGRADED
+\b0 -->  "vue-loader": "^11.3.4", \
+"vue-router": "^2.7.0", --------------------
+\b DOWNGRADED
+\b0 -->  "vue-router": "^2.4.0",\
+"vue-template-compiler": "^2.3.4"," ---
+\b DOWNGRADED
+\b0 -->  vue-template-compiler": "^2.2.6",\
+\
+
+\b Current working setup is everything is updated to the latest except for the Vue files.\
+
+\b0 \
+If I narrow it down more I will let you know.\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen-Shot-2017-06-30-at-2.47.36-PM.png \width17480 \height11380
+}¬}}
