@@ -70,7 +70,7 @@
 
 					this.$emit('imageSelectChanged', this.imageSrc);
 
-					console.log(this.imageSrc + " = this.imageSrc - modal button clicked");
+					if (this.$root.debug) console.log(this.imageSrc + " = this.imageSrc - modal button clicked");
 
 				}
 
@@ -89,10 +89,7 @@
 		 destroyed() {
 	      
 	      // turn off binding to prevent multiple instances
-	      this.$off('tabVisibility');
-	      this.$off('modalVisibility');
 	      this.$off('imageSelectChanged');
-	      this.$off('passwordStatus');
 
 	    }, // END destroyed
 

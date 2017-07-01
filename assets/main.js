@@ -26,34 +26,6 @@ Vue.component('modalpassword', require('components/modal-password.vue'));
 
 export const eventBus = new Vue(); // END export eventBus
 
-// export const eventBus = new Vue({
-//   data: {
-
-//     eventHeroSrc: '',
-
-//   },// END data
-//   methods: {
-
-//     heroImageSource(herosource) {
-
-//       this.eventHeroSrc = herosource;
-
-//       // this.$emit('heroImageSelected', herosource);
-
-//       console.log(this.eventHeroSrc + ' = this.eventHeroSrc - eventBus main $emit');
-
-//       return this.eventHeroSrc;
-
-//     },
-
-//   }, // END methods
-
-// }); // END export eventBus
-
-// Setup some global objects/items that will persist across all new windows objects.
-// By doing this when you need to use the objects/items anywhere else in the Vue
-// project you will not need to make the import statement again. For Example:
-
 window.Vue = Vue;
 Vue.use(VueRouter);
 window.jquery = jquery;

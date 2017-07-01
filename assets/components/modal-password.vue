@@ -93,14 +93,14 @@
 				if (password == 'BigPharma') {
 
 					// then animate the modal
-					console.log('Correct password entered');
+					if (this.$root.debug) console.log('Correct password entered');
 					this.hideTab();
 					
 					this.password = '';
 					return this.password;
 
 				} else {
-					console.log('Wrong password entered');
+					if (this.$root.debug) console.log('Wrong password entered');
 
 						this.showMessage = true;
 
@@ -108,7 +108,7 @@
 
 						this.message = this.selectResponse[Math.floor(Math.random() * this.selectResponse.length)];
 
-						console.log(this.message + ' = currentResponse');
+						if (this.$root.debug) console.log(this.message + ' = currentResponse');
 						
 						return this.message, this.password, this.showMessage;
 

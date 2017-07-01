@@ -191,7 +191,7 @@ var mySelectsStorage = {
               if (select.default) {
                 this.selected.push(select.id)
                 var checkboxValues = this.selected;
-                console.log(checkboxValues + " = default select value");
+                if (this.$root.debug) console.log(checkboxValues + " = default select value");
               }
             });
           }
@@ -209,7 +209,7 @@ var mySelectsStorage = {
             this.selectsArray.forEach((select) => {
               this.selected.push(select.id)
               var checkboxValues = this.selected;
-              console.log(checkboxValues + " = select all value");
+              if (this.$root.debug) console.log(checkboxValues + " = select all value");
             })
           }
         }
@@ -222,7 +222,7 @@ var mySelectsStorage = {
     emitSelected() {
         eventBus.$emit('selectedChanged', this.selected)
         // eventBus.$off('sendSelected', this.emitSelected) // after initally sending once the watcher will do the rest, so remove this listener for performance
-        console.log('this.selected data requested - emitSelected contacts-and-prefs')
+        if (this.$root.debug) console.log('this.selected data requested - emitSelected contacts-and-prefs')
     }, // END emitSelected
 
      moveTab() {
@@ -237,14 +237,9 @@ var mySelectsStorage = {
           mySelectsStorage.save(myselects)
           eventBus.$emit('selectedChanged', this.selected) // or eventBus.$emit('selectedChanged', myselects)
         },
-        deep: true
+        deep: false, // this.selected is a normal array (not multi dimensional) so no need for deep: true
       }
-    },
-    destroyed() {
-        // turn off binding to prevent multiple instances
-        this.$off('tabVisibility');
-        
-    }, // END destroyed
+    }, // END watch
 
 	}; // END export default
 
@@ -303,15 +298,6 @@ var mySelectsStorage = {
     transition: all .35s ease-in-out;
   }
 
-/*
-   .updown-enter-to {
-    height: 65vh;
-  }
-
-  .updown-leave {
-    height: 65vh;
-  }
-*/
   .updown-leave-active {
     transition: all .35s ease-in-out;
   }
@@ -320,7 +306,6 @@ var mySelectsStorage = {
     height: 48px;
     max-height: 48px;
   }
-
 
       @media all and (max-width: 400px) {
         #contact-prefs-tab.is-active,

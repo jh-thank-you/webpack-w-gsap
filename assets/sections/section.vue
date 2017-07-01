@@ -66,7 +66,7 @@
 	    }, // END data
 		created() {
 
-			console.log('im created')
+			if (this.$root.debug) console.log('im created')
 
 			eventBus.$on('modalVisibility', (showModal) => {
 			    this.showModal = showModal
@@ -75,7 +75,7 @@
 			eventBus.$on('selectedChanged', (selected) => {
 			    this.selected = selected
 
-			    console.log(selected + " = checkbox selected value passed to section.vue");
+			    if (this.$root.debug) console.log(selected + " = checkbox selected value passed to section.vue");
 			 })
 
 
@@ -89,14 +89,14 @@
 			// dynamically set which array is passed based on the Parent ID data
 		 	getExamples() {
 
-		 		console.log('getExamples called')
+		 		if (this.$root.debug) console.log('getExamples called')
 		 		eventBus.$emit('sendSelected') // get the current preferece form value from the contacts-and-prefs component
 				
 		 		var currentID = this.id;
 
 				if (currentID == 'section-print') {
 
-					console.log( currentID + ' = currentID Print Examples');
+					if (this.$root.debug) console.log( currentID + ' = currentID Print Examples');
 
 					currentExamples = [ 
 
@@ -161,7 +161,7 @@
 
 				} else if (currentID == 'section-video') {
 
-					console.log( currentID + ' = currentID Video Examples');
+					if (this.$root.debug) console.log( currentID + ' = currentID Video Examples');
 
 					currentExamples =  [ 
 
@@ -171,7 +171,7 @@
 
 						{exampleid: 'modalPrintCreditSuisse', alt: 'Credit Suisse Video Campaign', client: 'Credit Suisse', sector: ['default', 'financial'], access: 'unlocked', },
 
-						{exampleid: 'modalPrintCreditSuisse', alt: 'CSFB Direct Video Campaign', client: 'CSFB Direct', sector: ['default', 'financial'], access: 'unlocked', },
+						{exampleid: 'modalPrintCSFBDirect', alt: 'CSFB Direct Video Campaign', client: 'CSFB Direct', sector: ['default', 'financial'], access: 'unlocked', },
 
 						{exampleid: 'modalPrintGinkoba', alt: 'Ginkoba Video Campaign', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked', },
 
@@ -184,7 +184,7 @@
 
 				} else if (currentID == 'section-outdoor') {
 
-					console.log( currentID + ' = currentID Outdoor Examples');
+					if (this.$root.debug) console.log( currentID + ' = currentID Outdoor Examples');
 
 					currentExamples =  [ 
 
@@ -205,7 +205,7 @@
 
 				} else if (currentID == 'section-online') {
 
-					console.log( currentID + ' = currentID Online Examples');
+					if (this.$root.debug) console.log( currentID + ' = currentID Online Examples');
 
 					currentExamples =  [ 
 
@@ -227,7 +227,7 @@
 					return this.filteredExamples(currentExamples);
 
 				} else {
-					console.log(this.id + ' - Error no data for examples in section.vue component');
+					if (this.$root.debug) console.log(this.id + ' - Error no data for examples in section.vue component');
 				}; // END If - Else Examples
 
 		    }, // END getExamples
@@ -245,7 +245,7 @@
 
 		    // Filter the results from the checkboxes
 		    filteredExamples(currentExamples) {
-		    	console.log(this.selected + " = filteredExamples - current selected industries form value");
+		    	if (this.$root.debug) console.log(this.selected + " = filteredExamples - current selected industries form value");
 
 		    	return currentExamples.filter((sector) => { // loop over all items in currentExamples
 				    return sector.sector.some((el) => { // check every item in the 'sector' array
