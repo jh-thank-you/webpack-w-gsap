@@ -8,6 +8,7 @@ Feel free to contact me anytime.
 (3 am can be tricky but you never know...)
 
 ======================================================
+
 **IMPORTANT**
 **Issue with latest Vue versions and Webpack**
 
