@@ -12,8 +12,10 @@ Feel free to contact me anytime.
 **IMPORTANT**
 **Issue with latest Vue versions and Webpack**
 
-"vue-loader": "^13.0.0",						---DOWNGRADED-->  "vue-loader": "^11.3.4", 
+"vue-loader": "^13.0.0",						---DOWNGRADED-->  "vue-loader": "^11.3.4",
+
 "vue-router": "^2.7.0",							---DOWNGRADED-->  "vue-router": "^2.4.0",
+
 "vue-template-compiler": "^2.3.4"," ---DOWNGRADED-->  vue-template-compiler": "^2.2.6",
 
 Current working setup is everything is updated to the latest except for the Vue files.
