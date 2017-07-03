@@ -7,19 +7,6 @@ Thanks for checking out my work.
 Feel free to contact me anytime.
 (3 am can be tricky but you never know...)
 
-======================================================
-
-**IMPORTANT**
-**Issue with latest Vue versions and Webpack**
-
-"vue-loader": "^13.0.0",						---DOWNGRADED-->  "vue-loader": "^11.3.4",
-
-"vue-router": "^2.7.0",							---DOWNGRADED-->  "vue-router": "^2.4.0",
-
-"vue-template-compiler": "^2.3.4"," ---DOWNGRADED-->  vue-template-compiler": "^2.2.6",
-
-Current working setup is everything is updated to the latest except for the Vue files.
-
 
 ======================================================
 
@@ -46,6 +33,7 @@ Only the following modals have slideshow images:
 In the (not so) early stages of setting up:
 
 **Webpack 2 config with various features, including:**
+- Updated Config 7/2/17 - running the latest versions of all packages.
 - Hot Module Reloading
 - Image/Fonts/etc. Processing
 - Path Aliases
