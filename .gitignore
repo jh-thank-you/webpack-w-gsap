@@ -93,3 +93,12 @@ npm-debug.log
 /webpack_port
 /webpack_livereload
 /localhost.*
+
+# ESlint #
+##########
+/tmp/**
+test.js
+webpack.config.js
+/webpack.config.js
+**/webpack.config.js
+

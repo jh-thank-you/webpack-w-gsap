@@ -24,34 +24,34 @@
 
 <script>
 
-  import navButtonSmall from 'components/nav-button-small.vue';
+import navButtonSmall from 'components/nav-button-small.vue';
 
-  export default {
+export default {
 
-    components: {
+  components: {
      
-      navButtonSmall,
+    navButtonSmall,
 
-    }, // END components
-    data() {
-      return {
+  }, // END components
+  data() {
+    return {
 
-        navigationButtons: [ 
+      navigationButtons: [ 
 
-          {id: 'nav-print-small', section: 'PRINT', },
-          {id: 'nav-video-small', section: 'VIDEO', },
-          {id: 'nav-outdoor-small', section: 'OUTDOOR', },
-          {id: 'nav-online-small', section: 'ONLINE', },
+        {id: 'nav-print-small', section: 'PRINT' },
+        {id: 'nav-video-small', section: 'VIDEO' },
+        {id: 'nav-outdoor-small', section: 'OUTDOOR' },
+        {id: 'nav-online-small', section: 'ONLINE' },
 
-        ], // END navButtons
+      ], // END navButtons
 
-        id: '',
-        section: '',
+      id: '',
+      section: '',
 
-      }; // END return
-    }, // END data
+    }; // END return
+  }, // END data
 
-  }; // END export default
+}; // END export default
 
 </script>
 

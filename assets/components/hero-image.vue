@@ -9,10 +9,10 @@
 </template>
 
 <script>
-  export default {
+export default {
 
 
-  }; // END export default
+}; // END export default
 
 </script>
 

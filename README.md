@@ -15,8 +15,8 @@ Feel free to contact me anytime.
 **Webpack Production build works.**
 
 - Added scripts to package.json: 
-	- "preinstall" script adds `.metadata_never_index` file to `node_modules` directory
-	- "build" script adds `.metadata_never_index` file to `dist` directory
+  - "preinstall" script adds `.metadata_never_index` file to `node_modules` directory
+  - "build" script adds `.metadata_never_index` file to `dist` directory
 
 ======================================================
 
@@ -51,7 +51,7 @@ GSAP Animation (only modal-slideshow has GSAP animations applied but not in a Vu
 
 Simplifying the Build:
 - Cleaning up the CSS
-	- Cleaned up CSS grid.
+  - Cleaned up CSS grid.
 - Cleaning up the HTML 
 
 Nav Buttons Component:
@@ -59,23 +59,23 @@ Nav Buttons Component:
 
 Nav Small Screen Menu:
 - Todo:
-	- Create small screen nav menu. **DONE**
-	- CSS style and set media queries. **DONE**
-	- Animation based on queries (from small screen nav to medium-up screen nav).
+  - Create small screen nav menu. **DONE**
+  - CSS style and set media queries. **DONE**
+  - Animation based on queries (from small screen nav to medium-up screen nav).
 
 Section and Hero Image Component:
 - Todo:
-	- Set corner nav button image as a full screen background image
-		- Maybe transition to a repeatable/small background texture.
-	- Set hero-image animated gif to fade out when buttons animate into frame.
-	- Animate modal-buttons in from bottom.
+  - Set corner nav button image as a full screen background image
+    - Maybe transition to a repeatable/small background texture.
+  - Set hero-image animated gif to fade out when buttons animate into frame.
+  - Animate modal-buttons in from bottom.
 
 Modal Password:
 - Added a modal to enter a password to view certain content
 - CSS styles, including media queries applied.
 - Todo:
-	- Add vue functionality for wrong password message. **DONE**
-	- Pass props to modal-slideshow when the correct password is entered.
+  - Add vue functionality for wrong password message. **DONE**
+  - Pass props to modal-slideshow when the correct password is entered.
 
 Modal Buttons Component:
 - Looking into options to load Modals via sub-routes
@@ -93,8 +93,8 @@ Preference & Contact Tab:
 - Select All and Default checkboxes are styled like buttons.
 - localStorage in place for cross page load persistence of the selected industries.
 - Filtering based on sector/selected idustry - big Thank you to Sven for his help with this.
-	- Todo:
-		- Add transition-group animations for the filtering
+  - Todo:
+    - Add transition-group animations for the filtering
 
 General Todo:
 - Add linting for Vue files.

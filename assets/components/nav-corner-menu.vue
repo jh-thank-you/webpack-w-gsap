@@ -1,54 +1,54 @@
 <template>
 
-	
-	<div>
-	
-		<nav-small-screen-menu></nav-small-screen-menu>
+  
+  <div>
+  
+    <nav-small-screen-menu></nav-small-screen-menu>
 
-		<nav class="corner-nav">
+    <nav class="corner-nav">
 
-			<nav-button v-for="navigationButton in navigationButtons" v-bind:key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button>
+      <nav-button v-for="navigationButton in navigationButtons" v-bind:key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button>
 
-		</nav>
+    </nav>
 
-	</div>
+  </div>
 
 </template>
 
 
 <script>
 
-	import navButton from 'components/nav-button.vue';
+import navButton from 'components/nav-button.vue';
 
-	import navSmallScreenMenu from 'components/nav-small-screen-menu.vue';
+import navSmallScreenMenu from 'components/nav-small-screen-menu.vue';
 
-	export default {
+export default {
 
-		components: {
-		 
-			navButton,
-			navSmallScreenMenu,
+  components: {
 
-		}, // END components
-		data() {
-			return {
+    navButton,
+    navSmallScreenMenu,
 
-				navigationButtons: [ 
+  }, // END components
+  data() {
+    return {
 
-					{id: 'nav-print', section: 'PRINT', },
-					{id: 'nav-video', section: 'VIDEO', },
-					{id: 'nav-outdoor', section: 'OUTDOOR', },
-					{id: 'nav-online', section: 'ONLINE', },
+      navigationButtons: [ 
 
-				], // END navButtons
+        {id: 'nav-print', section: 'PRINT' },
+        {id: 'nav-video', section: 'VIDEO' },
+        {id: 'nav-outdoor', section: 'OUTDOOR' },
+        {id: 'nav-online', section: 'ONLINE' },
 
-				id: '',
-				section: '',
+      ], // END navButtons
 
-			}; // END return
-		}, // END data
+      id: '',
+      section: '',
 
-	}; // END export default
+    }; // END return
+  }, // END data
+
+}; // END export default
 
 </script>
 
@@ -58,10 +58,10 @@
 
 #hero-wrap,
 .hero-image {
-	display: none;
-	background-image: none;
+  display: none;
+  background-image: none;
 }
-	
+  
 
 
 </style>

@@ -29,8 +29,8 @@ window.styles = styles;
 
 window.addEventListener('load', function () {
   new Vue({
-    el: '#app',
     components: { navCornerMenu, contactAndPrefs, modalPassword },
+    el: '#app',
     data() {
       return {
         debug: true,

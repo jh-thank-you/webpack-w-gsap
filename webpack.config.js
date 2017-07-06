@@ -177,14 +177,15 @@ module.exports = {
   plugins: plugins,
   module: {
     rules: [{
-      test: /\.js$/,
       enforce: 'pre', // with this eslint will not process files done by babel-loader
+      test: /\.(vue|js)$/, // /\.js$/,
       loader: 'eslint-loader',
       exclude: /node_modules/,
       options: {
         emitWarning: true,
         // community formatter
         formatter: require('eslint-friendly-formatter'),
+        // cache: DEVELOPMENT,        
         fix: true, // Set to true for eslint autofixing
         // quite: true, // Process report errors only and ignore warnings
       },

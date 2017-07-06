@@ -3,7 +3,7 @@
   <div>
 
   <transition name="fade">
-  <div v-if="showOverlay" @click="showOverlay = !showOverlay; moveTab();" id="modal-overlay"></div>
+  <div v-if="showOverlay" @click="showOverlay = !showOverlay, moveTab()" id="modal-overlay"></div>
   </transition>
 
    <transition name="updown"> 
@@ -11,7 +11,7 @@
 
       <div class="inner-tab-wrap"> <!-- START Inner Contact Pref Wrap -->
         
-        <div @click="showOverlay = !showOverlay; moveTab();" class="tab-title">
+        <div @click="showOverlay = !showOverlay, moveTab()" class="tab-title">
           <span class="tab-bkg"><h4 id="pref-contact-title" class="handwritten">Preferences / Contact</h4></span>
         </div>
 
@@ -66,180 +66,181 @@
 
 <script>
 
-  import { eventBus } from 'assets/main.js';
+import { eventBus } from 'assets/main.js';
 
 // https://codepen.io/jh-thank-you/pen/rwGOzZ
 // localStorage persistence
-var STORAGE_KEY = 'myselects-vuejs-2.0'
+var STORAGE_KEY = 'myselects-vuejs-2.0';
 var mySelectsStorage = {
   fetch: function () {
-    var myselects = JSON.parse(localStorage.getItem(STORAGE_KEY) || '["beauty","branding","fashion","financial","fitness","healthcare","pharma","publicservice","sports","technology","tourism","transportation"]')
+    var myselects = JSON.parse(localStorage.getItem(STORAGE_KEY) || '["beauty","branding","fashion","financial","fitness","healthcare","pharma","publicservice","sports","technology","tourism","transportation"]');
     // myselects.forEach(function (myselect, index) {
     //   // myselect.id = index
     // })
-    mySelectsStorage.uid = myselects.length
-    return myselects
+    mySelectsStorage.uid = myselects.length;
+    return myselects;
   },
   save: function (myselects) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(myselects))
-  }
-}
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(myselects));
+  },
+};
 
-	export default {
+export default {
 
-    // props: [ 'showModal' ], // END props
-    data() {
-      return {
+  // props: [ 'showModal' ], // END props
+  data() {
+    return {
 
-        showTab: true,
-        showOverlay: false,
-        tabHidden: false,
-        currentClass: '',
-        // selected: [], // using localStorage now
-        selected: mySelectsStorage.fetch(),
-        selectsArray: [ 
+      showTab: true,
+      showOverlay: false,
+      tabHidden: false,
+      currentClass: '',
+      // selected: [], // using localStorage now
+      selected: mySelectsStorage.fetch(),
+      selectsArray: [ 
 
-            {id: 'automotive', name: 'Automotive', class: 'industry', default: false},
+        {id: 'automotive', name: 'Automotive', class: 'industry', default: false},
 
-            {id: 'beauty', name: 'Beauty', class: 'industry', default: true},
+        {id: 'beauty', name: 'Beauty', class: 'industry', default: true},
 
-            {id: 'branding', name: 'Branding', class: 'industry', default: true},
+        {id: 'branding', name: 'Branding', class: 'industry', default: true},
 
-            {id: 'btob', name: 'B to B', class: 'industry', default: false},
+        {id: 'btob', name: 'B to B', class: 'industry', default: false},
 
-            {id: 'cleaning', name: 'Cleaning Services', class: 'industry', default: false},
+        {id: 'cleaning', name: 'Cleaning Services', class: 'industry', default: false},
 
-            {id: 'communication', name: 'Communication', class: 'industry', default: false},
+        {id: 'communication', name: 'Communication', class: 'industry', default: false},
 
-            {id: 'fashion', name: 'Fashion', class: 'industry', default: true},
+        {id: 'fashion', name: 'Fashion', class: 'industry', default: true},
 
-            {id: 'financial', name: 'Financial', class: 'industry', default: true},
+        {id: 'financial', name: 'Financial', class: 'industry', default: true},
 
-            {id: 'fitness', name: 'Fitness', class: 'industry', default: true},
+        {id: 'fitness', name: 'Fitness', class: 'industry', default: true},
 
-            {id: 'fragrance', name: 'Fragrance', class: 'industry', default: false},
+        {id: 'fragrance', name: 'Fragrance', class: 'industry', default: false},
 
-            {id: 'healthcare', name: 'Healthcare', class: 'industry', default: true},
+        {id: 'healthcare', name: 'Healthcare', class: 'industry', default: true},
 
-            {id: 'hotel', name: 'Hotel', class: 'industry', default: false},
+        {id: 'hotel', name: 'Hotel', class: 'industry', default: false},
 
-            {id: 'insurance', name: 'Insurance', class: 'industry', default: false},
+        {id: 'insurance', name: 'Insurance', class: 'industry', default: false},
 
-            {id: 'nutrition', name: 'Nutrition', class: 'industry', default: false},
+        {id: 'nutrition', name: 'Nutrition', class: 'industry', default: false},
 
-            {id: 'pharma', name: 'Pharma', class: 'industry', default: true},
+        {id: 'pharma', name: 'Pharma', class: 'industry', default: true},
 
-            {id: 'publicservice', name: 'P. S. A.', class: 'industry', default: true},
+        {id: 'publicservice', name: 'P. S. A.', class: 'industry', default: true},
 
-            {id: 'realestate', name: 'Real Estate', class: 'industry', default: false},
+        {id: 'realestate', name: 'Real Estate', class: 'industry', default: false},
 
-            {id: 'shipping', name: 'Shipping', class: 'industry', default: false},
+        {id: 'shipping', name: 'Shipping', class: 'industry', default: false},
 
-            {id: 'sports', name: 'Sports', class: 'industry', default: true},
+        {id: 'sports', name: 'Sports', class: 'industry', default: true},
 
-            {id: 'technology', name: 'Technology', class: 'industry', default: true},
+        {id: 'technology', name: 'Technology', class: 'industry', default: true},
 
-            {id: 'tourism', name: 'Tourism', class: 'industry', default: true},
+        {id: 'tourism', name: 'Tourism', class: 'industry', default: true},
 
-            {id: 'transportation', name: 'Transportation', class: 'industry', default: true},
+        {id: 'transportation', name: 'Transportation', class: 'industry', default: true},
 
-          ], // END selects
+      ], // END selects
 
-      } // END return
+    }; // END return
 
-    }, // END data
-    created() {
+  }, // END data
+  created() {
       
-     if (this.$root.debug) console.log('created - contacts-and-prefs - eventBus $on sendSelected')
-      eventBus.$on('sendSelected', this.emitSelected)
+    if (this.$root.debug) console.log('created - contacts-and-prefs - eventBus $on sendSelected');
+    eventBus.$on('sendSelected', this.emitSelected);
 
-      eventBus.$on('tabVisibility', (tabHidden) => {
-        
-        var myClass = this.currentClass;
+    eventBus.$on('tabVisibility', () => {
+      // eslint 'tabHidden' is defined but never used
+      // eventBus.$on('tabVisibility', (tabHidden) => {
 
-        if (myClass == 'is-hidden') {
-          this.currentClass = '';
-          return this.currentClass;
-        } else {
-          this.currentClass = 'is-hidden';
-          return this.currentClass;   
-        }
-      }); // END eventBus
+      var myClass = this.currentClass;
 
-    }, // END created
-    mounted() {
+      if (myClass == 'is-hidden') {
+        this.currentClass = '';
+        return this.currentClass;
+      } else {
+        this.currentClass = 'is-hidden';
+        return this.currentClass;   
+      }
+    }); // END eventBus
 
-      mySelectsStorage.save(this.selected);
+  }, // END created
+  mounted() {
 
-    }, // END mounted
-     computed: {
+    mySelectsStorage.save(this.selected);
 
-      defaultChecked: {
-        get () {
-          let defaults = this.selectsArray.filter(item => item.default).map(item => item.id)
-          const hasAllItems = (baseArr, haystack) => haystack.every(item => baseArr.includes(item))
-          const hasSameItems = (baseArr, haystack) => hasAllItems(baseArr, haystack) && hasAllItems(haystack, baseArr)
-          return hasSameItems(this.selected, defaults)
-        },
-        set (value) {
-          this.selected = []
+  }, // END mounted
+  computed: {
 
-          if (value) {
-            this.selectsArray.forEach((select) => {
-              if (select.default) {
-                this.selected.push(select.id)
-                var checkboxValues = this.selected;
-                if (this.$root.debug) console.log(checkboxValues + " = default select value");
-              }
-            });
-          }
-        }
-      }, // END defaultChecked
+    defaultChecked: {
+      get () {
+        let defaults = this.selectsArray.filter(item => item.default).map(item => item.id);
+        const hasAllItems = (baseArr, haystack) => haystack.every(item => baseArr.includes(item));
+        const hasSameItems = (baseArr, haystack) => hasAllItems(baseArr, haystack) && hasAllItems(haystack, baseArr);
+        return hasSameItems(this.selected, defaults);
+      },
+      set (value) {
+        this.selected = [];
 
-      selectAll: {
-        get () {
-          return this.selected.length === this.selectsArray.length
-        },
-        set (value) {
-          this.selected = []
-
-          if (value) {
-            this.selectsArray.forEach((select) => {
-              this.selected.push(select.id)
+        if (value) {
+          this.selectsArray.forEach((select) => {
+            if (select.default) {
+              this.selected.push(select.id);
               var checkboxValues = this.selected;
-              if (this.$root.debug) console.log(checkboxValues + " = select all value");
-            })
-          }
+              if (this.$root.debug) console.log(checkboxValues + ' = default select value');
+            }
+          });
         }
-      }, // END selectAll
+      },
+    }, // END defaultChecked
+
+    selectAll: {
+      get () {
+        return this.selected.length === this.selectsArray.length;
+      },
+      set (value) {
+        this.selected = [];
+
+        if (value) {
+          this.selectsArray.forEach((select) => {
+            this.selected.push(select.id);
+            var checkboxValues = this.selected;
+            if (this.$root.debug) console.log(checkboxValues + ' = select all value');
+          });
+        }
+      },
+    }, // END selectAll
 
 
-    }, // END computed
-    methods: {
+  }, // END computed
+  watch: {
+    selected: {
+      handler: function (myselects) {
+        mySelectsStorage.save(myselects);
+        eventBus.$emit('selectedChanged', this.selected); // or eventBus.$emit('selectedChanged', myselects)
+      },
+      deep: false, // this.selected is a normal array (not multi dimensional) so no need for deep: true
+    },
+  }, // END watch
+  methods: {
 
     emitSelected() {
-        eventBus.$emit('selectedChanged', this.selected)
-        // eventBus.$off('sendSelected', this.emitSelected) // after initally sending once the watcher will do the rest, so remove this listener for performance
-        if (this.$root.debug) console.log('this.selected data requested - emitSelected contacts-and-prefs')
+      eventBus.$emit('selectedChanged', this.selected);
+      // eventBus.$off('sendSelected', this.emitSelected) // after initally sending once the watcher will do the rest, so remove this listener for performance
+      if (this.$root.debug) console.log('this.selected data requested - emitSelected contacts-and-prefs');
     }, // END emitSelected
 
-     moveTab() {
-      document.getElementById("contact-prefs-tab").classList.toggle("is-active");
-     }, // END moveTab
+    moveTab() {
+      document.getElementById('contact-prefs-tab').classList.toggle('is-active');
+    }, // END moveTab
 
-    }, // END methods
-    // watch selected change for localStorage persistence
-    watch: {
-      selected: {
-        handler: function (myselects) {
-          mySelectsStorage.save(myselects)
-          eventBus.$emit('selectedChanged', this.selected) // or eventBus.$emit('selectedChanged', myselects)
-        },
-        deep: false, // this.selected is a normal array (not multi dimensional) so no need for deep: true
-      }
-    }, // END watch
-
-	}; // END export default
+  }, // END methods
+  // watch selected change for localStorage persistence
+}; // END export default
 
 </script>
 

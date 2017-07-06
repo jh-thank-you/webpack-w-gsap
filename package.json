@@ -15,7 +15,8 @@
     "preinstall": "mkdir node_modules && touch node_modules/.metadata_never_index",
     "build": "rimraf dist && mkdir dist && touch dist/.metadata_never_index && cross-env NODE_ENV=production webpack --env production --progress --hide-modules",
     "dev": "nodemon --watch webpack.config.js --watch dev-server.js --exec \"cross-env NODE_ENV=development node --max_old_space_size=2048 dev-server.js --env development\"",
-    "lint:js": "eslint src/ webpack.*.js --cache --ignore-path .gitignore file.js --format 'node_modules/eslint-friendly-formatter' -- --fix || true"
+    "lint:js": "eslint src/ webpack.*.js --cache --ignore-path .gitignore file.js --format 'node_modules/eslint-friendly-formatter' -- --fix || true",
+    "lint:vue": "eslint src/ webpack.*.js --ext=js,vue --cache --ignore-path .gitignore file.js --format 'node_modules/eslint-friendly-formatter' -- --fix || true"
   },
   "events": {
     "restart": "osascript -e 'display notification \"app restarted\" with title \"nodemon\"'"
@@ -41,6 +42,7 @@
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.8.0",
     "eslint-plugin-html": "^3.0.0",
+    "eslint-plugin-vue": "^3.5.0",
     "extract-text-webpack-plugin": "^2.1.2",
     "favicons-webpack-plugin": "0.0.7",
     "file-loader": "^0.11.2",

@@ -1,19 +1,19 @@
 <template>
 
-		<name-title-tag></name-title-tag>
-		
+    <name-title-tag></name-title-tag>
+    
 </template>
 
 
 <script>
 
-	import nameTitleTag from 'components/name-title-tag.vue';
+import nameTitleTag from 'components/name-title-tag.vue';
 
-	export default {
+export default {
 
-		components: { nameTitleTag }, // END components
+  components: { nameTitleTag }, // END components
 
-	}; // END export default
+}; // END export default
 
 </script>
 

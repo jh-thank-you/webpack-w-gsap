@@ -1,26 +1,26 @@
 <template>
     
-	<router-link v-bind:to="'/' + section">
-			<div :id="id" class="handwritten media-title"><p>{{ section }}</p></div>
-	</router-link>
+  <router-link v-bind:to="'/' + section">
+      <div :id="id" class="handwritten media-title"><p>{{ section }}</p></div>
+  </router-link>
 
 </template>
 
 
 <script>
 
-	import { eventBus } from 'assets/main.js';
+// import { eventBus } from 'assets/main.js';
 
-	export default {
+export default {
 
-		props: [ 'id', 'section', ], // END props
-		data() {
-			return {
+  props: [ 'id', 'section' ], // END props
+  data() {
+    return {
 
-			}
-		}, // END data  
+    };
+  }, // END data  
 
-	}; // END export default
+}; // END export default
 
 </script>
 

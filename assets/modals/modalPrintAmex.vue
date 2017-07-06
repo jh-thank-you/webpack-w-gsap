@@ -51,17 +51,17 @@
 
 
 <script>
-  export default {
+export default {
 
-    methods: {
+  methods: {
 
 
-    }, // END methods
-    mounted() {
+  }, // END methods
+  mounted() {
 
-    }, // END mounted
+  }, // END mounted
 
-  }; // END export default
+}; // END export default
 
 </script>
 
