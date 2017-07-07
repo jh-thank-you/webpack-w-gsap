@@ -28,7 +28,7 @@ export default {
   props: [ 'imageSrc' ],// END props
   data() {
     return { 
-      myModal: '',
+
     }; 
   }, // END data
   created() {
@@ -38,24 +38,12 @@ export default {
 
     if (this.$root.debug) console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created');
 
-    // not needed with a local $emit and $on 
-    // the prop is passed through components 
-    // this.$on('imageSelectChanged', (imagesource) => {
-    //   this.imageSrc = imagesource;
-
-    //   if (this.$root.debug) console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created');
-
-    //   return this.imageSrc;
-    // });
-
   }, // END created
   methods: {
     
     getModal() {
 
       return require('assets/modals/' + this.imageSrc + '.vue');
-
-      return 'assets/modals/' + this.imageSrc + '.vue';
 
     }, // END getModal
 
@@ -65,12 +53,6 @@ export default {
     }, // END hideTab
 
   }, // END methods
-  destroyed() {
-      
-    // turn off binding to prevent multiple instances
-    this.$off('imageSelectChanged');
-
-  }, // END destroyed
   mounted() {
 
     // Using jquery for now

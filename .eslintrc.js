@@ -71,7 +71,7 @@ module.exports = {
     semi: ['error', 'always'],
     'no-unused-vars': ['warn'],
     'no-console': 0,
-    'no-unreachable': 0,
+    // 'no-unreachable': 0,
     'vue/order-in-components': [2, {
       order: [
         ['name', 'delimiters', 'functional', 'model'],

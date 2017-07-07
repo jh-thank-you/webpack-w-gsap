@@ -79,7 +79,7 @@ export default {
 
     getPic() {
       /* return */ // require('assets/img/' + this.id + '1a-sm.png');
-      return 'assets/img/' + this.id + '1a-sm.png';
+      return 'assets/img/' + this.id + '1a-sm.gif';
     }, // END getPic
 
   }, // END methods

@@ -28,6 +28,44 @@ html {
 
 
 
+/* **************************************************************************************************************** I
+
+  IMPORTANT! Chrome has rendering issues with Opacity Transition an Vue-Router
+  https://webdesign.tutsplus.com/tutorials/css3-animations-the-hiccups-and-bugs-youll-want-to-avoid--webdesign-4867
+  https://stackoverflow.com/questions/3461441/prevent-flicker-on-webkit-transition-of-webkit-transform
+  The rule:
+
+  **************************************************************************************************************** */
+
+/*
+-webkit-backface-visibility: hidden;
+will not work for sprites or image backgrounds.
+
+body {-webkit-transform:translate3d(0,0,0);}
+screws up backgrounds that are tiled.
+
+I prefer to make a class called no-flick and do this:
+
+.no-flick{-webkit-transform:translate3d(0,0,0);}
+
+*/
+
+/* IMPORTANT!!! - mix-blend-mode: multiply; causes render issues */
+
+/* this fixes the flicker issue but it messes with the z-idex of the elements */
+
+.no-flick {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    transform: translateZ(0);
+    will-change: transform;
+    font-smoothing: antialiased !important;
+}
+
+
+
+
+
 /* ***************************************** */
 /* *************** Font Stack ************** */
 /* ***************************************** */
@@ -139,7 +177,7 @@ a:focus {
 }
 
 .media-title {
-  mix-blend-mode: multiply;
+  /* mix-blend-mode: multiply; */
 }
 
 #nav-print {
@@ -883,7 +921,7 @@ a #contact-prefs:hover {
 
 #contact-prefs-tab p.note {
   font-size: .75em;
-  padding: 10px 0 10px 0;
+  padding: 10px 0 4px 0;
 }
 
       @media all and (max-width: 400px) {
@@ -1034,6 +1072,9 @@ a #contact-prefs:hover {
                   padding: 0;
                 }
                 #contact-prefs-tab h4 {
+                  margin: 22px 0 20px 0;
+                }
+                 #industry-settings h4 {
                   margin: 10px 0 20px 0;
                 }
               }
@@ -1086,6 +1127,7 @@ a #contact-prefs:hover {
 }
 */
 
+/*
 .section-print {
   position: fixed;
   width: 100%;
@@ -1095,11 +1137,28 @@ a #contact-prefs:hover {
   margin-top: 0;
   margin-bottom: 0;
   background:
-  radial-gradient(ellipse at center, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 66%,rgba(0,0,0,0.08) 99%,rgba(0,0,0,0.08) 100%),
+  radial-gradient(ellipse at center, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 66%,rgba(0,0,0,0.58) 99%,rgba(0,0,0,0.58) 100%),
   url('~img/seamless-marker-pad.jpg');
   background-size: 100%, 400px;
   background-repeat: no-repeat, repeat;
   background-position: center center;
+}
+*/
+
+.section-print {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin-top: 0;
+  margin-bottom: 0;
+  background:
+  url('~img/seamless-marker-pad.jpg');
+  background-size: 400px;
+  background-repeat: repeat;
+  background-position: center center;
+  box-shadow: 0 0 20vw rgba(0,0,0,0.6) inset;
 }
 
 .section-print > .current-animation {
@@ -1113,7 +1172,8 @@ a #contact-prefs:hover {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  mix-blend-mode: multiply;
+  /* background-blend-mode: multiply; */
+  /* mix-blend-mode: multiply; */
   opacity: .70;
   overflow: visible;
 }
@@ -1137,11 +1197,11 @@ a #contact-prefs:hover {
   margin-top: 0;
   margin-bottom: 0;
   background:
-  radial-gradient(ellipse at center, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 66%,rgba(0,0,0,0.08) 99%,rgba(0,0,0,0.08) 100%),
   url('~img/seamless-diagnal-pattern.jpg');
-  background-size: 100%, 300px;
-  background-repeat: no-repeat, repeat;
+  background-size: 300px;
+  background-repeat: repeat;
   background-position: center center;
+  box-shadow: 0 0 20vw rgba(0,0,0,0.6) inset;
 }
 
 .section-video > .current-animation {
@@ -1152,7 +1212,8 @@ a #contact-prefs:hover {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  mix-blend-mode: multiply;
+  /* background-blend-mode: multiply; */
+  /* mix-blend-mode: multiply; */
   opacity: .70;
 }
 
@@ -1174,11 +1235,11 @@ a #contact-prefs:hover {
   margin-top: 0;
   margin-bottom: 0;
   background:
-  radial-gradient(ellipse at center, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 66%,rgba(0,0,0,0.08) 99%,rgba(0,0,0,0.08) 100%),
   url('~img/seamless-napkin-pattern.jpg');
-  background-size: 100%, 75px;
-  background-repeat: no-repeat, repeat;
+  background-size: 75px;
+  background-repeat: repeat;
   background-position: center center;
+  box-shadow: 0 0 20vw rgba(0,0,0,0.6) inset;
 }
 
 .section-outdoor > .current-animation {
@@ -1189,7 +1250,8 @@ a #contact-prefs:hover {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  mix-blend-mode: multiply;
+  /* background-blend-mode: multiply; */
+  /* mix-blend-mode: multiply; */
   opacity: .70;
 }
 
@@ -1211,11 +1273,11 @@ a #contact-prefs:hover {
   margin-top: 0;
   margin-bottom: 0;
   background:
-  radial-gradient(ellipse at center, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 66%,rgba(0,0,0,0.08) 99%,rgba(0,0,0,0.08) 100%),
   url('~img/seamless-graph-paper-pattern.jpg');
-  background-size: 100%, 20px;
-  background-repeat: no-repeat, repeat;
+  background-size: 20px;
+  background-repeat: repeat;
   background-position: center center;
+  box-shadow: 0 0 20vw rgba(0,0,0,0.6) inset;
 }
 
 .section-online > .current-animation {
@@ -1226,7 +1288,8 @@ a #contact-prefs:hover {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  mix-blend-mode: multiply;
+  /* background-blend-mode: multiply; */
+  /* mix-blend-mode: multiply; */
   opacity: .70;
 }
 
@@ -1243,7 +1306,7 @@ a #contact-prefs:hover {
   position: relative;
   cursor: pointer;
   max-width: 1150px;
-  mix-blend-mode: multiply;
+  /* mix-blend-mode: multiply; */
 }
 
 .inner-frame-3 {
@@ -1697,6 +1760,7 @@ a {
     position: relative;
     top: 0;
     cursor: pointer;
+    font-family: monospace;
     font-weight: normal;
     text-align: center;
     border: 1px solid #114469;
@@ -1725,7 +1789,7 @@ a {
           height: 15px;
       }
       .modalNav a {
-          padding: 0px 7px;
+          padding: 0px 4px;
           font-size: 14px;
         }
       }
@@ -1744,7 +1808,7 @@ a {
           height: 20px;
       }
       .modalNav a {
-          padding: 0px 9px;
+          padding: 0px 5px;
           font-size: 18px;
         }
       }
@@ -2008,6 +2072,39 @@ a {
 /* *********************************************** */
 /*               nav-button-print.vue              */
 /* *********************************************** */ 
+
+
+
+
+/* *********************************************** */
+/*                vue  transitions                 */
+/* *********************************************** */ 
+
+  /* fade in or out overlay */
+
+  .fade-enter {
+    opacity: 0;
+  }
+
+  .fade-enter-active {
+    transition: opacity .35s ease;
+  }
+
+  .fade-enter-to {
+    /* Vue JS Default is opacity: 1; */
+  }
+
+  .fade-leave {
+    /* Vue JS Default is opacity: 1; */
+  }
+
+  .fade-leave-active {
+    transition: opacity .35s ease;
+  }
+
+  .fade-leave-to {
+    opacity: 0;
+  }
 
 
 

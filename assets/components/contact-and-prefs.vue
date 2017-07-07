@@ -48,8 +48,24 @@
           </div>
 
           <div class="form-section">
-            <legend><h4 class="handwritten">Thank You GreenSock Team!</h4></legend>
-            <p>To say you ROCK!!! would be selling you short. Thanks again gents for all your help.<a href="https://greensock.com/" target="_blank"> GreenSock.com</a></p>
+            <legend><h4 class="handwritten">Thanks GreenSock Team!</h4></legend>
+            <p>To say you ROCK!!! would be selling you short. Thanks again gents for all your help. An extra shout-out to Blake and Dipscom!<a href="https://greensock.com/" target="_blank"> GreenSock.com</a></p>
+          </div>
+
+          <div class="form-section">
+            <legend><h4 class="handwritten">Thanks Sven Vilters!</h4></legend>
+            <p>I can't thank you enough for all your time, patience and guidance.<a href="https://github.com/svevil" target="_blank"> GitHub &#124; Sven Vilters</a></p>
+          </div>
+
+          <div class="form-section">
+            <legend><h4 class="handwritten">Thanks Juho Vepsalainen!</h4></legend>
+            <p>Your kindness and willingness to help others is only surpassed by your webpack knowledge. Thanks again for sharing your webpack book with the community.</p><br>
+            <p>Show your support, buy his book (even though he gives all the content away for free on his site!).<a href="https://survivejs.com/webpack/" target="_blank"> SurviveJs &#124; Webpack from Apprentice to Master</a></p>
+          </div>
+
+          <div class="form-section">
+            <legend><h4 class="handwritten">Thanks Gitter Vue Community!</h4></legend>
+            <p>An extra thank you to everyone who took the time to answer my questions.<a href="https://gitter.im/vuejs/vue" target="_blank"> GITTER &#124; Vue</a></p>
           </div>
 
           <div class="end-spacer"><!-- Empty Spacer Div for Scroll --></div>
