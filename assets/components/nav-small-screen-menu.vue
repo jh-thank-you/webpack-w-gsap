@@ -11,7 +11,7 @@
       <div class="inner-wrap">
         <div class="small-nav-top-spacer"></div>
 
-        <nav-button-small v-for="navigationButton in navigationButtons" v-bind:key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button-small>
+        <nav-button-small v-for="navigationButton in navigationButtons" :key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button-small>
 
         <div class="small-nav-bottom-spacer"></div>
       </div>

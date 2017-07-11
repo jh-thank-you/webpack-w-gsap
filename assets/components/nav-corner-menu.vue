@@ -8,7 +8,7 @@
     </transition>
 
     <nav class="corner-nav">
-      <nav-button v-for="navigationButton in navigationButtons" v-bind:key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button>
+      <nav-button v-for="navigationButton in navigationButtons" :key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button>
     </nav>
 
   </div>
@@ -131,7 +131,7 @@ export default {
 
 .fade-sm-nav-enter-active {
   transition: all .35s ease;
-  animation: sendin .35s ease-out forwards;
+  animation: send-in .35s ease-out forwards;
 }
 
 .fade-sm-nav-enter-to {
@@ -144,7 +144,7 @@ export default {
 
 .fade-sm-nav-leave-active {
   transition: all .35s ease;
-  animation: sendout .35s ease-out forwards;
+  animation: send-out .35s ease-out forwards;
 }
 
 .fade-sm-nav-leave-to {
@@ -152,7 +152,7 @@ export default {
   /* transform: scale(0.5,0.5); */
 }
 
-@keyframes sendin {
+@keyframes send-in {
     0% {
         transform: scale(1.1);
     }
@@ -167,7 +167,7 @@ export default {
     }
 }
 
-@keyframes sendout {
+@keyframes send-out {
     0% {
         transform: scale(1);
     }

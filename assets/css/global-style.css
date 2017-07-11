@@ -1121,9 +1121,12 @@ a #contact-prefs:hover {
 
 
 /* *********************************************** */
-/*                hero-image.vue                   */
+/*           section.vue | hero-image.vue          */
 /* *********************************************** */
 
+.current-animation {
+  opacity: .7;
+}
 
 .sprite-section-print-wrap,
 .sprite-section-video-wrap,
@@ -1142,10 +1145,10 @@ a #contact-prefs:hover {
 }
 
 @media all and (max-height: 500px) {
-.sprite-section-print-wrap,
-.sprite-section-video-wrap,
-.sprite-section-outdoor-wrap,
-.sprite-section-online-wrap {
+  .sprite-section-print-wrap,
+  .sprite-section-video-wrap,
+  .sprite-section-outdoor-wrap,
+  .sprite-section-online-wrap {
     width: 75vh;
     height: 75vh;
   }
@@ -1168,7 +1171,7 @@ a #contact-prefs:hover {
   #section-video,
   #section-outdoor,
   #section-online {
-  box-shadow: 0 0 20vh rgba(0,0,0,0.6) inset;
+    box-shadow: 0 0 20vh rgba(0,0,0,0.6) inset;
   }
 }
 
@@ -1177,12 +1180,9 @@ a #contact-prefs:hover {
   #section-video,
   #section-outdoor,
   #section-online {
-  box-shadow: 0 0 30vh rgba(0,0,0,0.6) inset;
+    box-shadow: 0 0 30vh rgba(0,0,0,0.6) inset;
   }
 }
-
-
-
 
 #section-print {
   background: url('~img/seamless-marker-pad.jpg');
@@ -1275,6 +1275,37 @@ a #contact-prefs:hover {
   background-size: contain;
 }
 */
+
+.skip {
+  position: fixed;
+  opacity: .5;
+  width: 70px;
+  height: 45px;
+  bottom: 0;
+  left: 50%;
+  z-index: 200;
+  cursor: pointer;
+  transform: translate(-50%, 0);
+}
+
+.skip > p {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 0 auto;
+  padding-top: 10%;
+}
+
+
+.skip:hover,
+.skip:focus,
+.skip:active {
+  opacity: 1;
+  background-image: url('~img/line-triangle.gif');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+}
 
 
 

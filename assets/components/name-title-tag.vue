@@ -63,7 +63,7 @@ export default {
 
 .fade-title-enter-active {
   /* transition: all 1s ease; */
-  animation: bringin 1s ease-out forwards;
+  animation: title-in 1s ease-out forwards;
 }
 
 .fade-title-enter-to {
@@ -76,7 +76,7 @@ export default {
 
 .fade-title-leave-active {
   /* transition: all 1s ease; */
-  animation: bringout 1s ease-out forwards;
+  animation: title-out 1s ease-out forwards;
 }
 
 .fade-title-leave-to {
@@ -84,7 +84,7 @@ export default {
   /* transform: scale(0.5,0.5); */
 }
 
-@keyframes bringin {
+@keyframes title-in {
     0% {
         opacity: 0;
     }
@@ -99,7 +99,7 @@ export default {
     }
 }
 
-@keyframes bringout {
+@keyframes title-out {
     0% {
         opacity: 1;
     }

@@ -35,7 +35,7 @@
 
               <div class="checkbox-wrap">
 
-              <label :for="select.id" v-for="select in selectsArray" v-bind:key="select.id"><input :value="select.id" v-model="selected" :id="select.id" :sector="select.id" :class="select.class" :default="select.default" type="checkbox">{{ select.name }}</label>
+              <label :for="select.id" v-for="select in selectsArray" :key="select.id"><input :value="select.id" v-model="selected" :id="select.id" :sector="select.id" :class="select.class" :default="select.default" type="checkbox">{{ select.name }}</label>
               </div>
 
             </fieldset>
@@ -59,8 +59,7 @@
 
           <div class="form-section">
             <legend><h4 class="handwritten">Thanks Juho Vepsalainen!</h4></legend>
-            <p>Your kindness and willingness to help others is only surpassed by your webpack knowledge. Thanks again for sharing your webpack book with the community.</p><br>
-            <p>Show your support, buy his book (even though he gives all the content away for free on his site!).<a href="https://survivejs.com/webpack/" target="_blank"> SurviveJs &#124; Webpack from Apprentice to Master</a></p>
+            <p>Your kindness and willingness to help others is only surpassed by your webpack knowledge. Thanks again for sharing your webpack book with the community.<a href="https://survivejs.com/webpack/" target="_blank"> SurviveJs &#124; Webpack from Apprentice to Master</a></p>
           </div>
 
           <div class="form-section">
@@ -262,18 +261,16 @@ export default {
 
 
 <style scoped>
-    #contact-prefs-tab {
-        height: 48px;
-        transition: height 500ms ease-in-out;
-    }
-/*
-    #contact-prefs-tab.is-active {
-        height: 65vh;
-    }
-*/
-     #contact-prefs-tab.is-hidden {
-        height: 0;
-    }
+
+  #contact-prefs-tab {
+    height: 48px;
+    transition: height 500ms ease-in-out;
+  }
+
+
+  #contact-prefs-tab.is-hidden {
+    height: 0;
+  }
 
 /* fade in or out overlay */
 

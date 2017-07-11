@@ -1,6 +1,6 @@
 <template>
 
-  <router-link v-bind:to="'/' + section">
+  <router-link :to="'/' + section">
       <div :id="id" class="handwritten media-title"><p>{{ section }}</p></div>
   </router-link>
 

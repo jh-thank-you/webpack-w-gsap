@@ -4,12 +4,12 @@
 
       <button-close-section-raster></button-close-section-raster>
 
-      <transition name="fade-hero">
+      <!-- See notes in CSS about CSS transition listeners -->
+      <transition name="fade-hero" @after-enter="heroVisibility = false">
         <div v-if="sectionActive" :class="'sprite-' + this.id +'-wrap'">
 
-            <span :class="currentSpriteImage()"></span>
-
-            <div type="button" class="skip handwritten"><p>skip</p></div>
+            <span v-if="heroVisibility" :class="currentSpriteImage()" class="current-animation"></span>
+            <div v-if="heroVisibility" type="button" class="skip handwritten"><p>skip</p></div>
 
         </div>
       </transition>
@@ -22,10 +22,10 @@
     https://stackoverflow.com/questions/34870926/v-cloak-does-not-work-in-vue-js
     -->
     <transition name="slide-up">
-      <div v-cloak v-if="sectionActive" v-bind:key="this.id" id="section-content" class="justify-content handwritten">
+      <div v-cloak v-if="sectionActive" :key="this.id" id="section-content" class="justify-content handwritten">
         <div class="section-content-inner-wrap">
-          <transition-group name="slideme">
-            <modal-button v-for="example in getExamples()" v-bind:key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access" @imageSelectChanged="imagesource = $event"></modal-button>
+          <transition-group name="slideme" mode="out-in">
+            <modal-button v-for="example in getExamples()" :key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access" @imageSelectChanged="imagesource = $event"></modal-button>
           </transition-group>
         </div>
       </div>
@@ -62,18 +62,19 @@ export default {
   data() {
     return {
 
-      showModal:     false,
-      exampleid:     '',
-      client:        '',
-      sector:        '',
-      alt:           '',
-      imagesource:   '',
-      access:        '',
-      selected:      [],
-      examples:      currentExamples,
-      sectionActive: false,
-      sectionStyles: '',
-      currentSprite: '',
+      showModal:      false,
+      exampleid:      '',
+      client:         '',
+      sector:         '',
+      alt:            '',
+      imagesource:    '',
+      access:         '',
+      selected:       [],
+      examples:       currentExamples,
+      sectionActive:  false,
+      sectionStyles:  '',
+      currentSprite:  '',
+      heroVisibility: true,
       // checkedSector: [],
 
     };
@@ -96,11 +97,11 @@ export default {
   }, // END created
   mounted() {
 
-    if (this.$root.debug) { console.log(this.sectionActive + ' = this.sectionActive calue before call'); }
+    if (this.$root.debug) { console.log(this.sectionActive + ' = this.sectionActive value before call'); }
 
     this.sectionIsActive();
 
-    if (this.$root.debug) { console.log(this.sectionActive + ' = this.sectionActive calue after call'); }
+    if (this.$root.debug) { console.log(this.sectionActive + ' = this.sectionActive value after call'); }
 
 
     let sectionStyles = require('assets/img/sprite-' + this.id + '/sprite-' + this.id + '.css');
@@ -277,7 +278,7 @@ export default {
           Super fast! and Super knowledgeable!
 
             - P.S. Sven, I promise to learn Vuex!
-             ******************************************************* */
+     ******************************************************* */
 
     // Filter the results from the checkboxes
     filteredExamples(currentExamples) {
@@ -454,88 +455,77 @@ export default {
 /* fade hero image in sync with slide up all modal-butons */
 
 .fade-hero-enter {
-  opacity: .7;
+  opacity: 1;
 }
 
 .fade-hero-enter-active {
-  transition: opacity 7s ease;
-  animation: heroin 7s ease-out forwards;
+  transition: opacity .35s ease;
+  animation: hero-in 7s ease-out forwards;
 }
 
 .fade-hero-enter-to {
-  opacity: 0 !important;
+  opacity: 1;
 }
 
 .fade-hero-leave {
-  opacity: 0 !important;
+  opacity: 1;
 }
 
 .fade-hero-leave-active {
   transition: opacity .35s ease;
-  animation: heroout .35s ease-out forwards;
+  animation: hero-out .35s ease-out forwards;
 
 }
 
 .fade-hero-leave-to {
-  opacity: 0 !important;
+  opacity: 0;
 }
 
-@keyframes heroin {
+@keyframes hero-in {
     0% {
-        opacity: .7;
+        opacity: 1;
     }
     33% {
-        opacity: .7;
+        opacity: 1;
     }
     90% {
-        opacity: .7;
+        opacity: 1;
     }
     100% {
-        opacity: 0 !important;
+        opacity: 0;
     }
 }
 
-@keyframes heroout {
+
+/* ********** Timing issue with with hero animation **********
+
+    Since the transitions for the hero image are only
+    triggered once, in the vue-mount this.sectionIsActive(),
+    the second half of the transitions are not triggered.
+    Only the:
+      enter | enter-active | enter-to
+    classes are used.
+
+    This in turn means only the enter Javascript
+    hooks are used. This means any listeners need to
+    be on the enter hooks:
+    @before-enter | @enter | @after-enter | @enter-canceled
+
+************************************************************ */
+@keyframes hero-out {
     0% {
-        opacity: 0 !important;
+        opacity: 0;
     }
     33% {
-        opacity: 0 !important;
+        opacity: 0;
     }
     66% {
-        opacity: 0 !important;
+        opacity: 0;
     }
     100% {
-        opacity: 0 !important;
+        opacity: 0;
     }
 }
 
-.skip {
-  position: fixed;
-  opacity: 1;
-  width: 65px;
-  height: 35px;
-  bottom: 0;
-  left: 50%;
-  z-index: 200;
-  cursor: pointer;
-  transform: translate(-50%, 0);
-}
 
-.skip > p {
-  width: 100%;
-  text-align: center;
-  margin: 0 auto;
-  padding-top: 14%;
-}
-
-
-.skip:hover,
-.skip:focus,
-.skip:active {
-  background-image: url('~img/line-circle.gif');
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: 100% 100%;
-}
 </style>
