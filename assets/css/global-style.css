@@ -512,8 +512,8 @@ a:focus {
   overflow: visible;
   background-image: url('~img/line-video.gif');
   background-repeat: no-repeat;
-  background-position: 49.5% 70%;
-  background-size: 88px 30px;
+  background-position: 50% 70%;
+  background-size: 82px 30px;
 }
 
 #nav-outdoor-small:hover,
