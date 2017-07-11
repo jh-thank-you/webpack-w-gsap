@@ -63,13 +63,18 @@ Nav Small Screen Menu:
 Todo:
 - Create small screen nav menu. **DONE**
 - CSS style and set media queries. **DONE**
-- Animate in or out based on queries (from small screen nav to medium-up screen nav).
+- Animate in or out based on queries (from small screen nav to medium-up screen nav). **DONE**
 
 Section and Hero Image Component:
 - Todo:
   - repeatable/small background texture for the each section. **DONE**
-  - Set hero-image animated gif to fade out when buttons animate into frame.
-  - Animate modal-buttons in from bottom.
+  - Set hero-image animated gif to fade out when buttons animate into frame. **DONE**
+    - Note: hero animations are now sprite sheets (maybe do something with more control through GSAP).
+    - Research why there is a slight giggle when sprite sheet animates, it doesn't happen all the time.
+    - Text, while sprite sheet animates, is blurry in the "skip" button.
+  - Animate modal-buttons in from bottom. **DONE**
+  - Need to wire up "skip" button on hero animations.
+    - add different hover graphic for "skip button".
 
 Modal Password:
 Todo:
