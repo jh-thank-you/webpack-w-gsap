@@ -1,0 +1,18 @@
+.sprite-section-online {
+  display:block;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%; 
+  background:
+  url('sprite-section-online.png') no-repeat 0 0%;
+  background-size: 100%;
+  -webkit-animation: sprite 6.5s steps(50); /* 1 less than total frame count in sprite */
+  animation: moveme 6.5s steps(50); /* 1 less than total frame count in sprite */
+}
+
+@keyframes moveme {
+  from { background-position: 0 0%; }
+  to { background-position: 0 100% }
+}

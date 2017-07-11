@@ -27,20 +27,20 @@ export default {
   }, // END components
   props: [ 'imageSrc' ],// END props
   data() {
-    return { 
+    return {
 
-    }; 
+    };
   }, // END data
   created() {
 
     var currentImageSrc = this.imageSrc;
-    if (this.$root.debug) console.log( currentImageSrc + ' = currentImageSrc = this.imageSrc');
+    if (this.$root.debug) { console.log( currentImageSrc + ' = currentImageSrc = this.imageSrc'); }
 
-    if (this.$root.debug) console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created');
+    if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created'); }
 
   }, // END created
   methods: {
-    
+
     getModal() {
 
       return require('assets/modals/' + this.imageSrc + '.vue');
@@ -80,7 +80,7 @@ export default {
 
     //Key codes for up and down arrows on keyboard. We'll be using this to navigate change slides using the keyboard
     var keyCodes = {
-      UP  : 38,
+      UP:   38,
       DOWN: 40,
     };
 
@@ -109,7 +109,7 @@ export default {
       var $slide = $($button.attr('href'));
 
       //If the slide exists, we go to it
-      if($slide.length)
+      if ($slide.length)
       {
         goToSlide($slide);
         event.preventDefault();
@@ -125,12 +125,12 @@ export default {
 
       var PRESSED_KEY = event.keyCode;
 
-      if(PRESSED_KEY == keyCodes.UP || PRESSED_KEY == 37)
+      if (PRESSED_KEY == keyCodes.UP || PRESSED_KEY == 37)
       {
         goToPrevSlide();
         event.preventDefault();
       }
-      else if(PRESSED_KEY == keyCodes.DOWN || PRESSED_KEY == 39)
+      else if (PRESSED_KEY == keyCodes.DOWN || PRESSED_KEY == 39)
       {
         goToNextSlide();
         event.preventDefault();
@@ -147,11 +147,11 @@ export default {
       var delta = event.originalEvent.wheelDelta / 30 || -event.originalEvent.detail;
 
       //If the user scrolled up, it goes to previous slide, otherwise - to next slide
-      if(delta < -1)
+      if (delta < -1)
       {
         goToNextSlide();
       }
-      else if(delta > 1)
+      else if (delta > 1)
       {
         goToPrevSlide();
       }
@@ -160,12 +160,11 @@ export default {
     } // END onMouseWheel
 
 
-
     // goToPrevSlide ===========================================================
     // If there's a previous slide, slide to it
     function goToPrevSlide()
     {
-      if($currentSlide.prev().length)
+      if ($currentSlide.prev().length)
       {
         goToSlide($currentSlide.prev());
       }
@@ -176,12 +175,11 @@ export default {
     // If there's a next slide, slide to it
     function goToNextSlide()
     {
-      if($currentSlide.next().length)
+      if ($currentSlide.next().length)
       {
         goToSlide($currentSlide.next());
       }
     } // END goToNextSlide
-
 
 
     // goToSlide ===============================================================
@@ -189,7 +187,7 @@ export default {
     function goToSlide($slide)
     {
       // If the slides are not changing and there's such a slide
-      if(!isAnimating && $slide.length)
+      if (!isAnimating && $slide.length)
       {
         //setting animating flag to true
         isAnimating = true;
@@ -224,7 +222,7 @@ export default {
       var newPageHeight = $window.innerHeight();
 
       // If the new height is different from the old height ( the browser is resized vertically ), the slides are resized
-      if(pageHeight !== newPageHeight)
+      if (pageHeight !== newPageHeight)
       {
         pageHeight = newPageHeight;
 
@@ -253,7 +251,7 @@ export default {
 
   }, // END mounted
   ready: function() {
-      
+
 
   }, // END ready
 

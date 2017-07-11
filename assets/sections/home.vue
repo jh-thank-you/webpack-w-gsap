@@ -1,7 +1,7 @@
 <template>
 
     <name-title-tag></name-title-tag>
-    
+
 </template>
 
 

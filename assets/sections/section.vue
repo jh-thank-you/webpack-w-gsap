@@ -1,23 +1,35 @@
 <template>
 
   <div :id="id" class="section-wrap texture-paper-bkg">
-      
+
       <button-close-section-raster></button-close-section-raster>
 
-      <!-- id data is passed in by routes see notes below-->
-      <hero-image :class="id"></hero-image>  
+      <transition name="fade-hero">
+        <div v-if="sectionActive" :class="'sprite-' + this.id +'-wrap'">
+
+            <span :class="currentSpriteImage()"></span>
+
+            <div type="button" class="skip handwritten"><p>skip</p></div>
+
+        </div>
+      </transition>
+
 
     <modal-slideshow v-if="showModal" @close="showModal = false" :imageSrc="imagesource"></modal-slideshow>
 
-    <!-- 
-    have too research v-cloak more: 
-    https://stackoverflow.com/questions/34870926/v-cloak-does-not-work-in-vue-js 
+    <!--
+    have too research v-cloak more:
+    https://stackoverflow.com/questions/34870926/v-cloak-does-not-work-in-vue-js
     -->
-    <div v-cloak id="section-content" class="grid-isotope justify-content handwritten">
-      <transition-group name="slideme">
-        <modal-button v-for="example in getExamples()" v-bind:key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access" @imageSelectChanged="imagesource = $event"></modal-button>
-      </transition-group>
-    </div>
+    <transition name="slide-up">
+      <div v-cloak v-if="sectionActive" v-bind:key="this.id" id="section-content" class="justify-content handwritten">
+        <div class="section-content-inner-wrap">
+          <transition-group name="slideme">
+            <modal-button v-for="example in getExamples()" v-bind:key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access" @imageSelectChanged="imagesource = $event"></modal-button>
+          </transition-group>
+        </div>
+      </div>
+    </transition>
 
   </div>
 
@@ -25,6 +37,7 @@
 
 
 <script>
+
 import { eventBus } from 'assets/main.js';
 
 import buttonCloseSectionRaster from 'components/button-close-section-raster.vue';
@@ -36,10 +49,10 @@ let currentExamples = null;
 
 export default {
 
-  components: { 
-    buttonCloseSectionRaster, 
-    heroImage, 
-    modalSlideshow, 
+  components: {
+    buttonCloseSectionRaster,
+    heroImage,
+    modalSlideshow,
     modalButton,
 
   }, // END components
@@ -49,22 +62,25 @@ export default {
   data() {
     return {
 
-      showModal: false,
-      exampleid: '',
-      client: '',
-      sector: '',
-      alt: '',
-      imagesource: '',
-      access: '',
-      selected: [],
-      examples: currentExamples,
+      showModal:     false,
+      exampleid:     '',
+      client:        '',
+      sector:        '',
+      alt:           '',
+      imagesource:   '',
+      access:        '',
+      selected:      [],
+      examples:      currentExamples,
+      sectionActive: false,
+      sectionStyles: '',
+      currentSprite: '',
       // checkedSector: [],
 
     };
   }, // END data
   created() {
 
-    if (this.$root.debug) console.log('im created');
+    if (this.$root.debug) { console.log('im created'); }
 
     eventBus.$on('modalVisibility', (showModal) => {
       this.showModal = showModal;
@@ -73,30 +89,52 @@ export default {
     eventBus.$on('selectedChanged', (selected) => {
       this.selected = selected;
 
-      if (this.$root.debug) console.log(selected + ' = checkbox selected value passed to section.vue');
+      if (this.$root.debug) { console.log(selected + ' = checkbox selected value passed to section.vue'); }
     });
 
 
   }, // END created
-  computed: {
+  mounted() {
+
+    if (this.$root.debug) { console.log(this.sectionActive + ' = this.sectionActive calue before call'); }
+
+    this.sectionIsActive();
+
+    if (this.$root.debug) { console.log(this.sectionActive + ' = this.sectionActive calue after call'); }
+
+
+    let sectionStyles = require('assets/img/sprite-' + this.id + '/sprite-' + this.id + '.css');
+
+    window.sectionStyles = sectionStyles;
 
 
   }, // END computed
   methods: {
 
+    currentSpriteImage() {
+      //  this.currentSprite = `${this.id}` + 'v1-0.png sprite';
+      this.currentSprite = 'sprite-' + `${this.id}` + ' sprite';
+      return this.currentSprite;
+    }, // END currentSprite
+
+    sectionIsActive() {
+      this.sectionActive = true;
+      return this.sectionActive;
+    }, // END sectionIsActive
+
     // dynamically set which array is passed based on the Parent ID data
     getExamples() {
 
-      if (this.$root.debug) console.log('getExamples called');
+      if (this.$root.debug) { console.log('getExamples called'); }
       eventBus.$emit('sendSelected'); // get the current preferece form value from the contacts-and-prefs component
-        
+
       var currentID = this.id;
 
       if (currentID == 'section-print') {
 
-        if (this.$root.debug) console.log( currentID + ' = currentID Print Examples');
+        if (this.$root.debug) { console.log( currentID + ' = currentID Print Examples'); }
 
-        currentExamples = [ 
+        currentExamples = [
 
           {exampleid: 'modalPrintAdvil', alt: 'Advil Ad Blah Blah Blah', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
@@ -159,9 +197,9 @@ export default {
 
       } else if (currentID == 'section-video') {
 
-        if (this.$root.debug) console.log( currentID + ' = currentID Video Examples');
+        if (this.$root.debug) { console.log( currentID + ' = currentID Video Examples'); }
 
-        currentExamples =  [ 
+        currentExamples = [
 
           {exampleid: 'modalPrintAdvil', alt: 'Advil Video Campaign', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
@@ -182,9 +220,9 @@ export default {
 
       } else if (currentID == 'section-outdoor') {
 
-        if (this.$root.debug) console.log( currentID + ' = currentID Outdoor Examples');
+        if (this.$root.debug) { console.log( currentID + ' = currentID Outdoor Examples'); }
 
-        currentExamples =  [ 
+        currentExamples = [
 
           {exampleid: 'modalPrintCimzia', alt: 'Cimzia Ad', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
 
@@ -203,9 +241,9 @@ export default {
 
       } else if (currentID == 'section-online') {
 
-        if (this.$root.debug) console.log( currentID + ' = currentID Online Examples');
+        if (this.$root.debug) { console.log( currentID + ' = currentID Online Examples'); }
 
-        currentExamples =  [ 
+        currentExamples = [
 
           {exampleid: 'modalPrintDell', alt: 'Dell Ad', client: 'Dell', sector: ['default', 'technology'], access: 'unlocked' },
 
@@ -225,7 +263,7 @@ export default {
         return this.filteredExamples(currentExamples);
 
       } else {
-        if (this.$root.debug) console.log(this.id + ' - Error no data for examples in section.vue component');
+        if (this.$root.debug) { console.log(this.id + ' - Error no data for examples in section.vue component'); }
       } // END If - Else Examples
 
     }, // END getExamples
@@ -243,7 +281,7 @@ export default {
 
     // Filter the results from the checkboxes
     filteredExamples(currentExamples) {
-      if (this.$root.debug) console.log(this.selected + ' = filteredExamples - current selected industries form value');
+      if (this.$root.debug) { console.log(this.selected + ' = filteredExamples - current selected industries form value'); }
 
       return currentExamples.filter((sector) => { // loop over all items in currentExamples
         return sector.sector.some((el) => { // check every item in the 'sector' array
@@ -256,6 +294,12 @@ export default {
     }, // END filteredExamples
 
   }, // END methods
+  beforeDestroy() {
+
+    this.sectionActive = false;
+    return this.sectionActive;
+
+  }, // END destroyed
 
 }; // END export default
 
@@ -302,7 +346,6 @@ export default {
   }
 
 
-
   @media all and (min-width: 801px) {
     .slideme-leave {
       /* Vue JS Default is opacity: 1; */
@@ -330,9 +373,9 @@ export default {
   .slideme-leave-active {
     transition: all .35s ease-out;
     /* position: absolute; */
-    /* would normally result in a smoother 
-    animation but div size os based on a 
-    percentage when position is absolute 
+    /* would normally result in a smoother
+    animation but div size os based on a
+    percentage when position is absolute
     it scales too large */
   }
 
@@ -341,10 +384,158 @@ export default {
     width: 0;
     /* height: 0; */
   }
-  
+
   .slideme-move {
     transition: transform .35s;
   }
 
 
+/* fade and scale in or out small nav */
+
+.slide-up-enter {
+  opacity: 1;
+  /* transform: scale(0.5,0.5); */
+}
+
+.slide-up-enter-active {
+  transition: all 7s ease;
+  animation: slidein 7s ease-out forwards;
+}
+
+.slide-up-enter-to {
+  /* transform: scale(1,1); */
+}
+
+.slide-up-leave {
+  /* transform: scale(1,1); */
+}
+
+.slide-up-leave-active {
+  transition: all .35s ease;
+  animation: slideout .35s ease-out forwards;
+}
+
+.slide-up-leave-to {
+  opacity: 1;
+  /* transform: scale(0.5,0.5); */
+}
+
+@keyframes slidein {
+    0% {
+        height: 0;
+    }
+    33% {
+        height: 0;
+    }
+    90% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes slideout {
+    0% {
+        height: 100%;
+    }
+    33% {
+        height: 100%;
+    }
+    66% {
+        height: 100%;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+
+/* fade hero image in sync with slide up all modal-butons */
+
+.fade-hero-enter {
+  opacity: .7;
+}
+
+.fade-hero-enter-active {
+  transition: opacity 7s ease;
+  animation: heroin 7s ease-out forwards;
+}
+
+.fade-hero-enter-to {
+  opacity: 0 !important;
+}
+
+.fade-hero-leave {
+  opacity: 0 !important;
+}
+
+.fade-hero-leave-active {
+  transition: opacity .35s ease;
+  animation: heroout .35s ease-out forwards;
+
+}
+
+.fade-hero-leave-to {
+  opacity: 0 !important;
+}
+
+@keyframes heroin {
+    0% {
+        opacity: .7;
+    }
+    33% {
+        opacity: .7;
+    }
+    90% {
+        opacity: .7;
+    }
+    100% {
+        opacity: 0 !important;
+    }
+}
+
+@keyframes heroout {
+    0% {
+        opacity: 0 !important;
+    }
+    33% {
+        opacity: 0 !important;
+    }
+    66% {
+        opacity: 0 !important;
+    }
+    100% {
+        opacity: 0 !important;
+    }
+}
+
+.skip {
+  position: fixed;
+  opacity: 1;
+  width: 65px;
+  height: 35px;
+  bottom: 0;
+  left: 50%;
+  z-index: 200;
+  cursor: pointer;
+  transform: translate(-50%, 0);
+}
+
+.skip > p {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 14%;
+}
+
+
+.skip:hover,
+.skip:focus,
+.skip:active {
+  background-image: url('~img/line-circle.gif');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+}
 </style>

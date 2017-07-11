@@ -1,7 +1,7 @@
 <template>
 
   <nav class="corner-nav-small">
-      
+
       <div id="name-and-tag-small">
         <p id="name-title">Hainis Art Direction</p>
         <p id="tagline">&thinsp;bad name. good work.</p>
@@ -29,14 +29,14 @@ import navButtonSmall from 'components/nav-button-small.vue';
 export default {
 
   components: {
-     
+
     navButtonSmall,
 
   }, // END components
   data() {
     return {
 
-      navigationButtons: [ 
+      navigationButtons: [
 
         {id: 'nav-print-small', section: 'PRINT' },
         {id: 'nav-video-small', section: 'VIDEO' },
@@ -45,7 +45,7 @@ export default {
 
       ], // END navButtons
 
-      id: '',
+      id:      '',
       section: '',
 
     }; // END return
@@ -56,15 +56,7 @@ export default {
 </script>
 
 
-
 <style scoped>
-
-#hero-wrap,
-.hero-image {
-  display: none;
-  background-image: none;
-}
-
 
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-    
+
   <div @click="exampleSelected(), hideTab()" :id="id" class="boxframe" :sector="sector" :access="access">
 
     <div :class="currentClassArray()"></div>
@@ -31,7 +31,6 @@ export default {
 
   }, // END computed
   created() {
-
 
 
   }, // END created
@@ -71,7 +70,7 @@ export default {
 
         this.$emit('imageSelectChanged', this.imageSrc);
 
-        if (this.$root.debug) console.log(this.imageSrc + ' = this.imageSrc - modal button clicked');
+        if (this.$root.debug) { console.log(this.imageSrc + ' = this.imageSrc - modal button clicked'); }
 
       }
 
@@ -88,7 +87,7 @@ export default {
 
   }, // END mounted
   destroyed() {
-        
+
     // turn off binding to prevent multiple instances
     this.$off('imageSelectChanged');
 
@@ -99,9 +98,7 @@ export default {
 </script>
 
 
-
 <style scoped>
-  
 
 
 </style>

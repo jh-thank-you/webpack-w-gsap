@@ -1,6 +1,6 @@
 <template>
 
-  <div slot="modalPrintAdvil1a">    
+  <div slot="modalPrintAdvil1a">
       <nav class="modalNav">
           <ul>
               <li><a href="#slide-1" class="modal-nav-link">&nbsp;</a></li>
@@ -59,9 +59,7 @@ export default {
 </script>
 
 
-
 <style>
-  
 
 
 </style>

@@ -6,11 +6,11 @@
   <div v-if="showOverlay" @click="showOverlay = !showOverlay, moveTab()" id="modal-overlay"></div>
   </transition>
 
-   <transition name="updown"> 
+   <transition name="updown">
   <div v-if="showTab" :key="moveTab" id="contact-prefs-tab" :class="currentClass"> <!-- START contact-prefs -->
 
       <div class="inner-tab-wrap"> <!-- START Inner Contact Pref Wrap -->
-        
+
         <div @click="showOverlay = !showOverlay, moveTab()" class="tab-title">
           <span class="tab-bkg"><h4 id="pref-contact-title" class="handwritten">Preferences / Contact</h4></span>
         </div>
@@ -18,12 +18,12 @@
         <div class="scroll-area"> <!-- START scroll-area -->
 
           <div id="preferences-form" class="row"> <!-- START preferences-form -->
-        
+
             <fieldset id="pref-checkbox-container justify-content">
 
               <legend id="industry-settings">
                   <h4 id="which-industry" class="handwritten">Select Which Industries To View</h4>
-                
+
                 <div id="default-settings">
 
                   <label class="pref-button"><input type="checkbox" v-model="defaultChecked"><span>Default</span></label>
@@ -107,13 +107,13 @@ export default {
   data() {
     return {
 
-      showTab: true,
-      showOverlay: false,
-      tabHidden: false,
+      showTab:      true,
+      showOverlay:  false,
+      tabHidden:    false,
       currentClass: '',
       // selected: [], // using localStorage now
-      selected: mySelectsStorage.fetch(),
-      selectsArray: [ 
+      selected:     mySelectsStorage.fetch(),
+      selectsArray: [
 
         {id: 'automotive', name: 'Automotive', class: 'industry', default: false},
 
@@ -165,8 +165,8 @@ export default {
 
   }, // END data
   created() {
-      
-    if (this.$root.debug) console.log('created - contacts-and-prefs - eventBus $on sendSelected');
+
+    if (this.$root.debug) { console.log('created - contacts-and-prefs - eventBus $on sendSelected'); }
     eventBus.$on('sendSelected', this.emitSelected);
 
     eventBus.$on('tabVisibility', () => {
@@ -180,7 +180,7 @@ export default {
         return this.currentClass;
       } else {
         this.currentClass = 'is-hidden';
-        return this.currentClass;   
+        return this.currentClass;
       }
     }); // END eventBus
 
@@ -207,7 +207,7 @@ export default {
             if (select.default) {
               this.selected.push(select.id);
               var checkboxValues = this.selected;
-              if (this.$root.debug) console.log(checkboxValues + ' = default select value');
+              if (this.$root.debug) { console.log(checkboxValues + ' = default select value'); }
             }
           });
         }
@@ -225,7 +225,7 @@ export default {
           this.selectsArray.forEach((select) => {
             this.selected.push(select.id);
             var checkboxValues = this.selected;
-            if (this.$root.debug) console.log(checkboxValues + ' = select all value');
+            if (this.$root.debug) { console.log(checkboxValues + ' = select all value'); }
           });
         }
       },
@@ -247,7 +247,7 @@ export default {
     emitSelected() {
       eventBus.$emit('selectedChanged', this.selected);
       // eventBus.$off('sendSelected', this.emitSelected) // after initally sending once the watcher will do the rest, so remove this listener for performance
-      if (this.$root.debug) console.log('this.selected data requested - emitSelected contacts-and-prefs');
+      if (this.$root.debug) { console.log('this.selected data requested - emitSelected contacts-and-prefs'); }
     }, // END emitSelected
 
     moveTab() {
@@ -259,7 +259,6 @@ export default {
 }; // END export default
 
 </script>
-
 
 
 <style scoped>
@@ -277,7 +276,7 @@ export default {
     }
 
 /* fade in or out overlay */
-  
+
   .fade-enter {
     opacity: 0;
   }
@@ -327,7 +326,7 @@ export default {
         .updown-enter-to,
         .updown-leave {
           height: 95vh;
-          max-height: 1000px;
+          max-height: 95vh;
           }
         }
 
@@ -335,8 +334,8 @@ export default {
         #contact-prefs-tab.is-active,
         .updown-enter-to,
         .updown-leave {
-          height: 80vh;
-          max-height: 80vh;
+          height: 95vh;
+          max-height: 95vh;
           }
         }
 
@@ -344,10 +343,9 @@ export default {
         #contact-prefs-tab.is-active,
         .updown-enter-to,
         .updown-leave {
-            height: 65vh;
-            max-height: 65vh;
+            height: 95vh;
+            max-height: 95vh;
           }
         }
-
 
 </style>

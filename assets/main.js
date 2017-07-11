@@ -30,10 +30,10 @@ window.styles = styles;
 window.addEventListener('load', function () {
   new Vue({
     components: { navCornerMenu, contactAndPrefs, modalPassword },
-    el: '#app',
+    el:         '#app',
     data() {
       return {
-        debug: true,
+        debug: true, // use true or false to turn console logs on or off
       };
     },
     router: router,

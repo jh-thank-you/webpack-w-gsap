@@ -30,13 +30,13 @@ export default {
     return {
 
       showPasswordModal: false,
-      showMessage: false,
-      message: '',
-      password: '',
-      selectResponse: [
-        'No soup for you!', 
-        'I\'m a Toys\'R\'Us Kid too!', 
-        'These aren\'t the droids you\'re looking for... Move along.', 
+      showMessage:       false,
+      message:           '',
+      password:          '',
+      selectResponse:    [
+        'No soup for you!',
+        'I\'m a Toys\'R\'Us Kid too!',
+        'These aren\'t the droids you\'re looking for... Move along.',
         'Hhhhhmmmm Salty!',
         'Again? Really?!',
         'Shall we play a game?',
@@ -71,7 +71,7 @@ export default {
   created() {
 
     eventBus.$on('passwordStatus', (showPasswordModal) => {
-          
+
       this.showPasswordModal = showPasswordModal;
       return this.showPasswordModal;
 
@@ -88,19 +88,19 @@ export default {
 
     passwordSubmit() {
 
-      var password = this.password; 
+      var password = this.password;
 
       if (password == 'BigPharma') {
 
         // then animate the modal
-        if (this.$root.debug) console.log('Correct password entered');
+        if (this.$root.debug) { console.log('Correct password entered'); }
         this.hideTab();
-          
+
         this.password = '';
         return this.password;
 
       } else {
-        if (this.$root.debug) console.log('Wrong password entered');
+        if (this.$root.debug) { console.log('Wrong password entered'); }
 
         this.showMessage = true;
 
@@ -108,8 +108,8 @@ export default {
 
         this.message = this.selectResponse[Math.floor(Math.random() * this.selectResponse.length)];
 
-        if (this.$root.debug) console.log(this.message + ' = currentResponse');
-            
+        if (this.$root.debug) { console.log(this.message + ' = currentResponse'); }
+
         return this.message, this.password, this.showMessage;
 
       } // END IF ELSE
@@ -118,52 +118,24 @@ export default {
 
   }, // END methods
   destroyed() {
-        
+
     // turn off binding to prevent multiple instances
     this.$off('passwordStatus');
     this.$off('tabVisibility');
 
 
   }, // END destroyed
-    
+
 
 }; // END export default
 
 </script>
 
 
-
 <style scoped>
 
-  /* fade in or out overlay */
-
-  .fade-enter {
-    opacity: 0;
-  }
-
-  .fade-enter-active {
-    transition: opacity .35s ease;
-  }
-
-  .fade-enter-to {
-    /* Vue JS Default is opacity: 1; */
-  }
-
-  .fade-leave {
-    /* Vue JS Default is opacity: 1; */
-  }
-
-  .fade-leave-active {
-    transition: opacity .35s ease;
-  }
-
-  .fade-leave-to {
-    opacity: 0;
-  }
-
-
   /* fade the wrong password response text */
-  
+
   .fade-response-enter {
     opacity: 0;
   }
@@ -187,6 +159,5 @@ export default {
   .fade-response-leave-to {
     opacity: 0;
   }
-
 
 </style>
