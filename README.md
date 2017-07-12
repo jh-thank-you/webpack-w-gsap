@@ -71,10 +71,11 @@ Section and Hero Image Component:
   - Set hero-image animated gif to fade out when buttons animate into frame. **DONE - SOLVED TIMING ISSUE**
     - Note: hero animations are now sprite sheets (maybe do something with more control through GSAP).
     - Research why there is a slight giggle when sprite sheet animates, it doesn't happen all the time.
-    - Text, while sprite sheet animates, is blurry in the "skip" button. **SOLVED**
+    - Text, while sprite sheet animates, is blurry in the "skip" button. **Better but not solved**
   - Animate modal-buttons in from bottom. **DONE**
-  - Need to wire up "skip" button on hero animations.
-    - add different hover graphic for "skip button". **DONE**
+  - Need to wire up "skip" button on hero animations. **DONE**
+    - Timing and visibility issue. **DONE**
+    - Add different hover graphic for "skip button". **DONE**
 
 Modal Password:
 Todo:

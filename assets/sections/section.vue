@@ -5,14 +5,18 @@
       <button-close-section-raster></button-close-section-raster>
 
       <!-- See notes in CSS about CSS transition listeners -->
-      <transition name="fade-hero" @after-enter="heroVisibility = false">
-        <div v-if="sectionActive" :class="'sprite-' + this.id +'-wrap'">
+      <div :class="heroVisibilityClass">
 
-            <span v-if="heroVisibility" :class="currentSpriteImage() + ' current-animation'"></span>
-            <div v-if="heroVisibility" type="button" class="skip handwritten"><p>skip</p></div>
+        <transition name="fade-hero" @after-enter="sectionActive = true, heroVisibility = false">
+          <div v-if="heroActive" :class="'sprite-' + this.id +'-wrap'">
 
-        </div>
-      </transition>
+              <span v-if="heroVisibility" :class="currentSpriteImage()"></span>
+
+              <div v-if="heroVisibility" @click="sectionActive = true, updateHeroClass()" type="button" class="skip handwritten"><p>skip</p></div>
+
+          </div>
+        </transition>
+      </div>
 
 
     <modal-slideshow v-if="showModal" @close="showModal = false" :imageSrc="imagesource"></modal-slideshow>
@@ -62,21 +66,21 @@ export default {
   data() {
     return {
 
-      showModal:      false,
-      exampleid:      '',
-      client:         '',
-      sector:         '',
-      alt:            '',
-      imagesource:    '',
-      access:         '',
-      selected:       [],
-      examples:       currentExamples,
-      sectionActive:  false,
-      sectionStyles:  '',
-      currentSprite:  '',
-      heroVisibility: true,
-      // checkedSector: [],
-
+      showModal:           false,
+      exampleid:           '',
+      client:              '',
+      sector:              '',
+      alt:                 '',
+      imagesource:         '',
+      access:              '',
+      selected:            [],
+      examples:            currentExamples,
+      sectionActive:       false,
+      sectionStyles:       '',
+      currentSprite:       '',
+      heroVisibility:      true,
+      heroActive:          false,
+      heroVisibilityClass: 'hero-visibility-wrap',
     };
   }, // END data
   created() {
@@ -86,41 +90,46 @@ export default {
     eventBus.$on('modalVisibility', (showModal) => {
       this.showModal = showModal;
       return this.showModal;
-    });
+    }); // END eventBus
+
     eventBus.$on('selectedChanged', (selected) => {
       this.selected = selected;
 
       if (this.$root.debug) { console.log(selected + ' = checkbox selected value passed to section.vue'); }
-    });
-
+    }); // END eventBus
 
   }, // END created
   mounted() {
 
-    if (this.$root.debug) { console.log(this.sectionActive + ' = this.sectionActive value before call'); }
+    if (this.$root.debug) { console.log(this.heroActive + ' = this.heroActive value before call'); }
 
-    this.sectionIsActive();
+    this.heroIsActive();
 
-    if (this.$root.debug) { console.log(this.sectionActive + ' = this.sectionActive value after call'); }
-
+    if (this.$root.debug) { console.log(this.heroActive + ' = this.heroActive value after call'); }
 
     let sectionStyles = require('assets/img/sprite-' + this.id + '/sprite-' + this.id + '.css');
 
     window.sectionStyles = sectionStyles;
 
-
   }, // END computed
   methods: {
 
+    updateHeroClass() {
+      var updatedHeroClass = 'fade-me hero-visibility-wrap';
+      this.heroVisibilityClass = updatedHeroClass;
+      if (this.$root.debug) { console.log(this.heroVisibilityClass + ' = this.heroVisibilityClass - Updated hero-visibility-wrap'); }
+      return this.heroVisibilityClass;
+    }, // END updateHeroClass
+
     currentSpriteImage() {
       //  this.currentSprite = `${this.id}` + 'v1-0.png sprite';
-      this.currentSprite = 'sprite-' + `${this.id}` + ' sprite';
+      this.currentSprite = 'sprite-' + `${this.id}` + ' current-animation sprite';
       return this.currentSprite;
     }, // END currentSprite
 
-    sectionIsActive() {
-      this.sectionActive = true;
-      return this.sectionActive;
+    heroIsActive() {
+      this.heroActive = true;
+      return this.heroActive;
     }, // END sectionIsActive
 
     // dynamically set which array is passed based on the Parent ID data
@@ -297,6 +306,10 @@ export default {
   }, // END methods
   beforeDestroy() {
 
+    eventBus.$off('modalVisibility');
+
+    eventBus.$off('selectedChanged');
+
     this.sectionActive = false;
     return this.sectionActive;
 
@@ -375,7 +388,7 @@ export default {
     transition: all .35s ease-out;
     /* position: absolute; */
     /* would normally result in a smoother
-    animation but div size os based on a
+    animation but div size is based on a
     percentage when position is absolute
     it scales too large */
   }
@@ -399,8 +412,8 @@ export default {
 }
 
 .slide-up-enter-active {
-  transition: all 7s ease;
-  animation: slidein 7s ease-out forwards;
+  transition: all 1.4s ease;
+  animation: slidein 1.4s ease-out forwards;
 }
 
 .slide-up-enter-to {
@@ -413,7 +426,7 @@ export default {
 
 .slide-up-leave-active {
   transition: all .35s ease;
-  animation: slideout .35s ease-out forwards;
+  animation: slideout 1.4s ease-out forwards;
 }
 
 .slide-up-leave-to {
@@ -425,16 +438,15 @@ export default {
     0% {
         height: 0;
     }
-    33% {
-        height: 0;
-    }
-    90% {
+    50% {
         height: 0;
     }
     100% {
         height: 100%;
     }
 }
+
+/* slideout never reached since v-if is only triggered once on mount */
 
 @keyframes slideout {
     0% {
@@ -527,5 +539,20 @@ export default {
     }
 }
 
+.fade-me {
+  /* Important See the value you want to end up with here.  After the animation completes the keygrames it goes to this initial value */
+  opacity: 0;
+  animation: fade-it .35s ease-out;
+}
+
+@keyframes fade-it {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
 
 </style>
