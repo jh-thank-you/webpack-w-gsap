@@ -12,11 +12,14 @@ Feel free to contact me anytime.
 
 **Webpack Development build works.**
 
-**Webpack Production ~~build works~~ ISSUE - Modal-Button Images Not Processed.**
+**Webpack Production build works**
 
-- Added scripts to package.json: 
-  - "preinstall" script adds `.metadata_never_index` file to `node_modules` directory
-  - "build" script adds `.metadata_never_index` file to `dist` directory
+Notes:
+- Added scripts to package.json:
+- "preinstall" script adds `.metadata_never_index` file to `node_modules` directory
+- "build" script adds `.metadata_never_index` file to `dist` directory
+- Issue - modal buttons not being processed. **SOLVED**
+  - Issue was the require statement return was commented out in the modal-button.vue getPic() function.
 
 ======================================================
 
@@ -67,6 +70,7 @@ Todo:
 
 Section and Hero Image Component:
 - Todo:
+  - Need to create min math function for height and width.
   - repeatable/small background texture for the each section. **DONE**
   - Set hero-image animated gif to fade out when buttons animate into frame. **DONE - SOLVED TIMING ISSUE**
     - Note: hero animations are now sprite sheets (maybe do something with more control through GSAP).

@@ -454,7 +454,7 @@ a:focus {
     /* border: solid 5px blue; */
   }
   #name-and-tag-small {
-    margin-top: 30%;
+    margin-top: 35%;
   }
   .inner-wrap-fixed-scroll {
     overflow-x: hidden;
@@ -1125,14 +1125,10 @@ a #contact-prefs:hover {
 /* *********************************************** */
 
 .current-animation {
-  opacity: .7;
+  opacity: 0.7;
 }
 
-.hero-visibility-wrap,
-.sprite-section-print-wrap,
-.sprite-section-video-wrap,
-.sprite-section-outdoor-wrap,
-.sprite-section-online-wrap {
+.hero-visibility-wrap {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1141,11 +1137,24 @@ a #contact-prefs:hover {
   height: 65vw;
   max-width: 700px;
   max-height: 700px;
-  transform: translate(-50%, -60%);
-  /* border: solid 1px red; */
+  transform: translate(-50%, -52%);
+  border: solid 1px red; 
+}
+
+.sprite-section-print-wrap,
+.sprite-section-video-wrap,
+.sprite-section-outdoor-wrap,
+.sprite-section-online-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transform: translate(0, -10%);
+  border: solid 1px red; 
 }
 
 @media all and (max-height: 500px) {
+  .hero-visibility-wrap,
   .sprite-section-print-wrap,
   .sprite-section-video-wrap,
   .sprite-section-outdoor-wrap,
@@ -1192,45 +1201,12 @@ a #contact-prefs:hover {
   background-size: 400px;
 }
 
-/*
-.section-print > .current-animation {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  overflow: visible;
-  width: 65vw;
-  max-width: 800px;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  background-image: url('~img/nav-print-hero-animation.gif');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-}
-*/
-
 #section-video {
   background: url('~img/seamless-diagnal-pattern.jpg');
   background-repeat: repeat;
   background-position: center center;
   background-size: 300px;
 }
-
-/*
-.section-video > .current-animation {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 65vw;
-  max-width: 800px;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  background-image: url('~img/nav-video-hero-animation.gif');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-}
-*/
 
 #section-outdoor {
   background: url('~img/seamless-napkin-pattern.jpg');
@@ -1239,22 +1215,6 @@ a #contact-prefs:hover {
   background-size: 75px;
 }
 
-/*
-.section-outdoor > .current-animation {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 65vw;
-  max-width: 800px;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  background-image: url('~img/nav-outdoor-hero-animation.gif');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-}
-*/
-
 #section-online {
   background: url('~img/seamless-graph-paper-pattern.jpg');
   background-repeat: repeat;
@@ -1262,24 +1222,9 @@ a #contact-prefs:hover {
   background-size: 20px;
 }
 
-/* .section-online > .current-animation {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 65vw;
-  max-width: 800px;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  background-image: url('~img/nav-online-hero-animation.gif');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-}
-*/
-
 .skip {
   position: fixed;
-  opacity: .5;
+  opacity: 0.5;
   width: 70px;
   height: 45px;
   bottom: 0;
@@ -1296,7 +1241,6 @@ a #contact-prefs:hover {
   margin: 0 auto;
   padding-top: 10%;
 }
-
 
 .skip:hover,
 .skip:focus,

@@ -122,6 +122,9 @@ const imageLoaderQuery = {
   },
   gifsicle: {
     interlaced: false,
+    optimizationLevel: 3,
+    colors: 256,
+    buffer: false, // 'buffer' // set boolean if you wan to buffer.
   },
   optipng: {
     optimizationLevel: 4,
