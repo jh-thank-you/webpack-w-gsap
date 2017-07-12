@@ -8,7 +8,7 @@
       <transition name="fade-hero" @after-enter="heroVisibility = false">
         <div v-if="sectionActive" :class="'sprite-' + this.id +'-wrap'">
 
-            <span v-if="heroVisibility" :class="currentSpriteImage()" class="current-animation"></span>
+            <span v-if="heroVisibility" :class="currentSpriteImage() + ' current-animation'"></span>
             <div v-if="heroVisibility" type="button" class="skip handwritten"><p>skip</p></div>
 
         </div>
