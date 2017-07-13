@@ -47,6 +47,8 @@ In the (not so) early stages of setting up:
 
 **Vue 2 project:**
 
+**IMPORTANT Vue-Loader v13.x.x has issues using v12.2.1 instead.**
+
 GSAP Animation (only modal-slideshow has GSAP animations applied but not in a Vue way - using jquery):
 - Tweenlite
 - CSSPlugin
