@@ -29,7 +29,6 @@ html {
 
 
 
-
 /* **************************************************************************************************************** I
 
   IMPORTANT! Chrome has rendering issues with Opacity Transition an Vue-Router
@@ -65,6 +64,11 @@ I prefer to make a class called no-flick and do this:
 }
 
 
+/* helsp to keep images from getting blurry */
+img {
+
+  image-rendering: crisp-edges;
+}
 
 
 
