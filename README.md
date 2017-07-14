@@ -47,7 +47,8 @@ In the (not so) early stages of setting up:
 
 **Vue 2 project:**
 
-**IMPORTANT Vue-Loader v13.x.x has issues using v12.2.1 instead.**
+**IMPORTANT Vue-Loader v13.x.x has issues using v12.2.2 instead.**
+**Need to update imports and reruires to new format for vue-loader v13.x.x**
 
 GSAP Animation (only modal-slideshow has GSAP animations applied but not in a Vue way - using jquery):
 - Tweenlite
@@ -82,6 +83,7 @@ Section and Hero Image Component:
   - Need to wire up "skip" button on hero animations. **DONE**
     - Timing and visibility issue. **DONE**
     - Add different hover graphic for "skip button". **DONE**
+  - Need to fix Firefox image flashing issue. **DONE**
 
 Modal Password:
 Todo:

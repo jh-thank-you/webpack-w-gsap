@@ -7,12 +7,12 @@
       <!-- See notes in CSS about CSS transition listeners -->
       <div :class="heroVisibilityClass">
 
-        <transition name="fade-hero" @after-enter="sectionActive = true, heroVisibility = false">
+        <transition name="fade-hero" @after-enter="sectionActive = true">
           <div v-if="heroActive" :class="'sprite-' + this.id +'-wrap'">
 
-              <span v-if="heroVisibility" :class="currentSpriteImage()"></span>
+              <span :class="currentSpriteImage()"></span>
 
-              <div v-if="heroVisibility" @click="sectionActive = true, updateHeroClass()" type="button" class="skip handwritten"><p>skip</p></div>
+              <div @click="sectionActive = true, updateHeroClass()" type="button" class="skip handwritten"><p>skip</p></div>
 
           </div>
         </transition>
@@ -25,7 +25,7 @@
     have too research v-cloak more:
     https://stackoverflow.com/questions/34870926/v-cloak-does-not-work-in-vue-js
     -->
-    <transition name="slide-up">
+    <transition name="slide-up" @enter="updateHeroClass()">
       <div v-cloak v-if="sectionActive" :key="this.id" id="section-content" class="justify-content handwritten">
         <div class="section-content-inner-wrap">
           <transition-group name="slideme" mode="out-in">
@@ -78,7 +78,7 @@ export default {
       sectionActive:       false,
       sectionStyles:       '',
       currentSprite:       '',
-      heroVisibility:      true,
+      // heroVisibility:      true,
       heroActive:          false,
       heroVisibilityClass: 'hero-visibility-wrap',
     };
@@ -467,7 +467,7 @@ export default {
 /* fade hero image in sync with slide up all modal-butons */
 
 .fade-hero-enter {
-  opacity: 1;
+  opacity: 0;
 }
 
 .fade-hero-enter-active {
@@ -476,14 +476,15 @@ export default {
 }
 
 .fade-hero-enter-to {
-  opacity: 1;
+  opacity: 0;
 }
 
 .fade-hero-leave {
-  opacity: 1;
+  opacity: 0;
 }
 
 .fade-hero-leave-active {
+  opacity: 0;
   transition: opacity .35s ease;
   animation: hero-out .35s ease-out forwards;
 
@@ -504,7 +505,7 @@ export default {
         opacity: 1;
     }
     100% {
-        opacity: 0;
+        opacity: 1;
     }
 }
 
