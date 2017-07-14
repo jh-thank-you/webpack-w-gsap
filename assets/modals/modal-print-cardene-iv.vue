@@ -1,7 +1,7 @@
 <template>
 
-  <div slot="modalPrintAdvil1a">
-      <nav class="modalNav">
+  <div slot>
+      <nav class="modal-nav">
           <ul>
               <li><a href="#slide-1" class="modal-nav-link">&nbsp;</a></li>
               <li><a href="#slide-2" class="modal-nav-link">&nbsp;</a></li>
@@ -14,20 +14,20 @@
           <div class="slide" ref="slide1" id="slide-1">
               <div class="centered" id="print-advil-1">
                   <!-- Empty Div for boxFrame Overlay Clone -->
-                  <img src="~assets/img/modalPrintAdvil1c.jpg" alt="Advil Blah Blah Blah Ad">
+                  <img src="~assets/img/modal-print-advil-1c.jpg" alt="Advil Blah Blah Blah Ad">
                   <!-- Will Fade On Scroll -->
               </div>
           </div>
 
           <div class="slide" ref="slide2" id="slide-2">
               <div class="centered" id="print-advil-2">
-                  <img src="~assets/img/modalPrintAdvil2c.jpg" alt="Advil Beep Beep Honk Ad">
+                  <img src="~assets/img/modal-print-advil-2.jpg" alt="Advil Beep Beep Honk Ad">
               </div>
           </div>
 
           <div class="slide" ref="slide3" id="slide-3">
               <div class="centered" id="print-advil-3">
-                  <img src="~assets/img/modalPrintAdvil3c.jpg" alt="Advil Waaah Waaa Waaah Ad">
+                  <img src="~assets/img/modal-print-advil-3.jpg" alt="Advil Waaah Waaa Waaah Ad">
               </div>
           </div>
 

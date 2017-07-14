@@ -1728,7 +1728,7 @@ a {
   text-decoration: none;
 }
 
-.modalNav {
+.modal-nav {
   position: fixed;
   position: -ms-device-fixed;
   z-index: 999;
@@ -1739,22 +1739,22 @@ a {
 }
 
 @media all and (max-width: 400px) {
-  .modalNav {
+  .modal-nav {
     width: 55px;
   }
 }
 
-.modalNav ul {
+.modal-nav ul {
   margin-left: -65%;
   list-style: none;
   text-align: left;
 }
 
-.modalNav ul li {
+.modal-nav ul li {
   display: block;
 }
 
-.modalNav ul li:last-child {
+.modal-nav ul li:last-child {
   margin-right: 0;
 }
 
@@ -1762,8 +1762,8 @@ a {
   margin-left: 100px;
 }
 
-.modalNav div,
-.modalNav a {
+.modal-nav div,
+.modal-nav a {
   font-family: monospace;
   font-weight: normal;
   position: relative;
@@ -1776,26 +1776,26 @@ a {
   background-color: none;
 }
 
-.modalNav div:hover,
-.modalNav div.active,
-.modalNav a.active {
+.modal-nav div:hover,
+.modal-nav div.active,
+.modal-nav a.active {
   border: 1px solid #c00000;
   background-color: #08385d;
 }
 
 @media all and (max-width: 400px) {
-  .modalNav ul {
+  .modal-nav ul {
     margin-top: 18px;
   }
-  .modalNav ul li {
+  .modal-nav ul li {
     margin-right: 10px;
     margin-bottom: 10px;
   }
-  .modalNav div {
+  .modal-nav div {
     width: 15px;
     height: 15px;
   }
-  .modalNav a {
+  .modal-nav a {
     font-size: 14px;
     padding: 0 4px;
   }
@@ -1803,18 +1803,18 @@ a {
 
 
 @media all and (min-width: 401px) {
-  .modalNav ul {
+  .modal-nav ul {
     margin-top: 23px;
   }
-  .modalNav ul li {
+  .modal-nav ul li {
     margin-right: 15px;
     margin-bottom: 15px;
   }
-  .modalNav div {
+  .modal-nav div {
     width: 20px;
     height: 20px;
   }
-  .modalNav a {
+  .modal-nav a {
     font-size: 18px;
     padding: 0 5px;
   }
