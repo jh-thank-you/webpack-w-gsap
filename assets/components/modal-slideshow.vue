@@ -43,7 +43,7 @@ export default {
 
     getModal() {
 
-      return require('assets/modals/' + this.imageSrc + '.vue');
+      return require('assets/modals/' + this.imageSrc + '.vue').default;
 
     }, // END getModal
 

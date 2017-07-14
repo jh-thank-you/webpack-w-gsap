@@ -9,13 +9,13 @@ import VueRouter from 'vue-router';
 import router from 'js/routes.js';
 
 import contactAndPrefs from 'components/contact-and-prefs.vue';
-Vue.component('contactandprefs', require('components/contact-and-prefs.vue'));
+Vue.component('contactandprefs', require('components/contact-and-prefs.vue').default);
 
 import navCornerMenu from 'components/nav-corner-menu.vue';
-Vue.component('navcornermenu', require('components/nav-corner-menu.vue'));
+Vue.component('navcornermenu', require('components/nav-corner-menu.vue').default);
 
 import modalPassword from 'components/modal-password.vue';
-Vue.component('modalpassword', require('components/modal-password.vue'));
+Vue.component('modalpassword', require('components/modal-password.vue').default);
 
 export const eventBus = new Vue(); // END export eventBus
 

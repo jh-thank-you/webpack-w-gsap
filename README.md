@@ -47,8 +47,7 @@ In the (not so) early stages of setting up:
 
 **Vue 2 project:**
 
-**IMPORTANT Vue-Loader v13.x.x has issues using v12.2.2 instead.**
-**Need to update imports and reruires to new format for vue-loader v13.x.x**
+Need to update imports and reruires to new format for
 
 GSAP Animation (only modal-slideshow has GSAP animations applied but not in a Vue way - using jquery):
 - Tweenlite
@@ -60,6 +59,8 @@ Todo:
 - Cleaning up the CSS.
   - Cleaned up CSS grid. **DONE**
 - Cleaning up the HTML.
+- Need to update `import` and `reruire` to new format for for vue-loader v13.x.x. **DONE**
+
 
 Nav Buttons Component:
 Todo:
