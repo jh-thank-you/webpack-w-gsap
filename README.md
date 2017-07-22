@@ -60,6 +60,8 @@ Todo:
   - Cleaned up CSS grid. **DONE**
 - Cleaning up the HTML.
 - Need to update `import` and `reruire` to new format for for vue-loader v13.x.x. **DONE**
+- Need to not bind TweenMax and ScrollToPlugin to window within main.js
+  - Bad practice only bind within the componets where it is needed.
 
 
 Nav Buttons Component:
@@ -79,6 +81,7 @@ Section and Hero Image Component:
   - Set hero-image animated gif to fade out when buttons animate into frame. **DONE - SOLVED TIMING ISSUE**
     - Note: hero animations are now sprite sheets (maybe do something with more control through GSAP).
     - Research why there is a slight giggle when sprite sheet animates, it doesn't happen all the time.
+    - Need to split the sprite sheets up - there is a size limiatation for mobile devices - Older is 1024 x 1024 - Newer is 2048 x 2048.
     - Text, while sprite sheet animates, is blurry in the "skip" button. **Better but not solved**
   - Animate modal-buttons in from bottom. **DONE**
   - Need to wire up "skip" button on hero animations. **DONE**
@@ -96,7 +99,9 @@ Todo:
 
 Modal Slideshow Overlay Component:
 Todo:
-- Need to recreate slideshow with Vue vs jQuery.
+- Need to recreate slideshow with Vue vs jQuery. **DONE**
+  - Section is DRY now, once slideshow component for all slides
+    - All slide content imported by Axios GET request to JSON data files within assets/modals. 
 
 Preference & Contact Tab:
 Todo:
