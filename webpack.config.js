@@ -6,6 +6,8 @@
 // Updated to babel-loader 7.x see Babel Loader Documentation https://github.com/babel/babel-loader
 // process.traceDeprecation = true;
 
+// removing Jquery from project/ webpack config, the project dependencies -- Also, in eslintrc.js, jquery is now set to false.
+
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -89,8 +91,9 @@ const plugins = PRODUCTION
     //     { from: 'assets/img-dynamic', to: 'assets/img-dynamic/[name].[ext]' }
     // ]),
     new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery"
+      // axios: "axios", // don't define here and define in the component - it's one OR the other
+       /* $: "jquery",
+        jQuery: "jquery" */ // removing jquery from project
     }),
   ]
   : [
@@ -101,8 +104,9 @@ const plugins = PRODUCTION
     // FaviconsWebpackPlugin only rendered during production build
     new FriendlyErrorsWebpackPlugin(),
     new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery"
+      // axios: "axios", // don't define here and define in the component - it's one OR the other
+       /* $: "jquery",
+        jQuery: "jquery" */ // removing jquery from project
     }),
   ];
 
@@ -159,7 +163,7 @@ const cssLoader = PRODUCTION
 
 module.exports = {
   devtool: projectMap,
-  entry: { build, vendor: ['vue', 'jquery', 'axios', 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
+  entry: { build, vendor: ['vue', /* 'jquery', */ 'axios', 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
   resolve: {
     // IMPORTANT - keep in mind that path values are relative to the file you are writing in
     // Need to research how to create an alias to the root of the build or dist folder

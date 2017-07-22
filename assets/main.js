@@ -1,8 +1,9 @@
 var styles = require('css/global-style.css');
 
 import Vue from 'vue';
-import jquery from 'jquery';
-import axios from 'axios';
+// import jquery from 'jquery';
+// import axios from 'axios';
+// var axios = require('axios/dist/axios');
 import TweenMax from 'gsap/TweenMax';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import VueRouter from 'vue-router';
@@ -21,8 +22,9 @@ export const eventBus = new Vue(); // END export eventBus
 
 window.Vue = Vue;
 Vue.use(VueRouter);
-window.jquery = jquery;
-window.axios = axios;
+// window.jquery = jquery;
+// window.axios = axios;
+// window.axios = require('axios');
 window.TweenMax = TweenMax;
 window.ScrollToPlugin = ScrollToPlugin;
 window.styles = styles;

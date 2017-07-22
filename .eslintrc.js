@@ -4,7 +4,7 @@ module.exports = {
     commonjs: true,
     es6: true,
     node: true,
-    jquery: true,
+    jquery: false,
   },
   globals: {
     "TimelineLite" : false,

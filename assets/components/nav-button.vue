@@ -22,7 +22,6 @@ export default {
   }, // END data
   methods() {
 
-    if (self.$root.debug) { console.log('nav-button methods'); }
 
   }, // END methods
 
