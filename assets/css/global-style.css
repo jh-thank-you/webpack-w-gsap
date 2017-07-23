@@ -167,13 +167,14 @@ I prefer to make a class called no-flick and do this:
   }
 }
 
-
+/*
 .handwritten a :link {
   color: #c42127;
 }
 
 .handwritten a :visited {
   color: #8d181d;
+
 }
 
 .handwritten a :hover {
@@ -183,8 +184,7 @@ I prefer to make a class called no-flick and do this:
 .handwritten a :focus {
   color: #c42127;
 }
-
-
+*/
 
 a {
   color: #c42127;
@@ -200,6 +200,10 @@ a:hover {
 
 a:focus {
   color: #c42127;
+}
+
+a {
+  text-decoration: none;
 }
 
 

@@ -84,8 +84,8 @@ export default {
         },
 
       ],
-
       currentIndex: 0,
+      jsonImport:   '',
 
     };
   }, // END data
@@ -113,16 +113,6 @@ export default {
 
   }, // END beforeCreated
   mounted() {
-
-    if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created'); }
-
-    // GET request for remote image
-    axios({
-      method:       'get',
-      url:          'assets/modals/' + this.imageSrc + '.json',
-      responseType: 'json',
-    }).then(response => this.slides = response.data.slides);
-
     /* *****************************************************************
 
         Global Key Press Listener - For Previous and Next Buttons
@@ -133,6 +123,25 @@ export default {
 
     ***************************************************************** */
     window.addEventListener('keyup', this.listenForArrowKeys);
+
+    if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created'); }
+
+    // GET request for remote image
+    axios({
+      method:       'get',
+      url:          'assets/modals/' + this.imageSrc + '.json',
+      responseType: 'json',
+    }).then(response => this.slides = response.data.slides);
+
+    let self = this;
+    function importJson() {
+      return `${self.imageSrc}`;
+    } // END importJson
+
+    const currentJson = importJson(require.context('assets/modals/', false, /\.(json)$/));
+
+
+    this.jsonImport = currentJson;
 
   }, // END created
   methods: {
