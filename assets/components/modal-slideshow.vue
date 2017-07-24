@@ -65,7 +65,6 @@ import { eventBus } from 'assets/main.js';
 
 import modalSlide from 'components/modal-slide.vue';
 
-
 export default {
 
   components: { modalSlide }, // END components
@@ -85,7 +84,6 @@ export default {
 
       ],
       currentIndex: 0,
-      jsonImport:   '',
 
     };
   }, // END data
@@ -132,16 +130,6 @@ export default {
       url:          'assets/modals/' + this.imageSrc + '.json',
       responseType: 'json',
     }).then(response => this.slides = response.data.slides);
-
-    let self = this;
-    function importJson() {
-      return `${self.imageSrc}`;
-    } // END importJson
-
-    const currentJson = importJson(require.context('assets/modals/', false, /\.(json)$/));
-
-
-    this.jsonImport = currentJson;
 
   }, // END created
   methods: {

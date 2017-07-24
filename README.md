@@ -62,6 +62,11 @@ Todo:
 - Need to update `import` and `reruire` to new format for for vue-loader v13.x.x. **DONE**
 - Need to not bind TweenMax and ScrollToPlugin to window within main.js
   - Bad practice only bind within the componets where it is needed.
+- Organized assets/img folder all art and code links updated to match new structure.
+  - Set new folder/file structure 
+  - Using Copy Webpack Plugin to copy `assets/modals/*.json` files.
+  - Using Copy Webpack Plugin to copy `assets/img/modal-slides/` files.
+  - Researching if it is possible to hash the Copy Webpack Plugin images and JSON files. Not sure how to get the hashes if the JSON links and the images to match.
 
 
 Nav Buttons Component:

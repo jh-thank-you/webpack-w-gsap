@@ -45,9 +45,6 @@ html {
   background: rgba(0,0,0,0.15);
   border: solid 1px #c42127;
   border: solid 1px rgba(196,33,39,0.5);
-  /* background-image: url('~img/scrollbar-bkg.gif');
-  background-repeat: repeat;
-  background-size: 15px; */
 }
 
 .inner-wrap-fixed-scroll::-webkit-scrollbar-track,
@@ -227,7 +224,7 @@ a {
   top: -50px;
   left: -100px;
   transform: rotate(12deg);
-  background-image: url('~img/marker-pad-btm-sm.png');
+  background-image: url('~img/ui-elements/marker-pad-btm-sm.png');
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: contain;
@@ -253,7 +250,7 @@ a {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  background-image: url('~img/line-underline.gif');
+  background-image: url('~img/ui-elements/line-underline.gif');
   background-repeat: no-repeat;
   background-position: 145px 145px;
   background-size: 60px 8px;
@@ -263,7 +260,7 @@ a {
   top: -50px;
   right: -105px;
   transform: rotate(-12deg);
-  background-image: url('~img/envelope-5x7-sm.png');
+  background-image: url('~img/ui-elements/envelope-5x7-sm.png');
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: contain;
@@ -284,7 +281,7 @@ a {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  background-image: url('~img/line-video.gif');
+  background-image: url('~img/ui-elements/line-video.gif');
   background-repeat: no-repeat;
   background-position: 12px 129px;
   background-size: 60px 20px;
@@ -295,7 +292,7 @@ a {
   left: -50px;
   width: 165px;
   transform: rotate(-12deg);
-  background-image: url('~img/napkin-sm.png');
+  background-image: url('~img/ui-elements/napkin-sm.png');
   background-repeat: no-repeat;
   background-position: top right;
   background-size: contain;
@@ -316,7 +313,7 @@ a {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  background-image: url('~img/line-box.gif');
+  background-image: url('~img/ui-elements/line-box.gif');
   background-repeat: no-repeat;
   background-position: 68px 14px;
   background-size: 86px 22px;
@@ -326,7 +323,7 @@ a {
   right: -105px;
   bottom: -50px;
   transform: rotate(12deg);
-  background-image: url('~img/graph-paper-sm.png');
+  background-image: url('~img/ui-elements/graph-paper-sm.png');
   background-repeat: no-repeat;
   background-position: center left;
   background-size: contain;
@@ -347,7 +344,7 @@ a {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  background-image: url('~img/line-circle.gif');
+  background-image: url('~img/ui-elements/line-circle.gif');
   background-repeat: no-repeat;
   background-position: 8px 16px;
   background-size: 80px 24px;
@@ -380,7 +377,7 @@ a {
   width: 100%;
   height: 100%;
   padding: 0 auto;
-  background-image: url('~img/seamless-graph-paper-pattern.jpg');
+  background-image: url('~img/ui-elements/seamless-graph-paper-pattern.jpg');
   background-repeat: repeat;
   background-size: 20px;
 }
@@ -540,7 +537,7 @@ a {
 #nav-print-small:focus,
 #nav-print-small:active {
   overflow: hidden;
-  background-image: url('~img/line-underline.gif');
+  background-image: url('~img/ui-elements/line-underline.gif');
   background-repeat: no-repeat;
   background-position: 50% 85%;
   background-size: 89px 10px;
@@ -550,7 +547,7 @@ a {
 #nav-video-small:focus,
 #nav-video-small:active {
   overflow: hidden;
-  background-image: url('~img/line-video.gif');
+  background-image: url('~img/ui-elements/line-video.gif');
   background-repeat: no-repeat;
   background-position: 50% 70%;
   background-size: 82px 30px;
@@ -560,7 +557,7 @@ a {
 #nav-outdoor-small:focus,
 #nav-outdoor-small:active {
   overflow: hidden;
-  background-image: url('~img/line-box.gif');
+  background-image: url('~img/ui-elements/line-box.gif');
   background-repeat: no-repeat;
   background-position: 50% 72%;
   background-size: 135px 35px;
@@ -570,7 +567,7 @@ a {
 #nav-online-small:focus,
 #nav-online-small:active {
   overflow: hidden;
-  background-image: url('~img/line-circle.gif');
+  background-image: url('~img/ui-elements/line-circle.gif');
   background-repeat: no-repeat;
   background-position: 50% 79%;
   background-size: 120px 35px;
@@ -607,7 +604,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #9c9c9c;
-  background-image: url('~img/seamless-paper-warm-gray-v3.jpg');
+  background-image: url('~img/ui-elements/seamless-paper-warm-gray-v3.jpg');
   background-repeat: repeat;
   background-position: top left;
   background-size: 400px;
@@ -648,7 +645,7 @@ body {
   cursor: pointer;
   opacity: 1;
   background-color: none;
-  background-image: url('~img/closeButton-base.png');
+  background-image: url('~img/ui-elements/close-button-base.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -677,7 +674,7 @@ body {
 #button-close-raster:hover,
 #button-close-raster:focus,
 #button-close-raster:active {
-  background-image: url('~img/closeButton-hover.png');
+  background-image: url('~img/ui-elements/close-button-hover.png');
 }
 
 
@@ -880,7 +877,7 @@ fieldset {
   /* animate from 48px to 65% */
   /* background-color: #b9b9b9; */
 
-  background-image: url('~img/folder-tab-middle-v02-top.png');
+  background-image: url('~img/ui-elements/folder-tab-middle-v02-top.png');
   background-repeat: no-repeat;
   background-position: center top 0;
   background-size: 100%;
@@ -898,7 +895,7 @@ fieldset {
   min-width: 500px;
   max-width: 800px;
   transform: translate(-50%, 0);
-  background-image: url('~img/folder-tab-middle-v02-strip.png');
+  background-image: url('~img/ui-elements/folder-tab-middle-v02-strip.png');
   background-repeat: repeat;
   background-position: center bottom 0;
   background-size: 100%;
@@ -921,7 +918,7 @@ fieldset {
 .tab-title:hover,
 .tab-title:focus,
 .tab-title:active {
-  background-image: url('~img/selected-underline-block.gif');
+  background-image: url('~img/ui-elements/selected-underline-block.gif');
   background-repeat: no-repeat;
   background-position: 50% 115%;
   background-size: 22% 135%;
@@ -1234,28 +1231,28 @@ a #contact-prefs:hover {
 }
 
 #section-print {
-  background: url('~img/seamless-marker-pad.jpg');
+  background: url('~img/ui-elements/seamless-marker-pad.jpg');
   background-repeat: repeat;
   background-position: center center;
   background-size: 400px;
 }
 
 #section-video {
-  background: url('~img/seamless-diagnal-pattern.jpg');
+  background: url('~img/ui-elements/seamless-diagnal-pattern.jpg');
   background-repeat: repeat;
   background-position: center center;
   background-size: 300px;
 }
 
 #section-outdoor {
-  background: url('~img/seamless-napkin-pattern.jpg');
+  background: url('~img/ui-elements/seamless-napkin-pattern.jpg');
   background-repeat: repeat;
   background-position: center center;
   background-size: 75px;
 }
 
 #section-online {
-  background: url('~img/seamless-graph-paper-pattern.jpg');
+  background: url('~img/ui-elements/seamless-graph-paper-pattern.jpg');
   background-repeat: repeat;
   background-position: center center;
   background-size: 20px;
@@ -1285,7 +1282,7 @@ a #contact-prefs:hover {
 .skip:focus,
 .skip:active {
   opacity: 1;
-  background-image: url('~img/line-triangle.gif');
+  background-image: url('~img/ui-elements/line-triangle.gif');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
@@ -1481,7 +1478,7 @@ a #contact-prefs:hover {
   left: -2%;
   width: 104%;
   height: 104%;
-  background-image: url('~img/boxFrame-selected.gif');
+  background-image: url('~img/modal-buttons/boxframe-selected.gif');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100%;
@@ -1492,7 +1489,7 @@ a #contact-prefs:hover {
 .locked:hover,
 .locked:focus,
 .locked:active {
-  background-image: url('~img/locked-selected.gif');
+  background-image: url('~img/modal-buttons/locked-selected.gif');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100%;
@@ -1739,7 +1736,7 @@ input::placeholder {
   width: 100%;
   height: 100%;
   background-color: #090e38;
-  background-image: url('~img/seamless-paper-texture-drk-blue.jpg');
+  background-image: url('~img/ui-elements/seamless-paper-texture-drk-blue.jpg');
   background-repeat: repeat;
   background-position: top left;
   background-size: 400px;

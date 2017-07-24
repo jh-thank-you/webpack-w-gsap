@@ -107,7 +107,7 @@ export default {
 
     if (this.$root.debug) { console.log(this.heroActive + ' = this.heroActive value after call'); }
 
-    let sectionStyles = require('assets/img/sprite-' + this.id + '/sprite-' + this.id + '.css').default;
+    let sectionStyles = require('assets/img/sprite-sheets/sprite-' + this.id + '/sprite-' + this.id + '.css').default;
 
     window.sectionStyles = sectionStyles;
 

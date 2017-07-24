@@ -3,7 +3,7 @@
       "navID":     "slide-1",
       "client":    "",
       "alt":       "Advil Ad Blah Blah Blah",
-      "src":       "assets/img/modal-print-advil-1c.jpg",
+      "src":       "assets/img/modal-slides/modal-print-advil-01c.jpg",
       "showImage": true,
       "pText":     ""
     },
@@ -11,7 +11,7 @@
       "navID":     "slide-2",
       "client":    "",
       "alt":       "Advil Ad Blah Blah Blah",
-      "src":       "assets/img/modal-print-advil-2.jpg",
+      "src":       "assets/img/modal-slides/modal-print-advil-02.jpg",
       "showImage": true,
       "pText":     ""
     },
@@ -19,7 +19,7 @@
       "navID":     "slide-3",
       "client":    "",
       "alt":       "Advil Ad Whaaaa Whaa Whaaaaaaa",
-      "src":       "assets/img/modal-print-advil-3.jpg",
+      "src":       "assets/img/modal-slides/modal-print-advil-03.jpg",
       "showImage": true,
       "pText":     ""
     },

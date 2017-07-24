@@ -58,6 +58,7 @@ module.exports = {
   ],
   parserOptions: {
     sourceType: 'module',
+    "allowImportExportEverywhere": true // need to use babel-eslint for this to work but will then conflict with eslint-plugin-vue
   },
   rules: {
     // 0 = Off/Disable

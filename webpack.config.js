@@ -17,7 +17,7 @@ var ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 // var DashboardPlugin = require('webpack-dashboard/plugin');
 var PrerenderSpaPlugin = require('prerender-spa-plugin');
-// var CopyWebpackPlugin = require('copy-webpack-plugin');  // No longer needed - solved with https://github.com/vuejs/vue-loader/issues/814
+var CopyWebpackPlugin = require('copy-webpack-plugin');  
 var GitRevisionPlugin = require('git-revision-webpack-plugin');
 let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
@@ -59,7 +59,7 @@ const plugins = PRODUCTION
     }),
       // For setting see - https://github.com/jantimon/favicons-webpack-plugin
     new FaviconsWebpackPlugin({
-      logo: './assets/img/favicon-hainis.png',
+      logo: './assets/img/ui-elements/favicon-hainis.png',
       inject: true, // Inject the html into the html-webpack-plugin
       persistentCache: true,  // Generate a cache file with control hashes and
                               // don't rebuild the favicons until those hashes change
@@ -86,10 +86,10 @@ const plugins = PRODUCTION
           names: ['vendor']
     }), // split vendor library from app code
     new FriendlyErrorsWebpackPlugin(),
-    // new CopyWebpackPlugin([]
-    // No longer needed - solved with https://github.com/vuejs/vue-loader/issues/814
-    //     { from: 'assets/img-dynamic', to: 'assets/img-dynamic/[name].[ext]' }
-    // ]),
+    new CopyWebpackPlugin([
+        { from: 'assets/modals', to: 'assets/modals' },
+        { from: 'assets/img/modal-slides', to: 'assets/img/modal-slides' }
+    ]),
     new webpack.ProvidePlugin({
       // axios: "axios", // don't define here and define in the component - it's one OR the other
        /* $: "jquery",
@@ -203,6 +203,13 @@ module.exports = {
           loaders: {
           }
           // other vue-loader options go here
+        }
+      }, {
+        test: /\.json$/,
+        loader: 'json-loader', // Used for Vue Templates. Also Hot Module Replacement only works with .vue files
+        options: {
+          loaders: {
+          }
         }
       }, {
       // Conditions
