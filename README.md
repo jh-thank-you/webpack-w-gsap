@@ -63,10 +63,9 @@ Todo:
 - Need to not bind TweenMax and ScrollToPlugin to window within main.js
   - Bad practice only bind within the componets where it is needed.
 - Organized assets/img folder all art and code links updated to match new structure.
-  - Set new folder/file structure 
-  - Using Copy Webpack Plugin to copy `assets/modals/*.json` files.
-  - Using Copy Webpack Plugin to copy `assets/img/modal-slides/` files.
-  - Researching if it is possible to hash the Copy Webpack Plugin images and JSON files. Not sure how to get the hashes if the JSON links and the images to match.
+  - Set new folder/file structure.
+  - Researching if it is possible to hash the Copy Webpack Plugin images and JSON files. Not sure how to get the hashes if the JSON links and the images to match. **SOLVED**
+    - Removed Axios and Copy Webpack Plugin. Solved the issue with `require` and a return value for the array from the externally required JS file. All assets are now copied and hashed properly by Webpack.
 
 
 Nav Buttons Component:
