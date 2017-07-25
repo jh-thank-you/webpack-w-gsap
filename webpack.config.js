@@ -17,7 +17,7 @@ var ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 // var DashboardPlugin = require('webpack-dashboard/plugin');
 var PrerenderSpaPlugin = require('prerender-spa-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');  
+// var CopyWebpackPlugin = require('copy-webpack-plugin');  
 var GitRevisionPlugin = require('git-revision-webpack-plugin');
 let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
@@ -86,10 +86,11 @@ const plugins = PRODUCTION
           names: ['vendor']
     }), // split vendor library from app code
     new FriendlyErrorsWebpackPlugin(),
-    new CopyWebpackPlugin([
-        { from: 'assets/modals', to: 'assets/modals' },
-        { from: 'assets/img/modal-slides', to: 'assets/img/modal-slides' }
-    ]),
+    // new CopyWebpackPlugin([
+    //     // No need for CopyWebpackPlugin - SOLVED issue by using require statements for the external slideshow "slides" var.
+    //     // { from: 'assets/modals', to: 'assets/modals' },
+    //     // { from: 'assets/img/modal-slides', to: 'assets/img/modal-slides' }
+    // ]),
     new webpack.ProvidePlugin({
       // axios: "axios", // don't define here and define in the component - it's one OR the other
        /* $: "jquery",
@@ -163,7 +164,7 @@ const cssLoader = PRODUCTION
 
 module.exports = {
   devtool: projectMap,
-  entry: { build, vendor: ['vue', /* 'jquery', */ 'axios', 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
+  entry: { build, vendor: ['vue', /* 'jquery',  'axios',*/ 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
   resolve: {
     // IMPORTANT - keep in mind that path values are relative to the file you are writing in
     // Need to research how to create an alias to the root of the build or dist folder

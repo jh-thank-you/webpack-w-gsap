@@ -59,8 +59,6 @@
 
 <script>
 
-import axios from 'axios';
-
 import { eventBus } from 'assets/main.js';
 
 import modalSlide from 'components/modal-slide.vue';
@@ -124,12 +122,11 @@ export default {
 
     if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created'); }
 
-    // GET request for remote image
-    axios({
-      method:       'get',
-      url:          'assets/modals/' + this.imageSrc + '.json',
-      responseType: 'json',
-    }).then(response => this.slides = response.data.slides);
+    // No need for Axios
+    // Added benefit - Webpack is able to traverse the dynamic require links. Also Webpack now hashes the links and their resource. 
+    const currentJson = require(`assets/modals/${this.imageSrc}.js`);
+    this.slides = currentJson.sendSlideData();
+
 
   }, // END created
   methods: {
