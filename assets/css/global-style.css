@@ -1456,7 +1456,7 @@ a #contact-prefs:hover {
     height: 1.5em;
   }
   .client-label p {
-    top: .07em;
+    top: 0.07em;
   }
 }
 
@@ -1483,7 +1483,7 @@ a #contact-prefs:hover {
     height: 1.5em;
   }
   .client-label p {
-    top: -.20em;
+    top: -0.20em;
   }
 }
 
@@ -1780,8 +1780,6 @@ input::placeholder {
   padding: 0;
 }
 
-
-
 .slide-img-wrap,
 .center-slide {
   position: absolute;
@@ -1796,7 +1794,10 @@ input::placeholder {
   /* padding: 0; */
   transform: translate(-50%, -50%);
   opacity: 1;
-  background-image: none;
+  background-image: none; /* - Set by Vue DOM */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
   /* border: solid 5px orange; */
 }
 
@@ -1816,7 +1817,7 @@ input::placeholder {
     padding: 3%;
   }
   .slide-img-wrap {
-    width: 85vw;
+    width: 65vw;
     height: 85vh;
   }
 }
@@ -1842,7 +1843,7 @@ input::placeholder {
   }
   .slide-img-wrap {
     width: 65vw;
-    height: 65vh;
+    height: 85vh;
   }
 }
 
