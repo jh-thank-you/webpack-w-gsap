@@ -2,6 +2,8 @@
 
   <div :id="id" class="section-wrap texture-paper-bkg">
 
+      <modal-password></modal-password>
+
       <button-close-section-raster></button-close-section-raster>
 
       <!-- See notes in CSS about CSS transition listeners -->
@@ -18,8 +20,9 @@
         </transition>
       </div>
 
-
+    <transition name="fade-slideshow">
     <modal-slideshow v-if="showModal" @close="showModal = false" :imageSrc="imagesource"></modal-slideshow>
+    </transition>
 
     <!--
     have too research v-cloak more:
@@ -43,6 +46,7 @@
 <script>
 
 import { eventBus } from 'assets/main.js';
+import modalPassword from 'components/modal-password.vue';
 
 import buttonCloseSectionRaster from 'components/button-close-section-raster.vue';
 import heroImage from 'components/hero-image.vue';
@@ -54,6 +58,8 @@ let currentExamples = null;
 export default {
 
   components: {
+
+    modalPassword,
     buttonCloseSectionRaster,
     heroImage,
     modalSlideshow,

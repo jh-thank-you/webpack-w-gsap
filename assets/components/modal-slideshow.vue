@@ -118,14 +118,33 @@ export default {
         and Laracst talk about a global listener to solve this 
 
     ***************************************************************** */
-    window.addEventListener('keyup', this.listenForArrowKeys);
+
+    // name the event listener so you can destroy/remove it later.
+    const self = this;
+    var arrowHandler = function (event) {
+      // If left or right arrow was pressed.
+      if (event.keyCode == 37) {
+        console.log('left-arrow-pressed');
+        // gotToPrevSlide;
+        self.gotToPrev();
+      } else if (event.keyCode == 39) {
+        console.log('right-arrow-pressed');
+        // gotToNextSlide;
+        self.gotToNext();
+      } else {
+        return;
+      }
+    }; // END arrowHandler
+
+    window.addEventListener('keyup', arrowHandler);
+
 
     if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created'); }
 
     // No need for Axios
     // Added benefit - Webpack is able to traverse the dynamic require links. Also Webpack now hashes the links and their resource. 
-    const currentJson = require(`assets/modals/${this.imageSrc}.js`);
-    this.slides = currentJson.sendSlideData();
+    const currentSlides = require(`assets/modals/${this.imageSrc}.js`);
+    this.slides = currentSlides.sendSlideData();
 
 
   }, // END created
@@ -159,24 +178,6 @@ export default {
         console.log(this.currentIndex + ' = currentIndex - got To Next Slide');
       }
     }, // END gotToNext
-
-
-    listenForArrowKeys (event) {
-      // If left or right arrow was pressed.
-      if (event.keyCode == 37) {
-        console.log('left-arrow-pressed');
-        // gotToPrevSlide;
-        this.gotToPrev();
-      } else if (event.keyCode == 39) {
-        console.log('right-arrow-pressed');
-        // gotToNextSlide;
-        this.gotToNext();
-      } else {
-        return;
-      }
-
-    }, // END listenForArrowKeys
-
 
     enter(el, done) {
       const tl = new TimelineMax({
@@ -213,6 +214,12 @@ export default {
     },
 
   }, // END methods
+  beforeDestroy() {
+
+    // remove the event listener
+    window.removeEventListener('keyup', this.arrowHandler);
+
+  }, // END beforeDestroy
 
 }; // END export default
 

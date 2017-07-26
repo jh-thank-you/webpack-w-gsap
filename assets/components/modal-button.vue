@@ -58,6 +58,9 @@ export default {
         showModal = false;
         eventBus.$emit('modalVisibility', showModal);
 
+        this.imageSrc = this.id;
+        this.$emit('imageSelectChanged', this.imageSrc);
+
         var showPasswordModal = true;
         eventBus.$emit('passwordStatus', showPasswordModal);
 

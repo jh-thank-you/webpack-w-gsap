@@ -33,6 +33,7 @@ export default {
       showMessage:       false,
       message:           '',
       password:          '',
+      imageSrc:          '',
       selectResponse:    [
         'No soup for you!',
         'I\'m a Toys\'R\'Us Kid too!',
@@ -73,7 +74,13 @@ export default {
     eventBus.$on('passwordStatus', (showPasswordModal) => {
 
       this.showPasswordModal = showPasswordModal;
-      return this.showPasswordModal;
+      // return this.showPasswordModal;
+
+    }); // END eventBus
+
+    eventBus.$on('imageSelectChanged', (thisImageSrc) => {
+
+      this.imageSrc = thisImageSrc;
 
     }); // END eventBus
 
@@ -92,12 +99,19 @@ export default {
 
       if (password == 'BigPharma') {
 
+        this.showPasswordModal = false;
+
         // then animate the modal
         if (this.$root.debug) { console.log('Correct password entered'); }
-        this.hideTab();
 
         this.password = '';
-        return this.password;
+
+        var showModal = true;
+        eventBus.$emit('modalVisibility', showModal);
+
+        this.$emit('imageSelectChanged', this.imageSrc);
+
+        if (this.$root.debug) { console.log(this.imageSrc + ' = this.imageSrc - modal button clicked'); }
 
       } else {
         if (this.$root.debug) { console.log('Wrong password entered'); }
@@ -110,7 +124,7 @@ export default {
 
         if (this.$root.debug) { console.log(this.message + ' = currentResponse'); }
 
-        return this.message, this.password, this.showMessage;
+        // return this.message, this.password, this.showMessage;
 
       } // END IF ELSE
 
