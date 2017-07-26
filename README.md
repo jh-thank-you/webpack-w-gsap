@@ -98,8 +98,8 @@ Todo:
 - Added a modal to enter a password to view certain content. **DONE**
 - CSS styles, including media queries applied. **DONE**
 - Added vue functionality for wrong password message. **DONE**
-- Pass props to modal-slideshow when the correct password is entered.
-- Add animation to selected modal-button/slideshow.
+- Pass props to modal-slideshow when the correct password is entered. **DONE**
+- Add transition to selected modal-button/slideshow. **DONE**
 
 Modal Slideshow Overlay Component:
 Todo:
