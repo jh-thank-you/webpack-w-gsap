@@ -1189,16 +1189,14 @@ a #contact-prefs:hover {
   /* border: solid 1px red; */
 }
 
-@media all and (max-height: 500px) {
-  .hero-visibility-wrap,
-  .sprite-section-print-wrap,
-  .sprite-section-video-wrap,
-  .sprite-section-outdoor-wrap,
-  .sprite-section-online-wrap {
+
+@media all and (max-height: 750px) {
+  .hero-visibility-wrap {
     width: 75vh;
     height: 75vh;
   }
 }
+
 
 #section-print,
 #section-video,
