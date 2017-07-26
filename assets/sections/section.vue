@@ -28,10 +28,21 @@
     have too research v-cloak more:
     https://stackoverflow.com/questions/34870926/v-cloak-does-not-work-in-vue-js
     -->
-    <transition name="slide-up" @enter="updateHeroClass()">
+    <transition
+      name="slide-up"
+      @enter="updateHeroClass(), setScrollSpacer()"
+    >
       <div v-cloak v-if="sectionActive" :key="this.id" id="section-content" class="justify-content handwritten">
-        <div class="section-content-inner-wrap">
-          <transition-group name="slideme" mode="out-in">
+        <div id="section-content-inner-wrap" class="section-content-inner-wrap">
+
+          <div id="scroll-spacer"></div><!-- dynamic height baed on content -->
+
+          <transition-group
+            name="slideme"
+            mode="out-in"
+            @after-enter="setScrollSpacer()"
+            @after-leave="setScrollSpacer()"
+          >
             <modal-button v-for="example in getExamples()" :key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access" @imageSelectChanged="imagesource = $event"></modal-button>
           </transition-group>
         </div>
@@ -117,6 +128,8 @@ export default {
 
     window.sectionStyles = sectionStyles;
 
+    window.addEventListener('resize', this.resize);
+
   }, // END computed
   methods: {
 
@@ -137,6 +150,43 @@ export default {
       this.heroActive = true;
       return this.heroActive;
     }, // END sectionIsActive
+
+
+    setScrollSpacer() {
+      // adjust height of spacer to vertically center section content
+      var vh = window.innerHeight;
+      var elmnt = document.getElementById('section-content-inner-wrap');
+      document.getElementById('scroll-spacer').style.height = '0';
+      var elmntHeight = elmnt.clientHeight;
+      var scrollSpacer = (vh - elmntHeight) * 0.45;
+      if (elmntHeight > vh) {
+
+        document.getElementById('scroll-spacer').style.height = '0';
+
+      } else {
+
+        if (this.$root.debug) { console.log(vh + ' = vh - view height value'); }
+        if (this.$root.debug) { console.log(elmntHeight + ' = elmntHeight value'); }
+
+        if (this.$root.debug) { console.log(scrollSpacer + ' = scrollSpacer value'); }
+        document.getElementById('scroll-spacer').style.height = scrollSpacer + 'px';
+      }
+
+    }, // END setScrollSpacer
+
+    resize() {
+
+      this.setScrollSpacer();
+
+      if (this.$root.debug) { console.log(this.vh + ' = vh - view height value'); }
+      if (this.$root.debug) { console.log(this.elmntHeight + ' = elmntHeight value'); }
+
+      if (this.$root.debug) { console.log(this.scrollSpacer + ' = scrollSpacer value'); }
+
+      if (this.$root.debug) { console.log('resize spacer based on window height'); }
+
+    }, // END resize
+
 
     // dynamically set which array is passed based on the Parent ID data
     getExamples() {
@@ -313,6 +363,8 @@ export default {
     eventBus.$off('modalVisibility');
 
     eventBus.$off('selectedChanged');
+
+    window.removeEventListener('resize', this.resize);
 
     this.sectionActive = false;
     return this.sectionActive;

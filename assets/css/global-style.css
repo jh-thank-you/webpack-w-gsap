@@ -1160,6 +1160,13 @@ a #contact-prefs:hover {
 /*           section.vue | hero-image.vue          */
 /* *********************************************** */
 
+#scroll-spacer {
+  position: relative;
+  width: 100%;
+  /* Height will be set by script */
+  /* border: solid 2px red; */
+}
+
 .current-animation {
   opacity: 0.7;
 }
