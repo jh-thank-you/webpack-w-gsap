@@ -371,6 +371,7 @@ a {
 
 .corner-nav-small {
   position: fixed;
+  position: -ms-device-fixed;
   z-index: 1;
   display: block;
   overflow: hidden;
@@ -392,6 +393,7 @@ a {
 
 #name-and-tag-small {
   position: fixed;
+  position: -ms-device-fixed;
   top: 0;
   display: block;
   width: 100%;
@@ -413,6 +415,7 @@ a {
 
 .inner-wrap-fixed-scroll {
   position: fixed;
+  position: -ms-device-fixed;
   top: 6rem;
   display: block;
   overflow-x: hidden;
@@ -862,8 +865,8 @@ fieldset {
 }
 
 #contact-prefs-tab {
-  position: fixed;
-  position: -ms-device-fixed;
+  position: absolute;
+  position: -ms-device-absolute;
   z-index: 99;
   bottom: 0;
   left: 0;
@@ -1138,6 +1141,7 @@ a #contact-prefs:hover {
 
 #section-content {
   position: fixed;
+  position: -ms-device-fixed;
   width: 100%;
   height: 100%;
   bottom: 0;
@@ -1150,7 +1154,7 @@ a #contact-prefs:hover {
   max-width: 800px;
   margin: 0 auto;
   padding-top: 30px;
-  padding-bottom: 28px; /* added for tab */
+  padding-bottom: 48px; /* added for tab */
   overflow: hidden;
 }
 
@@ -1210,6 +1214,7 @@ a #contact-prefs:hover {
 #section-outdoor,
 #section-online {
   position: fixed;
+  position: -ms-device-fixed;
   width: 100%;
   height: 100%;
   margin-top: 0;
@@ -1264,7 +1269,8 @@ a #contact-prefs:hover {
 }
 
 .skip {
-  position: fixed;
+  position: absolute;
+  position: -ms-device-absolute;
   opacity: 0.5;
   width: 70px;
   height: 45px;
@@ -1299,13 +1305,20 @@ a #contact-prefs:hover {
 /*                modal-button.vue                 */
 /* *********************************************** */
 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
 
 .boxframe {
   position: relative;
   display: inline-block;
   max-width: 1150px;
   cursor: pointer;
-  /* mix-blend-mode: multiply; */
 }
 
 .inner-frame-3 {
@@ -1322,12 +1335,13 @@ a #contact-prefs:hover {
 }
 
 /* ****** START Grid ****** */
+/* No Floats oe Clears Needed - Now Using Flexbox */
 
 /* @media all and (min-width: 90.063em) {
  */
 @media all and (min-width: 801px) {
   .boxframe {
-    float: left;
+    /* float: left; */
     width: 32%;
     margin: 0 2% 1em 0;
   }
@@ -1340,7 +1354,7 @@ a #contact-prefs:hover {
     margin: 0;
   }
   .boxframe:nth-of-type(3n+4) {
-    clear: left;
+    /* clear: left; */
   }
   .boxframe:nth-last-child(1) {
     margin: 0;
@@ -1351,7 +1365,7 @@ a #contact-prefs:hover {
  */
 @media all and (min-width: 501px) and (max-width: 800px) {
   .boxframe {
-    float: left;
+    /* float: left; */
     width: 49%;
     margin: 0 2% 1em 0;
   }
@@ -1364,7 +1378,7 @@ a #contact-prefs:hover {
     margin: 0;
   }
   .boxframe:nth-of-type(even) {
-    clear: right;
+    /* clear: right; */
   }
 }
 
@@ -1372,7 +1386,7 @@ a #contact-prefs:hover {
  */
 @media all and (max-width: 500px) {
   .boxframe {
-    float: left;
+    /* float: left; */
     width: 100%;
     margin: 0 0 0.75em 0;
   }
@@ -1385,7 +1399,7 @@ a #contact-prefs:hover {
     margin: 0;
   }
   .boxframe:nth-of-type(3n+4) {
-    clear: left;
+    /* clear: left; */
   }
 }
 
@@ -2032,6 +2046,7 @@ input::placeholder {
 
 .btn-group-wrap {
   position: fixed;
+  position: -ms-device-fixed;
   z-index: 999;
   bottom: 5%;
   width: 100%;
@@ -2080,6 +2095,7 @@ input::placeholder {
 
 .btn-previous-wrap {
   position: fixed;
+  position: -ms-device-fixed;
   top: 45vh;
   left: 25px;
   width: 35px;
@@ -2088,6 +2104,7 @@ input::placeholder {
 
 .btn-next-wrap {
   position: fixed;
+  position: -ms-device-fixed;
   top: 45vh;
   right: 25px;
   width: 35px;

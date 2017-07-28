@@ -28,21 +28,11 @@
     have too research v-cloak more:
     https://stackoverflow.com/questions/34870926/v-cloak-does-not-work-in-vue-js
     -->
-    <transition
-      name="slide-up"
-      @enter="updateHeroClass(), setScrollSpacer()"
-    >
+    <transition name="slide-up" @enter="updateHeroClass()">
       <div v-cloak v-if="sectionActive" :key="this.id" id="section-content" class="justify-content handwritten">
-        <div id="section-content-inner-wrap" class="section-content-inner-wrap">
+        <div id="section-content-inner-wrap" class="section-content-inner-wrap flex-container">
 
-          <div id="scroll-spacer"></div><!-- dynamic height baed on content -->
-
-          <transition-group
-            name="slideme"
-            mode="out-in"
-            @after-enter="setScrollSpacer()"
-            @after-leave="setScrollSpacer()"
-          >
+          <transition-group name="slideme" mode="out-in">
             <modal-button v-for="example in getExamples()" :key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access" @imageSelectChanged="imagesource = $event"></modal-button>
           </transition-group>
         </div>
@@ -106,7 +96,7 @@ export default {
 
     eventBus.$on('modalVisibility', (showModal) => {
       this.showModal = showModal;
-      return this.showModal;
+      // return this.showModal; // return NOT Needed
     }); // END eventBus
 
     eventBus.$on('selectedChanged', (selected) => {
@@ -137,7 +127,7 @@ export default {
       var updatedHeroClass = 'fade-me hero-visibility-wrap';
       this.heroVisibilityClass = updatedHeroClass;
       if (this.$root.debug) { console.log(this.heroVisibilityClass + ' = this.heroVisibilityClass - Updated hero-visibility-wrap'); }
-      return this.heroVisibilityClass;
+      // return this.heroVisibilityClass; // return NOT Needed
     }, // END updateHeroClass
 
     currentSpriteImage() {
@@ -148,44 +138,8 @@ export default {
 
     heroIsActive() {
       this.heroActive = true;
-      return this.heroActive;
+      // return this.heroActive;  // return NOT Needed
     }, // END sectionIsActive
-
-
-    setScrollSpacer() {
-      // adjust height of spacer to vertically center section content
-      var vh = window.innerHeight;
-      var elmnt = document.getElementById('section-content-inner-wrap');
-      document.getElementById('scroll-spacer').style.height = '0';
-      var elmntHeight = elmnt.clientHeight;
-      var scrollSpacer = (vh - elmntHeight) * 0.45;
-      if (elmntHeight > vh) {
-
-        document.getElementById('scroll-spacer').style.height = '0';
-
-      } else {
-
-        if (this.$root.debug) { console.log(vh + ' = vh - view height value'); }
-        if (this.$root.debug) { console.log(elmntHeight + ' = elmntHeight value'); }
-
-        if (this.$root.debug) { console.log(scrollSpacer + ' = scrollSpacer value'); }
-        document.getElementById('scroll-spacer').style.height = scrollSpacer + 'px';
-      }
-
-    }, // END setScrollSpacer
-
-    resize() {
-
-      this.setScrollSpacer();
-
-      if (this.$root.debug) { console.log(this.vh + ' = vh - view height value'); }
-      if (this.$root.debug) { console.log(this.elmntHeight + ' = elmntHeight value'); }
-
-      if (this.$root.debug) { console.log(this.scrollSpacer + ' = scrollSpacer value'); }
-
-      if (this.$root.debug) { console.log('resize spacer based on window height'); }
-
-    }, // END resize
 
 
     // dynamically set which array is passed based on the Parent ID data
@@ -258,7 +212,6 @@ export default {
 
         ]; // END currentExamples
 
-        // return currentExamples;
         return this.filteredExamples(currentExamples);
 
       } else if (currentID == 'section-video') {
@@ -281,7 +234,6 @@ export default {
 
         ]; // END currentExamples
 
-        // return currentExamples;
         return this.filteredExamples(currentExamples);
 
       } else if (currentID == 'section-outdoor') {
@@ -302,7 +254,6 @@ export default {
 
         ]; // END currentExamples
 
-        // return currentExamples;
         return this.filteredExamples(currentExamples);
 
       } else if (currentID == 'section-online') {
@@ -323,7 +274,6 @@ export default {
 
         ]; // END currentExamples
 
-        // return currentExamples;
         return this.filteredExamples(currentExamples);
 
       } else {
@@ -352,9 +302,6 @@ export default {
           return this.selected.indexOf(el) > -1; // check if it exists in this.selected
         });
       });
-
-      // return currentExamples;
-
     }, // END filteredExamples
 
   }, // END methods
@@ -365,9 +312,6 @@ export default {
     eventBus.$off('selectedChanged');
 
     window.removeEventListener('resize', this.resize);
-
-    this.sectionActive = false;
-    return this.sectionActive;
 
   }, // END destroyed
 
