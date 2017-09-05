@@ -80,12 +80,12 @@ Todo:
 
 Section and Hero Image Component:
 - Todo:
-  - Need to create min math function for height and width.
+  - Need to create min math function for height and width. **DONE**
   - repeatable/small background texture for the each section. **DONE**
-  - Set hero-image animated gif to fade out when buttons animate into frame. **DONE - SOLVED TIMING ISSUE**
-    - Note: hero animations are now sprite sheets (maybe do something with more control through GSAP).
-    - Research why there is a slight giggle when sprite sheet animates, it doesn't happen all the time.
-    - Need to split the sprite sheets up - there is a size limiatation for mobile devices - Older is 1024 x 1024 - Newer is 2048 x 2048.
+  - Set hero-image animated gif to fade out when buttons animate into frame. **DONE**
+    - Note: hero animations are now sprite sheets (maybe do something with more control through GSAP). **DONE**
+    - Research why there is a slight jiggle when sprite sheet animates, it doesn't happen all the time. (This is the nature of running through a sprite sheet that is not purely vertical or horizontal - Source GreenSock forums). **DONE**
+    - Need to split the sprite sheets up - there is a size limiatation for mobile devices - Older is 1024 x 1024 - Newer is 2048 x 2048. **DONE**
     - Text, while sprite sheet animates, is blurry in the "skip" button. **Better but not solved**
   - Animate modal-buttons in from bottom. **DONE**
   - Need to wire up "skip" button on hero animations. **DONE**
@@ -105,7 +105,8 @@ Modal Slideshow Overlay Component:
 Todo:
 - Need to recreate slideshow with Vue vs jQuery. **DONE**
   - Section is DRY now, once slideshow component for all slides
-    - All slide content imported by Axios GET request to JSON data files within assets/modals. 
+    - All slide content imported by a data array.
+- Need to add video player (vimeo, youtube or roll my own).
 
 Preference & Contact Tab:
 Todo:

@@ -9,10 +9,10 @@
       <!-- See notes in CSS about CSS transition listeners -->
       <div :class="heroVisibilityClass">
 
-        <transition name="fade-hero" @after-enter="sectionActive = true">
+        <transition @enter="enter" :css="false" @after-enter="sectionActive = true">
           <div v-if="heroActive" :class="'sprite-' + this.id +'-wrap'">
 
-              <span :class="currentSpriteImage()"></span>
+              <canvas id="the-canvas" :class="currentSpriteImage()"></canvas>
 
               <div @click="sectionActive = true, updateHeroClass()" type="button" class="skip handwritten"><p>skip</p></div>
 
@@ -85,9 +85,8 @@ export default {
       sectionActive:       false,
       sectionStyles:       '',
       currentSprite:       '',
-      // heroVisibility:      true,
       heroActive:          false,
-      heroVisibilityClass: 'hero-visibility-wrap',
+      heroVisibilityClass: 'hero-visibility-wrap outer-sprite-container',
     };
   }, // END data
   created() {
@@ -96,7 +95,6 @@ export default {
 
     eventBus.$on('modalVisibility', (showModal) => {
       this.showModal = showModal;
-      // return this.showModal; // return NOT Needed
     }); // END eventBus
 
     eventBus.$on('selectedChanged', (selected) => {
@@ -114,32 +112,124 @@ export default {
 
     if (this.$root.debug) { console.log(this.heroActive + ' = this.heroActive value after call'); }
 
-    let sectionStyles = require('assets/img/sprite-sheets/sprite-' + this.id + '/sprite-' + this.id + '.css').default;
-
-    window.sectionStyles = sectionStyles;
-
     window.addEventListener('resize', this.resize);
 
-  }, // END computed
+  }, // END mounted
   methods: {
 
     updateHeroClass() {
       var updatedHeroClass = 'fade-me hero-visibility-wrap';
       this.heroVisibilityClass = updatedHeroClass;
       if (this.$root.debug) { console.log(this.heroVisibilityClass + ' = this.heroVisibilityClass - Updated hero-visibility-wrap'); }
-      // return this.heroVisibilityClass; // return NOT Needed
     }, // END updateHeroClass
 
     currentSpriteImage() {
-      //  this.currentSprite = `${this.id}` + 'v1-0.png sprite';
       this.currentSprite = 'sprite-' + `${this.id}` + ' current-animation sprite';
       return this.currentSprite;
     }, // END currentSprite
 
     heroIsActive() {
       this.heroActive = true;
-      // return this.heroActive;  // return NOT Needed
     }, // END sectionIsActive
+
+    enter(el, done) {
+
+      var self = this;
+      var spriteImage = this.id;
+      var canvas = document.getElementById('the-canvas');
+      var ctx = canvas.getContext('2d');
+
+
+      var frameSize = 500;
+      var totalFrames = 64;
+      var sheetFrames = 16;
+      var sheetRows = 4;
+      var sheetCols = 4;
+
+      var sprite = {
+        frame: 0,
+      };
+
+      var frameData = [];
+      var lastFrame = -1;
+
+      canvas.width = frameSize;
+      canvas.height = frameSize;
+
+      // div.appendChild(canvas);
+
+
+      var sheet1 = new Image();
+      sheet1.onload = onLoad;
+
+      var sheet2 = new Image();
+      sheet2.onload = onLoad;
+
+      var sheet3 = new Image();
+      sheet3.onload = onLoad;
+
+      var sheet4 = new Image();
+      sheet4.onload = onLoad;
+
+      var spriteSheets = [sheet1, sheet2, sheet3, sheet4];
+      var loadingCount = spriteSheets.length;
+
+      for (var i = 0; i < totalFrames; i++) {
+
+        frameData.push({
+          sheet: spriteSheets[Math.floor(i / sheetFrames)],
+          x:     (i % sheetCols) * frameSize,
+          y:     Math.floor((i % sheetFrames) / sheetRows) * frameSize,
+        });
+      }
+
+      // Setting the src for an image will kick off the loading
+      // This can happen immediately so you should set the src after 
+      // setting the callback or it might get skipped
+      sheet1.src = 'assets/img/sprite-sheets/sprite-' + spriteImage + '/sprite-' + spriteImage + '-0.png';
+      sheet2.src = 'assets/img/sprite-sheets/sprite-' + spriteImage + '/sprite-' + spriteImage + '-1.png';
+      sheet3.src = 'assets/img/sprite-sheets/sprite-' + spriteImage + '/sprite-' + spriteImage + '-2.png';
+      sheet4.src = 'assets/img/sprite-sheets/sprite-' + spriteImage + '/sprite-' + spriteImage + '-3.png';
+
+
+      function onLoad() {
+
+        loadingCount--;
+        this.onload = undefined; // remove onload callback from image
+
+        if (loadingCount == 0) {
+
+          this.animation = TweenLite.to(sprite, 3, {
+            frame:      totalFrames - 1,
+            onUpdate:   draw,
+            onComplete: function() {
+
+              done();
+
+              if (self.$root.debug) { console.log('lastframe - hero sprite animation is done'); }
+            },
+            ease:       Linear.easeNone,
+            roundProps: 'frame',
+          });
+        }
+      } // END onLoad
+
+      function draw() {
+
+        // No need to update
+        if (sprite.frame === lastFrame) {
+          return;
+        }
+
+        var frame = frameData[sprite.frame];
+        // ctx.globalAlpha = sprite.alpha;
+        ctx.clearRect(0, 0, frameSize, frameSize);
+        ctx.drawImage(frame.sheet, frame.x, frame.y, frameSize, frameSize, 0, 0, frameSize, frameSize);
+
+        lastFrame = sprite.frame;
+      } // END draw
+
+    }, // END enter
 
 
     // dynamically set which array is passed based on the Parent ID data
@@ -322,6 +412,35 @@ export default {
 
 <style scoped>
 
+  /* hero animation sprite */
+
+  .outer-sprite-container {
+    display: flex;
+  }
+
+  #current-sprite-image {
+    position: absolute;
+    display: block;
+    flex-grow: 1;
+    top: 50%;
+    left:50%;
+    width: 65vw;
+    height: 65vh;
+    max-width: 65vw;
+    max-height: 65vh;
+    transform: translate(-50%, -50%);
+  }
+
+  #the-canvas {
+    position: relative;
+    display: block;
+    top: 50%;
+    left: 50%;
+    max-width: 65vw;
+    max-height: 65vh;
+    transform: translate(-50%, -50%);
+  }
+
   /* slideme in or out - modal-button */
 
   .slideme-enter {
@@ -463,85 +582,8 @@ export default {
     }
 }
 
-
-/* fade hero image in sync with slide up all modal-butons */
-
-.fade-hero-enter {
-  opacity: 0;
-}
-
-.fade-hero-enter-active {
-  transition: opacity .35s ease;
-  animation: hero-in 7s ease-out forwards;
-}
-
-.fade-hero-enter-to {
-  opacity: 0;
-}
-
-.fade-hero-leave {
-  opacity: 0;
-}
-
-.fade-hero-leave-active {
-  opacity: 0;
-  transition: opacity .35s ease;
-  animation: hero-out .35s ease-out forwards;
-
-}
-
-.fade-hero-leave-to {
-  opacity: 0;
-}
-
-@keyframes hero-in {
-    0% {
-        opacity: 1;
-    }
-    33% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-
-/* ********** Timing issue with with hero animation **********
-
-    Since the transitions for the hero image are only
-    triggered once, in the vue-mount this.sectionIsActive(),
-    the second half of the transitions are not triggered.
-    Only the:
-      enter | enter-active | enter-to
-    classes are used.
-
-    This in turn means only the enter Javascript
-    hooks are used. This means any listeners need to
-    be on the enter hooks:
-    @before-enter | @enter | @after-enter | @enter-canceled
-
-************************************************************ */
-@keyframes hero-out {
-    0% {
-        opacity: 0;
-    }
-    33% {
-        opacity: 0;
-    }
-    66% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
 .fade-me {
-  /* Important See the value you want to end up with here.  After the animation completes the keygrames it goes to this initial value */
+  /* Important Set the value you want to end up with here.  After the animation completes the keyframe goes back to the initial value */
   opacity: 0;
   animation: fade-it .35s ease-out;
 }

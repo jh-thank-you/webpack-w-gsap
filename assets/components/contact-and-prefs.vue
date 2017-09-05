@@ -262,16 +262,6 @@ export default {
 
 <style scoped>
 
-  #contact-prefs-tab {
-    height: 48px;
-    transition: height 500ms ease-in-out;
-  }
-
-
-  #contact-prefs-tab.is-hidden {
-    height: 0;
-  }
-
 /* fade in or out overlay */
 
   .fade-enter {

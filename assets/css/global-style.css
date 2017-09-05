@@ -764,6 +764,15 @@ body {
   background-color: rgba(0, 0, 0, 0.85);
 }
 
+#contact-prefs-tab {
+  height: 48px;
+  transition: height 500ms ease-in-out;
+}
+
+#contact-prefs-tab.is-hidden {
+  height: 0;
+}
+
 #contact-prefs-tab h4 {
   text-shadow: -0.25px -0.25px 0 #000000,
   0.25px -0.25px 0 #000000,
@@ -1173,6 +1182,8 @@ a #contact-prefs:hover {
 
 .current-animation {
   opacity: 0.7;
+  max-width: 700px;
+  max-height: 700px;
 }
 
 .hero-visibility-wrap {
@@ -1180,10 +1191,10 @@ a #contact-prefs:hover {
   top: 50%;
   left: 50%;
   overflow: hidden;
-  width: 65vw;
-  height: 65vw;
-  max-width: 700px;
-  max-height: 700px;
+  width: 65vh;
+  height: 65vh;
+  max-width: 65vw;
+  max-height: 65vw;
   transform: translate(-50%, -52%);
   /* border: solid 1px red; */
 }
@@ -1193,7 +1204,7 @@ a #contact-prefs:hover {
 .sprite-section-outdoor-wrap,
 .sprite-section-online-wrap {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
   height: 100%;
   transform: translate(0, -10%);
@@ -1205,6 +1216,8 @@ a #contact-prefs:hover {
   .hero-visibility-wrap {
     width: 75vh;
     height: 75vh;
+    max-width: 75vw;
+    max-height: 75vw;
   }
 }
 
@@ -1281,6 +1294,30 @@ a #contact-prefs:hover {
   transform: translate(-50%, 0);
 }
 
+/* @media all and (min-width: 90.063em) {
+ */
+@media all and (min-width: 801px) {
+  .skip {
+    bottom: 5%;
+  }
+}
+
+/* @media all and (min-width: 40.063em) and (max-width: 90em) {
+ */
+@media all and (min-width: 501px) and (max-width: 800px) {
+  .skip {
+    bottom: 0;
+  }
+}
+
+/* @media all and (max-width: 40em) {
+ */
+@media all and (max-width: 500px) {
+  .skip {
+    bottom: -10%;
+  }
+}
+
 .skip > p {
   width: 100%;
   text-align: center;
@@ -1335,7 +1372,7 @@ a #contact-prefs:hover {
 }
 
 /* ****** START Grid ****** */
-/* No Floats oe Clears Needed - Now Using Flexbox */
+/* No Floats or Clears Needed - Now Using Flexbox */
 
 /* @media all and (min-width: 90.063em) {
  */
