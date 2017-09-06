@@ -122,5 +122,5 @@ Todo:
 
 General Todo:
 - Add linting for Vue files. **DONE**
-- Where use flexbox to cut down on CSS.
+- Use flexbox to cut down on CSS. **DONE**
 - Code Cleanup.
