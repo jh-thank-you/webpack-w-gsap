@@ -1186,7 +1186,7 @@ a #contact-prefs:hover {
   max-height: 700px;
 }
 
-.hero-visibility-wrap {
+.sprite-wrap {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1213,7 +1213,7 @@ a #contact-prefs:hover {
 
 
 @media all and (max-height: 750px) {
-  .hero-visibility-wrap {
+  .sprite-wrap {
     width: 75vh;
     height: 75vh;
     max-width: 75vw;

@@ -86,7 +86,7 @@ export default {
       sectionStyles:       '',
       currentSprite:       '',
       heroActive:          false,
-      heroVisibilityClass: 'hero-visibility-wrap outer-sprite-container',
+      heroVisibilityClass: 'sprite-wrap outer-sprite-container',
     };
   }, // END data
   created() {
@@ -118,9 +118,9 @@ export default {
   methods: {
 
     updateHeroClass() {
-      var updatedHeroClass = 'fade-me hero-visibility-wrap';
+      var updatedHeroClass = 'fade-me sprite-wrap outer-sprite-container';
       this.heroVisibilityClass = updatedHeroClass;
-      if (this.$root.debug) { console.log(this.heroVisibilityClass + ' = this.heroVisibilityClass - Updated hero-visibility-wrap'); }
+      if (this.$root.debug) { console.log(this.heroVisibilityClass + ' = this.heroVisibilityClass - Updated sprite-wrap outer-sprite-container'); }
     }, // END updateHeroClass
 
     currentSpriteImage() {
@@ -186,9 +186,13 @@ export default {
       // Setting the src for an image will kick off the loading
       // This can happen immediately so you should set the src after 
       // setting the callback or it might get skipped
+      // Note: using CopyWebpackPlugin to copy sprite sheets to assets folder.
       sheet1.src = 'assets/img/sprite-sheets/sprite-' + spriteImage + '/sprite-' + spriteImage + '-0.png';
+
       sheet2.src = 'assets/img/sprite-sheets/sprite-' + spriteImage + '/sprite-' + spriteImage + '-1.png';
+
       sheet3.src = 'assets/img/sprite-sheets/sprite-' + spriteImage + '/sprite-' + spriteImage + '-2.png';
+
       sheet4.src = 'assets/img/sprite-sheets/sprite-' + spriteImage + '/sprite-' + spriteImage + '-3.png';
 
 
