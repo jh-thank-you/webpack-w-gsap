@@ -75,8 +75,11 @@ export default {
           'navID':     '',
           'client':    '',
           'alt':       '',
+          'showImage': '',
           'src':       '',
-          'showImage': true,
+          'showVideo': '',
+          'videoSrc':  '',
+          'showText':  '',
           'pText':     '',
         },
 

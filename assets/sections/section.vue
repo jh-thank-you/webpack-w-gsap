@@ -25,7 +25,7 @@
     </transition>
 
     <!--
-    have too research v-cloak more:
+    have to research v-cloak more:
     https://stackoverflow.com/questions/34870926/v-cloak-does-not-work-in-vue-js
     -->
     <transition name="slide-up" @enter="updateHeroClass()">
@@ -155,9 +155,6 @@ export default {
 
       canvas.width = frameSize;
       canvas.height = frameSize;
-
-      // div.appendChild(canvas);
-
 
       var sheet1 = new Image();
       sheet1.onload = onLoad;
@@ -314,17 +311,17 @@ export default {
 
         currentExamples = [
 
-          {exampleid: 'modal-print-advil', alt: 'Advil Video Campaign', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-video-advil', alt: 'Advil Video Campaign', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-cimzia', alt: 'Cimzia Video Campaign', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
+          {exampleid: 'modal-video-cimzia', alt: 'Cimzia Video Campaign', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
 
-          {exampleid: 'modal-print-credit-suisse', alt: 'Credit Suisse Video Campaign', client: 'Credit Suisse', sector: ['default', 'financial'], access: 'unlocked' },
+          {exampleid: 'modal-video-credit-suisse', alt: 'Credit Suisse Video Campaign', client: 'Credit Suisse', sector: ['default', 'financial'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-csfb-direct', alt: 'CSFB Direct Video Campaign', client: 'CSFB Direct', sector: ['default', 'financial'], access: 'unlocked' },
+          {exampleid: 'modal-video-csfb-direct', alt: 'CSFB Direct Video Campaign', client: 'CSFB Direct', sector: ['default', 'financial'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-ginkoba', alt: 'Ginkoba Video Campaign', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
+          {exampleid: 'modal-video-ginkoba', alt: 'Ginkoba Video Campaign', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-ny-blood-center', alt: 'NY Blood Center Video Campaign', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
+          {exampleid: 'modal-video-ny-blood-center', alt: 'NY Blood Center Video Campaign', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
 
         ]; // END currentExamples
 
