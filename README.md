@@ -107,7 +107,7 @@ Todo:
 - Need to recreate slideshow with Vue vs jQuery. **DONE**
   - Section is DRY now, once slideshow component for all slides
     - All slide content imported by a data array.
-- Need to add video player (vimeo, youtube or roll my own).
+- Need to add video player (vimeo, youtube or roll my own). Added Vimeo Videos **DONE**
 
 Preference & Contact Tab:
 Todo:
