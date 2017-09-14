@@ -269,6 +269,8 @@ export default {
 
           {exampleid: 'modal-print-credit-suisse', alt: 'Credit Suisse Ad', client: 'Credit Suisse', sector: ['default', 'financial'], access: 'unlocked' },
 
+          {exampleid: 'modal-print-csfb-direct', alt: 'CSFB Direct Print Campaign', client: 'CSFB Direct', sector: ['default', 'financial'], access: 'unlocked' },
+
           {exampleid: 'modal-print-ellis-island', alt: 'Ellis Island Ad', client: 'Ellis Island', sector: ['default', 'tourism'], access: 'unlocked' },
 
           {exampleid: 'modal-print-espn', alt: 'ESPN Ad', client: 'ESPN', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
