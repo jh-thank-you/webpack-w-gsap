@@ -335,15 +335,15 @@ export default {
 
         currentExamples = [
 
-          {exampleid: 'modal-print-cimzia', alt: 'Cimzia Ad', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
+          {exampleid: 'modal-print-cimzia', alt: 'Cimzia Outdoor', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
 
-          {exampleid: 'modal-print-ginkoba', alt: 'Ginkoba Ad', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
+          {exampleid: 'modal-print-credit-suisse', alt: 'Credit Suisse Outdoor', client: 'Credit Suisse', sector: ['default', 'financial'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-goldman-sachs', alt: 'Goldman Sachs Ad', client: 'GTE', sector: ['financial'], access: 'unlocked' },
+          {exampleid: 'modal-outdoor-ginkoba', alt: 'Ginkoba Outdoor', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-mally-beauty', alt: 'Mally Beauty Ad', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
+          {exampleid: 'modal-outdoor-gte', alt: 'GTE Outdoor', client: 'GTE', sector: ['financial'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-vertex-linens', alt: 'Vertex Linens Ad', client: 'Metro Card', sector: ['btob', 'cleaning'], access: 'unlocked' },
+          {exampleid: 'modal-print-mally-beauty', alt: 'Mally Beauty Outdoor', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
 
         ]; // END currentExamples
 
@@ -356,6 +356,8 @@ export default {
         currentExamples = [
 
           {exampleid: 'modal-print-dell', alt: 'Dell Ad', client: 'Dell', sector: ['default', 'technology'], access: 'unlocked' },
+
+          {exampleid: 'modal-online-ginkoba', alt: 'Ginkoba Online', client: 'Ginkoba', sector: ['default', 'technology'], access: 'unlocked' },
 
           {exampleid: 'modal-print-credit-suisse', alt: 'Credit Suisse Ad', client: 'Credit Suisse', sector: ['default', 'financial'], access: 'unlocked' },
 
