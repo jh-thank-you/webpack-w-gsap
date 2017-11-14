@@ -293,6 +293,8 @@ export default {
 
           {exampleid: 'modal-print-mistral', alt: 'Mistral Ad', client: 'Mistral', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
 
+          {exampleid: 'modal-print-mta', alt: 'MTA Metro Card Ad', client: 'MTA', sector: ['default', 'transportation', 'tourism'], access: 'unlocked' },
+
           {exampleid: 'modal-print-ny-blood-center', alt: 'NY Blood Center Ad', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
 
           {exampleid: 'modal-print-oyama-karate', alt: 'Oyama Karate Ad', client: 'Oyama Karate', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
@@ -344,6 +346,8 @@ export default {
           {exampleid: 'modal-outdoor-gte', alt: 'GTE Outdoor', client: 'GTE', sector: ['financial'], access: 'unlocked' },
 
           {exampleid: 'modal-print-mally-beauty', alt: 'Mally Beauty Outdoor', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
+
+          {exampleid: 'modal-outdoor-mta', alt: 'MTA Metro Card Outdoor', client: 'MTA', sector: ['default', 'transportation', 'tourism'], access: 'unlocked' },
 
         ]; // END currentExamples
 
