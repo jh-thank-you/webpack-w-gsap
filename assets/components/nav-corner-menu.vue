@@ -7,7 +7,7 @@
       <nav-small-screen-menu v-if="showSmallNav"></nav-small-screen-menu>
     </transition>
 
-    <nav class="corner-nav">
+    <nav class="corner-nav" @click="sectionOpen = true, cornerNavAnimation()">
       <nav-button v-for="navigationButton in navigationButtons" :key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button>
     </nav>
 
@@ -46,6 +46,7 @@ export default {
 
       id:           '',
       section:      '',
+      sectionOpen:  '',
       showSmallNav: false,
 
     }; // END return
@@ -60,6 +61,15 @@ export default {
         see: https://forum.vuejs.org/t/cannot-set-property/12272/3
     */
     const self = this;
+
+    eventBus.$on('bringBackCornerNav', () => {
+      // Brink back corner nav
+
+      this.sectionOpen = false;
+
+      this.cornerNavAnimation();
+
+    }); // END eventBus
 
     // media query event handler
     if (matchMedia) {
@@ -102,6 +112,22 @@ export default {
 
   }, // END created
   methods: {
+
+    cornerNavAnimation() {
+
+      if (this.$root.debug) { console.log(this.sectionOpen + ' = sectionOpen - cornerNavAnimation'); }
+
+      if (this.sectionOpen == true) {
+        // Move corner Nav buttons out of window frame
+        if (this.$root.debug) { console.log('cornerNavAnimation - moving nav OUT of window'); }
+
+      } else {
+        // Move corner Nav buttons back into window frame
+        if (this.$root.debug) { console.log('cornerNavAnimation - moving nav INTO window'); }
+
+      }
+
+    }, // END moveCornerNav
 
     emitSmallNavVisibilty() {
 

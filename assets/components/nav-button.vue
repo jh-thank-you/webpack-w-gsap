@@ -20,7 +20,7 @@ export default {
 
     };
   }, // END data
-  methods() {
+  methods: {
 
 
   }, // END methods
