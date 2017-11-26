@@ -311,7 +311,7 @@ export default {
 
           {exampleid: 'modal-print-tradestream', alt: 'Tradestream Print Communication Pieces', client: 'Tradestream', sector: ['btob', 'shipping'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-vertex-linens', alt: 'Vertex Linens Print Communication Pieces', client: 'Vertex Linens', sector: ['btob', 'cleaning'], access: 'unlocked' },
+          {exampleid: 'modal-print-vertex-linen', alt: 'Vertex Linens Print Communication Pieces', client: 'Vertex Linen', sector: ['btob', 'cleaning'], access: 'unlocked' },
 
         ]; // END currentExamples
 
@@ -379,7 +379,7 @@ export default {
 
           {exampleid: 'modal-online-mally-beauty', alt: 'Mally Beauty Online Communication Pieces', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
 
-          {exampleid: 'modal-online-vertex-linens', alt: 'Vertex Linens Online Communication Pieces', client: 'Vertex Linens', sector: ['btob', 'cleaning'], access: 'unlocked' },
+          {exampleid: 'modal-online-vertex-linen', alt: 'Vertex Linens Online Communication Pieces', client: 'Vertex Linen', sector: ['btob', 'cleaning'], access: 'unlocked' },
 
         ]; // END currentExamples
 

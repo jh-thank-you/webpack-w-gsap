@@ -63,8 +63,8 @@
           </div>
 
           <div class="form-section">
-            <legend><h4 class="handwritten">Thanks Gitter Vue Community!</h4></legend>
-            <p>An extra thank you to everyone who took the time to answer my questions.<a href="https://gitter.im/vuejs/vue" target="_blank"> GITTER &#124; Vue</a></p>
+            <legend><h4 class="handwritten">Thanks Discord and Gitter Vue Communities!</h4></legend>
+            <p>An extra thank you to everyone who took the time to answer my questions.<a href="https://discordapp.com/" target="_blank"> Discord &#124; </a><a href="https://gitter.im/vuejs/vue" target="_blank"> GITTER &#124; Vue</a></p>
           </div>
 
           <div class="end-spacer"><!-- Empty Spacer Div for Scroll --></div>
