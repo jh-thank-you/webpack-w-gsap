@@ -88,9 +88,11 @@ export default {
 
         if (self.$root.debug) { console.log(self.showSmallNav + ' = showSmallNav value'); }
 
+        self.cornerNavAnimation();
+
         self.emitSmallNavVisibilty();
 
-        return self.showSmallNav;
+        // return self.showSmallNav;
 
         // GSAP timeline show corner nav buttons
 
@@ -100,9 +102,11 @@ export default {
 
         if (self.$root.debug) { console.log(self.showSmallNav + ' = showSmallNav value'); }
 
+        self.cornerNavAnimation();
+
         self.emitSmallNavVisibilty();
 
-        return self.showSmallNav;
+        // return self.showSmallNav;
 
         // GSAP timeline hide corner nav buttons
 
@@ -121,11 +125,61 @@ export default {
         // Move corner Nav buttons out of window frame
         if (this.$root.debug) { console.log('cornerNavAnimation - moving nav OUT of window'); }
 
+
+        TweenLite.to('#nav-print', 0.5, {
+          top:  -250,
+          left: -250,
+          ease: Power1.easeIn,
+        });
+
+        TweenLite.to('#nav-video', 0.5, {
+          top:   -250,
+          right: -250,
+          ease:  Power1.easeIn,
+        });
+
+        TweenLite.to('#nav-outdoor', 0.5, {
+          bottom: -250,
+          left:   -250,
+          ease:   Power1.easeIn,
+        });
+
+        TweenLite.to('#nav-online', 0.5, {
+          bottom: -250,
+          right:  -250,
+          ease:   Power1.easeIn,
+        });
+
       } else {
         // Move corner Nav buttons back into window frame
         if (this.$root.debug) { console.log('cornerNavAnimation - moving nav INTO window'); }
 
-      }
+        TweenLite.to('#nav-print', 0.5, {
+          top:  -50,
+          left: -100,
+          ease: Power1.easeOut,
+        });
+
+        TweenLite.to('#nav-video', 0.5, {
+          top:   -50,
+          right: -105,
+          ease:  Power1.easeOut,
+        });
+
+        TweenLite.to('#nav-outdoor', 0.5, {
+          bottom: -50,
+          left:   -50,
+          ease:   Power1.easeOut,
+        });
+
+        TweenLite.to('#nav-online', 0.5, {
+          bottom: -50,
+          right:  -105,
+          ease:   Power1.easeOut,
+        });
+
+
+      } // END IF-Else
 
     }, // END moveCornerNav
 
