@@ -69,6 +69,7 @@ Todo:
 Nav Buttons Component:
 Todo:
 - Vue-Router with routes for Print, Video, Outdoor and Online. **DONE**
+- Add property and eventbus to animate corner nav buttons in and out.  **DONE**
 
 Nav Small Screen Menu:
 Todo:
