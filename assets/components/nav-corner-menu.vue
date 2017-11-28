@@ -46,7 +46,7 @@ export default {
 
       id:           '',
       section:      '',
-      sectionOpen:  '',
+      sectionOpen:  false,
       showSmallNav: false,
 
     }; // END return
@@ -71,6 +71,15 @@ export default {
 
     }); // END eventBus
 
+    eventBus.$on('sectionIsOpen', () => {
+      // Brink back corner nav
+
+      this.sectionOpen = true;
+
+      this.cornerNavAnimation();
+
+    }); // END eventBus
+
     // media query event handler
     if (matchMedia) {
       var mq = window.matchMedia('(min-width: 501px) and (min-height: 601px)');
@@ -88,9 +97,9 @@ export default {
 
         if (self.$root.debug) { console.log(self.showSmallNav + ' = showSmallNav value'); }
 
-        self.cornerNavAnimation();
-
         self.emitSmallNavVisibilty();
+
+        self.cornerNavAnimation();
 
         // return self.showSmallNav;
 
@@ -102,9 +111,9 @@ export default {
 
         if (self.$root.debug) { console.log(self.showSmallNav + ' = showSmallNav value'); }
 
-        self.cornerNavAnimation();
-
         self.emitSmallNavVisibilty();
+
+        self.cornerNavAnimation();
 
         // return self.showSmallNav;
 
@@ -121,7 +130,7 @@ export default {
 
       if (this.$root.debug) { console.log(this.sectionOpen + ' = sectionOpen - cornerNavAnimation'); }
 
-      if (this.sectionOpen == true) {
+      if (this.sectionOpen == true || this.showSmallNav == true) {
         // Move corner Nav buttons out of window frame
         if (this.$root.debug) { console.log('cornerNavAnimation - moving nav OUT of window'); }
 

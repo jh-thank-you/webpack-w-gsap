@@ -11,7 +11,7 @@
       <div class="inner-wrap">
         <div class="small-nav-top-spacer"></div>
 
-        <nav-button-small v-for="navigationButton in navigationButtons" :key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button-small>
+        <nav-button-small v-for="navigationButton in navigationButtons" @click.native="sectionOpened()" :key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button-small>
 
         <div class="small-nav-bottom-spacer"></div>
       </div>
@@ -24,6 +24,7 @@
 
 <script>
 
+import { eventBus } from 'assets/main.js';
 import navButtonSmall from 'components/nav-button-small.vue';
 
 export default {
@@ -50,6 +51,17 @@ export default {
 
     }; // END return
   }, // END data
+  methods: {
+
+    sectionOpened() {
+      // tell corner nav to move back into window frame
+      eventBus.$emit('sectionIsOpen');
+
+      if (this.$root.debug) { console.log('small-nav - sectionIsOpen'); }
+
+    }, // END sectionOpened
+
+  }, // END methods
 
 }; // END export default
 
