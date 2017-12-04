@@ -349,8 +349,6 @@ export default {
 
           {exampleid: 'modal-outdoor-cimzia', alt: 'Cimzia Outdoor Communication Pieces', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
 
-          {exampleid: 'modal-outdoor-credit-suisse', alt: 'Credit Suisse Outdoor Communication Pieces', client: 'Credit Suisse', sector: ['default', 'financial'], access: 'unlocked' },
-
           {exampleid: 'modal-outdoor-ginkoba', alt: 'Ginkoba Outdoor Communication Pieces', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
 
           {exampleid: 'modal-outdoor-gte', alt: 'GTE Outdoor Communication Pieces', client: 'GTE', sector: ['financial'], access: 'unlocked' },
@@ -368,6 +366,8 @@ export default {
         if (this.$root.debug) { console.log( currentID + ' = currentID Online Examples'); }
 
         currentExamples = [
+
+          {exampleid: 'modal-online-cimzia', alt: 'Cimzia Online Communication Pieces', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
 
           {exampleid: 'modal-online-dell', alt: 'Dell Online Communication Pieces', client: 'Dell', sector: ['default', 'technology'], access: 'unlocked' },
 
