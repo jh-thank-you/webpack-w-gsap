@@ -170,6 +170,7 @@ module.exports = {
 
     alias: { // chnaged dev folder structure to match production output - updated path aliases to reflect change - all files link properly in dev and prod
       'vue$': 'vue/dist/vue.esm.js',
+      modernizr$: path.resolve(__dirname, "./.modernizrrc"),
       assets: path.resolve(__dirname, './assets'),
       components: path.resolve(__dirname, './assets/components'),
       css: path.resolve(__dirname, './assets/css'),
@@ -204,6 +205,12 @@ module.exports = {
           }
           // other vue-loader options go here
         }
+      }, {
+        test: /\.modernizrrc.js$/,
+        use: [ 'modernizr-loader' ]
+      }, {
+        test: /\.modernizrrc(\.json)?$/,
+        use: [ 'modernizr-loader', 'json-loader' ]
       }, {
         test: /\.json$/,
         loader: 'json-loader', // Used for Vue Templates. Also Hot Module Replacement only works with .vue files

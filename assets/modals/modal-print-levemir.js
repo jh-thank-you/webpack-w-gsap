@@ -1,7 +1,7 @@
 let slides = [
   {
     navID:     'slide-1',
-    client:    'Cardene I.V.',
+    client:    'Levemir',
     alt:       '',
     showImage: false,
     src:       '',

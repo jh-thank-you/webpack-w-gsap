@@ -8,6 +8,7 @@ import TweenMax from 'gsap/TweenMax';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import VueRouter from 'vue-router';
 import router from 'js/routes.js';
+import Modernizr from 'modernizr';
 
 import contactAndPrefs from 'components/contact-and-prefs.vue';
 Vue.component('contactandprefs', require('components/contact-and-prefs.vue').default);
@@ -25,6 +26,7 @@ Vue.use(VueRouter);
 // window.jquery = jquery;
 // window.axios = axios;
 // window.axios = require('axios');
+window.Modernizr = Modernizr;
 window.TweenMax = TweenMax;
 window.ScrollToPlugin = ScrollToPlugin;
 window.styles = styles;
