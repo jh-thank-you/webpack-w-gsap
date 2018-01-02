@@ -32,6 +32,10 @@
       <div v-cloak v-if="sectionActive" :key="this.id" id="section-content" class="justify-content handwritten">
         <div id="section-content-inner-wrap" class="section-content-inner-wrap flex-container">
 
+          <!-- <div class="legal-block">
+            <p class="legal-copy">© 1991 - 2017 James W. Hainis. - All rights reserved. - All work for non-paying clients or speculative work remains the intellectual property of James W. Hainis. - All other work, logos and trademarks remain the property of the respective owners.</p>
+          </div> -->
+
           <transition-group name="slideme" mode="out-in">
             <modal-button v-for="example in getExamples()" :key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access" @imageSelectChanged="imagesource = $event"></modal-button>
           </transition-group>
@@ -430,6 +434,29 @@ export default {
 
 
 <style scoped>
+
+/* legal notice in boxframe */
+
+.legal-block {
+  width: 100%;
+  height: auto;
+  cursor: default;
+  margin: 0 auto;
+}
+
+.legal-copy {
+  font-size: .75em !important;
+  font-weight: normal;
+  font-variant: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  max-width: 100vw;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 0 0 0;
+  text-align: center;
+  color: black;
+}
 
   /* hero animation sprite */
 
