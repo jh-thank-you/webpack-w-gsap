@@ -2153,6 +2153,17 @@ input::placeholder {
 }
 
 
+/* *** Target Vertex Banner Ads in Slideshow *** */
+div[alt|="vertex-linen-banner-ad"] { 
+  max-width: 336px; 
+}
+
+div[alt|="vertex-linen-banner-ad"] ~ div > p { 
+  text-align: center;
+  margin-bottom: 350px;
+  margin-left: 25px;
+}
+
 
 /* *********************************************** */
 /*               name-title-tag.vue                */
