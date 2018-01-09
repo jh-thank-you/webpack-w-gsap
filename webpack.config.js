@@ -156,9 +156,27 @@ const cssLoader = PRODUCTION
     publicPath: '../../', // since the ExtractTextPlugin is saving 
                           // the CSS file to assets/css directory (see const plugins above) 
                           // you need to resolve the publicPath to take this into account.
-    use: ['css-loader?minimize&localIdentName=' + cssIdentifier, 'postcss-loader'],
+    use: ['css-loader?minimize&localIdentName=' + cssIdentifier, 
+          {
+            loader: 'postcss-loader',
+            options: {
+            config: {
+                path: 'postcss.config.js'
+              } // END config
+            } // END options
+          }
+         ],
   })
-  :   ['style-loader', 'css-loader?localIdentName=' + cssIdentifier, 'postcss-loader'];
+  :   ['style-loader', 'css-loader?localIdentName=' + cssIdentifier, 
+        {
+          loader: 'postcss-loader',
+          options: {
+            config: {
+              path: 'postcss.config.js'
+            } // END config
+          } // END options
+        }
+      ];
 
 
 module.exports = {
