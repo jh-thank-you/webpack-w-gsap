@@ -2153,10 +2153,17 @@ input::placeholder {
 }
 
 
+/* *** Using Pseudo Class to add content befor and after *** */
 /* *** Target Vertex Banner Ads in Slideshow *** */
 div[alt|="vertex-linen-banner-ad"] { 
-  max-width: 336px; 
+  width: 100%;
+  height: 100%;
+  max-width: 336px;
+  max-height: 280px;
+  cursor: pointer;
+  /*border: solid 1px yellow;*/
 }
+
 
 div[alt|="vertex-linen-banner-ad"] ~ div > p { 
   text-align: center;
@@ -2164,6 +2171,104 @@ div[alt|="vertex-linen-banner-ad"] ~ div > p {
   margin-left: 25px;
 }
 
+div[alt|="vertex-linen-banner-ad"]:before,
+div[alt|="vertex-linen-banner-ad"]:after { 
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  background-repeat: no-repeat;
+  background-size: contain;
+     -moz-transition: all 0.5s ease-out; 
+       -o-transition: all 0.5s ease-out; 
+  -webkit-transition: all 0.5s ease-out;
+      -ms-transition: all 0.5s ease-out;
+}
+
+div[alt|="vertex-linen-banner-ad"]:before { 
+  padding-bottom: 5%;
+  background-image: url('~img/modal-slides/vertex-banner-box-w-logo.png');
+  background-position: 50% 257px;
+  background-clip: padding-box;
+  /*border: solid 1px red;*/
+}
+
+div[alt|="vertex-linen-banner-ad"]:after { 
+  background-image: url('~img/modal-slides/vertex-banner-logo-tagline.png');
+  background-position: 50% -280px;
+  /*border: solid 1px orange;*/
+}
+
+div[alt|="vertex-linen-banner-ad"]:hover:before,
+div[alt|="vertex-linen-banner-ad"]:focus:before,
+div[alt|="vertex-linen-banner-ad"]:hover:active { 
+  background-size: contain;
+  background-position: 50% 0;
+  -webkit-animation: 
+    changebackgroundstart .25s 0s 1,
+    changebackgroundfinish 1s .25s infinite alternate;
+  -moz-animation: 
+    changebackgroundstart .25s 0s 1,
+    changebackgroundfinish 1s .25s infinite alternate;
+  -o-animation: 
+    changebackgroundstart .25s 0s 1,
+    changebackgroundfinish 1s .25s infinite alternate;    
+  animation: 
+    changebackgroundstart .25s 0s 1,
+    changebackgroundfinish 1s .25s infinite alternate;
+}
+
+@-webkit-keyframes changebackgroundstart {
+    0% {background-image: url('~img/modal-slides//vertex-banner-box-w-logo.png');}
+    100% {background-image: url('~img/modal-slides/vertex-banner-blend-01.png');}
+}
+@-moz-keyframes changebackgroundstart {
+    0% {background-image: url('~img/modal-slides//vertex-banner-box-w-logo.png');}
+    100% {background-image: url('~img/modal-slides/vertex-banner-blend-01.png');}
+}
+@-o-keyframes changebackgroundstart {
+    0% {background-image: url('~img/modal-slides//vertex-banner-box-w-logo.png');}
+    100% {background-image: url('~img/modal-slides/vertex-banner-blend-01.png');}
+}
+@keyframes changebackgroundstart {
+    0% {background-image: url('~img/modal-slides//vertex-banner-box-w-logo.png');}
+    100% {background-image: url('~img/modal-slides/vertex-banner-blend-01.png');}
+}
+
+
+@-webkit-keyframes changebackgroundfinish {
+    0% {background-image: url('~img/modal-slides/vertex-banner-blend-02.png');}
+    25% {background-image: url('~img/modal-slides/vertex-banner-blend-03.png');}
+    75% {background-image: url('~img/modal-slides/vertex-banner-blend-04.png');}
+    100% {background-image: url('~img/modal-slides/vertex-banner-green-box.png');}
+}
+@-moz-keyframes changebackgroundfinish {
+    0% {background-image: url('~img/modal-slides/vertex-banner-blend-02.png');}
+    25% {background-image: url('~img/modal-slides/vertex-banner-blend-03.png');}
+    75% {background-image: url('~img/modal-slides/vertex-banner-blend-04.png');}
+    100% {background-image: url('~img/modal-slides/vertex-banner-green-box.png');}
+}
+@-o-keyframes changebackgroundfinish {
+    0% {background-image: url('~img/modal-slides/vertex-banner-blend-02.png');}
+    25% {background-image: url('~img/modal-slides/vertex-banner-blend-03.png');}
+    75% {background-image: url('~img/modal-slides/vertex-banner-blend-04.png');}
+    100% {background-image: url('~img/modal-slides/vertex-banner-green-box.png');}
+}
+@keyframes changebackgroundfinish {
+    0% {background-image: url('~img/modal-slides/vertex-banner-blend-02.png');}
+    25% {background-image: url('~img/modal-slides/vertex-banner-blend-03.png');}
+    75% {background-image: url('~img/modal-slides/vertex-banner-blend-04.png');}
+    100% {background-image: url('~img/modal-slides/vertex-banner-green-box.png');}
+}
+
+div[alt|="vertex-linen-banner-ad"]:hover:after,
+div[alt|="vertex-linen-banner-ad"]:hover:focus,  
+div[alt|="vertex-linen-banner-ad"]:hover:active { 
+  background-position: 50% 73%;
+}
 
 /* *********************************************** */
 /*               name-title-tag.vue                */
@@ -2214,6 +2319,7 @@ div[alt|="vertex-linen-banner-ad"] ~ div > p {
   }
 }
 
+#tagline-legal,
 #tagline {
   font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
   font-size: 16px;
@@ -2224,6 +2330,12 @@ div[alt|="vertex-linen-banner-ad"] ~ div > p {
   width: 100%;
   color: black;
 }
+
+#tagline-legal {
+  color: #c42127;
+  font-size: .75em;
+}
+
 
 @media all and (max-height: 400px) {
   #tagline {

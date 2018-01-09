@@ -5,6 +5,7 @@
     <div id="name-and-tag" v-if="titleVisibilty">
       <p id="name-title">Hainis Art Direction</p>
       <p id="tagline">&thinsp;bad name. good work.</p>
+      <p id="tagline-legal">(site under development)</p>
     </div>
      </transition>
   </div>
