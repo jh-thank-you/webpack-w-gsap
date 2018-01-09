@@ -5,6 +5,7 @@
       <div id="name-and-tag-small">
         <p id="name-title">Hainis Art Direction</p>
         <p id="tagline">&thinsp;bad name. good work.</p>
+        <p id="tagline-legal">(site under development)</p>
       </div>
 
     <div class="inner-wrap-fixed-scroll">
