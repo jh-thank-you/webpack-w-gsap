@@ -35,7 +35,7 @@ let slides = [
   {
     navID:     'slide-4',
     client:    '',
-    alt:       '    Metro Card - National Tennis Center and Tiffany\'s - Subway Billboard',
+    alt:       'Metro Card - National Tennis Center and Tiffany\'s - Subway Billboard',
     showImage: true,
     src:       require('assets/img/modal-slides/modal-outdoor-mta-04.jpg'),
     showVideo: false,

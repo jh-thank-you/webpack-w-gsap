@@ -339,6 +339,8 @@ export default {
 
           {exampleid: 'modal-video-ny-blood-center', alt: 'NY Blood Center Video / Television Ads', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
 
+          {exampleid: 'modal-video-vertex-linen', alt: 'Vertex Linens Print Communication Pieces', client: 'Vertex Linen', sector: ['btob', 'cleaning'], access: 'unlocked' },
+
         ]; // END currentExamples
 
         return this.filteredExamples(currentExamples);

@@ -24,17 +24,6 @@ let slides = [
   {
     navID:     'slide-3',
     client:    '',
-    alt:       'Ginkoba Parking Lot Video',
-    showImage: false,
-    src:       '',
-    showVideo: true,
-    videoSrc:  'https://player.vimeo.com/video/249272761?title=0&byline=0&portrait=0',
-    showText:  false,
-    pText:     '',
-  },
-  {
-    navID:     'slide-4',
-    client:    '',
     alt:       'Ginkoba Highway Exit Video',
     showImage: false,
     src:       '',
@@ -44,7 +33,7 @@ let slides = [
     pText:     '',
   },
   {
-    navID:     'slide-5',
+    navID:     'slide-4',
     client:    '',
     alt:       'Ginkoba Surprise Birthday Video',
     showImage: false,
@@ -55,7 +44,7 @@ let slides = [
     pText:     '',
   },
   {
-    navID:     'slide-6',
+    navID:     'slide-5',
     client:    'Ginkoba',
     alt:       '',
     showImage: false,

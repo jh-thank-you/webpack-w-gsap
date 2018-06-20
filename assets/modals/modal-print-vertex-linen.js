@@ -24,17 +24,6 @@ let slides = [
   {
     navID:     'slide-3',
     client:    '',
-    alt:       'Vertex Linen Print Ad - Projectile',
-    showImage: true,
-    src:       require('assets/img/modal-slides/modal-print-vertex-linen-03.jpg'),
-    showVideo: false,
-    videoSrc:  '',
-    showText:  false,
-    pText:     '',
-  },
-  {
-    navID:     'slide-4',
-    client:    '',
     alt:       'Vertex Linen Print Ad - Paws',
     showImage: true,
     src:       require('assets/img/modal-slides/modal-print-vertex-linen-04.jpg'),
@@ -44,7 +33,7 @@ let slides = [
     pText:     '',
   },
   {
-    navID:     'slide-5',
+    navID:     'slide-4',
     client:    'Vertex Linen',
     alt:       '',
     showImage: false,

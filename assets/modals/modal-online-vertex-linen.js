@@ -24,17 +24,6 @@ let slides = [
   {
     navID:     'slide-3',
     client:    '',
-    alt:       'vertex-linen-banner-ad-projectile',
-    showImage: true,
-    src:       require('assets/img/modal-slides/vertex-banner-line-vomit.png'),
-    showVideo: false,
-    videoSrc:  '',
-    showText:  false,
-    pText:     'Banner placed on parenting sites.',
-  },
-  {
-    navID:     'slide-4',
-    client:    '',
     alt:       'vertex-linen-banner-ad-paw',
     showImage: true,
     src:       require('assets/img/modal-slides/vertex-banner-line-paws.png'),
@@ -44,7 +33,7 @@ let slides = [
     pText:     'Banner placed on pet sites.',
   },
   {
-    navID:     'slide-5',
+    navID:     'slide-4',
     client:    'Vertex Linen',
     alt:       '',
     showImage: false,

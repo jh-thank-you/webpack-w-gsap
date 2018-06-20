@@ -2182,10 +2182,10 @@ div[alt|="vertex-linen-banner-ad"]:after {
   transform: translate(-50%, -50%);
   background-repeat: no-repeat;
   background-size: contain;
-     -moz-transition: all 0.5s ease-out; 
-       -o-transition: all 0.5s ease-out; 
-  -webkit-transition: all 0.5s ease-out;
-      -ms-transition: all 0.5s ease-out;
+     -moz-transition: all 0.5s ease-in-out; 
+       -o-transition: all 0.5s ease-in-out; 
+  -webkit-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
 }
 
 div[alt|="vertex-linen-banner-ad"]:before { 
@@ -2196,15 +2196,16 @@ div[alt|="vertex-linen-banner-ad"]:before {
   /*border: solid 1px red;*/
 }
 
-div[alt|="vertex-linen-banner-ad"]:after { 
-  background-image: url('~img/modal-slides/vertex-banner-logo-tagline.png');
+div[alt|="vertex-linen-banner-ad"]:after {
+  opacity: 0; 
+  background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png');
   background-position: 50% -280px;
   /*border: solid 1px orange;*/
 }
 
 div[alt|="vertex-linen-banner-ad"]:hover:before,
 div[alt|="vertex-linen-banner-ad"]:focus:before,
-div[alt|="vertex-linen-banner-ad"]:hover:active { 
+div[alt|="vertex-linen-banner-ad"]:active:before { 
   background-size: contain;
   background-position: 50% 0;
   -webkit-animation: 
@@ -2265,9 +2266,42 @@ div[alt|="vertex-linen-banner-ad"]:hover:active {
 }
 
 div[alt|="vertex-linen-banner-ad"]:hover:after,
-div[alt|="vertex-linen-banner-ad"]:hover:focus,  
-div[alt|="vertex-linen-banner-ad"]:hover:active { 
+div[alt|="vertex-linen-banner-ad"]:focus:after,  
+div[alt|="vertex-linen-banner-ad"]:active:after { 
   background-position: 50% 73%;
+   -webkit-animation: 
+    logoserviceline .25s .25s 1,
+    logoserviceline 1s .25s forwards;
+  -moz-animation: 
+    logoserviceline .25s .25s 1,
+    logoserviceline 1s .25s forwards;
+  -o-animation: 
+    logoserviceline .25s .25s 1,
+    logoserviceline 1s .25s forwards;    
+  animation: 
+    logoserviceline .25s .25s 1,
+    logoserviceline 1s .25s forwards;
+}
+
+@-webkit-keyframes logoserviceline {
+    0% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png');; opacity: 0;}
+    50% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png'); opacity: 1;}
+    100% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service.png');; opacity: 1;}
+}
+@-moz-keyframes logoserviceline {
+    0% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png');; opacity: 0;}
+    50% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png'); opacity: 1;}
+    100% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service.png');; opacity: 1;}
+}
+@-o-keyframes logoserviceline {
+    0% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png');; opacity: 0;}
+    50% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png'); opacity: 1;}
+    100% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service.png');; opacity: 1;}
+}
+@keyframes logoserviceline {
+    0% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png');; opacity: 0;}
+    50% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png'); opacity: 1;}
+    100% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service.png');; opacity: 1;}
 }
 
 /* *********************************************** */

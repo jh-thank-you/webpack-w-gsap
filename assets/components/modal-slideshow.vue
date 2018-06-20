@@ -47,7 +47,7 @@
       v-on:leave="leave"
       v-bind:css="false"
      >
-      <modal-slide :slide="slides[currentIndex]" :key="currentIndex" class="current-slide">
+      <modal-slide :slide="slides[currentIndex]" :key="currentIndex" class="current-slide swipe-me">
       </modal-slide>
 
     </transition>
