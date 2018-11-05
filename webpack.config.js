@@ -181,13 +181,14 @@ const cssLoader = PRODUCTION
 
 module.exports = {
   devtool: projectMap,
-  entry: { build, vendor: ['vue', /* 'jquery',  'axios',*/ 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
+  entry: { build, vendor: ['vue', 'vuex', /* 'jquery',  'axios',*/ 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
   resolve: {
     // IMPORTANT - keep in mind that path values are relative to the file you are writing in
     // Need to research how to create an alias to the root of the build or dist folder
 
     alias: { // chnaged dev folder structure to match production output - updated path aliases to reflect change - all files link properly in dev and prod
       'vue$': 'vue/dist/vue.esm.js',
+      'vuex': 'vuex/dist/vuex.esm.js',
       modernizr$: path.resolve(__dirname, "./.modernizrrc"),
       assets: path.resolve(__dirname, './assets'),
       components: path.resolve(__dirname, './assets/components'),
@@ -195,6 +196,7 @@ module.exports = {
       fonts: path.resolve(__dirname, './assets/fonts'),
       img: path.resolve(__dirname, './assets/img'),
       js: path.resolve(__dirname, './assets/js'),
+      store: path.resolve(__dirname, './assets/store'),
       modals: path.resolve(__dirname, './assets/modals'),
       scss: path.resolve(__dirname, './assets/scss'),
       sections: path.resolve(__dirname, './assets/sections'),

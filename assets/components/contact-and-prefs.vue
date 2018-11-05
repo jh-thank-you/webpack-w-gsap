@@ -43,7 +43,7 @@
 
           <div class="form-section">
             <legend><h4 class="handwritten">Contact Me</h4></legend>
-            <p>Jim Hainis | 973.441.5204 |<a href="mailto:jh@jimhainis.com"> jh@jimhainis.com</a></p>
+            <p>Jim Hainis | 973.415.8869 |<a href="mailto:jh@jimhainis.com"> jh@jimhainis.com</a></p>
             <p class="note">Note: this number has a<a href="http://heartmartialarts.org/" target="_blank"> H.E.A.R.T. Martial Arts </a>voicemail.</p>
           </div>
 

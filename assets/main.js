@@ -8,6 +8,7 @@ import TweenMax from 'gsap/TweenMax';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import VueRouter from 'vue-router';
 import router from 'js/routes.js';
+import store from 'store/store.js';
 import Modernizr from 'modernizr';
 
 import contactAndPrefs from 'components/contact-and-prefs.vue';
@@ -41,5 +42,6 @@ window.addEventListener('load', function () {
       };
     },
     router: router,
+    store:  store,
   });
 });
