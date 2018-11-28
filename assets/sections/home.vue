@@ -14,7 +14,7 @@ export default {
   components: { nameTitleTag }, // END components
   created() {
     // load the vuex store data
-    this.$store.dispatch('');
+    // this.$store.dispatch('');
 
   }, // END created
 

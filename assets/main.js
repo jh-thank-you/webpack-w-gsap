@@ -8,10 +8,10 @@ import TweenMax from 'gsap/TweenMax';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import VueRouter from 'vue-router';
 import router from 'js/routes.js';
-import store from 'store/store.js';
+// import { store } from 'store/store.js';
 import Modernizr from 'modernizr';
 
-import contactAndPrefs from 'components/contact-and-prefs.vue';
+// import contactAndPrefs from 'components/contact-and-prefs.vue';
 Vue.component('contactandprefs', require('components/contact-and-prefs.vue').default);
 
 import navCornerMenu from 'components/nav-corner-menu.vue';
@@ -34,7 +34,7 @@ window.styles = styles;
 
 window.addEventListener('load', function () {
   new Vue({
-    components: { navCornerMenu, contactAndPrefs /* modalPassword */ },
+    components: { navCornerMenu /* contactAndPrefs */ /* modalPassword */ },
     el:         '#app',
     data() {
       return {
@@ -42,6 +42,6 @@ window.addEventListener('load', function () {
       };
     },
     router: router,
-    store:  store,
+    // store:  store,
   });
 });

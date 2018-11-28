@@ -3,9 +3,10 @@
   <nav class="corner-nav-small">
 
       <div id="name-and-tag-small">
-        <p id="name-title">Hainis Art Direction</p>
-        <p id="tagline">&thinsp;bad name. good work.</p>
-        <p id="tagline-legal">(site under development)</p>
+        <p id="name-title-sm" class="name-title-sm"></p>
+        <p class="tagline-sm">&thinsp;bad name.</p>
+        <p class="tagline-sm">&thinsp;good work.</p>
+
       </div>
 
     <div class="inner-wrap-fixed-scroll">
@@ -40,10 +41,10 @@ export default {
 
       navigationButtons: [
 
-        {id: 'nav-print-small', section: 'PRINT' },
-        {id: 'nav-video-small', section: 'VIDEO' },
-        {id: 'nav-outdoor-small', section: 'OUTDOOR' },
-        {id: 'nav-online-small', section: 'ONLINE' },
+        {id: 'nav-work-small', section: 'WORK' },
+        {id: 'nav-about-small', section: 'ABOUT' },
+        {id: 'nav-clients-small', section: 'CLIENTS' },
+        {id: 'nav-settings-small', section: 'SETTINGS' },
 
       ], // END navButtons
 

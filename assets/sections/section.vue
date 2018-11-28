@@ -7,18 +7,6 @@
       <button-close-section-raster @click.native="updateCornerNav()"></button-close-section-raster>
 
       <!-- See notes in CSS about CSS transition listeners -->
-      <div :class="heroVisibilityClass">
-
-        <transition @enter="enter" :css="false" @after-enter="sectionActive = true">
-          <div v-if="heroActive" :class="'sprite-' + this.id +'-wrap'">
-
-              <canvas id="the-canvas" :class="currentSpriteImage()"></canvas>
-
-              <div @click="sectionActive = true, updateHeroClass()" type="button" class="skip handwritten"><p>skip</p></div>
-
-          </div>
-        </transition>
-      </div>
 
     <transition name="fade-slideshow">
     <modal-slideshow v-if="showModal" @close="showModal = false" :imageSrc="imagesource"></modal-slideshow>
@@ -101,6 +89,9 @@ export default {
       this.showModal = showModal;
     }); // END eventBus
 
+    // default selected - this loads before local storage data is created
+    this.selected='beauty,branding,cleaning,fashion,financial,fitness,healthcare,pharma,publicservice,sports,technology,tourism,transportation';
+
     eventBus.$on('selectedChanged', (selected) => {
       this.selected = selected;
 
@@ -117,6 +108,8 @@ export default {
     if (this.$root.debug) { console.log(this.heroActive + ' = this.heroActive value after call'); }
 
     window.addEventListener('resize', this.resize);
+
+    this.sectionActive = true;
 
   }, // END mounted
   methods: {
@@ -253,7 +246,7 @@ export default {
 
       var currentID = this.id;
 
-      if (currentID == 'section-print') {
+      if (currentID == 'section-work') {
 
         if (this.$root.debug) { console.log( currentID + ' = currentID Print Examples'); }
 
@@ -261,7 +254,7 @@ export default {
 
           {exampleid: 'modal-print-advil', alt: 'Advil Print Communication Pieces', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-amnh', alt: 'American Museum of Natural History Print Communication Pieces', client: 'AMNH', sector: ['tourism'], access: 'unlocked' },
+          // {exampleid: 'modal-print-amnh', alt: 'American Museum of Natural History Print Communication Pieces', client: 'AMNH', sector: ['tourism'], access: 'unlocked' },
 
           {exampleid: 'modal-print-amex', alt: 'Amex Print Communication Pieces', client: 'Amex', sector: ['financial'], access: 'unlocked' },
 
@@ -269,7 +262,7 @@ export default {
 
           {exampleid: 'modal-print-bayer', alt: 'Bayer Print Communication Pieces', client: 'Bayer', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-bonita-bay', alt: 'Bonita Bay Print Communication Pieces', client: 'Bonita Bay', sector: ['realestate', 'hotel'], access: 'unlocked' },
+          // {exampleid: 'modal-print-bonita-bay', alt: 'Bonita Bay Print Communication Pieces', client: 'Bonita Bay', sector: ['realestate', 'hotel'], access: 'unlocked' },
 
           {exampleid: 'modal-print-cardene-iv', alt: 'Cardene I.V. Print Communication Pieces', client: 'Cardene I.V.', sector: ['healthcare', 'pharma'], access: 'locked' },
 
@@ -285,7 +278,7 @@ export default {
 
           {exampleid: 'modal-print-ellis-island', alt: 'Ellis Island Print Communication Pieces', client: 'Ellis Island', sector: ['default', 'tourism'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-espn', alt: 'ESPN Print Communication Pieces', client: 'ESPN', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          // {exampleid: 'modal-print-espn', alt: 'ESPN Print Communication Pieces', client: 'ESPN', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
 
           {exampleid: 'modal-print-fl-intl-museum', alt: 'Florida International Museum Print Communication Pieces', client: 'FL Intl. Museum', sector: ['default', 'tourism'], access: 'unlocked' },
 
@@ -297,11 +290,15 @@ export default {
 
           {exampleid: 'modal-print-lcc', alt: 'LCC Print Communication Pieces', client: 'LCC', sector: ['publicservice'], access: 'unlocked' },
 
+          {exampleid: 'modal-outdoor-gte', alt: 'GTE Outdoor Communication Pieces', client: 'GTE', sector: ['financial'], access: 'unlocked' },
+
           {exampleid: 'modal-print-levemir', alt: 'Levemir Print Communication Pieces', client: 'Levemir', sector: ['healthcare', 'pharma'], access: 'locked' },
 
           {exampleid: 'modal-print-logos', alt: 'Logos Various', client: 'Logos', sector: ['default', 'branding', 'btob', 'healthcare', 'fitness', 'publicservice', 'sports'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-mally-beauty', alt: 'Mally Beauty Print Communication Pieces', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
+          // {exampleid: 'modal-print-mally-beauty', alt: 'Mally Beauty Print Communication Pieces', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
+
+          {exampleid: 'modal-outdoor-mally-beauty', alt: 'Mally Beauty Outdoor Communication Pieces', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
 
           {exampleid: 'modal-print-mistral', alt: 'Mistral Print Communication Pieces', client: 'Mistral', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
 
@@ -315,13 +312,13 @@ export default {
 
           {exampleid: 'modal-print-tradestream', alt: 'Tradestream Print Communication Pieces', client: 'Tradestream', sector: ['btob', 'shipping'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-vertex-linen', alt: 'Vertex Linens Print Communication Pieces', client: 'Vertex Linen', sector: ['btob', 'cleaning'], access: 'unlocked' },
+          {exampleid: 'modal-print-vertex-linen', alt: 'Vertex Linens Print Communication Pieces', client: 'Vertex Linen', sector: ['default', 'btob', 'cleaning'], access: 'unlocked' },
 
         ]; // END currentExamples
 
         return this.filteredExamples(currentExamples);
 
-      } else if (currentID == 'section-video') {
+      } else if (currentID == 'section-contact') {
 
         if (this.$root.debug) { console.log( currentID + ' = currentID Video Examples'); }
 
@@ -339,13 +336,13 @@ export default {
 
           {exampleid: 'modal-video-ny-blood-center', alt: 'NY Blood Center Video / Television Ads', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
 
-          {exampleid: 'modal-video-vertex-linen', alt: 'Vertex Linens Print Communication Pieces', client: 'Vertex Linen', sector: ['btob', 'cleaning'], access: 'unlocked' },
+          {exampleid: 'modal-video-vertex-linen', alt: 'Vertex Linens Print Communication Pieces', client: 'Vertex Linen', sector: ['default', 'btob', 'cleaning'], access: 'unlocked' },
 
         ]; // END currentExamples
 
         return this.filteredExamples(currentExamples);
 
-      } else if (currentID == 'section-outdoor') {
+      } else if (currentID == 'section-clients') {
 
         if (this.$root.debug) { console.log( currentID + ' = currentID Outdoor Examples'); }
 
@@ -367,7 +364,7 @@ export default {
 
         return this.filteredExamples(currentExamples);
 
-      } else if (currentID == 'section-online') {
+      } else if (currentID == 'section-settings') {
 
         if (this.$root.debug) { console.log( currentID + ' = currentID Online Examples'); }
 
@@ -385,7 +382,7 @@ export default {
 
           {exampleid: 'modal-online-mally-beauty', alt: 'Mally Beauty Online Communication Pieces', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
 
-          {exampleid: 'modal-online-vertex-linen', alt: 'Vertex Linens Online Communication Pieces', client: 'Vertex Linen', sector: ['btob', 'cleaning'], access: 'unlocked' },
+          {exampleid: 'modal-online-vertex-linen', alt: 'Vertex Linens Online Communication Pieces', client: 'Vertex Linen', sector: ['default', 'btob', 'cleaning'], access: 'unlocked' },
 
         ]; // END currentExamples
 

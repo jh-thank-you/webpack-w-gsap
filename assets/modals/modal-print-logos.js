@@ -2,6 +2,17 @@ let slides = [
   {
     navID:     'slide-1',
     client:    '',
+    alt:       'Shout Music Magazine Logo',
+    showImage: true,
+    src:       require('assets/img/modal-slides/modal-print-logos-06.jpg'),
+    showVideo: false,
+    videoSrc:  '',
+    showText:  false,
+    pText:     '',
+  },
+  {
+    navID:     'slide-2',
+    client:    '',
     alt:       'Mike\'s Plumbing Logo',
     showImage: true,
     src:       require('assets/img/modal-slides/modal-print-logos-01c.jpg'),
@@ -11,7 +22,7 @@ let slides = [
     pText:     '',
   },
   {
-    navID:     'slide-2',
+    navID:     'slide-3',
     client:    '',
     alt:       'Local Concerned Citizens Logo',
     showImage: true,
@@ -22,7 +33,7 @@ let slides = [
     pText:     '',
   },
   {
-    navID:     'slide-3',
+    navID:     'slide-4',
     client:    '',
     alt:       'The Pennsylvania Spine Center Logo',
     showImage: true,
@@ -33,7 +44,7 @@ let slides = [
     pText:     '',
   },
   {
-    navID:     'slide-4',
+    navID:     'slide-5',
     client:    '',
     alt:       'Focus Fitness Logo',
     showImage: true,
@@ -44,22 +55,11 @@ let slides = [
     pText:     '',
   },
   {
-    navID:     'slide-5',
+    navID:     'slide-6',
     client:    '',
     alt:       'Penn State College of Arts and Architecture Logo',
     showImage: true,
     src:       require('assets/img/modal-slides/modal-print-logos-05.jpg'),
-    showVideo: false,
-    videoSrc:  '',
-    showText:  false,
-    pText:     '',
-  },
-  {
-    navID:     'slide-6',
-    client:    '',
-    alt:       'Shout Music Magazine Logo',
-    showImage: true,
-    src:       require('assets/img/modal-slides/modal-print-logos-06.jpg'),
     showVideo: false,
     videoSrc:  '',
     showText:  false,
@@ -76,19 +76,6 @@ let slides = [
     showText:  false,
     pText:     '',
   },
-  {
-    navID:     'slide-8',
-    client:    'Logos',
-    alt:       '',
-    showImage: false,
-    src:       '',
-    showVideo: false,
-    videoSrc:  '',
-    showText:  true,
-    pText:     'COPY TO COME - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  },
-
-
 ]; // END slides
 
 exports.sendSlideData = function() {

@@ -37,10 +37,10 @@ export default {
 
       navigationButtons: [
 
-        {id: 'nav-print', section: 'PRINT' },
-        {id: 'nav-video', section: 'VIDEO' },
-        {id: 'nav-outdoor', section: 'OUTDOOR' },
-        {id: 'nav-online', section: 'ONLINE' },
+        {id: 'nav-work', section: 'WORK' }, /* nav-print */
+        {id: 'nav-about', section: 'ABOUT' }, /* nav-video */
+        {id: 'nav-clients', section: 'CLIENTS' }, /* nav-outdoor */
+        {id: 'nav-settings', section: 'SETTINGS' }, /* nav-online */
 
       ], // END navButtons
 
@@ -135,25 +135,25 @@ export default {
         if (this.$root.debug) { console.log('cornerNavAnimation - moving nav OUT of window'); }
 
 
-        TweenLite.to('#nav-print', 0.5, {
+        TweenLite.to('#nav-work', 0.5, {
           top:  -250,
           left: -250,
           ease: Power1.easeIn,
         });
 
-        TweenLite.to('#nav-video', 0.5, {
+        TweenLite.to('#nav-about', 0.5, {
           top:   -250,
           right: -250,
           ease:  Power1.easeIn,
         });
 
-        TweenLite.to('#nav-outdoor', 0.5, {
+        TweenLite.to('#nav-clients', 0.5, {
           bottom: -250,
           left:   -250,
           ease:   Power1.easeIn,
         });
 
-        TweenLite.to('#nav-online', 0.5, {
+        TweenLite.to('#nav-settings', 0.5, {
           bottom: -250,
           right:  -250,
           ease:   Power1.easeIn,
@@ -163,25 +163,25 @@ export default {
         // Move corner Nav buttons back into window frame
         if (this.$root.debug) { console.log('cornerNavAnimation - moving nav INTO window'); }
 
-        TweenLite.to('#nav-print', 0.5, {
+        TweenLite.to('#nav-work', 0.5, {
           top:  -50,
           left: -100,
           ease: Power1.easeOut,
         });
 
-        TweenLite.to('#nav-video', 0.5, {
+        TweenLite.to('#nav-about', 0.5, {
           top:   -50,
           right: -105,
           ease:  Power1.easeOut,
         });
 
-        TweenLite.to('#nav-outdoor', 0.5, {
+        TweenLite.to('#nav-clients', 0.5, {
           bottom: -50,
           left:   -50,
           ease:   Power1.easeOut,
         });
 
-        TweenLite.to('#nav-online', 0.5, {
+        TweenLite.to('#nav-settings', 0.5, {
           bottom: -50,
           right:  -105,
           ease:   Power1.easeOut,

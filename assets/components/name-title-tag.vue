@@ -3,9 +3,10 @@
   <div class="center-name-and-tag">
   <transition name="fade-title">
     <div id="name-and-tag" v-if="titleVisibilty">
-      <p id="name-title">Hainis Art Direction</p>
-      <p id="tagline">&thinsp;bad name. good work.</p>
-      <p id="tagline-legal">(site under development)</p>
+      <p id="name-title"></p>
+      <p class="tagline">&thinsp;bad name.</p>
+      <p class="tagline">&thinsp;good work.</p>
+
     </div>
      </transition>
   </div>
