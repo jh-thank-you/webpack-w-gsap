@@ -6,11 +6,52 @@
       <div aria-hidden='true'>&times;</div>
     </div>
 
-    <keep-alive>
-      <component :is="getModal()">
-        <!-- content set dynamically -->
-      </component>
-    </keep-alive>
+    <div class="btn-group-wrap">
+      <div class="btn-group">
+        <div
+             v-for="(slide, index) in slides"
+             :key="slide.id"
+             type="button" @click="currentIndex = index"
+             :class="['btn', { 'btn-primary': index === currentIndex, 'btn-default': index !== currentIndex }]"
+             >
+        </div>
+      </div>
+
+      <transition name="fade">
+        <div v-if="slideLeft"  @input="gotToPrev()" @click="gotToPrev()" class="btn-previous-wrap">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 100" style="enable-background:new 0 0 50 100;" xml:space="preserve" preserveAspectRatio="none" class="btn-previous-wrap">
+          <g>
+            <polygon class="prev-next-btn" points="0.5,1.2 49.3,50 0.5,98.8   "/>
+            <path  class="prev-next-btn" d="M1,2.4L48.6,50L1,97.6V2.4 M0,0v100l50-50L0,0L0,0z"/>
+          </g>
+          </svg>
+         </div>
+      </transition>
+
+      <transition name="fade">
+        <div v-if="slideRight"  @input="gotToNext()" @click="gotToNext()" class="btn-next-wrap">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 100" style="enable-background:new 0 0 50 100;" xml:space="preserve" preserveAspectRatio="none" class="btn-next-wrap">
+          <g>
+            <polygon class="prev-next-btn" points="0.5,1.2 49.3,50 0.5,98.8   "/>
+            <path  class="prev-next-btn" d="M1,2.4L48.6,50L1,97.6V2.4 M0,0v100l50-50L0,0L0,0z"/>
+          </g>
+          </svg>
+        </div>
+      </transition>
+
+    </div>
+
+    <transition
+      v-on:enter="enter"
+      v-on:after-enter="afterEnter"
+      v-on:leave="leave"
+      v-bind:css="false"
+     >
+      <modal-slide :slide="slides[currentIndex]" :key="currentIndex" class="current-slide swipe-me">
+      </modal-slide>
+
+    </transition>
+    <!-- END New Slideshow -->
 
   </div> <!-- END Modal -->
 
@@ -20,242 +61,168 @@
 
 import { eventBus } from 'assets/main.js';
 
+import modalSlide from 'components/modal-slide.vue';
+
 export default {
 
-  components: {
-
-  }, // END components
-  props: [ 'imageSrc' ],// END props
+  components: { modalSlide }, // END components
+  props:      [ 'imageSrc' ],// END props
   data() {
-    return { 
+    return {
+      slides: [
 
-    }; 
+        {
+          'navID':     '',
+          'client':    '',
+          'alt':       '',
+          'showImage': '',
+          'src':       '',
+          'showVideo': '',
+          'videoSrc':  '',
+          'showText':  '',
+          'pText':     '',
+        },
+
+      ],
+      currentIndex: 0,
+
+    };
   }, // END data
-  created() {
+  computed: {
 
-    var currentImageSrc = this.imageSrc;
-    if (this.$root.debug) console.log( currentImageSrc + ' = currentImageSrc = this.imageSrc');
+    slideLeft() {
+      if ( this.currentIndex === 0 ) {
+        return false;
+      } else {
+        return true;
+      }
 
-    if (this.$root.debug) console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created');
+    },
+
+    slideRight() {
+      if ( this.currentIndex === this.slides.length - 1 ) {
+        return false;
+      } else {
+        return true;
+      }
+    },
+  }, // END computed
+  beforeCreated() {
+
+
+  }, // END beforeCreated
+  mounted() {
+    /* *****************************************************************
+
+        Global Key Press Listener - For Previous and Next Buttons
+        Since these buttons are not part of a form with an Input Field
+        they do not have focus.
+        Using Vue's @keyup or @keyup.native did not work. Vue forums 
+        and Laracst talk about a global listener to solve this 
+
+    ***************************************************************** */
+
+    // name the event listener so you can destroy/remove it later.
+    const self = this;
+    var arrowHandler = function (event) {
+      // If left or right arrow was pressed.
+      if (event.keyCode == 37) {
+        console.log('left-arrow-pressed');
+        // gotToPrevSlide;
+        self.gotToPrev();
+      } else if (event.keyCode == 39) {
+        console.log('right-arrow-pressed');
+        // gotToNextSlide;
+        self.gotToNext();
+      } else {
+        return;
+      }
+    }; // END arrowHandler
+
+    window.addEventListener('keyup', arrowHandler);
+
+
+    if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created'); }
+
+    // No need for Axios
+    // Added benefit - Webpack is able to traverse the dynamic require links. Also Webpack now hashes the links and their resource. 
+    const currentSlides = require(`assets/modals/${this.imageSrc}.js`);
+    this.slides = currentSlides.sendSlideData();
+
 
   }, // END created
   methods: {
-    
-    getModal() {
-
-      return require('assets/modals/' + this.imageSrc + '.vue');
-
-    }, // END getModal
 
     hideTab() {
       var tabHidden = false;
       eventBus.$emit('tabVisibility', tabHidden);
     }, // END hideTab
 
+
+    /* ***************************************************************** */
+    /* ********************** START NEW SLIDE LOGIC ******************** */
+    /* ***************************************************************** */
+
+    gotToPrev() {
+      if ( this.currentIndex === 0 ) {
+        return;
+      } else {
+        this.currentIndex--;
+        console.log(this.currentIndex + ' = currentIndex - got To Prev Slide');
+        // this.currentSelect = 'slide-' + `${this.currentIndex}`;
+      }
+    }, // END gotToPrev
+
+    gotToNext() {
+      if ( this.currentIndex === this.slides.length - 1 ) {
+        return;
+      } else {
+        this.currentIndex++;
+        console.log(this.currentIndex + ' = currentIndex - got To Next Slide');
+      }
+    }, // END gotToNext
+
+    enter(el, done) {
+      const tl = new TimelineMax({
+        onComplete: done,
+      });
+
+      tl.set(el, {
+        x:               window.innerWidth * 1.5,
+        scale:           0.7,
+        transformOrigin: '50% 50%',
+      });
+
+      tl.to(el, 0.5, {
+        x:    0,
+        ease: Power4.easeOut,
+      });
+
+      tl.to(el, 1, {
+        scale: 1,
+        ease:  Power4.easeOut,
+      });
+    },
+    afterEnter() {
+      /* Nothing to do */
+    },
+    leave(el, done) {
+      TweenLite.fromTo(el, 1, {
+        autoAlpha: 1,
+      }, {
+        autoAlpha:  0,
+        ease:       Power4.easeOut,
+        onComplete: done,
+      });
+    },
+
   }, // END methods
-  mounted() {
+  beforeDestroy() {
 
-    // Using jquery for now
+    // remove the event listener
+    window.removeEventListener('keyup', this.arrowHandler);
 
-    // START GSAP Slideshow ====================================================
-
-    // First the variables our app is going to use need to be declared
-
-    //References to DOM elements
-    var $window = $(window);
-    var $document = $(document);
-    //Only links that starts with #
-    var $navButtons = $('.modal-nav-link').filter('[href^=\\#]');
-    var $navGoPrev = $('.go-prev');
-    var $navGoNext = $('.go-next');
-    var $slidesContainer = $('.slides-container');
-    var $slides = $('.slide');
-    var $currentSlide = $slides.first();
-
-    //Animating flag - is our app animating
-    var isAnimating = false;
-
-    //The height of the window
-    var pageHeight = $window.innerHeight();
-
-    //Key codes for up and down arrows on keyboard. We'll be using this to navigate change slides using the keyboard
-    var keyCodes = {
-      UP  : 38,
-      DOWN: 40,
-    };
-
-
-      // Going to the first slide
-    goToSlide($currentSlide);
-
-    // Adding event listeners ====================================================
-
-    $window.on('resize', onResize).resize();
-    $window.on('mousewheel DOMMouseScroll', onMouseWheel);
-    $document.on('keydown', onKeyDown);
-    $navButtons.on('click', onNavButtonClick);
-    $navGoPrev.on('click', goToPrevSlide);
-    $navGoNext.on('click', goToNextSlide);
-
-    // Internal functions ========================================================
-
-    // When a button is clicked - first get the button href, and then slide to the container, if there's such a container
-    function onNavButtonClick(event)
-    {
-      //The clicked button
-      var $button = $(this);
-
-      //The slide the button points to
-      var $slide = $($button.attr('href'));
-
-      //If the slide exists, we go to it
-      if($slide.length)
-      {
-        goToSlide($slide);
-        event.preventDefault();
-      }
-    } // END onNavButtonClick
-
-
-    // onKeyDown ===========================================================
-    // Getting the pressed key. Only if it's up or down arrow, we go to prev or next slide and prevent default behaviour
-    // This way, if there's text input, the user is still able to fill it
-    function onKeyDown(event)
-    {
-
-      var PRESSED_KEY = event.keyCode;
-
-      if(PRESSED_KEY == keyCodes.UP || PRESSED_KEY == 37)
-      {
-        goToPrevSlide();
-        event.preventDefault();
-      }
-      else if(PRESSED_KEY == keyCodes.DOWN || PRESSED_KEY == 39)
-      {
-        goToNextSlide();
-        event.preventDefault();
-      }
-
-    } // END onKeyDown
-
-
-    // onMouseWheel ===========================================================
-    // When user scrolls with the mouse, we have to change slides
-    function onMouseWheel(event)
-    {
-      //Normalize event wheel delta
-      var delta = event.originalEvent.wheelDelta / 30 || -event.originalEvent.detail;
-
-      //If the user scrolled up, it goes to previous slide, otherwise - to next slide
-      if(delta < -1)
-      {
-        goToNextSlide();
-      }
-      else if(delta > 1)
-      {
-        goToPrevSlide();
-      }
-
-      event.preventDefault();
-    } // END onMouseWheel
-
-
-
-    // goToPrevSlide ===========================================================
-    // If there's a previous slide, slide to it
-    function goToPrevSlide()
-    {
-      if($currentSlide.prev().length)
-      {
-        goToSlide($currentSlide.prev());
-      }
-    } // END goToPrevSlide
-
-
-    // goToNextSlide ===========================================================
-    // If there's a next slide, slide to it
-    function goToNextSlide()
-    {
-      if($currentSlide.next().length)
-      {
-        goToSlide($currentSlide.next());
-      }
-    } // END goToNextSlide
-
-
-
-    // goToSlide ===============================================================
-    // Actual transition between slides
-    function goToSlide($slide)
-    {
-      // If the slides are not changing and there's such a slide
-      if(!isAnimating && $slide.length)
-      {
-        //setting animating flag to true
-        isAnimating = true;
-        $currentSlide = $slide;
-
-        //Sliding to current slide
-        TweenLite.to($slidesContainer, 1, {scrollTo: {y: pageHeight * $currentSlide.index() }, onComplete: onSlideChangeEnd, onCompleteScope: this});
-
-        //Animating menu items
-        TweenLite.to($navButtons.filter('.active'), 0.5, {className: '-=active'});
-
-        TweenLite.to($navButtons.filter('[href=\\#' + $currentSlide.attr('id') + ']'), 0.5, {className: '+=active'});
-
-      }
-    } // END goToSlide
-
-
-    // onSlideChangeEnd ========================================================
-    // Once the sliding is finished, we need to restore "isAnimating" flag.
-    // You can also do other things in this function, such as changing page title
-    function onSlideChangeEnd()
-    {
-      isAnimating = false;
-    } // END onSlideChangeEnd
-
-    // When user resize it's browser we need to know the new height, so we can properly align the current slide
-    function onResize()
-    {
-      // eslint error 'event' defined but never used - function onResize(event)
-
-      // This will give us the new height of the window
-      var newPageHeight = $window.innerHeight();
-
-      // If the new height is different from the old height ( the browser is resized vertically ), the slides are resized
-      if(pageHeight !== newPageHeight)
-      {
-        pageHeight = newPageHeight;
-
-        //This can be done via CSS only, but fails into some old browsers, so I prefer to set height via JS
-        TweenLite.set([$slidesContainer, $slides], {height: pageHeight + 'px'});
-
-        //The current slide should be always on the top
-        TweenLite.set($slidesContainer, {scrollTo: {y: pageHeight * $currentSlide.index() }});
-      }
-
-    } // END onResize
-
-    // Apply click event to closeSectionModal
-    $('#button-close-vector').on('click', function() {
-
-      // Unbind the event handlers/listeners from the Modal/Ovrlay Function
-      $window.off('resize', onResize).resize();
-      $window.off('mousewheel DOMMouseScroll', onMouseWheel);
-      $document.off('keydown', onKeyDown);
-      $navButtons.off('click', onNavButtonClick);
-      $navGoPrev.off('click', goToPrevSlide);
-      $navGoNext.off('click', goToNextSlide);
-
-    }); // END on click
-
-
-  }, // END mounted
-  ready: function() {
-      
-
-  }, // END ready
+  }, // END beforeDestroy
 
 }; // END export default
 
@@ -263,6 +230,41 @@ export default {
 
 
 <style scoped>
+
+
+/* Could Use GSAP here as well */
+/* Vue JS - Transition Classes */
+/* fade in or out - Previous and Next Buttons */
+
+.fade-enter
+{
+    opacity: 0;
+}
+
+.fade-enter-active
+{
+    transition: opacity 4s ease;
+}
+
+.fade-enter-to
+{
+    /* Vue JS Default is opacity: 1; */
+}
+
+.fade-leave
+{
+    /* Vue JS Default is opacity: 1; */
+}
+
+.fade-leave-active
+{
+    transition: opacity 4s ease;
+}
+
+.fade-leave-to
+{
+    opacity: 0;
+}
 
 
 </style>

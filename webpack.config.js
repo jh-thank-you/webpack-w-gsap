@@ -6,6 +6,8 @@
 // Updated to babel-loader 7.x see Babel Loader Documentation https://github.com/babel/babel-loader
 // process.traceDeprecation = true;
 
+// removing Jquery from project/ webpack config, the project dependencies -- Also, in eslintrc.js, jquery is now set to false.
+
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -15,7 +17,7 @@ var ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 // var DashboardPlugin = require('webpack-dashboard/plugin');
 var PrerenderSpaPlugin = require('prerender-spa-plugin');
-// var CopyWebpackPlugin = require('copy-webpack-plugin');  // No longer needed - solved with https://github.com/vuejs/vue-loader/issues/814
+var CopyWebpackPlugin = require('copy-webpack-plugin');  
 var GitRevisionPlugin = require('git-revision-webpack-plugin');
 let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
@@ -57,7 +59,7 @@ const plugins = PRODUCTION
     }),
       // For setting see - https://github.com/jantimon/favicons-webpack-plugin
     new FaviconsWebpackPlugin({
-      logo: './assets/img/favicon-hainis.png',
+      logo: './assets/img/ui-elements/favicon-hainis.png',
       inject: true, // Inject the html into the html-webpack-plugin
       persistentCache: true,  // Generate a cache file with control hashes and
                               // don't rebuild the favicons until those hashes change
@@ -84,13 +86,14 @@ const plugins = PRODUCTION
           names: ['vendor']
     }), // split vendor library from app code
     new FriendlyErrorsWebpackPlugin(),
-    // new CopyWebpackPlugin([]
-    // No longer needed - solved with https://github.com/vuejs/vue-loader/issues/814
-    //     { from: 'assets/img-dynamic', to: 'assets/img-dynamic/[name].[ext]' }
-    // ]),
+    new CopyWebpackPlugin([
+        // need to copy sprite sheets to assets folder since the links can't be hashed in tha canvas call
+        { from: 'assets/img/sprite-sheets', to: 'assets/img/sprite-sheets' }
+    ]),
     new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery"
+      // axios: "axios", // don't define here and define in the component - it's one OR the other
+       /* $: "jquery",
+        jQuery: "jquery" */ // removing jquery from project
     }),
   ]
   : [
@@ -101,8 +104,9 @@ const plugins = PRODUCTION
     // FaviconsWebpackPlugin only rendered during production build
     new FriendlyErrorsWebpackPlugin(),
     new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery"
+      // axios: "axios", // don't define here and define in the component - it's one OR the other
+       /* $: "jquery",
+        jQuery: "jquery" */ // removing jquery from project
     }),
   ];
 
@@ -122,6 +126,9 @@ const imageLoaderQuery = {
   },
   gifsicle: {
     interlaced: false,
+    optimizationLevel: 3,
+    colors: 256,
+    buffer: false, // 'buffer' // set boolean if you wan to buffer.
   },
   optipng: {
     optimizationLevel: 4,
@@ -149,26 +156,47 @@ const cssLoader = PRODUCTION
     publicPath: '../../', // since the ExtractTextPlugin is saving 
                           // the CSS file to assets/css directory (see const plugins above) 
                           // you need to resolve the publicPath to take this into account.
-    use: ['css-loader?minimize&localIdentName=' + cssIdentifier, 'postcss-loader'],
+    use: ['css-loader?minimize&localIdentName=' + cssIdentifier, 
+          {
+            loader: 'postcss-loader',
+            options: {
+            config: {
+                path: 'postcss.config.js'
+              } // END config
+            } // END options
+          }
+         ],
   })
-  :   ['style-loader', 'css-loader?localIdentName=' + cssIdentifier, 'postcss-loader'];
+  :   ['style-loader', 'css-loader?localIdentName=' + cssIdentifier, 
+        {
+          loader: 'postcss-loader',
+          options: {
+            config: {
+              path: 'postcss.config.js'
+            } // END config
+          } // END options
+        }
+      ];
 
 
 module.exports = {
   devtool: projectMap,
-  entry: { build, vendor: ['vue', 'jquery', 'axios', 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
+  entry: { build, vendor: ['vue', 'vuex', /* 'jquery',  'axios',*/ 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
   resolve: {
     // IMPORTANT - keep in mind that path values are relative to the file you are writing in
     // Need to research how to create an alias to the root of the build or dist folder
 
     alias: { // chnaged dev folder structure to match production output - updated path aliases to reflect change - all files link properly in dev and prod
       'vue$': 'vue/dist/vue.esm.js',
+      'vuex': 'vuex/dist/vuex.esm.js',
+      modernizr$: path.resolve(__dirname, "./.modernizrrc"),
       assets: path.resolve(__dirname, './assets'),
       components: path.resolve(__dirname, './assets/components'),
       css: path.resolve(__dirname, './assets/css'),
       fonts: path.resolve(__dirname, './assets/fonts'),
       img: path.resolve(__dirname, './assets/img'),
       js: path.resolve(__dirname, './assets/js'),
+      store: path.resolve(__dirname, './assets/store'),
       modals: path.resolve(__dirname, './assets/modals'),
       scss: path.resolve(__dirname, './assets/scss'),
       sections: path.resolve(__dirname, './assets/sections'),
@@ -196,6 +224,19 @@ module.exports = {
           loaders: {
           }
           // other vue-loader options go here
+        }
+      }, {
+        test: /\.modernizrrc.js$/,
+        use: [ 'modernizr-loader' ]
+      }, {
+        test: /\.modernizrrc(\.json)?$/,
+        use: [ 'modernizr-loader', 'json-loader' ]
+      }, {
+        test: /\.json$/,
+        loader: 'json-loader', // Used for Vue Templates. Also Hot Module Replacement only works with .vue files
+        options: {
+          loaders: {
+          }
         }
       }, {
       // Conditions

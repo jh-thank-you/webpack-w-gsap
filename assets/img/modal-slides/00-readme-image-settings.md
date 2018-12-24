@@ -1,0 +1,11 @@
+Note: the JPEGs for the slideshow have the following settings:
+- Progressive (interlaced)
+- JPEG 
+  - Quality: 60
+  - Blur: 0
+  - Matte: None
+- Convert to sRGB
+- Preview: Internate Standard RGB (No color Management)
+- Metadata: None
+- Width: 1150px
+- Height: auto

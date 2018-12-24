@@ -1,0 +1,61 @@
+let slides = [
+  {
+    navID:     'slide-1',
+    client:    '',
+    alt:       'Goldman Sachs Ad - Career',
+    showImage: true,
+    src:       require('assets/img/modal-slides/modal-print-goldman-sachs-01c.gif'),
+    showVideo: false,
+    videoSrc:  '',
+    showText:  false,
+    pText:     '',
+  },
+  {
+    navID:     'slide-2',
+    client:    '',
+    alt:       'Goldman Sachs Ad - Resume',
+    showImage: true,
+    src:       require('assets/img/modal-slides/modal-print-goldman-sachs-02.gif'),
+    showVideo: false,
+    videoSrc:  '',
+    showText:  false,
+    pText:     '',
+  },
+  {
+    navID:     'slide-3',
+    client:    '',
+    alt:       'Goldman Sachs Ad - Challenges',
+    showImage: true,
+    src:       require('assets/img/modal-slides/modal-print-goldman-sachs-03.gif'),
+    showVideo: false,
+    videoSrc:  '',
+    showText:  false,
+    pText:     '',
+  },
+  {
+    navID:     'slide-4',
+    client:    '',
+    alt:       'Goldman Sachs Brochure - Closeup',
+    showImage: true,
+    src:       require('assets/img/modal-slides/modal-print-goldman-sachs-04.png'),
+    showVideo: false,
+    videoSrc:  '',
+    showText:  false,
+    pText:     '',
+  },
+  {
+    navID:     'slide-5',
+    client:    '',
+    alt:       'Goldman Sachs Brochure - spread',
+    showImage: true,
+    src:       require('assets/img/modal-slides/modal-print-goldman-sachs-05.png'),
+    showVideo: false,
+    videoSrc:  '',
+    showText:  false,
+    pText:     '',
+  },
+]; // END slides
+
+exports.sendSlideData = function() {
+  return slides;
+};

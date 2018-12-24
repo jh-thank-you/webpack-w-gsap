@@ -1,0 +1,61 @@
+let slides = [
+  {
+    navID:     'slide-1',
+    client:    '',
+    alt:       'CSFB Direct Upgrade Video',
+    showImage: false,
+    src:       '',
+    showVideo: true,
+    videoSrc:  'https://player.vimeo.com/video/232596195?title=0&byline=0&portrait=0',
+    showText:  false,
+    pText:     '',
+  },
+  {
+    navID:     'slide-2',
+    client:    '',
+    alt:       'CSFBdirect Ad 01',
+    showImage: true,
+    src:       require('assets/img/modal-slides/modal-print-csfb-direct-01c.jpg'),
+    showVideo: false,
+    videoSrc:  '',
+    showText:  false,
+    pText:     '',
+  },
+  {
+    navID:     'slide-3',
+    client:    '',
+    alt:       'CSFBdirect Ad 02',
+    showImage: true,
+    src:       require('assets/img/modal-slides/modal-print-csfb-direct-02.jpg'),
+    showVideo: false,
+    videoSrc:  '',
+    showText:  false,
+    pText:     '',
+  },
+  {
+    navID:     'slide-4',
+    client:    '',
+    alt:       'CSFBdirect Ad 03',
+    showImage: true,
+    src:       require('assets/img/modal-slides/modal-print-csfb-direct-03.jpg'),
+    showVideo: false,
+    videoSrc:  '',
+    showText:  false,
+    pText:     '',
+  },
+  {
+    navID:     'slide-5',
+    client:    '',
+    alt:       'CSFBdirect Ad 04',
+    showImage: true,
+    src:       require('assets/img/modal-slides/modal-print-csfb-direct-04.jpg'),
+    showVideo: false,
+    videoSrc:  '',
+    showText:  false,
+    pText:     '',
+  },
+]; // END slides
+
+exports.sendSlideData = function() {
+  return slides;
+};

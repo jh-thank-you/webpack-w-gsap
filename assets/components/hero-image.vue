@@ -1,5 +1,5 @@
 <template>
-    
+
     <div id="hero-wrap">
 
          <div class="current-animation"></div>
@@ -17,9 +17,7 @@ export default {
 </script>
 
 
-
 <style scoped>
-
 
 
 </style>

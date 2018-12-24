@@ -1,5 +1,5 @@
 <template>
-    
+
   <div @click="exampleSelected(), hideTab()" :id="id" class="boxframe" :sector="sector" :access="access">
 
     <div :class="currentClassArray()"></div>
@@ -33,7 +33,6 @@ export default {
   created() {
 
 
-
   }, // END created
   methods: {
 
@@ -59,6 +58,9 @@ export default {
         showModal = false;
         eventBus.$emit('modalVisibility', showModal);
 
+        this.imageSrc = this.id;
+        this.$emit('imageSelectChanged', this.imageSrc);
+
         var showPasswordModal = true;
         eventBus.$emit('passwordStatus', showPasswordModal);
 
@@ -71,15 +73,14 @@ export default {
 
         this.$emit('imageSelectChanged', this.imageSrc);
 
-        if (this.$root.debug) console.log(this.imageSrc + ' = this.imageSrc - modal button clicked');
+        if (this.$root.debug) { console.log(this.imageSrc + ' = this.imageSrc - modal button clicked'); }
 
       }
 
     }, // END exampleSelected
 
     getPic() {
-      /* return */ // require('assets/img/' + this.id + '1a-sm.png');
-      return 'assets/img/' + this.id + '1a-sm.gif';
+      return require('assets/img/modal-buttons/' + this.id + '-01a-sm.gif');
     }, // END getPic
 
   }, // END methods
@@ -88,7 +89,7 @@ export default {
 
   }, // END mounted
   destroyed() {
-        
+
     // turn off binding to prevent multiple instances
     this.$off('imageSelectChanged');
 
@@ -99,9 +100,7 @@ export default {
 </script>
 
 
-
 <style scoped>
-  
 
 
 </style>

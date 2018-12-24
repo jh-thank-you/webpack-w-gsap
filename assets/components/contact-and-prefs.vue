@@ -6,11 +6,11 @@
   <div v-if="showOverlay" @click="showOverlay = !showOverlay, moveTab()" id="modal-overlay"></div>
   </transition>
 
-   <transition name="updown"> 
+   <transition name="updown">
   <div v-if="showTab" :key="moveTab" id="contact-prefs-tab" :class="currentClass"> <!-- START contact-prefs -->
 
       <div class="inner-tab-wrap"> <!-- START Inner Contact Pref Wrap -->
-        
+
         <div @click="showOverlay = !showOverlay, moveTab()" class="tab-title">
           <span class="tab-bkg"><h4 id="pref-contact-title" class="handwritten">Preferences / Contact</h4></span>
         </div>
@@ -18,12 +18,12 @@
         <div class="scroll-area"> <!-- START scroll-area -->
 
           <div id="preferences-form" class="row"> <!-- START preferences-form -->
-        
+
             <fieldset id="pref-checkbox-container justify-content">
 
               <legend id="industry-settings">
                   <h4 id="which-industry" class="handwritten">Select Which Industries To View</h4>
-                
+
                 <div id="default-settings">
 
                   <label class="pref-button"><input type="checkbox" v-model="defaultChecked"><span>Default</span></label>
@@ -35,7 +35,7 @@
 
               <div class="checkbox-wrap">
 
-              <label :for="select.id" v-for="select in selectsArray" v-bind:key="select.id"><input :value="select.id" v-model="selected" :id="select.id" :sector="select.id" :class="select.class" :default="select.default" type="checkbox">{{ select.name }}</label>
+              <label :for="select.id" v-for="select in selectsArray" :key="select.id"><input :value="select.id" v-model="selected" :id="select.id" :sector="select.id" :class="select.class" :default="select.default" type="checkbox">{{ select.name }}</label>
               </div>
 
             </fieldset>
@@ -43,7 +43,7 @@
 
           <div class="form-section">
             <legend><h4 class="handwritten">Contact Me</h4></legend>
-            <p>Jim Hainis | 973.441.5204 |<a href="mailto:jh@jimhainis.com"> jh@jimhainis.com</a></p>
+            <p>Jim Hainis | 973.415.8869 |<a href="mailto:jh@jimhainis.com"> jh@jimhainis.com</a></p>
             <p class="note">Note: this number has a<a href="http://heartmartialarts.org/" target="_blank"> H.E.A.R.T. Martial Arts </a>voicemail.</p>
           </div>
 
@@ -59,13 +59,12 @@
 
           <div class="form-section">
             <legend><h4 class="handwritten">Thanks Juho Vepsalainen!</h4></legend>
-            <p>Your kindness and willingness to help others is only surpassed by your webpack knowledge. Thanks again for sharing your webpack book with the community.</p><br>
-            <p>Show your support, buy his book (even though he gives all the content away for free on his site!).<a href="https://survivejs.com/webpack/" target="_blank"> SurviveJs &#124; Webpack from Apprentice to Master</a></p>
+            <p>Your kindness and willingness to help others is only surpassed by your webpack knowledge. Thanks again for sharing your webpack book with the community.<a href="https://survivejs.com/webpack/" target="_blank"> SurviveJs &#124; Webpack from Apprentice to Master</a></p>
           </div>
 
           <div class="form-section">
-            <legend><h4 class="handwritten">Thanks Gitter Vue Community!</h4></legend>
-            <p>An extra thank you to everyone who took the time to answer my questions.<a href="https://gitter.im/vuejs/vue" target="_blank"> GITTER &#124; Vue</a></p>
+            <legend><h4 class="handwritten">Thanks Discord and Gitter Vue Communities!</h4></legend>
+            <p>An extra thank you to everyone who took the time to answer my questions.<a href="https://discordapp.com/" target="_blank"> Discord &#124; </a><a href="https://gitter.im/vuejs/vue" target="_blank"> GITTER &#124; Vue</a></p>
           </div>
 
           <div class="end-spacer"><!-- Empty Spacer Div for Scroll --></div>
@@ -107,13 +106,13 @@ export default {
   data() {
     return {
 
-      showTab: true,
-      showOverlay: false,
-      tabHidden: false,
+      showTab:      true,
+      showOverlay:  false,
+      tabHidden:    false,
       currentClass: '',
       // selected: [], // using localStorage now
-      selected: mySelectsStorage.fetch(),
-      selectsArray: [ 
+      selected:     mySelectsStorage.fetch(),
+      selectsArray: [
 
         {id: 'automotive', name: 'Automotive', class: 'industry', default: false},
 
@@ -165,8 +164,8 @@ export default {
 
   }, // END data
   created() {
-      
-    if (this.$root.debug) console.log('created - contacts-and-prefs - eventBus $on sendSelected');
+
+    if (this.$root.debug) { console.log('created - contacts-and-prefs - eventBus $on sendSelected'); }
     eventBus.$on('sendSelected', this.emitSelected);
 
     eventBus.$on('tabVisibility', () => {
@@ -180,7 +179,7 @@ export default {
         return this.currentClass;
       } else {
         this.currentClass = 'is-hidden';
-        return this.currentClass;   
+        return this.currentClass;
       }
     }); // END eventBus
 
@@ -207,7 +206,7 @@ export default {
             if (select.default) {
               this.selected.push(select.id);
               var checkboxValues = this.selected;
-              if (this.$root.debug) console.log(checkboxValues + ' = default select value');
+              if (this.$root.debug) { console.log(checkboxValues + ' = default select value'); }
             }
           });
         }
@@ -225,7 +224,7 @@ export default {
           this.selectsArray.forEach((select) => {
             this.selected.push(select.id);
             var checkboxValues = this.selected;
-            if (this.$root.debug) console.log(checkboxValues + ' = select all value');
+            if (this.$root.debug) { console.log(checkboxValues + ' = select all value'); }
           });
         }
       },
@@ -247,7 +246,7 @@ export default {
     emitSelected() {
       eventBus.$emit('selectedChanged', this.selected);
       // eventBus.$off('sendSelected', this.emitSelected) // after initally sending once the watcher will do the rest, so remove this listener for performance
-      if (this.$root.debug) console.log('this.selected data requested - emitSelected contacts-and-prefs');
+      if (this.$root.debug) { console.log('this.selected data requested - emitSelected contacts-and-prefs'); }
     }, // END emitSelected
 
     moveTab() {
@@ -261,23 +260,10 @@ export default {
 </script>
 
 
-
 <style scoped>
-    #contact-prefs-tab {
-        height: 48px;
-        transition: height 500ms ease-in-out;
-    }
-/*
-    #contact-prefs-tab.is-active {
-        height: 65vh;
-    }
-*/
-     #contact-prefs-tab.is-hidden {
-        height: 0;
-    }
 
 /* fade in or out overlay */
-  
+
   .fade-enter {
     opacity: 0;
   }
@@ -327,7 +313,7 @@ export default {
         .updown-enter-to,
         .updown-leave {
           height: 95vh;
-          max-height: 1000px;
+          max-height: 95vh;
           }
         }
 
@@ -335,8 +321,8 @@ export default {
         #contact-prefs-tab.is-active,
         .updown-enter-to,
         .updown-leave {
-          height: 80vh;
-          max-height: 80vh;
+          height: 95vh;
+          max-height: 95vh;
           }
         }
 
@@ -344,10 +330,9 @@ export default {
         #contact-prefs-tab.is-active,
         .updown-enter-to,
         .updown-leave {
-            height: 65vh;
-            max-height: 65vh;
+            height: 95vh;
+            max-height: 95vh;
           }
         }
-
 
 </style>

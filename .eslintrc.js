@@ -4,7 +4,7 @@ module.exports = {
     commonjs: true,
     es6: true,
     node: true,
-    jquery: true,
+    jquery: false,
   },
   globals: {
     "TimelineLite" : false,
@@ -58,13 +58,33 @@ module.exports = {
   ],
   parserOptions: {
     sourceType: 'module',
+    "allowImportExportEverywhere": true // need to use babel-eslint for this to work but will then conflict with eslint-plugin-vue
   },
   rules: {
     // 0 = Off/Disable
     // 1 = Warn - emit a warning
     // 2 = Error
     'block-spacing': "error",
+    'computed-property-spacing': ["error", "never"],
+    'array-bracket-newline': ["error", { "multiline": true }],
+    curly: "error",
+    'no-floating-decimal': "error",
+    'no-multi-spaces': ["error", { 
+        "ignoreEOLComments": false,
+        "exceptions": {
+            "VariableDeclarator": true,
+            "ImportDeclaration": true 
+        }
+    }],
+    'keyword-spacing': ["error", { "after": true }],
+    'eol-last': ["error", "always"],
+    'no-trailing-spaces': ["error", { "ignoreComments": true }],
+    'no-multiple-empty-lines': ["error", { "max": 2, "maxEOF": 1 }],
+    'key-spacing': ["error", { align: "value" }],
+    'dot-location': ["error", "property"],
+    'dot-notation': ["error", { "allowPattern": "^[a-z]+(_[a-z]+)+$" }],
     'comma-dangle': ['error', 'always-multiline'],
+    'no-tabs': "error",
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
