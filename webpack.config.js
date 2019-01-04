@@ -19,7 +19,7 @@ var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 var PrerenderSpaPlugin = require('prerender-spa-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');  
 var GitRevisionPlugin = require('git-revision-webpack-plugin');
-let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+let WebappWebpackPlugin = require('webapp-webpack-plugin');
 
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
 const PRODUCTION = process.env.NODE_ENV === 'production';
@@ -58,7 +58,7 @@ const plugins = PRODUCTION
       include: 'asyncChunks',
     }),
       // For setting see - https://github.com/jantimon/favicons-webpack-plugin
-    new FaviconsWebpackPlugin({
+    new WebappWebpackPlugin({
       logo: './assets/img/ui-elements/favicon-hainis.png',
       inject: true, // Inject the html into the html-webpack-plugin
       persistentCache: true,  // Generate a cache file with control hashes and
@@ -101,7 +101,7 @@ const plugins = PRODUCTION
     // new DashboardPlugin(), // if you want a fancy dashboard in terminal 
                               // uncomment the DashboardPlugin line and the global var
                               // Also, see the package.json file to modify the "dev" script
-    // FaviconsWebpackPlugin only rendered during production build
+    // WebappWebpackPlugin only rendered during production build
     new FriendlyErrorsWebpackPlugin(),
     new webpack.ProvidePlugin({
       // axios: "axios", // don't define here and define in the component - it's one OR the other

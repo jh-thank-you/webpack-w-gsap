@@ -12,6 +12,10 @@
     "COMMENT - NOTE: If you want a fancy dashboard in the terminal add 'webpack-dashboard -- ' at the beginning of the desired script below",
     "Also, uncomment the DashboardPlugin var and plugin within the webpack config file"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jh-thank-you/webpack-w-gsap/cli.git"
+  },
   "scripts": {
     "preinstall": "mkdir node_modules && touch node_modules/.metadata_never_index",
     "build": "rimraf dist && mkdir dist && touch dist/.metadata_never_index && cross-env NODE_ENV=production webpack --env production --progress --hide-modules",
@@ -45,7 +49,6 @@
     "eslint-plugin-html": "^3.0.0",
     "eslint-plugin-vue": "^3.5.0",
     "extract-text-webpack-plugin": "^2.1.2",
-    "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^0.11.2",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "git-revision-webpack-plugin": "^2.5.1",
@@ -67,7 +70,8 @@
     "vue-loader": "^13.0.2",
     "vue-router": "^2.7.0",
     "vue-template-compiler": "^2.3.4",
-    "webpack": "^3.0.0",
+    "webapp-webpack-plugin": "^2.4.0",
+    "webpack": "^2.2.0",
     "webpack-dashboard": "^0.4.0",
     "webpack-dev-server": "^2.5.0"
   },

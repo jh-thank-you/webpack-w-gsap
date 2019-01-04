@@ -8,7 +8,7 @@
 
 
     <transition name="fade-slideshow">
-    <modal-slideshow v-if="showModal" @close="showModal = false" :imageSrc="imagesource"></modal-slideshow>
+    <modal-slideshow v-if="showModal" @close="showModal = false, goHome()" :imageSrc="imagesource"></modal-slideshow>
     </transition>
 
   </div>
@@ -52,7 +52,7 @@ export default {
       client:              '',
       sector:              '',
       alt:                 '',
-      imagesource:         '',
+      imagesource:         'modal-default-selection',
       access:              '',
       selected:            [],
       examples:            currentExamples,
@@ -97,6 +97,17 @@ export default {
 
   }, // END mounted
   methods: {
+
+    goHome() {
+
+      // tell corner nav to move back into window frame
+      eventBus.$emit('bringBackCornerNav');
+
+      // tell vector close button to go Home
+      eventBus.$emit('noActiveClient');
+
+      if (this.$root.debug) { console.log('noActiveClient - tell vector close button to go home.'); }
+    },
 
     updateCornerNav() {
       // tell corner nav to move back into window frame

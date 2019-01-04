@@ -85,7 +85,7 @@ export default {
 
       ],
       currentIndex: 0,
-
+      imagesource:  'default',
     };
   }, // END data
   computed: {
@@ -111,6 +111,10 @@ export default {
 
 
   }, // END beforeCreated
+  created() {
+
+
+  }, // END created
   mounted() {
     /* *****************************************************************
 
@@ -141,6 +145,12 @@ export default {
 
     window.addEventListener('keyup', arrowHandler);
 
+    eventBus.$on('noActiveClient', () => {
+      this.imagesource = 'modal-default-selection';
+
+      if (this.$root.debug) { console.log( this.imagesource + ' = noActiveClient - No active client work section now closing'); }
+    }); // END eventBus
+
 
     if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created'); }
 
@@ -154,8 +164,27 @@ export default {
   methods: {
 
     hideTab() {
+      // if (this.$root.debug) { console.log( 'hideTab - closing client login'); }
       var tabHidden = false;
       eventBus.$emit('tabVisibility', tabHidden);
+
+
+      if (this.imagesource === 'modal-default-selection' ) {
+        // Go to Main Home page
+
+        // if (this.$root.debug) { console.log( 'closing client login'); }
+        eventBus.$emit('bringBackCornerNav');
+
+        if (this.$root.debug) { console.log('noActiveClient - Bye Nonactive Client. Have a nice day'); }
+
+        this.$router.push('/');
+
+      } else {
+
+        return;
+
+      } // END IF ELSE
+
     }, // END hideTab
 
 

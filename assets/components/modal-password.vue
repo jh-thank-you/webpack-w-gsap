@@ -97,7 +97,7 @@ export default {
 
       var password = this.password;
 
-      if (password == 'BigPharma') {
+      if (password == 'PharmaFun') {
 
         this.showPasswordModal = false;
 
