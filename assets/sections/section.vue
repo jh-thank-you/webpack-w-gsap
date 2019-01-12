@@ -308,6 +308,8 @@ export default {
 
           {exampleid: 'modal-print-oyama-karate', alt: 'Oyama Karate Print Communication Pieces', client: 'Oyama Karate', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
 
+          {exampleid: 'modal-online-self-promotion', alt: 'Online Digital Self-Promotion', client: 'Slef-promotion', sector: ['default', 'branding', 'btob', 'communication'], access: 'unlocked' },
+
           {exampleid: 'modal-print-spiriva', alt: 'Spiriva Print Communication Pieces', client: 'Spiriva', sector: ['healthcare', 'pharma'], access: 'locked' },
 
           {exampleid: 'modal-print-tradestream', alt: 'Tradestream Print Communication Pieces', client: 'Tradestream', sector: ['btob', 'shipping'], access: 'unlocked' },
