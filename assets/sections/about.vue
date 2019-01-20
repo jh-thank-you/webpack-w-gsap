@@ -14,12 +14,15 @@
                     <div class="form-section">
                       <legend><h4 class="handwritten">Contact Info</h4></legend>
                       <p>Jim Hainis | Art Director | <a href="tel:973-415-8869">973.415.8869</a> |<a href="mailto:jim@hainis.net?Subject=We%20want%20to%20hire%20you%21"> jim@hainis.net</a></p>
+
                       <div>
                         <div class="linkedin-icon" onclick=" window.open('http://www.linkedin.com/pub/jim-hainis/3/9a5/185','_blank')"></div>
 
                         <div class="instagram-icon" onclick=" window.open('https://www.instagram.com/hainisad/','_blank')"></div>
 
                         <div class="twitter-icon" onclick=" window.open('https://twitter.com/hainis9','_blank')"></div>
+
+                        <div class="vimeo-icon" onclick=" window.open('https://vimeo.com/user7076658','_blank')"></div>
                       </div>
                     </div>
 

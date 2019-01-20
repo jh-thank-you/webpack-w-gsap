@@ -1171,7 +1171,8 @@ a #contact-prefs:hover {
 
 .linkedin-icon,
 .instagram-icon,
-.twitter-icon {
+.twitter-icon,
+.vimeo-icon {
   display: inline-block;
   position: relative;
   width: 40px;
@@ -1219,6 +1220,18 @@ a #contact-prefs:hover {
 .twitter-icon:focus,
 .twitter-icon:active {
   background-image: url('~img/ui-elements/social-icons-twitter.gif');
+  background-repeat: no-repeat;
+}
+
+
+.vimeo-icon {
+  background-image: url('~img/ui-elements/social-icons-vimeo-gray.gif');
+}
+
+.vimeo-icon:hover,
+.vimeo-icon:focus,
+.vimeo-icon:active {
+  background-image: url('~img/ui-elements/social-icons-vimeo.gif');
   background-repeat: no-repeat;
 }
 
