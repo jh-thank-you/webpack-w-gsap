@@ -137,6 +137,10 @@ export default {
     this.$off('passwordStatus');
     this.$off('tabVisibility');
 
+    // turn off binding to prevent multiple instances
+    // Also NOT turning this off caused getExamples(), 
+    // found in section.vue, to run in an infinite loop.  
+    this.$off('imageSelectChanged');
 
   }, // END destroyed
 

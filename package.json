@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "browserslist": [
-    "last 5 versions",
     "> 1%",
     "ie > 9"
   ],
@@ -12,10 +11,6 @@
     "COMMENT - NOTE: If you want a fancy dashboard in the terminal add 'webpack-dashboard -- ' at the beginning of the desired script below",
     "Also, uncomment the DashboardPlugin var and plugin within the webpack config file"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jh-thank-you/webpack-w-gsap/cli.git"
-  },
   "scripts": {
     "preinstall": "mkdir node_modules && touch node_modules/.metadata_never_index",
     "build": "rimraf dist && mkdir dist && touch dist/.metadata_never_index && cross-env NODE_ENV=production webpack --env production --progress --hide-modules",
@@ -36,10 +31,11 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.1.1",
-    "babel-core": "^6.26.3",
+    "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
@@ -49,17 +45,18 @@
     "eslint-plugin-html": "^3.0.0",
     "eslint-plugin-vue": "^3.5.0",
     "extract-text-webpack-plugin": "^2.1.2",
+    "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^0.11.2",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "git-revision-webpack-plugin": "^2.5.1",
     "html-webpack-plugin": "^2.29.0",
-    "http-server": "^0.11.1",
+    "http-server": "^0.10.0",
     "image-webpack-loader": "^3.3.1",
     "json-loader": "^0.5.7",
-    "modernizr": "^3.6.0",
+    "modernizr": "^3.5.0",
     "modernizr-loader": "^1.0.1",
     "multipage-webpack-plugin": "^0.3.0",
-    "nodemon": "^1.17.5",
+    "nodemon": "^1.11.0",
     "postcss-loader": "^2.0.6",
     "preload-webpack-plugin": "^1.2.2",
     "prerender-spa-plugin": "^2.0.1",
@@ -70,8 +67,7 @@
     "vue-loader": "^13.0.2",
     "vue-router": "^2.7.0",
     "vue-template-compiler": "^2.3.4",
-    "webapp-webpack-plugin": "^2.4.0",
-    "webpack": "^2.2.0",
+    "webpack": "^3.0.0",
     "webpack-dashboard": "^0.4.0",
     "webpack-dev-server": "^2.5.0"
   },
@@ -79,6 +75,6 @@
     "axios": "^0.16.2",
     "gsap": "^1.20.2",
     "vue": "^2.3.4",
-    "vuex": "^3.0.1"
+    "vuex": "^3.1.0"
   }
 }

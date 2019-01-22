@@ -27,6 +27,7 @@ export const store = new Vuex.Store({
     tabVisibility:       '',
     modalVisibility:     '',
     passwordStatus:      '',
+    noActiveClient:      '',
   },
   getters: {
 

@@ -255,21 +255,6 @@ export default {
 
   }, // END methods
   // watch selected change for localStorage persistence
-  destroyed() {
-
-    // turn off binding to prevent multiple instances
-    eventBus.$off('selectedChanged');
-
-    // turn off binding to prevent multiple instances
-    // Also NOT turning this off caused getExamples(), 
-    // found in section.vue, to run in an infinite loop.  
-    eventBus.$off('sendSelected');
-
-    // turn off binding to prevent multiple instances
-    eventBus.$off('tabVisibility');
-
-
-  }, // END destroyed
 }; // END export default
 
 </script>

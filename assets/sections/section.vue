@@ -322,76 +322,6 @@ export default {
 
         return this.filteredExamples(currentExamples);
 
-      } else if (currentID == 'section-contact') {
-
-        if (this.$root.debug) { console.log( currentID + ' = currentID Video Examples'); }
-
-        currentExamples = [
-
-          {exampleid: 'modal-video-advil', alt: 'Advil Video / Television Ads', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
-
-          {exampleid: 'modal-video-cimzia', alt: 'Cimzia Video / Television Ads', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
-
-          {exampleid: 'modal-video-credit-suisse', alt: 'Credit Suisse Video / Television Ads', client: 'Credit Suisse', sector: ['default', 'financial'], access: 'unlocked' },
-
-          {exampleid: 'modal-video-csfb-direct', alt: 'CSFB Direct Video / Television Ads', client: 'CSFB Direct', sector: ['default', 'financial'], access: 'unlocked' },
-
-          {exampleid: 'modal-video-ginkoba', alt: 'Ginkoba Video / Television Ads', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
-
-          {exampleid: 'modal-video-ny-blood-center', alt: 'NY Blood Center Video / Television Ads', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
-
-          {exampleid: 'modal-video-vertex-linen', alt: 'Vertex Linens Print Communication Pieces', client: 'Vertex Linen', sector: ['default', 'btob', 'cleaning'], access: 'unlocked' },
-
-        ]; // END currentExamples
-
-        return this.filteredExamples(currentExamples);
-
-      } else if (currentID == 'section-clients') {
-
-        if (this.$root.debug) { console.log( currentID + ' = currentID Outdoor Examples'); }
-
-        currentExamples = [
-
-          {exampleid: 'modal-outdoor-amnh', alt: 'American Museum of Natural History Outdoor Communication Pieces', client: 'AMNH', sector: ['tourism'], access: 'unlocked' },
-
-          {exampleid: 'modal-outdoor-cimzia', alt: 'Cimzia Outdoor Communication Pieces', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
-
-          {exampleid: 'modal-outdoor-ginkoba', alt: 'Ginkoba Outdoor Communication Pieces', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
-
-          {exampleid: 'modal-outdoor-gte', alt: 'GTE Outdoor Communication Pieces', client: 'GTE', sector: ['financial'], access: 'unlocked' },
-
-          {exampleid: 'modal-outdoor-mally-beauty', alt: 'Mally Beauty Outdoor Communication Pieces', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
-
-          {exampleid: 'modal-outdoor-mta', alt: 'MTA Metro Card Outdoor Communication Pieces', client: 'MTA', sector: ['default', 'transportation', 'tourism'], access: 'unlocked' },
-
-        ]; // END currentExamples
-
-        return this.filteredExamples(currentExamples);
-
-      } else if (currentID == 'section-settings') {
-
-        if (this.$root.debug) { console.log( currentID + ' = currentID Online Examples'); }
-
-        currentExamples = [
-
-          {exampleid: 'modal-online-cimzia', alt: 'Cimzia Online Communication Pieces', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
-
-          {exampleid: 'modal-online-dell', alt: 'Dell Online Communication Pieces', client: 'Dell', sector: ['default', 'technology'], access: 'unlocked' },
-
-          {exampleid: 'modal-online-ginkoba', alt: 'Ginkoba Online Communication Pieces', client: 'Ginkoba', sector: ['default', 'technology'], access: 'unlocked' },
-
-          {exampleid: 'modal-online-credit-suisse', alt: 'Credit Suisse Online Communication Pieces', client: 'Credit Suisse', sector: ['default', 'financial'], access: 'unlocked' },
-
-          {exampleid: 'modal-online-ko-fightgear', alt: 'KO Fightgear Online Communication Pieces', client: 'KO Fightgear', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
-
-          {exampleid: 'modal-online-mally-beauty', alt: 'Mally Beauty Online Communication Pieces', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
-
-          {exampleid: 'modal-online-vertex-linen', alt: 'Vertex Linens Online Communication Pieces', client: 'Vertex Linen', sector: ['default', 'btob', 'cleaning'], access: 'unlocked' },
-
-        ]; // END currentExamples
-
-        return this.filteredExamples(currentExamples);
-
       } else {
         if (this.$root.debug) { console.log(this.id + ' - Error no data for examples in section.vue component'); }
       } // END If - Else Examples
@@ -428,6 +358,20 @@ export default {
     eventBus.$off('selectedChanged');
 
     window.removeEventListener('resize', this.resize);
+
+  }, // END beforeDestroy
+  destroyed() {
+
+    // turn off binding to prevent multiple instances
+    // Also NOT turning this off caused getExamples(), 
+    // found in section.vue, to run in an infinite loop. 
+    eventBus.$off('sendSelected');
+
+
+    // turn off binding to prevent multiple instances
+    // Also NOT turning this off caused getExamples(), 
+    // found in section.vue, to run in an infinite loop.  
+    this.$off('imageSelectChanged');
 
   }, // END destroyed
 

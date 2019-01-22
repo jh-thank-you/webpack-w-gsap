@@ -8,11 +8,12 @@ import TweenMax from 'gsap/TweenMax';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import VueRouter from 'vue-router';
 import router from 'js/routes.js';
-// import { store } from 'store/store.js';
+// Vuex Store - State Management
+import { store } from 'store/store.js';
 import Modernizr from 'modernizr';
 
 // import contactAndPrefs from 'components/contact-and-prefs.vue';
-Vue.component('contactandprefs', require('components/contact-and-prefs.vue').default);
+// Vue.component('contactandprefs', require('components/contact-and-prefs.vue').default);
 
 import navCornerMenu from 'components/nav-corner-menu.vue';
 Vue.component('navcornermenu', require('components/nav-corner-menu.vue').default);
@@ -41,7 +42,7 @@ window.addEventListener('load', function () {
         debug: true, // use true or false to turn console logs on or off
       };
     },
+    store:  store,
     router: router,
-    // store:  store,
   });
 });
