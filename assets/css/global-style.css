@@ -1950,7 +1950,8 @@ input::placeholder {
   background-repeat: repeat;
   background-position: top left;
   background-size: 400px;
-}
+/*  border: solid 1px green;
+*/}
 
 .modal-close {
   position: fixed;

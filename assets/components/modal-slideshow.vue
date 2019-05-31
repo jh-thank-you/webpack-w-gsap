@@ -585,6 +585,9 @@ export default {
 
 /* Swipe Elements */
 .swipe-front {
+  width: 100%;
+  height: 100%;
+  /*border: solid 1px red;*/
   -ms-touch-action: none;
   /* // [START touch-action-example] */
   /* Pass all touches to javascript */
@@ -594,6 +597,5 @@ export default {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
-
 
 </style>
