@@ -91,9 +91,7 @@ const plugins = PRODUCTION
         { from: 'assets/img/sprite-sheets', to: 'assets/img/sprite-sheets' }
     ]),
     new webpack.ProvidePlugin({
-      // axios: "axios", // don't define here and define in the component - it's one OR the other
-       /* $: "jquery",
-        jQuery: "jquery" */ // removing jquery from project
+
     }),
   ]
   : [
@@ -104,9 +102,8 @@ const plugins = PRODUCTION
     // FaviconsWebpackPlugin only rendered during production build
     new FriendlyErrorsWebpackPlugin(),
     new webpack.ProvidePlugin({
-      // axios: "axios", // don't define here and define in the component - it's one OR the other
-       /* $: "jquery",
-        jQuery: "jquery" */ // removing jquery from project
+
+
     }),
   ];
 
@@ -181,7 +178,7 @@ const cssLoader = PRODUCTION
 
 module.exports = {
   devtool: projectMap,
-  entry: { build, vendor: ['vue', 'vuex', /* 'jquery',  'axios',*/ 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
+  entry: { build, vendor: ['vue', 'vuex', /* 'jquery',*/ 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
   resolve: {
     // IMPORTANT - keep in mind that path values are relative to the file you are writing in
     // Need to research how to create an alias to the root of the build or dist folder

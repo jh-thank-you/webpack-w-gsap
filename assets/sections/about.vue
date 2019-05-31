@@ -155,6 +155,7 @@ export default {
   beforeDestroy() {
 
     window.removeEventListener('resize', this.resize);
+    // delete this.bindGesture();
 
   }, // END destroyed
 

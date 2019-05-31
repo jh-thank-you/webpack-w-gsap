@@ -8,7 +8,7 @@
 
             <div v-if="slide.showVideo" class="slide-img-wrap video-wrap">
               <div class="flex-video widescreen vimeo">
-                <iframe v-if="slide.showVideo" :src="slide.videoSrc" :alt="slide.alt" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <iframe v-if="slide.showVideo" class="" :src="slide.videoSrc" :alt="slide.alt" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
               </div>
             </div>
 
@@ -41,6 +41,16 @@ export default {
 
 
   }, // END created
+  mounted() {
+
+  }, // END mounted
+  beforeDestroy() {
+
+  }, // END beforeDestroy
+  methods: {
+
+
+  }, // END methods
 
 }; // END export default
 
@@ -48,8 +58,8 @@ export default {
 
 
 <style scoped>
-  /* video set to 4:3 aspect ratio with flex-video */
 
+ /* video set to 4:3 aspect ratio with flex-video */
  .flex-video {
     position: relative;
     display: flex;
@@ -90,38 +100,5 @@ export default {
     max-width: 632px;
     max-height: 472px;
   }
-
-
-  /* Original Flex Video CSS */
-  /* .flex-video {
-    position: relative;
-    padding-top: 25px;
-    padding-bottom: 67.5%;
-    height: 0;
-    margin-bottom: 16px;
-    overflow: hidden;
-  }
-
-  .flex-video.widescreen { padding-bottom: 57.25%; }
-
-  .flex-video.vimeo {
-    padding-top: 0;
-    margin: 0;
-  }
-
-  .flex-video iframe,
-  .flex-video object,
-  .flex-video embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  @media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
-    .flex-video { padding-top: 0; }
-  }*/
-
 
 </style>
