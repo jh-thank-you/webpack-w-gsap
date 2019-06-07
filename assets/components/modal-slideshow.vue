@@ -1,7 +1,6 @@
-<template>
+ƒ<template>
 
-  <div class="overlay swipe-element"> <!-- START Modal -->
-    <div class="swipe-front">
+  <div class="overlay"> <!-- START Modal -->
 
       <!-- IE Specific to remove tap highlight -->
       <meta name="msapplication-tap-highlight" content="no">
@@ -45,19 +44,21 @@
 
       </div>
 
-      <transition
-        v-on:enter="enter"
-        v-on:after-enter="afterEnter"
-        v-on:leave="leave"
-        v-bind:css="false"
-       >
-          <modal-slide :slide="slides[currentIndex]" :key="currentIndex" class="current-slide">
-          </modal-slide>
+      <div class="swipe-element">
+        <div class="swipe-front">
+          <transition
+            v-on:enter="enter"
+            v-on:after-enter="afterEnter"
+            v-on:leave="leave"
+            v-bind:css="false"
+           >
+              <modal-slide :slide="slides[currentIndex]" :key="currentIndex" class="current-slide">
+              </modal-slide>
 
-
-      </transition>
+          </transition>
+        </div>
+      </div>
       <!-- END New Slideshow -->
-    </div>
   </div> <!-- END Modal -->
 
 </template>
@@ -235,8 +236,9 @@ export default {
 
       /* // [START handle-start-gesture] */
       // Handle the start of gestures
-      var handleGestureStart = function handleGestureStart(evt) {
+      this.handleGestureStart = function(evt) {
         evt.preventDefault();
+        evt.stopPropagation();
 
         if (evt.touches && evt.touches.length > 1) {
           return;
@@ -253,15 +255,16 @@ export default {
 
         initialTouchPos = getGesturePointFromEvent(evt);
 
-        swipeFrontElement.style.transition = 'initial';
+        // swipeFrontElement.style.transition = 'initial';
       }.bind(this);
       /* // [END handle-start-gesture] */
 
       // Handle move gestures
       //
       /* // [START handle-move] */
-      var handleGestureMove = function handleGestureMove(evt) {
+      this.handleGestureMove = function(evt) {
         evt.preventDefault();
+        evt.stopPropagation();
 
         if (!initialTouchPos) {
           return;
@@ -281,8 +284,12 @@ export default {
 
       /* // [START handle-end-gesture] */
       // Handle end gestures
-      var handleGestureEnd = function handleGestureEnd(evt) {
+      this.handleGestureEnd = function(evt) {
+
+        if (self.$root.debug) { console.log( evt.pointerId + ' = evt.pointerId value at start of handleGestureEnd function'); }
+
         evt.preventDefault();
+        evt.stopPropagation();
 
         if (evt.touches && evt.touches.length > 0) {
           return;
@@ -292,11 +299,16 @@ export default {
 
         // Remove Event Listeners
         if (window.PointerEvent) {
+
+          if (self.$root.debug) { console.log( evt.pointerId + ' = evt.pointerId value'); }
+
+          if (self.$root.debug) { console.log( evt + ' = evt value'); }
+
           evt.target.releasePointerCapture(evt.pointerId);
         } else {
           // Remove Mouse Listeners
-          document.removeEventListener('mousemove', handleGestureMove, true);
-          document.removeEventListener('mouseup', handleGestureEnd, true);
+          document.removeEventListener('mousemove', this.handleGestureMove, true);
+          document.removeEventListener('mouseup', this.handleGestureEnd, true);
         }
 
         updateSwipeRestPosition();
@@ -307,10 +319,19 @@ export default {
 
       function updateSwipeRestPosition() {
 
+        if (initialTouchPos === null) {
+          initialTouchPos = 0;
+        }
+
+        if (lastTouchPos === null) {
+          lastTouchPos = 0;
+        }
+
         var differenceInX = initialTouchPos.x - lastTouchPos.x;
         if (differenceInX === null) {
           differenceInX = 0;
         }
+
         currentXPosition = currentXPosition - differenceInX;
         if (currentXPosition === null) {
           currentXPosition = 0;
@@ -355,19 +376,19 @@ export default {
       // Check if pointer events are supported.
       if (window.PointerEvent) {
         // Add Pointer Event Listener
-        swipeFrontElement.addEventListener('pointerdown', handleGestureStart, true);
-        swipeFrontElement.addEventListener('pointermove', handleGestureMove, true);
-        swipeFrontElement.addEventListener('pointerup', handleGestureEnd, true);
-        swipeFrontElement.addEventListener('pointercancel', handleGestureEnd, true);
+        swipeFrontElement.addEventListener('pointerdown', this.handleGestureStart, true);
+        swipeFrontElement.addEventListener('pointermove', this.handleGestureMove, true);
+        swipeFrontElement.addEventListener('pointerup', this.handleGestureEnd, true);
+        swipeFrontElement.addEventListener('pointercancel', this.handleGestureEnd, true);
       } else {
         // Add Touch Listener
-        swipeFrontElement.addEventListener('touchstart', handleGestureStart, true);
-        swipeFrontElement.addEventListener('touchmove', handleGestureMove, true);
-        swipeFrontElement.addEventListener('touchend', handleGestureEnd, true);
-        swipeFrontElement.addEventListener('touchcancel', handleGestureEnd, true);
+        swipeFrontElement.addEventListener('touchstart', this.handleGestureStart, true);
+        swipeFrontElement.addEventListener('touchmove', this.handleGestureMove, true);
+        swipeFrontElement.addEventListener('touchend', this.handleGestureEnd, true);
+        swipeFrontElement.addEventListener('touchcancel', this.handleGestureEnd, true);
 
         // Add Mouse Listener
-        swipeFrontElement.addEventListener('mousedown', handleGestureStart, true);
+        swipeFrontElement.addEventListener('mousedown', this.handleGestureStart, true);
       }
       /* // [END addlisteners] */
     } // END SwipeRevealItem
@@ -421,8 +442,6 @@ export default {
         if (this.$root.debug) { console.log('page is loaded - call bindGestureNow'); }
 
         // emit the call to bindGesture function
-        // eventBus.$emit('bindGestureNow');
-        // eventBus.$emit('removeGestureNow');
         bindGestureNow();
       }
     }, 300); // END Pageload check and bind gesture
@@ -441,12 +460,12 @@ export default {
 
   }, // END updated
   methods: {
-
     hideTab() {
       // if (this.$root.debug) { console.log( 'hideTab - closing client login'); }
       var tabHidden = false;
       eventBus.$emit('tabVisibility', tabHidden);
-
+      event.preventDefault();
+      event.stopPropagation();
 
       if (this.imagesource === 'modal-default-selection' ) {
         // Go to Main Home page
@@ -472,6 +491,8 @@ export default {
     /* ***************************************************************** */
 
     goToPrev() {
+      event.preventDefault();
+      event.stopPropagation();
       if ( this.currentIndex === 0 ) {
         return;
       } else {
@@ -481,6 +502,8 @@ export default {
     }, // END goToPrev
 
     goToNext() {
+      event.preventDefault();
+      event.stopPropagation();
       if ( this.currentIndex === this.slides.length - 1 ) {
         return;
       } else {
@@ -492,7 +515,6 @@ export default {
     enter(el, done) {
       const tl = new TimelineMax({
         onComplete: function(){
-          // eventBus.$emit('removeGestureNow');
           done();
         },
       });
@@ -514,8 +536,7 @@ export default {
       });
     },
     afterEnter() {
-      /* bind gesture function to slide */
-      // eventBus.$emit('bindGestureNow');
+
     },
     leave(el, done) {
       TweenLite.fromTo(el, 1, {
@@ -596,6 +617,11 @@ export default {
 
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+}
+
+.swipe-element {
+  width: 100%;
+  height: 100%;
 }
 
 </style>
