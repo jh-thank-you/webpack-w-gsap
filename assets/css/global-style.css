@@ -219,7 +219,7 @@ a {
 
 .media-type {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 0;
   width: 50%;
@@ -685,7 +685,7 @@ semicolon at the end of a space seperateed list */
 
 .corner-nav-small {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 1;
   display: block;
@@ -707,7 +707,7 @@ semicolon at the end of a space seperateed list */
 
 #name-and-tag-small {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   top: 0;
   display: block;
@@ -729,7 +729,7 @@ semicolon at the end of a space seperateed list */
 
 .inner-wrap-fixed-scroll {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed); 
   top: 130px; /* was 6rem */
   display: block;
@@ -921,7 +921,7 @@ semicolon at the end of a space seperateed list */
 
 .texture-paper-bkg {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   overflow: hidden;
   width: 100%;
@@ -959,7 +959,7 @@ semicolon at the end of a space seperateed list */
 
 #button-close-raster {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 102;
   top: 0;
@@ -1028,7 +1028,7 @@ semicolon at the end of a space seperateed list */
 
 #button-close-vector {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 104;
   top: 0;
@@ -1095,7 +1095,7 @@ semicolon at the end of a space seperateed list */
 
 #modal-overlay {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 98;
   display: block;
@@ -1243,7 +1243,7 @@ fieldset {
 
 #contact-prefs-tab {
   position: absolute;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 99;
   bottom: 0;
@@ -1691,7 +1691,7 @@ hr {
 
 #section-content {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   width: 100%;
   height: 100%;
@@ -1771,7 +1771,7 @@ hr {
 #section-clients,
 #section-settings {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   width: 100%;
   height: 100%;
@@ -1808,7 +1808,7 @@ hr {
 
 .skip {
   position: absolute;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   opacity: 0.5;
   width: 70px;
@@ -2116,7 +2116,7 @@ hr {
 .password-modal {
   font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, Helvetica, sans-serif;
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 105;
   bottom: 0;
@@ -2347,7 +2347,7 @@ input::placeholder {
 
 .overlay {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 103;
   top: 0;
@@ -2360,7 +2360,7 @@ input::placeholder {
 
 .modal-close {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 105;
   top: 2rem;
@@ -2605,7 +2605,7 @@ input::placeholder {
 
 .btn-group-wrap {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 999;
   bottom: 5%;
@@ -2655,7 +2655,7 @@ input::placeholder {
 
 .btn-previous-wrap {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   top: 45vh;
   left: 25px;
@@ -2665,7 +2665,7 @@ input::placeholder {
 
 .btn-next-wrap {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   top: 45vh;
   right: 25px;
@@ -2846,7 +2846,7 @@ div[alt|="professional-fighters-league-banner"] {
 
 #center-name-and-tag {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   /*z-index: -1;*/
   z-index: 99;
@@ -2861,7 +2861,7 @@ div[alt|="professional-fighters-league-banner"] {
 
 #name-and-tag {
   position: fixed;
-  position: -ms-device-fixed; /* causes issues in MS Edge 10 v42.x */
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: -2;
   top: 50%;
