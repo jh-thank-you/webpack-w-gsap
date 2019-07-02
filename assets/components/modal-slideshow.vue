@@ -1,4 +1,4 @@
-ƒ<template>
+<template>
 
   <div class="overlay"> <!-- START Modal -->
 

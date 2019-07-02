@@ -19,8 +19,8 @@ export const store = new Vuex.Store({
     selectedChanged:     '',
     sendSelected:        '',
     sectionIsOpen:       '',
-    sectionOpen:         false,
-    showSmallNav:        false,
+    sectionOpen:         '', /* was false */
+    showSmallNav:        '', /* was false */
     smallNavVisibilty:   '',
     currentShowSmallNav: '',
     bringBackCornerNav:  '',

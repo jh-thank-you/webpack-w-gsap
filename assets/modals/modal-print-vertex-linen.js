@@ -98,8 +98,6 @@ let slides = [
     showText:  false,
     pText:     'Banner placed on pet sites.',
   },
-
-
 ]; // END slides
 
 exports.sendSlideData = function() {
