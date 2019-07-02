@@ -11,7 +11,7 @@
 
       <p><input @click.prevent="passwordSubmit()" id='submit-button' type='submit' class='button expanded'></p>
 
-      <p><a @click="showMessage = false, password = '', hideTab(), showPasswordModal = false" type='cancel' class='button expanded cancel-me'>Cancel</a></p>
+      <p><a @click="showMessage = false, password = '', hideTab(), clearImageSource(), showPasswordModal = false" type='cancel' class='button expanded cancel-me'>Cancel</a></p>
     </form>
   </div>
   </transition>
@@ -91,13 +91,25 @@ export default {
     hideTab() {
       var tabHidden = false;
       eventBus.$emit('tabVisibility', tabHidden);
+
+    },
+
+    clearImageSource() {
+      // this will call a function in section-work to clear the imagsource value
+      eventBus.$emit('clearImageSourceValue');
     },
 
     passwordSubmit() {
 
+      // this will call a function in section-work to clear the imagsource value
+      eventBus.$emit('clearImageSourceValue');
+
       var password = this.password;
 
-      if (password == 'BigPharma') {
+      // eslint-disable-next-line
+      var showModal = false;
+
+      if (password == 'PharmaFun') {
 
         this.showPasswordModal = false;
 
@@ -106,12 +118,29 @@ export default {
 
         this.password = '';
 
-        var showModal = true;
-        eventBus.$emit('modalVisibility', showModal);
+        // tell section-content to reset the transition group for pharma, personal and archived work
+        eventBus.$emit('resetTransitionGroup');
 
-        this.$emit('imageSelectChanged', this.imageSrc);
+        if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc - modal button clicked - resetting Transition Group Animation'); }
+
+        this.$router.push({ path: '/pharma', id: 'section-pharma-work' }); // -> /pharma
+
+
+      } else if (password == 'FarFarAway') {
+
+        this.showPasswordModal = false;
+
+        // then animate the modal
+        if (this.$root.debug) { console.log('Correct password entered'); }
+
+        this.password = '';
+
+        // tell section-content to reset the transition group for pharma, personal and archived work
+        eventBus.$emit('resetTransitionGroup');
 
         if (this.$root.debug) { console.log(this.imageSrc + ' = this.imageSrc - modal button clicked'); }
+
+        this.$router.push({ path: '/archive', id: 'section-archived-work' }); // -> /archive
 
       } else {
         if (this.$root.debug) { console.log('Wrong password entered'); }
@@ -124,8 +153,6 @@ export default {
 
         if (this.$root.debug) { console.log(this.message + ' = currentResponse'); }
 
-        // return this.message, this.password, this.showMessage;
-
       } // END IF ELSE
 
     }, // END passwordSubmit
@@ -137,6 +164,10 @@ export default {
     this.$off('passwordStatus');
     this.$off('tabVisibility');
 
+    // turn off binding to prevent multiple instances
+    // Also NOT turning this off caused getExamples(), 
+    // found in section.vue, to run in an infinite loop.  
+    this.$off('imageSelectChanged');
 
   }, // END destroyed
 

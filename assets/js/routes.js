@@ -10,30 +10,45 @@ let routes = [
   {
     path:      '/work',
     props:     { id: 'section-work' },
-    component: require('../sections/section.vue').default,
+    component: require('../sections/section-work.vue').default,
 
   },
   {
 
-    path:      '/about',
-    props:     { id: 'section-about' },
-    component: require('../sections/about.vue').default,
+    path:      '/pharma',
+    props:     { id: 'section-pharma-work' },
+    component: require('../sections/section-pharma-work.vue').default,
 
   },
   {
 
-    path:      '/clients',
-    props:     { id: 'section-clients' },
-    component: require('../sections/clients.vue').default,
+    path:      '/personal',
+    props:     { id: 'section-personal-work' },
+    component: require('../sections/section-personal-work.vue').default,
 
   },
   {
 
-    path:      '/settings',
-    props:     { id: 'section-settings' },
-    component: require('../sections/settings.vue').default,
+    path:      '/bio',
+    props:     { id: 'section-bio' },
+    component: require('../sections/section-bio.vue').default,
 
   },
+  {
+
+    path:      '/archive',
+    props:     { id: 'section-archived-work' },
+    component: require('../sections/section-archive-work.vue').default,
+
+  },
+  {
+
+    path:      '/contact',
+    props:     { id: 'section-contact' },
+    component: require('../sections/section-contact.vue').default,
+
+  },
+
 
 ];
 

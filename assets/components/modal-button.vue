@@ -1,11 +1,11 @@
 <template>
 
-  <div @click="exampleSelected(), hideTab()" :id="id" class="boxframe" :sector="sector" :access="access">
+  <div @click="exampleSelected()" :id="id" class="boxframe" :sector="sector" :access="access" :style="{ backgroundImage: `url(${getPic()})` }" >
 
     <div :class="currentClassArray()"></div>
     <span class="client-label handwritten"><p>{{ client }}</p></span>
 
-    <img class="fadeMe" :src="getPic()" :alt="this.id + ' advertisment'">
+    <div class="boxframe-alt" :style="{ backgroundImage: `url(${getPicAlt()})` }" :alt="this.id + ' advertisment'"></div>
   </div>
 
 </template>
@@ -66,22 +66,48 @@ export default {
 
       } else {
 
-        showModal = true;
-        eventBus.$emit('modalVisibility', showModal);
-
         this.imageSrc = this.id;
 
-        this.$emit('imageSelectChanged', this.imageSrc);
+        if (this.imageSrc == 'modal-print-personal') {
 
-        if (this.$root.debug) { console.log(this.imageSrc + ' = this.imageSrc - modal button clicked'); }
+          showModal = false;
+          eventBus.$emit('modalVisibility', showModal);
+
+          this.imageSrc = this.id;
+          this.$emit('imageSelectChanged', this.imageSrc);
+
+          if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc - modal button clicked - resetting Transition Group Animation'); }
+
+          /*  setting the router path */
+          this.$router.replace({ path: '/personal', id: 'section-personal-work' });
+
+        } else {
+
+          showModal = true;
+          eventBus.$emit('modalVisibility', showModal);
+
+          this.imageSrc = this.id;
+
+          this.$emit('imageSelectChanged', this.imageSrc);
+
+          if (this.$root.debug) { console.log(this.imageSrc + ' = this.imageSrc - modal button clicked'); }
+        }
 
       }
 
     }, // END exampleSelected
 
     getPic() {
-      return require('assets/img/modal-buttons/' + this.id + '-01a-sm.gif');
+      return require('assets/img/modal-buttons/' + this.id + '-01a-sm.jpg');
     }, // END getPic
+
+    getPicAlt() {
+      return require('assets/img/modal-buttons/' + this.id + '-01b-sm.jpg');
+    }, // END getPicAlt
+
+    getHover() {
+      return require('assets/img/modal-buttons/modal-button-graphic-square-light.gif');
+    }, // END getHover
 
   }, // END methods
   mounted() {
@@ -92,6 +118,8 @@ export default {
 
     // turn off binding to prevent multiple instances
     this.$off('imageSelectChanged');
+
+    /* this.$off('modalVisibility'); */
 
   }, // END destroyed
 

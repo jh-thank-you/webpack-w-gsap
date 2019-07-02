@@ -101,7 +101,7 @@ export default {
 
       var password = this.password;
 
-      if (password == 'BigPharma') {
+      if (password == 'PharmaFun') {
 
         this.showPasswordModal = false;
 
@@ -150,6 +150,11 @@ export default {
     // turn off binding to prevent multiple instances
     this.$off('passwordStatus');
     this.$off('tabVisibility');
+
+    // turn off binding to prevent multiple instances
+    // Also NOT turning this off caused getExamples() 
+    // to run in an infinite loop. 
+    this.$off('imageSelectChanged');
 
 
   }, // END destroyed

@@ -2,7 +2,7 @@
 
   <router-link :to="'/' + section">
     <div :id="id" class="media-type">
-      <div class="handwritten media-title"><p>{{ section }}</p></div>
+      <div @click="sectionIsOpen()" class="handwritten media-title"><p>{{ section }}</p></div>
     </div>
   </router-link>
 
@@ -11,7 +11,8 @@
 
 <script>
 
-// import { eventBus } from 'assets/main.js';
+import { eventBus } from 'assets/main.js';
+
 
 export default {
   props: [ 'id', 'section' ], // END props
@@ -21,6 +22,10 @@ export default {
     };
   }, // END data
   methods: {
+
+    sectionIsOpen() {
+      eventBus.$emit('sectionIsOpen');
+    },
 
 
   }, // END methods

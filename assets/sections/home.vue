@@ -1,6 +1,6 @@
 <template>
 
-    <name-title-tag></name-title-tag>
+    <name-title-tag class="hide-title-tag"></name-title-tag>
 
 </template>
 

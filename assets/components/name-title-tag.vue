@@ -3,9 +3,8 @@
   <div class="center-name-and-tag">
   <transition name="fade-title">
     <div id="name-and-tag" v-if="titleVisibilty">
-      <p id="name-title"></p>
-      <p class="tagline">&thinsp;bad name.</p>
-      <p class="tagline">&thinsp;good work.</p>
+      <!-- <p class="tagline">bad name.&thinsp; &thinsp;good work.</p> -->
+      <!-- <p class="tagline">&thinsp;good work.</p> -->
 
     </div>
      </transition>
@@ -30,22 +29,47 @@ export default {
 
   created() {
 
-    eventBus.$on('smallNavVisibilty', (currentShowSmallNav) => {
+    const self = this;
 
-      if (currentShowSmallNav == false) {
 
-        this.titleVisibilty = true;
+    function widthChangeTitle(mq) {
 
-        return this.titleVisibilty;
+      if (mq.matches) {
+
+
+        if (self.$root.debug) { console.log(self.showSmallNav + ' = showSmallNav value'); }
+
+        // eventBus.$emit('sectionIsClosed');
+        self.titleVisibilty = true;
 
       } else {
 
-        this.titleVisibilty = false;
 
-        return this.titleVisibilty;
+        if (self.$root.debug) { console.log(self.showSmallNav + ' = showSmallNav value'); }
+
+        // eventBus.$emit('sectionIsOpen');
+        self.titleVisibilty = false;
+
       }
+    } // END widthChange
+    var mq = window.matchMedia('(min-width: 501px) and (min-height: 601px)');
+    widthChangeTitle(mq);
+    mq.addListener(widthChangeTitle);
+
+
+    eventBus.$on('sectionIsOpen', () => {
+
+      self.titleVisibilty = false;
 
     }); // END eventBus
+
+
+    eventBus.$on('sectionIsClosed', () => {
+
+      self.titleVisibilty = true;
+
+    }); // END eventBus
+
 
   }, // END created
 

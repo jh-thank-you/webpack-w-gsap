@@ -7,7 +7,7 @@
       <nav-small-screen-menu v-if="showSmallNav"></nav-small-screen-menu>
     </transition>
 
-    <nav class="corner-nav" @click="sectionOpen = true, cornerNavAnimation()">
+    <nav class="corner-nav" @click="cornerNavAnimation()">
       <nav-button v-for="navigationButton in navigationButtons" :key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button>
     </nav>
 
@@ -37,10 +37,11 @@ export default {
 
       navigationButtons: [
 
-        {id: 'nav-work', section: 'WORK' }, /* nav-print */
-        {id: 'nav-about', section: 'ABOUT' }, /* nav-video */
-        {id: 'nav-clients', section: 'CLIENTS' }, /* nav-outdoor */
-        {id: 'nav-settings', section: 'SETTINGS' }, /* nav-online */
+        {id: 'nav-work', section: 'work' },
+        {id: 'nav-personal', section: 'personal' },
+        {id: 'nav-bio', section: 'bio' },
+        {id: 'nav-contact', section: 'contact' },
+
 
       ], // END navButtons
 
@@ -62,11 +63,10 @@ export default {
     */
     const self = this;
 
-    eventBus.$on('bringBackCornerNav', () => {
+    eventBus.$on('sectionIsClosed', () => {
       // Brink back corner nav
 
-      this.sectionOpen = false;
-
+      self.sectionOpen = false;
       this.cornerNavAnimation();
 
     }); // END eventBus
@@ -74,22 +74,14 @@ export default {
     eventBus.$on('sectionIsOpen', () => {
       // Brink back corner nav
 
-      this.sectionOpen = true;
-
+      self.sectionOpen = true;
       this.cornerNavAnimation();
 
     }); // END eventBus
 
-    // media query event handler
-    if (matchMedia) {
-      var mq = window.matchMedia('(min-width: 501px) and (min-height: 601px)');
-      // mq.addListener(widthChange);
-      widthChange(mq);
-    }
 
     // media query change
     function widthChange(mq) {
-
       if (mq.matches) {
 
         // window width is at least 500px
@@ -97,13 +89,9 @@ export default {
 
         if (self.$root.debug) { console.log(self.showSmallNav + ' = showSmallNav value'); }
 
-        self.emitSmallNavVisibilty();
-
+        // this tells name-title-tag component to show the logo
+        eventBus.$emit('sectionIsClosed');
         self.cornerNavAnimation();
-
-        // return self.showSmallNav;
-
-        // GSAP timeline show corner nav buttons
 
       } else {
         // window width is less than 500px
@@ -111,20 +99,19 @@ export default {
 
         if (self.$root.debug) { console.log(self.showSmallNav + ' = showSmallNav value'); }
 
-        self.emitSmallNavVisibilty();
-
+        // this tells name-title-tag component to hide the logo
+        eventBus.$emit('sectionIsOpen');
         self.cornerNavAnimation();
-
-        // return self.showSmallNav;
-
-        // GSAP timeline hide corner nav buttons
 
       }
     }
+    var mq = window.matchMedia('(min-width: 501px) and (min-height: 601px)');
+    widthChange(mq);
     mq.addListener(widthChange);
 
   }, // END created
   methods: {
+
 
     cornerNavAnimation() {
 
@@ -135,27 +122,31 @@ export default {
         if (this.$root.debug) { console.log('cornerNavAnimation - moving nav OUT of window'); }
 
 
-        TweenLite.to('#nav-work', 0.5, {
-          top:  -250,
-          left: -250,
-          ease: Power1.easeIn,
-        });
-
-        TweenLite.to('#nav-about', 0.5, {
-          top:   -250,
-          right: -250,
+        TweenLite.to('#nav-work', 0.3, {
+          top:   '-66vh',
+          left:  0,
+          delay: 0,
           ease:  Power1.easeIn,
         });
 
-        TweenLite.to('#nav-clients', 0.5, {
-          bottom: -250,
-          left:   -250,
+        TweenLite.to('#nav-bio', 0.3, {
+          top:   '-66vh',
+          right: 0,
+          delay: 0.4,
+          ease:  Power1.easeIn,
+        });
+
+        TweenLite.to('#nav-personal', 0.3, {
+          bottom: '-66vh',
+          left:   0,
+          delay:  0.6,
           ease:   Power1.easeIn,
         });
 
-        TweenLite.to('#nav-settings', 0.5, {
-          bottom: -250,
-          right:  -250,
+        TweenLite.to('#nav-contact', 0.3, {
+          bottom: '-66vh',
+          right:  0,
+          delay:  0.2,
           ease:   Power1.easeIn,
         });
 
@@ -163,27 +154,31 @@ export default {
         // Move corner Nav buttons back into window frame
         if (this.$root.debug) { console.log('cornerNavAnimation - moving nav INTO window'); }
 
-        TweenLite.to('#nav-work', 0.5, {
-          top:  -50,
-          left: -100,
-          ease: Power1.easeOut,
-        });
-
-        TweenLite.to('#nav-about', 0.5, {
-          top:   -50,
-          right: -105,
+        TweenLite.to('#nav-work', 0.3, {
+          top:   0,
+          left:  0,
+          delay: 0,
           ease:  Power1.easeOut,
         });
 
-        TweenLite.to('#nav-clients', 0.5, {
-          bottom: -50,
-          left:   -50,
+        TweenLite.to('#nav-bio', 0.3, {
+          top:   0,
+          right: 0,
+          delay: 0.4,
+          ease:  Power1.easeOut,
+        });
+
+        TweenLite.to('#nav-personal', 0.3, {
+          bottom: 0,
+          left:   0,
+          delay:  0.6,
           ease:   Power1.easeOut,
         });
 
-        TweenLite.to('#nav-settings', 0.5, {
-          bottom: -50,
-          right:  -105,
+        TweenLite.to('#nav-contact', 0.3, {
+          bottom: 0,
+          right:  0,
+          delay:  0.2,
           ease:   Power1.easeOut,
         });
 
@@ -191,16 +186,6 @@ export default {
       } // END IF-Else
 
     }, // END moveCornerNav
-
-    emitSmallNavVisibilty() {
-
-      let currentShowSmallNav = this.showSmallNav;
-
-      if (this.$root.debug) { console.log(currentShowSmallNav + ' = small nav visibility'); }
-      eventBus.$emit('smallNavVisibilty', currentShowSmallNav);
-
-    }, // END emitSmallNavVisibilty
-
 
   }, // END methods
 

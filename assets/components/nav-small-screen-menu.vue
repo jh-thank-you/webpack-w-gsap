@@ -41,10 +41,9 @@ export default {
 
       navigationButtons: [
 
-        {id: 'nav-work-small', section: 'WORK' },
-        {id: 'nav-about-small', section: 'ABOUT' },
-        {id: 'nav-clients-small', section: 'CLIENTS' },
-        {id: 'nav-settings-small', section: 'SETTINGS' },
+        {id: 'nav-work-small', section: 'work' },
+        {id: 'nav-bio-small', section: 'bio' },
+        {id: 'nav-contact-small', section: 'contact' },
 
       ], // END navButtons
 
