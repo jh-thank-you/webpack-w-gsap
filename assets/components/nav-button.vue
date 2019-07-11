@@ -2,7 +2,7 @@
 
   <router-link :to="'/' + section">
     <div :id="id" class="media-type">
-      <div @click="sectionIsOpen()" class="handwritten media-title"><p>{{ section }}</p></div>
+      <div @click="setSectionOpened" class="handwritten media-title"><p>{{ section }}</p></div>
     </div>
   </router-link>
 
@@ -11,8 +11,9 @@
 
 <script>
 
-import { eventBus } from 'assets/main.js';
+// import { eventBus } from 'assets/main.js';
 
+import { mapActions} from 'vuex';
 
 export default {
   props: [ 'id', 'section' ], // END props
@@ -23,9 +24,7 @@ export default {
   }, // END data
   methods: {
 
-    sectionIsOpen() {
-      eventBus.$emit('sectionIsOpen');
-    },
+    ...mapActions(['setSectionOpened']),
 
 
   }, // END methods

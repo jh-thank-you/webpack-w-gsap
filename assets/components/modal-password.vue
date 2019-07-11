@@ -11,7 +11,7 @@
 
       <p><input @click.prevent="passwordSubmit()" id='submit-button' type='submit' class='button expanded'></p>
 
-      <p><a @click="showMessage = false, password = '', hideTab(), clearImageSource(), showPasswordModal = false" type='cancel' class='button expanded cancel-me'>Cancel</a></p>
+      <p><a @click="showMessage = false, password = '', clearImageSource(), showPasswordModal = false" type='cancel' class='button expanded cancel-me'>Cancel</a></p>
     </form>
   </div>
   </transition>
@@ -88,12 +88,6 @@ export default {
   }, // END created
   methods: {
 
-    hideTab() {
-      var tabHidden = false;
-      eventBus.$emit('tabVisibility', tabHidden);
-
-    },
-
     clearImageSource() {
       // this will call a function in section-work to clear the imagsource value
       eventBus.$emit('clearImageSourceValue');
@@ -142,6 +136,22 @@ export default {
 
         this.$router.push({ path: '/archive', id: 'section-archived-work' }); // -> /archive
 
+      } else if (password == 'MySettings') {
+
+        this.showPasswordModal = false;
+
+        // then animate the modal
+        if (this.$root.debug) { console.log('Correct password entered'); }
+
+        this.password = '';
+
+        // tell section-content to reset the transition group for pharma, personal and archived work
+        eventBus.$emit('resetTransitionGroup');
+
+        if (this.$root.debug) { console.log(this.imageSrc + ' = this.imageSrc - modal button clicked'); }
+
+        this.$router.push({ path: '/settings', id: 'section-settings' }); // -> /archive
+
       } else {
         if (this.$root.debug) { console.log('Wrong password entered'); }
 
@@ -162,7 +172,6 @@ export default {
 
     // turn off binding to prevent multiple instances
     this.$off('passwordStatus');
-    this.$off('tabVisibility');
 
     // turn off binding to prevent multiple instances
     // Also NOT turning this off caused getExamples(), 

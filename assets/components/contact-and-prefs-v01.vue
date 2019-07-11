@@ -168,20 +168,6 @@ export default {
     if (this.$root.debug) { console.log('created - contacts-and-prefs - eventBus $on sendSelected'); }
     eventBus.$on('sendSelected', this.emitSelected);
 
-    eventBus.$on('tabVisibility', () => {
-      // eslint 'tabHidden' is defined but never used
-      // eventBus.$on('tabVisibility', (tabHidden) => {
-
-      var myClass = this.currentClass;
-
-      if (myClass == 'is-hidden') {
-        this.currentClass = '';
-        return this.currentClass;
-      } else {
-        this.currentClass = 'is-hidden';
-        return this.currentClass;
-      }
-    }); // END eventBus
 
   }, // END created
   mounted() {

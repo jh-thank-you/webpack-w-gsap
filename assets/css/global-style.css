@@ -30,6 +30,7 @@ html {
 
 /* safari and chrome scrollbars */
 
+.inner-tab-wrap::-webkit-scrollbar,
 .inner-wrap-fixed-scroll::-webkit-scrollbar,
 .scroll-area::-webkit-scrollbar,
 #section-content::-webkit-scrollbar,
@@ -37,6 +38,7 @@ html {
   width: 15px;
 }
 
+.inner-tab-wrap::-webkit-scrollbar-thumb,
 .inner-wrap-fixed-scroll::-webkit-scrollbar-thumb,
 .scroll-area::-webkit-scrollbar-thumb,
 #section-content::-webkit-scrollbar-thumb,
@@ -230,9 +232,6 @@ a {
   font-size: 1em;
   letter-spacing: 0.15em;
   color: #114469;
-  /*color: #43657D;*/ 
-  /*color: #4F81A5;*/
-  /*color: #5FA0CF;*/
 }
 
 
@@ -244,7 +243,7 @@ a {
 
 #nav-contact > .media-title > p,
 #nav-personal > .media-title > p,
-#nav-bio > .media-title > p,
+#nav-about > .media-title > p,
 #nav-work > .media-title > p {
   letter-spacing: .5em;
   position: absolute;
@@ -264,44 +263,44 @@ semicolon at the end of a space seperateed list */
 
 #nav-contact > .media-title > p,
 #nav-personal > .media-title > p,
-#nav-bio > .media-title > p,
+#nav-about > .media-title > p,
 #nav-work > .media-title > p {
   color: #43657D;
 }
 
 
 #nav-work > .media-title > p {
-  top: 10%;
-  left: 8%;
+  top: 45px;
+  left: 30px;
   padding-right: 21px;
   transform: translate(-50%, -50%) rotate(-90deg) ;
 }
 
 
-#nav-bio > .media-title > p {
-  top: 10%;
-  left: 90%;
+#nav-about > .media-title > p {
+  top: 62px;
+  left: calc(100% - 40px);
   transform: translate(-50%, -50%) rotate(-90deg) ;
 }
 
 #nav-personal > .media-title > p {
-  bottom: 14%;
-  left: 9%;
+  bottom: 65px;
+  left: 30px;
   padding-left: 19px;
   transform: translate(-50%, -50%) rotate(-90deg) ;
 }
 
 
 #nav-contact > .media-title > p {
-  bottom: 14%;
-  left: 90%;
+  bottom: 65px;
+  left: calc(100% - 40px);
   transform: translate(-50%, -50%) rotate(-90deg) ;
 }
 
 
-#nav-bio > .media-title:hover > p,
-#nav-bio > .media-title:focus > p,
-#nav-bio > .media-title:active > p,
+#nav-about > .media-title:hover > p,
+#nav-about > .media-title:focus > p,
+#nav-about > .media-title:active > p,
 #nav-work > .media-title:hover > p,
 #nav-work > .media-title:focus > p,
 #nav-work > .media-title:active > p {
@@ -422,12 +421,12 @@ semicolon at the end of a space seperateed list */
 
 
 /*
-#nav-bio {
+#nav-about {
   top: 0px;
   right: 0px;
 }
 
-#nav-bio .media-title {
+#nav-about .media-title {
   position: absolute;
   overflow: hidden;
   width: 100%;
@@ -444,9 +443,9 @@ semicolon at the end of a space seperateed list */
 }
 
 
-#nav-bio:hover .media-title,
-#nav-bio:focus .media-title,
-#nav-bio:active .media-title {
+#nav-about:hover .media-title,
+#nav-about:focus .media-title,
+#nav-about:active .media-title {
   position: absolute;
   overflow: hidden;
   width: 100%;
@@ -460,12 +459,12 @@ semicolon at the end of a space seperateed list */
 */
 
 
-#nav-bio {
+#nav-about {
   top: 0px;
   right: 0px;
 }
 
-#nav-bio .media-title {
+#nav-about .media-title {
     display: block;
     position: relative;
     overflow: hidden;
@@ -473,7 +472,7 @@ semicolon at the end of a space seperateed list */
     height: 100%;
 }
 
-#nav-bio .media-title:after {
+#nav-about .media-title:after {
     content: "";
     opacity: 0;
     width: 100%;
@@ -494,9 +493,9 @@ semicolon at the end of a space seperateed list */
     -o-transition: all 0.75s ease-in-out;
 }
 
-#nav-bio .media-title:hover:after,
-#nav-bio .media-title:focus:after,
-#nav-bio .media-title:active:after  {   
+#nav-about .media-title:hover:after,
+#nav-about .media-title:focus:after,
+#nav-about .media-title:active:after  {   
     opacity: 1;
     background-image: url('~img/ui-elements/small-nav-button-graphic-circle.gif');
     background-image: url('~img/ui-elements/small-nav-button-graphic-circle.png');
@@ -760,7 +759,7 @@ semicolon at the end of a space seperateed list */
 
 
 #nav-contact-small,
-#nav-bio-small,
+#nav-about-small,
 #nav-work-small {
   font-size: 1.2em;
   text-align: center;
@@ -788,9 +787,9 @@ semicolon at the end of a space seperateed list */
 #nav-contact-small:hover,
 #nav-contact-small:focus,
 #nav-contact-small:active,
-#nav-bio-small:hover,
-#nav-bio-small:focus,
-#nav-bio-small:active,
+#nav-about-small:hover,
+#nav-about-small:focus,
+#nav-about-small:active,
 #nav-work-small:hover,
 #nav-work-small:focus,
 #nav-work-small:active {
@@ -807,9 +806,9 @@ semicolon at the end of a space seperateed list */
 #nav-contact-small p,
 #nav-contact-small p,
 #nav-contact-small p,
-#nav-bio-small p,
-#nav-bio-small p,
-#nav-bio-small p,
+#nav-about-small p,
+#nav-about-small p,
+#nav-about-small p,
 #nav-work-small p,
 #nav-work-small p,
 #nav-work-small p {
@@ -825,9 +824,9 @@ semicolon at the end of a space seperateed list */
 #nav-contact-small:hover p,
 #nav-contact-small:focus p,
 #nav-contact-small:active p,
-#nav-bio-small:hover p,
-#nav-bio-small:focus p,
-#nav-bio-small:active p,
+#nav-about-small:hover p,
+#nav-about-small:focus p,
+#nav-about-small:active p,
 #nav-work-small:hover p,
 #nav-work-small:focus p,
 #nav-work-small:active p {
@@ -966,14 +965,14 @@ semicolon at the end of a space seperateed list */
   right: 0;
   display: block;
   cursor: pointer;
-  -webkit-transition: all 0.25s ease-out;
-     -moz-transition: all 0.25s ease-out;
-       -o-transition: all 0.25s ease-out;
-          transition: all 0.25s ease-out;
   opacity: 1;
   color: #114469;
   border: 1px solid #114469;
   background-color: none;
+  -webkit-transition: all 0.25s ease-out;
+     -moz-transition: all 0.25s ease-out;
+       -o-transition: all 0.25s ease-out;
+          transition: all 0.25s ease-out;
 }
 
 #button-close-raster > div {
@@ -1016,6 +1015,7 @@ semicolon at the end of a space seperateed list */
   color: #c00000;
   border: 1px solid #c00000;
   background-color: #121213;
+  background-color: rgba(0,0,0,0.5);
 }
 
 
@@ -1035,14 +1035,14 @@ semicolon at the end of a space seperateed list */
   right: 0;
   display: block;
   cursor: pointer;
-  -webkit-transition: background-color 0.25s ease-out;
-     -moz-transition: background-color 0.25s ease-out;
-       -o-transition: background-color 0.25s ease-out;
-          transition: background-color 0.25s ease-out;
   opacity: 1;
   color: #114469;
   border: 1px solid #114469;
   background-color: none;
+  -webkit-transition: background-color 0.25s ease-out;
+     -moz-transition: background-color 0.25s ease-out;
+       -o-transition: background-color 0.25s ease-out;
+          transition: background-color 0.25s ease-out;
 }
 
 #button-close-vector > div {
@@ -1082,8 +1082,10 @@ semicolon at the end of a space seperateed list */
 #button-close-vector:hover,
 #button-close-vector:focus,
 #button-close-vector:active {
+  color: #c00000;
   border: 1px solid #c00000;
-  background-color: #08385d;
+  background-color: #121213;
+  background-color: rgba(0,0,0,0.5);
 }
 
 
@@ -1092,6 +1094,10 @@ semicolon at the end of a space seperateed list */
 /* *********************************************** */
 /*                contact-and-prefs.vue            */
 /* *********************************************** */
+
+.checkbox-wrap {
+  text-align: left;
+}
 
 #modal-overlay {
   position: fixed;
@@ -1104,25 +1110,14 @@ semicolon at the end of a space seperateed list */
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-#contact-prefs-tab {
-  height: 48px;
-  transition: height 700ms ease-in-out;
-}
 
-#contact-prefs-tab.is-hidden {
-  height: 0;
-}
-
-
-
-
-#section-bio h4,
+#section-settings h4,
 #section-contact h4,
 #section-about h4,
-#contact-prefs-tab h4 {
+#preferences-form h4 {
   font-family: 'Exo2-Regular', 'Trebuchet MS', Helvetica, Geneva, Arial, sans-serif;
   font-weight: 400;
-  font-size: .95em;
+  font-size: 1.2em;
   font-style: normal;
   color: #43657D;
   letter-spacing: .15em;
@@ -1135,14 +1130,14 @@ fieldset {
   border: none;
 }
 
-#section-bio label,
+#section-settings label,
 #section-contact label,
 #section-about label,
-#section-bio p,
+#section-settings p,
 #section-contact p,
 #section-about p,
-#contact-prefs-tab label,
-#contact-prefs-tab p {
+#preferences-form label,
+#preferences-form p {
   font-family: 'Exo2-Light', 'Trebuchet MS', Helvetica, Geneva, Arial, sans-serif;
   font-size: .925em;
   font-weight: normal;
@@ -1156,21 +1151,20 @@ fieldset {
   color: #43657D;
 }
 
-#section-bio .form-section,
+
 #section-contact .form-section,
-#section-about .form-section {
+#section-about .form-section,
+#section-settings .form-section {
   width: 100%;
   text-align: left;
 }
 
-#section-bio legend,
-#section-contact legend,
-#section-about legend {
-  margin: 0 0 -25px 0; /*  was:  0 0 -25px 0*/ /* look at again after test */
+#section-settings .form-section {
+  width: 100%;
+  text-align: left;
 }
 
-
-#contact-prefs-tab label {
+#preferences-form label {
   cursor: pointer;
 }
 
@@ -1181,7 +1175,7 @@ fieldset {
 }
 
 #which-industry {
-  position: absolute;
+  position: relative;
   left: 0;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
@@ -1200,8 +1194,8 @@ fieldset {
   margin: 0 0 0 0;
   cursor: pointer;
   white-space: nowrap;
-  color: #b4b4b4;
-  text-shadow: -0.3px 0 #b4b4b4, 0 0.3px #b4b4b4, 0.3px 0 #b4b4b4, 0 -0.3px #b4b4b4;
+  color: #114469;
+  border: solid 1px #114469;
 }
 
 .pref-button input {
@@ -1214,11 +1208,12 @@ fieldset {
 .pref-button:hover span,
 .pref-button:focus span,
 .pref-button:active span {
+  color: #c00000;
+  border: 1px solid #c00000;
+  background-color: #121213;
+  background-color: rgba(0,0,0,0.5);
   transition: all 0.25s ease-in-out;
   transform: translate(0);
-  color: white;
-  background-color: #c42127;
-  text-shadow: -0.3px 0 white, 0 0.3px white, 0.3px 0 white, 0 -0.3px white;
 }
 
 .pref-button span {
@@ -1226,93 +1221,16 @@ fieldset {
   height: 100%;
   padding: 0.25rem 0.75rem 0.25rem 0.75rem;
   transition: all 0.25s ease-in-out;
-  border: solid 1px #b4b4b4;
 }
 
 .pref-button input:checked + span {
-  color: #c42127;
-  border: solid 1px #c42127;
-  text-shadow: -0.3px 0 #c42127, 0 0.3px #c42127, 0.3px 0 #c42127, 0 -0.3px #c42127;
+  color: #c00000;
+  border: solid 1px #c00000;
 }
 
 .checkbox-wrap {
   width: 100%;
-  margin: 0;
   padding: 0;
-}
-
-#contact-prefs-tab {
-  position: absolute;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
-  position: expression(fixed);
-  z-index: 99;
-  bottom: 0;
-  left: 0;
-  left: 50%;
-  width: 100%;
-  min-width: 500px;
-  max-width: 800px;
-  height: 48px;
-  max-height: 1000px;
-  transform: translate(-50%, 0);
-  background-image: url('~img/ui-elements/folder-tab-middle-v02-top.png');
-  background-repeat: no-repeat;
-  background-position: center top 0;
-  background-size: 100%;
-}
-
-.scroll-area {
-  position: absolute;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  padding: 0 15% 0 15%;
-  left: 50%;
-  min-width: 500px;
-  max-width: 800px;
-  transform: translate(-50%, 0);
-  background-image: url('~img/ui-elements/folder-tab-middle-v02-strip.png');
-  background-repeat: repeat;
-  background-position: center bottom 0;
-  background-size: 100%;
-}
-
-#contact-prefs-tab img {
-  max-width: 800px;
-}
-
-.tab-title {
-  width: 100%;
-  height: 48px;
-  max-height: 48px;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  /*cursor: pointer;*/
-  text-align: center;
-  font-size: 1.35rem;
-  letter-spacing: .07rem;
-}
-
-.tab-title:hover,
-.tab-title:focus,
-.tab-title:active,
-.tab-title {
-  background-image: url('~img/ui-elements/selected-underline-block.gif');
-  background-repeat: no-repeat;
-  background-position: 50% 115%;
-  background-size: 22% 135%;
-}
-
-
-@media all and (max-width: 500px) {
-  .tab-title:hover,
-  .tab-title:focus,
-  .tab-title:active,
-  .tab-title {
-    background-size: 35% 135%;
-  }
 }
 
 #preferences-form label > input[type='checkbox'] {
@@ -1324,36 +1242,58 @@ fieldset {
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   opacity: 0.3;
-  border: solid 1px #3c3c3c;
+  border: solid 1px #43657D;
   background-color: none;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
 }
 
-#preferences-form label > input[type='checkbox']:checked {
-  opacity: 1;
-  border: solid 1px #c42127;
-  background-color: #c42127;
+#preferences-form label {
+  white-space: nowrap;
+  -webkit-transition: color 0.55s ease-out;
+     -moz-transition: color 0.55s ease-out;
+       -o-transition: color 0.55s ease-out;
+          transition: color 0.55s ease-out;
 }
 
+#preferences-form label:hover,
+#preferences-form label:focus,
+#preferences-form label:active {
+  color: #C00000;
+}
+
+#preferences-form label:hover > input[type='checkbox'],
+#preferences-form label:focus > input[type='checkbox'],
+#preferences-form label:active > input[type='checkbox'] {
+  border: solid 1px #C00000;
+}
+
+#preferences-form label > input[type='checkbox']:checked {
+  opacity: 1;
+  border: solid 1px #C00000;
+  background-color: #121213;
+  background-color: rgba(0,0,0,0.5);
+}
+
+
+
 fieldset > label,
-a #contact-prefs:link,
-#contact-prefs p {
+a #preferences-form:link,
+#preferences-form p {
   line-height: 1.5;
 }
 
-a #contact-prefs:visited {
+a #preferences-form:visited {
   color: #777777;
 }
 
-a #contact-prefs:hover {
+a #preferences-form:hover {
   color: #bf0100;
 }
 
-#contact-prefs-tab p.note {
-  font-size: 0.75em;
-  padding: 10px 0 4px 0;
+.form-sction {
+  margin-top: -75px;
 }
 
 @media all and (max-width: 400px) {
@@ -1370,7 +1310,7 @@ a #contact-prefs:hover {
     text-align: center;
   }
   #preferences-form .checkbox-wrap label:hover {
-    box-shadow: inset 0 0 7px #000000;
+    /*box-shadow: inset 0 0 7px #000000;*/
   }
   #preferences-form label > input[type='checkbox'] {
     position: absolute;
@@ -1391,15 +1331,14 @@ a #contact-prefs:hover {
     vertical-align: text-bottom;
   }
   #industry-settings {
-    margin-bottom: 10px;
+   /* margin-bottom: 10px;
+    width: 70%;
+    left: 15%;*/
   }
-  #industry-settings h4,
   .form-section > legend {
-    font-size: 1.2em;
     position: relative;
     display: block;
     width: 100%;
-    margin: 0 0 0 0;
     text-align: left;
   }
   #default-settings {
@@ -1410,9 +1349,15 @@ a #contact-prefs:hover {
   #pref-about-title {
     margin: -7px 0 20px 0;
   }
+  #which-industry h4 {
+    text-align: center;
+  }
 }
 
 @media all and (min-width: 401px) and (max-width: 800px) {
+  .checkbox-wrap {
+    /*padding-top: 80px;*/
+  }
   .checkbox-wrap label {
     display: inline-block;
     display: inline-block;
@@ -1429,12 +1374,13 @@ a #contact-prefs:hover {
   .pref-button span:nth-of-type(even) {
   }
   #industry-settings h4 {
-    font-size: 1.2em;
-    position: relative;
-    width: 100%;
+   
   }
   .form-section > legend {
-    font-size: 1.2em;
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0 0 -22px 0;
     padding: 0;
   }
   #default-settings {
@@ -1470,17 +1416,25 @@ a #contact-prefs:hover {
 }
 
 @media all and (min-width: 541px) and (max-width: 800px) {
+  .checkbox-wrap {
+    /*padding-top: 60px;*/
+  }
   .checkbox-wrap label {
     width: 65%;
   }
   .checkbox-wrap label:nth-of-type(even) {
     width: 35%;
   }
+  #industry-settings h4 {
+    
+  }
 }
 
 @media all and (min-width: 801px) {
+  .checkbox-wrap {
+    margin: 60px 0 20px 0;
+  } 
   .checkbox-wrap label {
-    display: inline-block;
     display: inline-block;
     float: none;
     width: 36.5%;
@@ -1489,36 +1443,37 @@ a #contact-prefs:hover {
     width: 27%;
   }
   #industry-settings {
-    font-size: 1.3em;
-    margin: 10px 0 45px 0;
     padding: 0;
   }
   #default-settings {
     margin: 0 0 0 0;
   }
-  .form-section > legend {
-    font-size: 1.3em;
-    margin: 0 0 0 0;
+  #section-settings .form-section > legend {
+    margin: -75px 0 0 0;
     padding: 0;
   }
-  #section-bio h4,
+  #section-settings h4,
   #section-contact h4,
   #section-about h4,
   #contact-prefs-tab h4 {
-    margin: 30px 0 22px 0; /* was: 30px 0 20px 0; */
+    margin: 30px 0 22px 0;
   }
-  #section-bio .review-baseline,
+  #section-settings .review-baseline,
   #section-contact .review-baseline,
   #section-about .review-baseline {
-    margin: 30px 0 -14px 0;  /* was:  30px 0 -14px 0; */
+    margin: 30px 0 -14px 0;
   }
-  #section-bio legend,
+  #section-settings legend,
   #section-contact legend,
   #section-about legend {
-    margin: 0 0 0px 0;  /* was:  0 0 -15px 0; */
+    margin: 0 0 0px 0;
   }
   #industry-settings h4 {
-    margin: 10px 0 0px 0; /* was:  10px 0 20px 0; */
+    margin: 3px 0 0px 0;
+    letter-spacing: .09em;
+  }
+  #which-industry {
+    position: absolute;
   }
 }
 
@@ -1712,6 +1667,32 @@ hr {
 
 
 /* *********************************************** */
+/*        examples-list.vue / modal-button.vue     */
+/* *********************************************** */
+
+#section-content {
+  position: fixed;
+  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
+  position: expression(fixed);
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.section-content-inner-wrap {
+  width: 65vw;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 48px; /* added for tab */
+  overflow: hidden;
+}
+
+
+
+/* *********************************************** */
 /*           section.vue | hero-image.vue          */
 /* *********************************************** */
 
@@ -1763,7 +1744,7 @@ hr {
 
 
 #section-work,
-#section-bio,
+#section-about,
 #section-personal-work,
 #section-contact,
 #section-pharma-work,
@@ -1780,7 +1761,7 @@ hr {
 }
 
 
-#section-bio,
+#section-about,
 #section-personal-work,
 #section-contact,
 #section-pharma-work,
@@ -1788,7 +1769,7 @@ hr {
   background-color: #080D2F;
 }
 
-#section-bio,
+#section-about,
 #section-contact {
   background-color: #080D2F;
 
@@ -1803,8 +1784,20 @@ hr {
 }
 
 #section-settings {
+  /*background-color: #6A8090;*/
   background-color: #080D2F;
 }
+
+/*
+#section-settings:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #121213;
+  background-color: rgba(0,0,0,0.85);
+}
+*/
 
 .skip {
   position: absolute;

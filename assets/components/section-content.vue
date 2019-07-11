@@ -427,8 +427,6 @@ export default {
 
           {exampleid: 'modal-outdoor-mally-beauty', alt: 'Mally Beauty Outdoor Communication Pieces', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-tradestream', alt: 'Tradestream Print Communication Pieces', client: 'Tradestream', sector: ['default', 'btob', 'shipping', 'technology'], access: 'unlocked' },
-
         ]; // END currentExamples
 
         return this.filteredExamples(currentExamples);

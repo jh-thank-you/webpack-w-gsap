@@ -178,7 +178,7 @@ const cssLoader = PRODUCTION
 
 module.exports = {
   devtool: projectMap,
-  entry: { build, vendor: ['vue', 'vuex', /* 'jquery',*/ 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
+  entry: { build, vendor: ['vue', 'vuex', 'vuex-localstorage', 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
   resolve: {
     // IMPORTANT - keep in mind that path values are relative to the file you are writing in
     // Need to research how to create an alias to the root of the build or dist folder

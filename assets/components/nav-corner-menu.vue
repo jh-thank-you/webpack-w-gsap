@@ -18,7 +18,11 @@
 
 <script>
 
-import { eventBus } from 'assets/main.js';
+// import { eventBus } from 'assets/main.js';
+
+import { mapState } from 'vuex';
+
+import { mapActions} from 'vuex';
 
 import navButton from 'components/nav-button.vue';
 
@@ -39,19 +43,27 @@ export default {
 
         {id: 'nav-work', section: 'work' },
         {id: 'nav-personal', section: 'personal' },
-        {id: 'nav-bio', section: 'bio' },
+        {id: 'nav-about', section: 'about' },
         {id: 'nav-contact', section: 'contact' },
 
 
       ], // END navButtons
 
-      id:           '',
-      section:      '',
-      sectionOpen:  false,
-      showSmallNav: false,
+      id:      '',
+      section: '',
+      /* 
+          sectionOpen and showSmallNav 
+          props handles by Vuex State now 
+      */
 
     }; // END return
   }, // END data
+  computed: mapState([
+    'showSmallNav',
+    'getSectionStatus',
+    'getSmallNavStatus',
+
+  ]), // END computed
   created() {
 
     /* 
@@ -63,44 +75,27 @@ export default {
     */
     const self = this;
 
-    eventBus.$on('sectionIsClosed', () => {
-      // Brink back corner nav
-
-      self.sectionOpen = false;
-      this.cornerNavAnimation();
-
-    }); // END eventBus
-
-    eventBus.$on('sectionIsOpen', () => {
-      // Brink back corner nav
-
-      self.sectionOpen = true;
-      this.cornerNavAnimation();
-
-    }); // END eventBus
-
-
     // media query change
     function widthChange(mq) {
       if (mq.matches) {
 
-        // window width is at least 500px
-        self.showSmallNav = false;
+        // window height and width are big enough for 
+        // the coner nav - hide small nav screen
+
+        self.$store.dispatch('smallNavClose');
 
         if (self.$root.debug) { console.log(self.showSmallNav + ' = showSmallNav value'); }
 
-        // this tells name-title-tag component to show the logo
-        eventBus.$emit('sectionIsClosed');
+        // move corner nav back in
         self.cornerNavAnimation();
 
       } else {
-        // window width is less than 500px
-        self.showSmallNav = true;
+        // window height and width are too small for 
+        // the coner nav - show small nav screen
 
-        if (self.$root.debug) { console.log(self.showSmallNav + ' = showSmallNav value'); }
+        self.$store.dispatch('smallNavOpen');
 
-        // this tells name-title-tag component to hide the logo
-        eventBus.$emit('sectionIsOpen');
+        // move corner nav out
         self.cornerNavAnimation();
 
       }
@@ -110,14 +105,41 @@ export default {
     mq.addListener(widthChange);
 
   }, // END created
+  mounted() {
+
+    const self = this;
+
+    this.$store.watch(
+      state => state.sectionOpen,
+      () => {
+
+        if (this.$root.debug) { console.log('cornerNavAnimation - moving nav'); }
+
+        self.cornerNavAnimation();
+
+      }
+    ); // END watch
+
+    this.$store.watch(
+      state => state.showSmallNav,
+      () => {
+
+        // self.currentSmallNavStatus = true;
+
+      }
+    ); // END watch
+
+  }, // END mounted
   methods: {
+
+    ...mapActions(['setSmallNavStatus']),
 
 
     cornerNavAnimation() {
 
       if (this.$root.debug) { console.log(this.sectionOpen + ' = sectionOpen - cornerNavAnimation'); }
 
-      if (this.sectionOpen == true || this.showSmallNav == true) {
+      if (this.$store.state.sectionOpen == true || this.$store.state.showSmallNav == true) {
         // Move corner Nav buttons out of window frame
         if (this.$root.debug) { console.log('cornerNavAnimation - moving nav OUT of window'); }
 
@@ -129,7 +151,7 @@ export default {
           ease:  Power1.easeIn,
         });
 
-        TweenLite.to('#nav-bio', 0.3, {
+        TweenLite.to('#nav-about', 0.3, {
           top:   '-66vh',
           right: 0,
           delay: 0.4,
@@ -161,7 +183,7 @@ export default {
           ease:  Power1.easeOut,
         });
 
-        TweenLite.to('#nav-bio', 0.3, {
+        TweenLite.to('#nav-about', 0.3, {
           top:   0,
           right: 0,
           delay: 0.4,

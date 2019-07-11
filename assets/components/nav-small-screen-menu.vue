@@ -13,7 +13,7 @@
       <div class="inner-wrap">
         <div class="small-nav-top-spacer"></div>
 
-        <nav-button-small v-for="navigationButton in navigationButtons" @click.native="sectionOpened()" :key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button-small>
+        <nav-button-small v-for="navigationButton in navigationButtons" @click="setSectionOpened" :key="navigationButton.id" :id="navigationButton.id" :section="navigationButton.section"></nav-button-small>
 
         <div class="small-nav-bottom-spacer"></div>
       </div>
@@ -26,8 +26,11 @@
 
 <script>
 
-import { eventBus } from 'assets/main.js';
+// import { eventBus } from 'assets/main.js';
 import navButtonSmall from 'components/nav-button-small.vue';
+
+import { mapActions} from 'vuex';
+
 
 export default {
 
@@ -42,7 +45,7 @@ export default {
       navigationButtons: [
 
         {id: 'nav-work-small', section: 'work' },
-        {id: 'nav-bio-small', section: 'bio' },
+        {id: 'nav-about-small', section: 'about' },
         {id: 'nav-contact-small', section: 'contact' },
 
       ], // END navButtons
@@ -54,13 +57,7 @@ export default {
   }, // END data
   methods: {
 
-    sectionOpened() {
-      // tell corner nav to move back into window frame
-      eventBus.$emit('sectionIsOpen');
-
-      if (this.$root.debug) { console.log('small-nav - sectionIsOpen'); }
-
-    }, // END sectionOpened
+    ...mapActions(['setSectionOpened']),
 
   }, // END methods
 

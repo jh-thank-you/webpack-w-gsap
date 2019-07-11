@@ -5,7 +5,7 @@
       <!-- IE Specific to remove tap highlight -->
       <meta name="msapplication-tap-highlight" content="no">
 
-      <div id="button-close-vector" @click="$emit('close'), hideTab()">
+      <div id="button-close-vector" @click="$emit('close')">
         <div aria-hidden='true'>&times;</div>
       </div>
 
@@ -460,30 +460,6 @@ export default {
 
   }, // END updated
   methods: {
-    hideTab() {
-      // if (this.$root.debug) { console.log( 'hideTab - closing client login'); }
-      var tabHidden = false;
-      eventBus.$emit('tabVisibility', tabHidden);
-      event.preventDefault();
-      event.stopPropagation();
-
-      if (this.imagesource === 'modal-default-selection' ) {
-        // Go to Main Home page
-
-        // if (this.$root.debug) { console.log( 'closing client login'); }
-        eventBus.$emit('bringBackCornerNav');
-
-        if (this.$root.debug) { console.log('noActiveClient - Bye Nonactive Client. Have a nice day'); }
-
-        this.$router.push('/');
-
-      } else {
-
-        return;
-
-      } // END IF ELSE
-
-    }, // END hideTab
 
 
     /* ***************************************************************** */

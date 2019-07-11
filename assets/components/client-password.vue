@@ -92,11 +92,6 @@ export default {
   }, // END created
   methods: {
 
-    hideTab() {
-      var tabHidden = false;
-      eventBus.$emit('tabVisibility', tabHidden);
-    },
-
     passwordSubmit() {
 
       var password = this.password;
@@ -149,7 +144,6 @@ export default {
 
     // turn off binding to prevent multiple instances
     this.$off('passwordStatus');
-    this.$off('tabVisibility');
 
     // turn off binding to prevent multiple instances
     // Also NOT turning this off caused getExamples() 

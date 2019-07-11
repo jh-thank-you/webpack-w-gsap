@@ -2,7 +2,7 @@
 
   <div class="center-name-and-tag">
   <transition name="fade-title">
-    <div id="name-and-tag" v-if="titleVisibilty">
+    <div id="name-and-tag" v-if="!showSmallNav">
       <!-- <p class="tagline">bad name.&thinsp; &thinsp;good work.</p> -->
       <!-- <p class="tagline">&thinsp;good work.</p> -->
 
@@ -16,59 +16,17 @@
 
 <script>
 
-import { eventBus } from 'assets/main.js';
+import { mapState } from 'vuex';
 
 export default {
   data() {
     return {
 
-      titleVisibilty: true,
 
     };
   }, // END data
-
+  computed: mapState(['showSmallNav']), // END computed
   created() {
-
-    const self = this;
-
-
-    function widthChangeTitle(mq) {
-
-      if (mq.matches) {
-
-
-        if (self.$root.debug) { console.log(self.showSmallNav + ' = showSmallNav value'); }
-
-        // eventBus.$emit('sectionIsClosed');
-        self.titleVisibilty = true;
-
-      } else {
-
-
-        if (self.$root.debug) { console.log(self.showSmallNav + ' = showSmallNav value'); }
-
-        // eventBus.$emit('sectionIsOpen');
-        self.titleVisibilty = false;
-
-      }
-    } // END widthChange
-    var mq = window.matchMedia('(min-width: 501px) and (min-height: 601px)');
-    widthChangeTitle(mq);
-    mq.addListener(widthChangeTitle);
-
-
-    eventBus.$on('sectionIsOpen', () => {
-
-      self.titleVisibilty = false;
-
-    }); // END eventBus
-
-
-    eventBus.$on('sectionIsClosed', () => {
-
-      self.titleVisibilty = true;
-
-    }); // END eventBus
 
 
   }, // END created

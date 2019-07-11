@@ -36,11 +36,6 @@ export default {
   }, // END created
   methods: {
 
-    hideTab() {
-      var tabHidden = true;
-      eventBus.$emit('tabVisibility', tabHidden);
-    },
-
     currentClassArray() {
 
       currentClass = [ 'inner-frame-3', 'hover-me', this.access ];
