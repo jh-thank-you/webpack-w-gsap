@@ -24,6 +24,8 @@ import { mapState } from 'vuex';
 
 import { mapActions} from 'vuex';
 
+import { mapGetters} from 'vuex';
+
 import navButton from 'components/nav-button.vue';
 
 import navSmallScreenMenu from 'components/nav-small-screen-menu.vue';
@@ -58,12 +60,16 @@ export default {
 
     }; // END return
   }, // END data
-  computed: mapState([
-    'showSmallNav',
-    'getSectionStatus',
-    'getSmallNavStatus',
+  computed: {
 
-  ]), // END computed
+    ...mapState(['showSmallNav']), // END mapState
+
+    ...mapGetters([
+      'getSectionStatus',
+      'getSmallNavStatus',
+    ]), // END mapGetters
+
+  },// END computed
   created() {
 
     /* 
@@ -137,7 +143,7 @@ export default {
 
     cornerNavAnimation() {
 
-      if (this.$root.debug) { console.log(this.sectionOpen + ' = sectionOpen - cornerNavAnimation'); }
+      if (this.$root.debug) { console.log(this.$store.state.sectionOpen + ' = sectionOpen - cornerNavAnimation'); }
 
       if (this.$store.state.sectionOpen == true || this.$store.state.showSmallNav == true) {
         // Move corner Nav buttons out of window frame

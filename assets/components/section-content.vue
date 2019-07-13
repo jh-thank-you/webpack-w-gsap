@@ -8,15 +8,15 @@
 
       <!-- See notes in CSS about CSS transition listeners -->
 
-    <transition name="fade-slideshow" mode="out-in">
-    <modal-slideshow v-if="showModal" @close="showModal = false" :imageSrc="imagesource"></modal-slideshow>
-    </transition>
+    <!-- <transition name="fade-slideshow" mode="out-in">
+        <modal-slideshow v-if="showModal" :imageSrc="imagesource"></modal-slideshow>
+    </transition> -->
 
     <!--
     have to research v-cloak more:
     https://stackoverflow.com/questions/34870926/v-cloak-does-not-work-in-vue-js
     -->
-    <transition name="slide-up" mode="out-in" @enter="updateHeroClass()">
+    <transition name="slide-up" mode="out-in">
       <div v-cloak v-if="sectionActive" :key="this.id" id="section-content" class="justify-content handwritten">
         <div id="section-content-inner-wrap" class="section-content-inner-wrap flex-container">
 
@@ -25,7 +25,12 @@
           </div> -->
 
           <transition-group name="slideme" mode="out-in" :key="keyValue">
-            <modal-button v-for="example in getExamples()" :key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access" @imageSelectChanged="imagesource = $event"></modal-button>
+            <!-- <router-link :key="this.imageSrc + '-key'" :to="'/' + this.imageSrc"> -->
+
+              <modal-button v-for="example in getExamples()" :key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access"></modal-button>
+
+            <!-- </router-link> -->
+
           </transition-group>
         </div>
       </div>
@@ -46,6 +51,12 @@ import heroImage from 'components/hero-image.vue';
 import modalSlideshow from 'components/modal-slideshow.vue';
 import modalButton from 'components/modal-button.vue';
 
+import { mapState } from 'vuex';
+
+import { mapActions} from 'vuex';
+
+import { mapGetters} from 'vuex';
+
 let currentExamples = null;
 
 export default {
@@ -65,30 +76,41 @@ export default {
   data() {
     return {
 
-      showModal:           false,
-      exampleid:           '',
-      client:              '',
-      sector:              '',
-      alt:                 '',
-      imagesource:         '',
-      access:              '',
-      selected:            [],
-      examples:            currentExamples,
-      sectionActive:       false,
-      sectionStyles:       '',
-      currentSprite:       '',
-      heroActive:          false,
-      heroVisibilityClass: 'sprite-wrap outer-sprite-container',
-      keyValue:            false,
+      // showModal:           false,
+      exampleid:     '',
+      client:        '',
+      sector:        '',
+      alt:           '',
+      // imagesource:         '',
+      access:        '',
+      selected:      [],
+      examples:      currentExamples,
+      sectionActive: false,
+      sectionStyles: '',
+      currentSprite: '',
+      heroActive:    false,
+      // heroVisibilityClass: 'sprite-wrap outer-sprite-container',
+      keyValue:      false,
+      modalPath:     '',
     };
   }, // END data
+  computed: {
+
+    ...mapState(['imageSrc', 'showModal']), // END mapState
+
+    ...mapGetters(['getModalStatus']), // END mapGetters
+
+  },// END computed
   created() {
 
-    eventBus.$on('clearImageSourceValue', () => {
-      // clear imagesource value so raster close button has correct prop with password cancel button
-      this.imagesource = '';
+    // Clear the Vuex Store Values
+    this.$store.dispatch('closeModal');
 
-    }); // END eventBus
+    // eventBus.$on('clearImageSourceValue', () => {
+    //   // clear imagesource value so raster close button has correct prop with password cancel button
+    //   this.imagesource = '';
+
+    // }); // END eventBus
 
 
     eventBus.$on('resetTransitionGroup', () => {
@@ -116,9 +138,9 @@ export default {
 
     if (this.$root.debug) { console.log('im created'); }
 
-    eventBus.$on('modalVisibility', (showModal) => {
-      this.showModal = showModal;
-    }); // END eventBus
+    // eventBus.$on('modalVisibility', (showModal) => {
+    //   this.showModal = showModal;
+    // }); // END eventBus
 
     // default selected - this loads before local storage data is created
     this.selected='beauty,branding,cleaning,fashion,finearts,financial,fitness,healthcare,pharma,publicservice,sports,technology,tourism,transportation';
@@ -132,38 +154,47 @@ export default {
   }, // END created
   mounted() {
 
-    if (this.$root.debug) { console.log(this.heroActive + ' = this.heroActive value before call'); }
+    // if (this.$root.debug) { console.log(this.heroActive + ' = this.heroActive value before call'); }
 
-    this.heroIsActive();
+    // this.heroIsActive();
 
-    if (this.$root.debug) { console.log(this.heroActive + ' = this.heroActive value after call'); }
+    // if (this.$root.debug) { console.log(this.heroActive + ' = this.heroActive value after call'); }
 
     window.addEventListener('resize', this.resize);
 
     this.sectionActive = true;
 
+    this.$store.watch(
+      state => state.showModal,
+      () => {
+
+      }
+    ); // END watch
+
+
   }, // END mounted
   methods: {
 
+    ...mapActions(['closeModal']),
 
-    updateHeroClass() {
-      var updatedHeroClass = 'fade-me sprite-wrap outer-sprite-container';
-      this.heroVisibilityClass = updatedHeroClass;
-      if (this.$root.debug) { console.log(this.heroVisibilityClass + ' = this.heroVisibilityClass - Updated sprite-wrap outer-sprite-container'); }
-    }, // END updateHeroClass
+    // updateHeroClass() {
+    //   var updatedHeroClass = 'fade-me sprite-wrap outer-sprite-container';
+    //   this.heroVisibilityClass = updatedHeroClass;
+    //   if (this.$root.debug) { console.log(this.heroVisibilityClass + ' = this.heroVisibilityClass - Updated sprite-wrap outer-sprite-container'); }
+    // }, // END updateHeroClass
 
-    currentSpriteImage() {
-      this.currentSprite = 'sprite-' + `${this.id}` + ' current-animation sprite';
-      return this.currentSprite;
-    }, // END currentSprite
+    // currentSpriteImage() {
+    //   this.currentSprite = 'sprite-' + `${this.id}` + ' current-animation sprite';
+    //   return this.currentSprite;
+    // }, // END currentSprite
 
-    heroIsActive() {
-      this.heroActive = true;
-    }, // END sectionIsActive
+    // heroIsActive() {
+    //   this.heroActive = true;
+    // }, // END sectionIsActive
 
     enter(el, done) {
 
-      var self = this;
+      // var self = this;
       var spriteImage = this.id;
       var canvas = document.getElementById('the-canvas');
       var ctx = canvas.getContext('2d');
@@ -236,7 +267,7 @@ export default {
 
               done();
 
-              if (self.$root.debug) { console.log('lastframe - hero sprite animation is done'); }
+              // if (self.$root.debug) { console.log('lastframe - hero sprite animation is done'); }
             },
             ease:       Linear.easeNone,
             roundProps: 'frame',
@@ -472,7 +503,7 @@ export default {
 
     eventBus.$off('selectedChanged');
 
-    eventBus.$off('clearImageSourceValue');
+    // eventBus.$off('clearImageSourceValue');
 
     eventBus.$off('tellSectionWorkBringBackCornerNav');
 

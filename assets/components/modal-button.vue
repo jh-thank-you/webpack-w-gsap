@@ -16,6 +16,9 @@
 import { eventBus } from 'assets/main.js';
 let currentClass = ['inner-frame-3', 'hover-me' ];
 
+import { mapActions} from 'vuex';
+
+
 export default {
 
   props: [ 'id', 'alt', 'client', 'sector', 'access', 'showModal' ], // END props
@@ -36,6 +39,8 @@ export default {
   }, // END created
   methods: {
 
+    ...mapActions(['updateImageSrc', 'openModal']),
+
     currentClassArray() {
 
       currentClass = [ 'inner-frame-3', 'hover-me', this.access ];
@@ -46,46 +51,61 @@ export default {
     exampleSelected() {
 
       var access = this.access;
-      var showModal = false;
+      // var showModal = false;
+
+      var currentModalID = this.id;
+
+      // Send ID to Vuex Store
+      this.updateImageSrc(currentModalID);
 
       if (access == 'locked') {
 
-        showModal = false;
-        eventBus.$emit('modalVisibility', showModal);
+        this.$store.dispatch('closeModal');
+        // showModal = false;
+        // eventBus.$emit('modalVisibility', showModal);
 
-        this.imageSrc = this.id;
-        this.$emit('imageSelectChanged', this.imageSrc);
+        // this.imageSrc = this.id;
+        // this.$emit('imageSelectChanged', this.id);
 
         var showPasswordModal = true;
         eventBus.$emit('passwordStatus', showPasswordModal);
 
       } else {
 
-        this.imageSrc = this.id;
+        // this.imageSrc = this.id;
 
-        if (this.imageSrc == 'modal-print-personal') {
+        if (currentModalID == 'modal-print-personal') {
 
-          showModal = false;
-          eventBus.$emit('modalVisibility', showModal);
+          this.$store.dispatch('closeModal');
+          // showModal = false;
+          // eventBus.$emit('modalVisibility', showModal);
 
-          this.imageSrc = this.id;
-          this.$emit('imageSelectChanged', this.imageSrc);
+          // this.imageSrc = this.id;
+          // this.$emit('imageSelectChanged', this.id);
 
-          if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc - modal button clicked - resetting Transition Group Animation'); }
+          if (this.$root.debug) { console.log( this.id + ' = this.imageSrc - modal button clicked - resetting Transition Group Animation'); }
 
           /*  setting the router path */
           this.$router.replace({ path: '/personal', id: 'section-personal-work' });
 
         } else {
+          // set showModal True in Vuex Store
 
-          showModal = true;
-          eventBus.$emit('modalVisibility', showModal);
+          this.$store.dispatch('openModal');
 
-          this.imageSrc = this.id;
 
-          this.$emit('imageSelectChanged', this.imageSrc);
+          // showModal = true;
+          // eventBus.$emit('modalVisibility', showModal);
 
-          if (this.$root.debug) { console.log(this.imageSrc + ' = this.imageSrc - modal button clicked'); }
+          // this.imageSrc = this.id;
+
+          // this.$emit('imageSelectChanged', this.id);
+
+          if (this.$root.debug) { console.log(this.id + ' = this.imageSrc - modal button clicked'); }
+
+          if (this.$root.debug) { console.log(this.$store.state.imageSrc + ' =  = new route'); }
+
+          this.$router.replace({ path: this.$route.path + '/' + this.$store.state.imageSrc });
         }
 
       }
@@ -112,7 +132,7 @@ export default {
   destroyed() {
 
     // turn off binding to prevent multiple instances
-    this.$off('imageSelectChanged');
+    // this.$off('imageSelectChanged');
 
     /* this.$off('modalVisibility'); */
 

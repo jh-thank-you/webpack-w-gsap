@@ -14,19 +14,21 @@ export const store = new Vuex.Store({
     }),
   ],
   state: {
-    selects:             '',
-    selectedChanged:     '',
-    sendSelected:        '',
-    sectionIsOpen:       '',
-    sectionOpen:         false,
-    showSmallNav:        false,
-    smallNavVisibilty:   '',
-    currentShowSmallNav: '',
-    bringBackCornerNav:  '',
-    tabVisibility:       '',
-    modalVisibility:     '',
-    passwordStatus:      '',
-    noActiveClient:      '',
+    // selects:             '',
+    // selectedChanged:     '',
+    // sendSelected:        '',
+    // sectionIsOpen:       '',
+    sectionOpen:  false,
+    showSmallNav: false,
+    // smallNavVisibilty:   '',
+    // currentShowSmallNav: '',
+    // bringBackCornerNav:  '',
+    // tabVisibility:       '',
+    // modalVisibility:     '',
+    // passwordStatus:      '',
+    // noActiveClient:      '',
+    imageSrc:     '',
+    showModal:    false,
   }, // END state
   mutations: {
 
@@ -44,6 +46,19 @@ export const store = new Vuex.Store({
 
     smallNavTrue: state => {
       state.showSmallNav = true;
+    },
+
+    setImageSrc (state, currentModalID) {
+      state.imageSrc = currentModalID;
+    },
+
+    setShowModalTrue: state => {
+      state.showModal = true;
+    },
+
+    setShowModalFalse: state => {
+      state.showModal = false;
+      state.imageSrc = '';
     },
 
   }, // END mutations
@@ -74,12 +89,28 @@ export const store = new Vuex.Store({
       state = payload;
     },
 
+    updateImageSrc (context, currentModalID) {
+      context.commit('setImageSrc', currentModalID);
+    },
+
+    openModal: context => {
+      context.commit('setShowModalTrue');
+    },
+
+    closeModal: context => {
+      context.commit('setShowModalFalse');
+    },
+
   }, // END actions
   getters: {
 
     getSectionStatus: state => state.sectionOpen,
 
     getSmallNavStatus: state => state.showSmallNav,
+
+    getModalStatus: state => state.showModal,
+
+    getImageSrc: state => state.imageSrc,
 
   }, // END getters
   modules: {

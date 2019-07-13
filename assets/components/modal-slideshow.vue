@@ -1,13 +1,17 @@
 <template>
 
+<transition name="fade" mode="out-in">
+
   <div class="overlay"> <!-- START Modal -->
 
       <!-- IE Specific to remove tap highlight -->
       <meta name="msapplication-tap-highlight" content="no">
 
-      <div id="button-close-vector" @click="$emit('close')">
-        <div aria-hidden='true'>&times;</div>
-      </div>
+      <router-link to="/">
+        <div id="button-close-vector" @click="closeModal">
+          <div aria-hidden='true'>&times;</div>
+        </div>
+      </router-link>
 
       <div class="btn-group-wrap">
         <div class="btn-group">
@@ -61,18 +65,26 @@
       <!-- END New Slideshow -->
   </div> <!-- END Modal -->
 
+</transition>
+
 </template>
 
 <script>
 
-import { eventBus } from 'assets/main.js';
+// import { eventBus } from 'assets/main.js';
 
 import modalSlide from 'components/modal-slide.vue';
+
+import { mapState } from 'vuex';
+
+import { mapActions} from 'vuex';
+
+import { mapGetters} from 'vuex';
 
 export default {
 
   components: { modalSlide }, // END components
-  props:      [ 'imageSrc' ],// END props
+  // props:      [ 'imageSrc' ],// END props
   data() {
     return {
       slides: [
@@ -100,6 +112,10 @@ export default {
     };
   }, // END data
   computed: {
+
+    ...mapState(['imageSrc']), // END mapState
+
+    ...mapGetters(['getModalStatus', 'getImageSrc']), // END mapGetters
 
     slideLeft() {
       if ( this.currentIndex === 0 ) {
@@ -156,11 +172,11 @@ export default {
 
     window.addEventListener('keyup', arrowHandler);
 
-    eventBus.$on('noActiveClient', () => {
-      this.imagesource = 'modal-default-selection';
+    // eventBus.$on('noActiveClient', () => {
+    //   this.imagesource = 'modal-default-selection';
 
-      if (this.$root.debug) { console.log( this.imagesource + ' = noActiveClient - No active client work section now closing'); }
-    }); // END eventBus
+    //   if (this.$root.debug) { console.log( this.imagesource + ' = noActiveClient - No active client work section now closing'); }
+    // }); // END eventBus
 
 
     if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created'); }
@@ -461,6 +477,7 @@ export default {
   }, // END updated
   methods: {
 
+    ...mapActions(['closeModal']),
 
     /* ***************************************************************** */
     /* ********************** START NEW SLIDE LOGIC ******************** */
@@ -557,7 +574,7 @@ export default {
 
 .fade-enter-active
 {
-    transition: opacity 4s ease;
+    transition: opacity .4s ease;
 }
 
 .fade-enter-to
@@ -572,7 +589,7 @@ export default {
 
 .fade-leave-active
 {
-    transition: opacity 4s ease;
+    transition: opacity .4s ease;
 }
 
 .fade-leave-to

@@ -8,7 +8,7 @@ let slides = [
     showVideo: false,
     videoSrc:  '',
     showText:  true,
-    pText:     'If you are receiving this message you have no current active projects — Thanks for stopping by.',
+    pText:     'Example text.',
   },
 
 
