@@ -2,18 +2,30 @@ import VueRouter from 'vue-router';
 
 import { store } from 'store/store.js';
 
+import Home from '../sections/home.vue';
+import Work from '../sections/section-work.vue';
+import Pharma from '../sections/section-pharma-work.vue';
+import Personal from '../sections/section-personal-work.vue';
+import About from '../sections/section-about.vue';
+import Contact from '../sections/section-contact.vue';
+import Archive from '../sections/section-archive-work.vue';
+import Settings from '../sections/section-settings.vue';
+
+
+import slideshowModal from '../components/modal-slideshow.vue';
+
+
 let routes = [
   {
     path:      '/',
     props:     { id: 'section-home' },
-    component: require('../sections/home.vue').default,
+    component: Home,
     beforeEnter(to, from, next) {
       store.state.sectionOpen = false;
-      // store.state.showModal = false;
-      // store.state.imageSrc = '';
-      // Clear the Vuex Store Values
-      store.dispatch('closeModal');
-      next();
+
+      var currentSection = 'section-home';
+      store.dispatch('updateSectionID', currentSection);
+
       function widthChange(mq) {
         if (mq.matches) {
 
@@ -31,74 +43,110 @@ let routes = [
       var mq = window.matchMedia('(min-width: 501px) and (min-height: 601px)');
       widthChange(mq);
       mq.addListener(widthChange);
+
+      next();
     },
   },
   {
     path:      '/work',
     props:     { id: 'section-work' },
-    component: require('../sections/section-work.vue').default,
+    component: Work,
     beforeEnter(to, from, next) {
-      // store.state.sectionOpen = true;
-      // store.state.showModal = false;
-      // store.dispatch('closeModal');
-      // store.state.imageSrc = '';
-      store.dispatch('closeModal');
+      store.state.sectionOpen = true;
+
+      var currentSection = 'section-work';
+      store.dispatch('updateSectionID', currentSection);
+
       next();
     },
     children: [
-      { path:      '/' + store.state.imageSrc,
-        props:     { id: 'modal-creative-examples' },
-        component: require('../components/modal-slideshow.vue'),
+      {
+        path:      ':slideshowId',
+        name:      'modal-slideshow-work',
+        component: slideshowModal,
+        props:     true,
         beforeEnter(to, from, next) {
-          // store.state.sectionOpen = true;
-          // store.state.showModal = true;
-          // store.dispatch('openModal');
+          store.state.sectionOpen = true;
+
+          var currentSection = store.state.imageSrc;
+          store.dispatch('updateSectionID', currentSection);
+
           next();
         },
       },
     ],
   },
-  // {
-  //   path:      '/' + store.state.imageSrc,
-  //   props:     { id: 'modal-creative-examples' },
-  //   component: require('../components/modal-slideshow.vue').default,
-  //   beforeEnter(to, from, next) {
-  //     // store.state.sectionOpen = true;
-  //     // store.state.showModal = false;
-  //     // store.dispatch('closeModal');
-  //     next();
-  //   },
-  // },
   {
 
     path:      '/pharma',
     props:     { id: 'section-pharma-work' },
-    component: require('../sections/section-pharma-work.vue').default,
+    component: Pharma,
     beforeEnter(to, from, next) {
       store.state.sectionOpen = true;
-      store.dispatch('closeModal');
+
+      var currentSection = 'section-pharma-work';
+      store.dispatch('updateSectionID', currentSection);
+
       next();
     },
+    children: [
+      {
+        path:      ':slideshowId',
+        name:      'modal-slideshow-pharma',
+        component: slideshowModal,
+        props:     true,
+        beforeEnter(to, from, next) {
+          store.state.sectionOpen = true;
+
+          var currentSection = store.state.imageSrc;
+          store.dispatch('updateSectionID', currentSection);
+
+          next();
+        },
+      },
+    ],
   },
   {
 
     path:      '/personal',
     props:     { id: 'section-personal-work' },
-    component: require('../sections/section-personal-work.vue').default,
+    component: Personal,
     beforeEnter(to, from, next) {
       store.state.sectionOpen = true;
-      store.dispatch('closeModal');
+
+      var currentSection = 'section-personal-work';
+      store.dispatch('updateSectionID', currentSection);
+
       next();
     },
+    children: [
+      {
+        path:      ':slideshowId',
+        name:      'modal-slideshow-personal',
+        component: slideshowModal,
+        props:     true,
+        beforeEnter(to, from, next) {
+          store.state.sectionOpen = true;
+
+          var currentSection = store.state.imageSrc;
+          store.dispatch('updateSectionID', currentSection);
+
+          next();
+        },
+      },
+    ],
   },
   {
 
     path:      '/about',
     props:     { id: 'section-about' },
-    component: require('../sections/section-about.vue').default,
+    component: About,
     beforeEnter(to, from, next) {
       store.state.sectionOpen = true;
-      store.dispatch('closeModal');
+
+      var currentSection = 'section-about';
+      store.dispatch('updateSectionID', currentSection);
+
       next();
     },
   },
@@ -106,21 +154,43 @@ let routes = [
 
     path:      '/archive',
     props:     { id: 'section-archived-work' },
-    component: require('../sections/section-archive-work.vue').default,
+    component: Archive,
     beforeEnter(to, from, next) {
       store.state.sectionOpen = true;
-      store.dispatch('closeModal');
+
+      var currentSection = 'section-archived-work';
+      store.dispatch('updateSectionID', currentSection);
+
       next();
     },
+    children: [
+      {
+        path:      ':slideshowId',
+        name:      'modal-slideshow-archive',
+        component: slideshowModal,
+        props:     true,
+        beforeEnter(to, from, next) {
+          store.state.sectionOpen = true;
+
+          var currentSection = store.state.imageSrc;
+          store.dispatch('updateSectionID', currentSection);
+
+          next();
+        },
+      },
+    ],
   },
   {
 
     path:      '/contact',
     props:     { id: 'section-contact' },
-    component: require('../sections/section-contact.vue').default,
+    component: Contact,
     beforeEnter(to, from, next) {
       store.state.sectionOpen = true;
-      store.dispatch('closeModal');
+
+      var currentSection = 'section-contact';
+      store.dispatch('updateSectionID', currentSection);
+
       next();
     },
   },
@@ -128,10 +198,13 @@ let routes = [
 
     path:      '/settings',
     props:     { id: 'section-settings' },
-    component: require('../sections/section-settings.vue').default,
+    component: Settings,
     beforeEnter(to, from, next) {
       store.state.sectionOpen = true;
-      store.dispatch('closeModal');
+
+      var currentSection = 'section-settings';
+      store.dispatch('updateSectionID', currentSection);
+
       next();
     },
   },

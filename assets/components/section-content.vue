@@ -2,15 +2,14 @@
 
   <div :id="id" class="section-wrap texture-paper-bkg">
 
-      <modal-password></modal-password>
+    <modal-password></modal-password>
 
-      <button-close-section-raster></button-close-section-raster>
+    <button-close-section-raster></button-close-section-raster>
 
-      <!-- See notes in CSS about CSS transition listeners -->
+    <!-- See notes in CSS about CSS transition listeners -->
 
-    <!-- <transition name="fade-slideshow" mode="out-in">
-        <modal-slideshow v-if="showModal" :imageSrc="imagesource"></modal-slideshow>
-    </transition> -->
+    <!-- display selected slideshow -->
+    <router-view></router-view>
 
     <!--
     have to research v-cloak more:
@@ -20,18 +19,10 @@
       <div v-cloak v-if="sectionActive" :key="this.id" id="section-content" class="justify-content handwritten">
         <div id="section-content-inner-wrap" class="section-content-inner-wrap flex-container">
 
-          <!-- <div class="legal-block">
-            <p class="legal-copy">ÂŠ 1984 - 2019 James W. Hainis. - All rights reserved. - All work for non-paying clients or speculative work remains the intellectual property of James W. Hainis. - All other work, logos and trademarks remain the property of the respective owners.</p>
-          </div> -->
-
           <transition-group name="slideme" mode="out-in" :key="keyValue">
-            <!-- <router-link :key="this.imageSrc + '-key'" :to="'/' + this.imageSrc"> -->
-
               <modal-button v-for="example in getExamples()" :key="example.exampleid" :id="example.exampleid" :client="example.client" :sector="example.sector" :alt="example.alt" :access="example.access"></modal-button>
-
-            <!-- </router-link> -->
-
           </transition-group>
+
         </div>
       </div>
     </transition>
@@ -76,12 +67,10 @@ export default {
   data() {
     return {
 
-      // showModal:           false,
       exampleid:     '',
       client:        '',
       sector:        '',
       alt:           '',
-      // imagesource:         '',
       access:        '',
       selected:      [],
       examples:      currentExamples,
@@ -89,7 +78,6 @@ export default {
       sectionStyles: '',
       currentSprite: '',
       heroActive:    false,
-      // heroVisibilityClass: 'sprite-wrap outer-sprite-container',
       keyValue:      false,
       modalPath:     '',
     };
@@ -103,14 +91,8 @@ export default {
   },// END computed
   created() {
 
-    // Clear the Vuex Store Values
-    this.$store.dispatch('closeModal');
-
-    // eventBus.$on('clearImageSourceValue', () => {
-    //   // clear imagesource value so raster close button has correct prop with password cancel button
-    //   this.imagesource = '';
-
-    // }); // END eventBus
+    // Clear the Vuex Store imageSrc value
+    this.$store.dispatch('clearImageSrc');
 
 
     eventBus.$on('resetTransitionGroup', () => {
@@ -123,24 +105,8 @@ export default {
 
     if (this.$root.debug) { console.log( this.$route.path + ' = this.$route.path value'); }
 
-    if (this.$route.path == '/work') {
-
-      this.id = this.$route.params.id;
-    }
-
-
-    // eventBus.$on('tellSectionWorkBringBackCornerNav', () => {
-    //   // close the section and call the nav back
-    //   this.updateCornerNav();
-
-    // }); // END eventBus
-
 
     if (this.$root.debug) { console.log('im created'); }
-
-    // eventBus.$on('modalVisibility', (showModal) => {
-    //   this.showModal = showModal;
-    // }); // END eventBus
 
     // default selected - this loads before local storage data is created
     this.selected='beauty,branding,cleaning,fashion,finearts,financial,fitness,healthcare,pharma,publicservice,sports,technology,tourism,transportation';
@@ -154,11 +120,6 @@ export default {
   }, // END created
   mounted() {
 
-    // if (this.$root.debug) { console.log(this.heroActive + ' = this.heroActive value before call'); }
-
-    // this.heroIsActive();
-
-    // if (this.$root.debug) { console.log(this.heroActive + ' = this.heroActive value after call'); }
 
     window.addEventListener('resize', this.resize);
 
@@ -175,122 +136,7 @@ export default {
   }, // END mounted
   methods: {
 
-    ...mapActions(['closeModal']),
-
-    // updateHeroClass() {
-    //   var updatedHeroClass = 'fade-me sprite-wrap outer-sprite-container';
-    //   this.heroVisibilityClass = updatedHeroClass;
-    //   if (this.$root.debug) { console.log(this.heroVisibilityClass + ' = this.heroVisibilityClass - Updated sprite-wrap outer-sprite-container'); }
-    // }, // END updateHeroClass
-
-    // currentSpriteImage() {
-    //   this.currentSprite = 'sprite-' + `${this.id}` + ' current-animation sprite';
-    //   return this.currentSprite;
-    // }, // END currentSprite
-
-    // heroIsActive() {
-    //   this.heroActive = true;
-    // }, // END sectionIsActive
-
-    enter(el, done) {
-
-      // var self = this;
-      var spriteImage = this.id;
-      var canvas = document.getElementById('the-canvas');
-      var ctx = canvas.getContext('2d');
-
-
-      var frameSize = 500;
-      var totalFrames = 64;
-      var sheetFrames = 16;
-      var sheetRows = 4;
-      var sheetCols = 4;
-
-      var sprite = {
-        frame: 0,
-      };
-
-      var frameData = [];
-      var lastFrame = -1;
-
-      canvas.width = frameSize;
-      canvas.height = frameSize;
-
-      var sheet1 = new Image();
-      sheet1.onload = onLoad;
-
-      var sheet2 = new Image();
-      sheet2.onload = onLoad;
-
-      var sheet3 = new Image();
-      sheet3.onload = onLoad;
-
-      var sheet4 = new Image();
-      sheet4.onload = onLoad;
-
-      var spriteSheets = [sheet1, sheet2, sheet3, sheet4];
-      var loadingCount = spriteSheets.length;
-
-      for (var i = 0; i < totalFrames; i++) {
-
-        frameData.push({
-          sheet: spriteSheets[Math.floor(i / sheetFrames)],
-          x:     (i % sheetCols) * frameSize,
-          y:     Math.floor((i % sheetFrames) / sheetRows) * frameSize,
-        });
-      }
-
-      // Setting the src for an image will kick off the loading
-      // This can happen immediately so you should set the src after 
-      // setting the callback or it might get skipped
-      // Note: using CopyWebpackPlugin to copy sprite sheets to assets folder.
-      sheet1.src = 'assets/img/sprite-sheets/sprite-' + spriteImage + '/sprite-' + spriteImage + '-0.png';
-
-      sheet2.src = 'assets/img/sprite-sheets/sprite-' + spriteImage + '/sprite-' + spriteImage + '-1.png';
-
-      sheet3.src = 'assets/img/sprite-sheets/sprite-' + spriteImage + '/sprite-' + spriteImage + '-2.png';
-
-      sheet4.src = 'assets/img/sprite-sheets/sprite-' + spriteImage + '/sprite-' + spriteImage + '-3.png';
-
-
-      function onLoad() {
-
-        loadingCount--;
-        this.onload = undefined; // remove onload callback from image
-
-        if (loadingCount == 0) {
-
-          this.animation = TweenLite.to(sprite, 3, {
-            frame:      totalFrames - 1,
-            onUpdate:   draw,
-            onComplete: function() {
-
-              done();
-
-              // if (self.$root.debug) { console.log('lastframe - hero sprite animation is done'); }
-            },
-            ease:       Linear.easeNone,
-            roundProps: 'frame',
-          });
-        }
-      } // END onLoad
-
-      function draw() {
-
-        // No need to update
-        if (sprite.frame === lastFrame) {
-          return;
-        }
-
-        var frame = frameData[sprite.frame];
-        // ctx.globalAlpha = sprite.alpha;
-        ctx.clearRect(0, 0, frameSize, frameSize);
-        ctx.drawImage(frame.sheet, frame.x, frame.y, frameSize, frameSize, 0, 0, frameSize, frameSize);
-
-        lastFrame = sprite.frame;
-      } // END draw
-
-    }, // END enter
+    ...mapActions(['closeModal', 'clearImageSrc']),
 
 
     // dynamically set which array is passed based on the Parent ID data
@@ -300,7 +146,7 @@ export default {
       eventBus.$emit('sendSelected'); // get the current preferece form value from the contacts-and-prefs component
 
 
-      var currentID = this.id;
+      // var currentSection = this.$store.state.sectionID;
 
       /* ******************************************************
             
@@ -320,11 +166,17 @@ export default {
           All is working well.
 
       ****************************************************** */
-      var currentPath = this.$route.path;
+      // var currentSectionID = this.id;
 
-      if (currentPath == '/work') {
+      var currentSectionID = this.$route.path;
 
-        if (this.$root.debug) { console.log( currentID + ' = currentID Print Examples'); }
+      if (this.$root.debug) { console.log( currentSectionID + ' = currentSectionID'); }
+
+      if (currentSectionID == '/work') {
+
+        // section-work
+
+        if (this.$root.debug) { console.log( currentSectionID + ' = currentSectionID Print Examples'); }
 
         currentExamples = [
 
@@ -380,9 +232,11 @@ export default {
 
         return this.filteredExamples(currentExamples);
 
-      } else if (currentPath == '/personal') {
+      } else if (currentSectionID == '/personal') {
 
-        if (this.$root.debug) { console.log( currentID + ' = currentID Persona Work'); }
+        // section-personal-work
+
+        if (this.$root.debug) { console.log( currentSectionID + ' = currentSectionID Persona Work'); }
 
         currentExamples = [
 
@@ -414,9 +268,11 @@ export default {
 
         return this.filteredExamples(currentExamples);
 
-      } else if (currentPath == '/pharma') {
+      } else if (currentSectionID == '/pharma') {
 
-        if (this.$root.debug) { console.log( currentID + ' = currentID Pharma Work'); }
+        //section-pharma-work
+
+        if (this.$root.debug) { console.log( currentSectionID + ' = currentSectionID Pharma Work'); }
 
         currentExamples = [
 
@@ -437,12 +293,11 @@ export default {
 
         return this.filteredExamples(currentExamples);
 
-      } else if (currentPath == '/archive') {
+      } else if (currentSectionID == '/archive') {
 
-        // clear currentID for next round
-        // currentID = null;
+        // section-archived-work
 
-        if (this.$root.debug) { console.log( currentID + ' = currentID Archived Work'); }
+        if (this.$root.debug) { console.log( currentSectionID + ' = currentSectionID Archived Work'); }
 
         currentExamples = [
 
@@ -463,7 +318,7 @@ export default {
         return this.filteredExamples(currentExamples);
 
       } else {
-        if (this.$root.debug) { console.log(this.id + ' - Error no data for examples in section.vue component'); }
+        if (this.$root.debug) { console.log(currentSectionID + ' - Error no data for examples in section.vue component'); }
       } // END If - Else Examples
 
     }, // END getExamples

@@ -1,8 +1,8 @@
 <template>
 
   <router-link :to="'/' + section">
-    <div :id="id" class="media-type">
-      <div @click="setSectionOpened" class="handwritten media-title"><p>{{ section }}</p></div>
+    <div :id="id" :section="section" class="media-type">
+      <div @click="setSectionOpened" :section="section" class="handwritten media-title"><p>{{ section }}</p></div>
     </div>
   </router-link>
 

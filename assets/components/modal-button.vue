@@ -25,7 +25,8 @@ export default {
   data() {
     return {
 
-      classArray: currentClass,
+      classArray:         currentClass,
+      currentSectionName: '',
 
     };
   }, // END data
@@ -60,12 +61,8 @@ export default {
 
       if (access == 'locked') {
 
+        // set showModal False in Vuex Store
         this.$store.dispatch('closeModal');
-        // showModal = false;
-        // eventBus.$emit('modalVisibility', showModal);
-
-        // this.imageSrc = this.id;
-        // this.$emit('imageSelectChanged', this.id);
 
         var showPasswordModal = true;
         eventBus.$emit('passwordStatus', showPasswordModal);
@@ -76,12 +73,8 @@ export default {
 
         if (currentModalID == 'modal-print-personal') {
 
+          // set showModal False in Vuex Store
           this.$store.dispatch('closeModal');
-          // showModal = false;
-          // eventBus.$emit('modalVisibility', showModal);
-
-          // this.imageSrc = this.id;
-          // this.$emit('imageSelectChanged', this.id);
 
           if (this.$root.debug) { console.log( this.id + ' = this.imageSrc - modal button clicked - resetting Transition Group Animation'); }
 
@@ -89,26 +82,41 @@ export default {
           this.$router.replace({ path: '/personal', id: 'section-personal-work' });
 
         } else {
+
           // set showModal True in Vuex Store
-
           this.$store.dispatch('openModal');
-
-
-          // showModal = true;
-          // eventBus.$emit('modalVisibility', showModal);
-
-          // this.imageSrc = this.id;
-
-          // this.$emit('imageSelectChanged', this.id);
 
           if (this.$root.debug) { console.log(this.id + ' = this.imageSrc - modal button clicked'); }
 
           if (this.$root.debug) { console.log(this.$store.state.imageSrc + ' =  = new route'); }
 
-          this.$router.replace({ path: this.$route.path + '/' + this.$store.state.imageSrc });
-        }
+          if (this.$route.path.includes('/work'))
+          {
+            this.currentSectionName = 'modal-slideshow-work';
 
-      }
+          } else if (this.$route.path.includes('/pharma')) {
+
+            this.currentSectionName = 'modal-slideshow-pharma';
+
+          } else if (this.$route.path.includes('/personal')) {
+
+            this.currentSectionName = 'modal-slideshow-personal';
+
+          } else if (this.$route.path.includes('/archive')) {
+
+            this.currentSectionName = 'modal-slideshow-archive';
+          }
+
+          this.$router.push({
+            name:   this.currentSectionName,
+            params: {
+              slideshowId: this.id,
+            },
+          });
+
+        } // END Else
+
+      } // END Else
 
     }, // END exampleSelected
 

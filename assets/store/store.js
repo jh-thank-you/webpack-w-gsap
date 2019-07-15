@@ -17,7 +17,7 @@ export const store = new Vuex.Store({
     // selects:             '',
     // selectedChanged:     '',
     // sendSelected:        '',
-    // sectionIsOpen:       '',
+    sectionID:    '',
     sectionOpen:  false,
     showSmallNav: false,
     // smallNavVisibilty:   '',
@@ -31,6 +31,10 @@ export const store = new Vuex.Store({
     showModal:    false,
   }, // END state
   mutations: {
+
+    setSectionID (state, currentSection) {
+      state.sectionID = currentSection;
+    },
 
     sectionOpened: state => {
       state.sectionOpen = true;
@@ -58,6 +62,9 @@ export const store = new Vuex.Store({
 
     setShowModalFalse: state => {
       state.showModal = false;
+    },
+
+    resetImageSrc: state => {
       state.imageSrc = '';
     },
 
@@ -93,12 +100,20 @@ export const store = new Vuex.Store({
       context.commit('setImageSrc', currentModalID);
     },
 
+    updateSectionID (context, currentSection) {
+      context.commit('setSectionID', currentSection);
+    },
+
     openModal: context => {
       context.commit('setShowModalTrue');
     },
 
     closeModal: context => {
       context.commit('setShowModalFalse');
+    },
+
+    clearImageSrc: context => {
+      context.commit('resetImageSrc');
     },
 
   }, // END actions

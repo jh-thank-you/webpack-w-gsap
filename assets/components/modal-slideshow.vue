@@ -7,7 +7,7 @@
       <!-- IE Specific to remove tap highlight -->
       <meta name="msapplication-tap-highlight" content="no">
 
-      <router-link to="/">
+      <router-link :to="this.sectionRouteBase">
         <div id="button-close-vector" @click="closeModal">
           <div aria-hidden='true'>&times;</div>
         </div>
@@ -109,6 +109,7 @@ export default {
       startCheckFirstRun:      true,
       swipeFrontElement:       [],
       swipeFronts:             [],
+      sectionRouteBase:        '',
     };
   }, // END data
   computed: {
@@ -134,6 +135,16 @@ export default {
       }
     },
   }, // END computed
+  watch: {
+    // eslint-disable-next-line
+    '$route' (to, from) {
+
+      const currentSlides = require(`assets/modals/${this.imageSrc}.js`);
+      this.slides = currentSlides.sendSlideData();
+
+    }, // END $route
+
+  }, // END watch
   beforeCreated() {
 
 
@@ -143,6 +154,26 @@ export default {
 
   }, // END created
   mounted() {
+
+
+    if (this.$route.path.includes('/work'))
+    {
+      this.sectionRouteBase = '/work';
+
+    } else if (this.$route.path.includes('/pharma')) {
+
+      this.sectionRouteBase = '/pharma';
+
+    } else if (this.$route.path.includes('/personal')) {
+
+      this.sectionRouteBase = '/personal';
+
+    } else if (this.$route.path.includes('/archive')) {
+
+      this.sectionRouteBase = '/archive';
+    }
+
+
     /* *****************************************************************
 
         Global Key Press Listener - For Previous and Next Buttons
@@ -171,13 +202,6 @@ export default {
     }; // END arrowHandler
 
     window.addEventListener('keyup', arrowHandler);
-
-    // eventBus.$on('noActiveClient', () => {
-    //   this.imagesource = 'modal-default-selection';
-
-    //   if (this.$root.debug) { console.log( this.imagesource + ' = noActiveClient - No active client work section now closing'); }
-    // }); // END eventBus
-
 
     if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created'); }
 
