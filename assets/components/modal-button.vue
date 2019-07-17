@@ -51,6 +51,8 @@ export default {
 
     exampleSelected() {
 
+      eventBus.$emit('resetTransitionGroup');
+
       var access = this.access;
       // var showModal = false;
 

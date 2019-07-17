@@ -1,6 +1,6 @@
 <template>
 
-  <div :id="id" class="section-wrap texture-paper-bkg">
+  <div :id="id" class="section-wrap texture-paper-bkg"> <!-- START section-wrap texture-paper-bkg -->
 
     <modal-password></modal-password>
 
@@ -27,7 +27,7 @@
       </div>
     </transition>
 
-  </div>
+  </div> <!-- END section-wrap texture-paper-bkg -->
 
 </template>
 
@@ -89,6 +89,11 @@ export default {
     ...mapGetters(['getModalStatus']), // END mapGetters
 
   },// END computed
+  watch: {
+
+    '$route': 'resetTransition',
+
+  }, // END watch
   created() {
 
     // Clear the Vuex Store imageSrc value
@@ -125,18 +130,16 @@ export default {
 
     this.sectionActive = true;
 
-    this.$store.watch(
-      state => state.showModal,
-      () => {
-
-      }
-    ); // END watch
-
-
   }, // END mounted
   methods: {
 
     ...mapActions(['closeModal', 'clearImageSrc']),
+
+    resetTransition() {
+
+      eventBus.$emit('resetTransitionGroup');
+
+    }, // END resetTransition
 
 
     // dynamically set which array is passed based on the Parent ID data
@@ -144,9 +147,6 @@ export default {
 
       if (this.$root.debug) { console.log('getExamples called'); }
       eventBus.$emit('sendSelected'); // get the current preferece form value from the contacts-and-prefs component
-
-
-      // var currentSection = this.$store.state.sectionID;
 
       /* ******************************************************
             
@@ -352,7 +352,7 @@ export default {
         note with new structure you need to keep eventBus 
         modalVisibility alive - DO NOT DESTROY 
         otherwise Modal Viability will not work for
-        the newly added Person Work and
+        the newly added Pharma, Personal Work and
         Archived Work Sections 
     ****************************************************** */
 

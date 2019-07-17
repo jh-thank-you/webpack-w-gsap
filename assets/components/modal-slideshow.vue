@@ -136,13 +136,8 @@ export default {
     },
   }, // END computed
   watch: {
-    // eslint-disable-next-line
-    '$route' (to, from) {
 
-      const currentSlides = require(`assets/modals/${this.imageSrc}.js`);
-      this.slides = currentSlides.sendSlideData();
-
-    }, // END $route
+    '$route': 'fetchSlides',
 
   }, // END watch
   beforeCreated() {
@@ -150,6 +145,9 @@ export default {
 
   }, // END beforeCreated
   created() {
+
+    // fetch the slides
+    this.fetchSlides();
 
 
   }, // END created
@@ -204,11 +202,6 @@ export default {
     window.addEventListener('keyup', arrowHandler);
 
     if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created'); }
-
-    // No need for Axios
-    // Added benefit - Webpack is able to traverse the dynamic require links. Also Webpack now hashes the links and their resource. 
-    const currentSlides = require(`assets/modals/${this.imageSrc}.js`);
-    this.slides = currentSlides.sendSlideData();
 
 
     /* *******************************************************
@@ -494,14 +487,21 @@ export default {
     }
 
   }, // END mounted
-  updated() {
-
-    // eventBus.$emit('removeGestureNow');
-
-  }, // END updated
   methods: {
 
     ...mapActions(['closeModal']),
+
+    fetchSlides() {
+
+      // No need for Axios
+      // Added benefit - Webpack is able to traverse the dynamic require links. 
+      // Also Webpack now hashes the links and their resource. 
+
+      // watching route changes will also fetch the slides
+      const currentSlides = require(`assets/modals/${this.$route.params.slideshowId}.js`);
+      this.slides = currentSlides.sendSlideData();
+
+    }, // END fetchSlides
 
     /* ***************************************************************** */
     /* ********************** START NEW SLIDE LOGIC ******************** */
@@ -598,7 +598,7 @@ export default {
 
 .fade-enter-active
 {
-    transition: opacity .4s ease;
+    transition: opacity .35s ease;
 }
 
 .fade-enter-to
@@ -613,7 +613,7 @@ export default {
 
 .fade-leave-active
 {
-    transition: opacity .4s ease;
+    transition: opacity .35s ease;
 }
 
 .fade-leave-to

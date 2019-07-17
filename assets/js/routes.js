@@ -65,19 +65,10 @@ let routes = [
         name:      'modal-slideshow-work',
         component: slideshowModal,
         props:     true,
-        beforeEnter(to, from, next) {
-          store.state.sectionOpen = true;
-
-          var currentSection = store.state.imageSrc;
-          store.dispatch('updateSectionID', currentSection);
-
-          next();
-        },
       },
     ],
   },
   {
-
     path:      '/pharma',
     props:     { id: 'section-pharma-work' },
     component: Pharma,
@@ -95,19 +86,10 @@ let routes = [
         name:      'modal-slideshow-pharma',
         component: slideshowModal,
         props:     true,
-        beforeEnter(to, from, next) {
-          store.state.sectionOpen = true;
-
-          var currentSection = store.state.imageSrc;
-          store.dispatch('updateSectionID', currentSection);
-
-          next();
-        },
       },
     ],
   },
   {
-
     path:      '/personal',
     props:     { id: 'section-personal-work' },
     component: Personal,
@@ -125,30 +107,8 @@ let routes = [
         name:      'modal-slideshow-personal',
         component: slideshowModal,
         props:     true,
-        beforeEnter(to, from, next) {
-          store.state.sectionOpen = true;
-
-          var currentSection = store.state.imageSrc;
-          store.dispatch('updateSectionID', currentSection);
-
-          next();
-        },
       },
     ],
-  },
-  {
-
-    path:      '/about',
-    props:     { id: 'section-about' },
-    component: About,
-    beforeEnter(to, from, next) {
-      store.state.sectionOpen = true;
-
-      var currentSection = 'section-about';
-      store.dispatch('updateSectionID', currentSection);
-
-      next();
-    },
   },
   {
 
@@ -169,19 +129,23 @@ let routes = [
         name:      'modal-slideshow-archive',
         component: slideshowModal,
         props:     true,
-        beforeEnter(to, from, next) {
-          store.state.sectionOpen = true;
-
-          var currentSection = store.state.imageSrc;
-          store.dispatch('updateSectionID', currentSection);
-
-          next();
-        },
       },
     ],
   },
   {
+    path:      '/about',
+    props:     { id: 'section-about' },
+    component: About,
+    beforeEnter(to, from, next) {
+      store.state.sectionOpen = true;
 
+      var currentSection = 'section-about';
+      store.dispatch('updateSectionID', currentSection);
+
+      next();
+    },
+  },
+  {
     path:      '/contact',
     props:     { id: 'section-contact' },
     component: Contact,
@@ -195,7 +159,6 @@ let routes = [
     },
   },
   {
-
     path:      '/settings',
     props:     { id: 'section-settings' },
     component: Settings,
@@ -208,9 +171,7 @@ let routes = [
       next();
     },
   },
-
-
-];
+]; // END let routes
 
 export default new VueRouter({
 
