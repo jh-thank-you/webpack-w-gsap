@@ -163,7 +163,7 @@ export default {
     wt.fix({
       elements: '.review',
       chars:    10,
-      method:   'letter-spacing',
+      method:   'padding-right',
       dir:      'pos',
       event:    'resize',
     });
@@ -171,7 +171,7 @@ export default {
     wt.fix({
       elements: '.review',
       chars:    10,
-      method:   'letter-spacing',
+      method:   'padding-right',
       dir:      'pos',
       event:    'orientationchange',
     });
@@ -179,7 +179,7 @@ export default {
     wt.fix({
       elements: '.review',
       chars:    10,
-      method:   'letter-spacing',
+      method:   'padding-right',
       dir:      'pos',
       event:    'pageshow',
     });

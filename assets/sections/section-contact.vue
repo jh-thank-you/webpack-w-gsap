@@ -130,21 +130,21 @@ export default {
     wt.fix({
       elements: '.form-section p',
       chars:    10,
-      method:   'letter-spacing',
+      method:   'padding-right',
       event:    'resize',
     });
 
     wt.fix({
       elements: '.form-section p',
       chars:    10,
-      method:   'letter-spacing',
+      method:   'padding-right',
       event:    'orientationchange',
     });
 
     wt.fix({
       elements: '.form-section p',
       chars:    10,
-      method:   'letter-spacing',
+      method:   'padding-right',
       event:    'pageshow',
     });
 
