@@ -1,6 +1,12 @@
-2019-07-23_02.41.06-CHANGELOG
+=============================
+2019-07-23_02.46.45-CHANGELOG
+=============================
+
 
 [Current]
+
+[v0.8.5-added-widowtamer-n-changelog]
+ *  - Added Widowtamer to text content. Added a CHANGELOG.  Set Vue Router to History Mode.
 
 [v0.8.4-added-child-routes-for-slideshows]
  *  — sorted child routes for the slideshow-modal
