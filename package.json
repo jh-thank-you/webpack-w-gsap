@@ -75,6 +75,7 @@
     "gsap": "^1.20.2",
     "vue": "^2.3.4",
     "vuex": "^3.1.0",
-    "vuex-localstorage": "^1.0.0"
+    "vuex-localstorage": "^1.0.0",
+    "widowtamer-npm": "^1.0.5"
   }
 }

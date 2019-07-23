@@ -14,7 +14,7 @@
 
             <div v-if="slide.showText" class="center-slide modal-description">
               <h1 class="handwritten">{{ slide.client }}</h1>
-              <p> {{ slide.pText }} </p>
+              <p class="slide-paragraph"> {{ slide.pText }} </p>
             </div>
 
         </div>
@@ -24,6 +24,9 @@
 
 
 <script>
+
+import { wt } from 'widowtamer-npm';
+
 
 export default {
   props: {
@@ -43,8 +46,38 @@ export default {
   }, // END created
   mounted() {
 
+    wt.fix({
+      elements: '.slide-paragraph',
+      chars:    10,
+      method:   'padding-right',
+      event:    'resize',
+    });
+
+    wt.fix({
+      elements: '.slide-paragraph',
+      chars:    10,
+      method:   'padding-right',
+      event:    'orientationchange',
+    });
+
+    wt.fix({
+      elements: '.slide-paragraph',
+      chars:    10,
+      method:   'padding-right',
+      event:    'pageshow',
+    });
+
   }, // END mounted
   beforeDestroy() {
+
+    window.removeEventListener('beforeunload', this.wt);
+    window.removeEventListener('load', this.wt);
+    window.removeEventListener('orientationchange', this.wt);
+    window.removeEventListener('pageshow', this.wt);
+    window.removeEventListener('unload', this.wt);
+    window.removeEventListener('pageshow', this.wt);
+    window.removeEventListener('popstate', this.wt);
+    window.removeEventListener('unload', this.wt);
 
   }, // END beforeDestroy
   methods: {

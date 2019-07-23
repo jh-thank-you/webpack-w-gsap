@@ -1151,6 +1151,19 @@ fieldset {
   color: #43657D;
 }
 
+#section-about .form-section p,
+#section-about .form-section a,
+#section-contact .form-section p,
+#section-contact .form-section a {
+  line-height: 1.5em;
+}
+
+#section-about .form-section h4,
+#section-contact .form-section h4 {
+    line-height: 1.2em;
+}
+
+
 
 #section-contact .form-section,
 #section-about .form-section,
@@ -1559,69 +1572,41 @@ a #preferences-form:hover {
   font-weight: normal;
   margin-top: -5px;
   font-size: .85em;
+  line-height: 1.5em;
 }
 
-#section-bio .review-author a,
-#section-contact .review-author a,
-#section-about .review-author a {
-  padding-right: 0px;
-  padding-bottom: 1px;
-  padding-top: 1px;
+
+.review-author a {
+  display:block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 20px; /* have to set height or Widowtamer has an error */
   color: #758692;
-  -webkit-transition: color 0.25s ease-out;
-     -moz-transition: color 0.25s ease-out;
-       -o-transition: color 0.25s ease-out;
-          transition: color 0.25s ease-out;
-}
-
-.review-logo {
-  display:inline-block;
-  width: 20px;
-  height: 20px;
   background-image: url('~img/ui-elements/social-icons-linkedin-blue-sm.gif');
   background-repeat: no-repeat;
   background-position: right 0;
-  background-size: contain;
-  padding-right: 0;
-  padding-bottom: 1px;
-  padding-top: 0;
-  margin-bottom: -5px;
-  -webkit-transition: background-image 0.25s ease-out;
-     -moz-transition: background-image 0.25s ease-out;
-       -o-transition: background-image 0.25s ease-out;
-          transition: background-image 0.25s ease-out;
+  background-size: 20px;
+  padding-right: 2em;
+  margin-bottom: -2px;
+  -webkit-transition: all 0.25s ease-out;
+     -moz-transition: all 0.25s ease-out;
+       -o-transition: all 0.25s ease-out;
+          transition: all 0.25s ease-out;
 }
 
 
-#section-bio .review-author a:hover,
-#section-bio .review-author a:focus,
-#section-bio .review-author a:active,
-#section-contact .review-author a:hover,
-#section-contact .review-author a:focus,
-#section-contact .review-author a:active,
-#section-about .review-author a:hover,
-#section-about .review-author a:focus,
-#section-about .review-author a:active {
+.review-author a:hover,
+.review-author a:focus,
+.review-author a:active {
   color: #c00000;
-}
-
-
-#section-bio .review-author a:hover .review-logo,
-#section-bio .review-author a:focus .review-logo,
-#section-bio .review-author a:active .review-logo,
-#section-contact .review-author a:hover .review-logo,
-#section-contact .review-author a:focus .review-logo,
-#section-contact .review-author a:active .review-logo,
-#section-about .review-author a:hover .review-logo,
-#section-about .review-author a:focus .review-logo,
-#section-about .review-author a:active .review-logo {
   background-image: url('~img/ui-elements/social-icons-linkedin-red-sm.gif');
 }
 
 
-#section-bio .review-author a:visited,
-#section-bio .review-author a:visited,
-#section-bio .review-author a:visited {
+.review-author a:visited,
+.review-author a:visited,
+.review-author a:visited {
   color: #922f33;
 }
 

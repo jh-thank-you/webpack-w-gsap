@@ -41,7 +41,7 @@
                       <legend><h4 class="handwritten review-baseline">Reviews</h4></legend>
                       <p class="review">Years ago I had an opportunity to work with an incredible group of Marines while creating advertising for the Armed Forces. Each possessed a quiet deep-rooted sense of confidence, a “can do” attitude and a mindset that obstacles can never ever get the best of them. I hadn’t thought about those guys until I met Jim. He’s cut from the same cloth: is a quintessential team player, loves a creative challenge, is multi-talented with a heart of gold. If the Advertising business owned the phrase “We are looking for a few good men”, Jim would be the poster child.</p>
 
-                      <div class="review-author"><p><a href="https://www.linkedin.com/in/glennbatkin/" target="_blank"> Glenn Batkin &#124; Creative Director <div class="review-logo"></div></a></p></div>
+                      <div class="review-author"><p><a href="https://www.linkedin.com/in/glennbatkin/" target="_blank"> Glenn Batkin &#124; Creative Director</a></p></div>
                     </div>
 
                     <hr>
@@ -53,7 +53,7 @@
 
                       <p class="review">I like working with the guy and am more than happy to recommend Jim!</p>
 
-                      <div class="review-author"><p><a href="https://www.linkedin.com/in/bob-zeltmann-990ab13/" target="_blank"> Bob Zeltmann &#124; Publicis VP, Director of Design <div class="review-logo"></div></a></p></div>
+                      <div class="review-author"><p><a href="https://www.linkedin.com/in/bob-zeltmann-990ab13/" target="_blank"> Bob Zeltmann &#124; Publicis VP, Director of Design</a></p></div>
                     </div>
 
                     <hr>
@@ -61,7 +61,7 @@
                     <div class="form-section">
                       <p class="review">Jim is a talented, creative, and focused individual that has delivered exceptional results no matter what project or challenge has been presented to him. Whether it be a project needing a great concept, email design, ad design, trade show booth design, or acting on my behalf as the Mally Brand Steward, Jim delivers a quality concept and design that is perfect for our ever growing brand. He has proven himself in all aspects of art and creative direction. He has been working directly with me to build our Brand presence on all fronts and is a trusted and valued creative partner for the past 7 years. He has never missed a deadline and has delivered great work on every project.</p>
 
-                      <div class="review-author"><p><a href="https://www.linkedin.com/in/phil-bickett-16937420/" target="_blank"> Phil Bickett &#124; Mally Beauty EVP/Creative Director <div class="review-logo"></div></a></p></div>
+                      <div class="review-author"><p><a href="https://www.linkedin.com/in/phil-bickett-16937420/" target="_blank"> Phil Bickett &#124; Mally Beauty EVP/Creative Director</a></p></div>
                     </div>
 
                     <hr>
@@ -71,7 +71,7 @@
 
                       <p class="review">When people work with Jim they're thrilled, kinda blown away, and whatever they're doing is successful. An extra bonus with Jim is once you've gotten to the finish line: totally production-ready process. He will bring a blank slate to a gorgeous, smart idea, execution, pool it out, and take it all the way through to production. 100% start-to-finish excellence is an accurate, not in the slightest bit exaggerated summary of what it's like to work with Jim.</p>
 
-                      <div class="review-author"><p><a href="https://www.linkedin.com/in/tcm1348083/" target="_blank"> Tomas Mendez &#124; Dell-EMC Creative Content Director <div class="review-logo"></div></a></p></div>
+                      <div class="review-author"><p><a href="https://www.linkedin.com/in/tcm1348083/" target="_blank"> Tomas Mendez &#124; Dell-EMC Creative Content Director</a></p></div>
                     </div>
 
                     <hr>
@@ -87,7 +87,7 @@
 
                       <p class="review">For what you did for many others at Ogilvy.</p>
 
-                      <div class="review-author"><p><a href="https://www.linkedin.com/in/woodpeter1/" target="_blank"> Peter Wood  &#124; Ogilvy Executive Creative Director <div class="review-logo"></div></a></p></div>
+                      <div class="review-author"><p><a href="https://www.linkedin.com/in/woodpeter1/" target="_blank"> Peter Wood  &#124; Ogilvy Executive Creative Director</a></p></div>
                     </div>
 
                     <hr>
@@ -106,6 +106,8 @@
 <script>
 
 import buttonCloseSectionRaster from 'components/button-close-section-raster.vue';
+
+import { wt } from 'widowtamer-npm';
 
 export default {
 
@@ -135,15 +137,97 @@ export default {
 
     this.sectionActive = true;
 
+    // Widowtamer settings
+    wt.fix({
+      elements: '.form-section legend h4',
+      chars:    10,
+      method:   'nbsp',
+      event:    'resize',
+    });
+
+    wt.fix({
+      elements: '.form-section legend h4',
+      chars:    10,
+      method:   'nbsp',
+      event:    'orientationchange',
+    });
+
+    wt.fix({
+      elements: '.form-section legend h4',
+      chars:    10,
+      method:   'nbsp',
+      event:    'pageshow',
+    });
+
+
+    wt.fix({
+      elements: '.review',
+      chars:    10,
+      method:   'letter-spacing',
+      dir:      'pos',
+      event:    'resize',
+    });
+
+    wt.fix({
+      elements: '.review',
+      chars:    10,
+      method:   'letter-spacing',
+      dir:      'pos',
+      event:    'orientationchange',
+    });
+
+    wt.fix({
+      elements: '.review',
+      chars:    10,
+      method:   'letter-spacing',
+      dir:      'pos',
+      event:    'pageshow',
+    });
+
+
+    wt.fix({
+      elements: '.review-author p a',
+      chars:    10,
+      method:   'nbsp',
+      event:    'resize',
+    });
+
+    wt.fix({
+      elements: '.review-author p a',
+      chars:    10,
+      method:   'nbsp',
+      event:    'orientationchange',
+    });
+
+    wt.fix({
+      elements: '.review-author p a',
+      chars:    10,
+      method:   'nbsp',
+      event:    'pageshow',
+    });
+
 
   }, // END mounted
   methods: {
 
 
   }, // END methods
+  beforeUpdate() {
+
+
+  }, // END beforeUpdate
   beforeDestroy() {
 
     window.removeEventListener('resize', this.resize);
+
+    window.removeEventListener('beforeunload', this.wt);
+    window.removeEventListener('load', this.wt);
+    window.removeEventListener('orientationchange', this.wt);
+    window.removeEventListener('pageshow', this.wt);
+    window.removeEventListener('unload', this.wt);
+    window.removeEventListener('pageshow', this.wt);
+    window.removeEventListener('popstate', this.wt);
+    window.removeEventListener('unload', this.wt);
 
   }, // END destroyed
 

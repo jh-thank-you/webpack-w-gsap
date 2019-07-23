@@ -103,6 +103,7 @@ export default {
 
       ],
       currentIndex:            0,
+      slideX:                  1.5,
       imagesource:             'default',
       swipeRevealItems:        [],
       swipeRevealItemElements: [],
@@ -513,6 +514,10 @@ export default {
       if ( this.currentIndex === 0 ) {
         return;
       } else {
+
+        // Set so slides come from left side
+        this.slideX = -1.5;
+
         this.currentIndex--;
         console.log(this.currentIndex + ' = currentIndex - Go To Prev Slide');
       }
@@ -524,6 +529,10 @@ export default {
       if ( this.currentIndex === this.slides.length - 1 ) {
         return;
       } else {
+
+        // Set so slides come right right
+        this.slideX = 1.5;
+
         this.currentIndex++;
         console.log(this.currentIndex + ' = currentIndex - Go To Next Slide');
       }
@@ -537,7 +546,7 @@ export default {
       });
 
       tl.set(el, {
-        x:               window.innerWidth * 1.5,
+        x:               window.innerWidth * this.slideX,
         scale:           0.7,
         transformOrigin: '50% 50%',
       });

@@ -27,19 +27,19 @@
                     </div>
 
                     <div class="form-section">
-                      <legend><h4 class="handwritten review-baseline">Thanks for Stopping By</h4></legend>
-                      <p class="review">Well, you have either looked at all my work and are ready to hire me or you just want to chew the fat. Either way I'm happy to chat.</p>
+                      <legend><h4 class="handwritten review-baseline tamed">Thanks for Stopping By</h4></legend>
+                      <p class="review tamed">Well, you have either looked at all my work and are ready to hire me or you just want to chew the fat. Either way I'm happy to chat.</p>
                     </div>
 
                     <hr>
 
                     <div class="form-section">
-                      <legend><h4 class="handwritten">Thanks GreenSock Team!</h4></legend>
+                      <legend><h4 class="handwritten tamed">Thanks GreenSock Team!</h4></legend>
                       <p>To say you ROCK!!! would be selling you short. Thanks again gents for all your help. An extra shout-out to Blake and Dipscom!<a href="https://greensock.com/" target="_blank"> GreenSock.com</a></p>
                     </div>
 
                     <div class="form-section">
-                      <legend><h4 class="handwritten">Thanks Sven Vilters!</h4></legend>
+                      <legend><h4 class="handwritten tamed">Thanks Sven Vilters!</h4></legend>
                       <p>I can't thank you enough for all your time, patience and guidance.<a href="https://github.com/svevil" target="_blank"> GitHub &#124; Sven Vilters</a></p>
                     </div>
 
@@ -50,7 +50,7 @@
 
                     <div class="form-section">
                       <legend><h4 class="handwritten">Thanks Bogdan Luca!</h4></legend>
-                      <p>A BIG thank you to Bogdan. I appreciate all your VueJS help and especially with your willingness to teach and not just critique.<a href="https://github.com/lbogdan" target="_blank"> GitHub &#124; Bogdan Luca &#124; lbogdan</a></p>
+                      <p>A BIG thank you to Bogdan. I appreciate all your VueJS help and especially with your willingness to teach and not just critique.<a class="tamed" href="https://github.com/lbogdan" target="_blank"> GitHub &#124; Bogdan Luca</a></p>
                     </div>
 
                     <div class="form-section">
@@ -72,6 +72,8 @@
 <script>
 
 import buttonCloseSectionRaster from 'components/button-close-section-raster.vue';
+
+import { wt } from 'widowtamer-npm';
 
 export default {
 
@@ -102,14 +104,95 @@ export default {
     this.sectionActive = true;
 
 
+    // Widowtamer settings
+    wt.fix({
+      elements: '.form-section legend h4',
+      chars:    10,
+      method:   'nbsp',
+      event:    'resize',
+    });
+
+    wt.fix({
+      elements: '.form-section legend h4',
+      chars:    10,
+      method:   'nbsp',
+      event:    'orientationchange',
+    });
+
+    wt.fix({
+      elements: '.form-section legend h4',
+      chars:    10,
+      method:   'nbsp',
+      event:    'pageshow',
+    });
+
+
+    wt.fix({
+      elements: '.form-section p',
+      chars:    10,
+      method:   'letter-spacing',
+      event:    'resize',
+    });
+
+    wt.fix({
+      elements: '.form-section p',
+      chars:    10,
+      method:   'letter-spacing',
+      event:    'orientationchange',
+    });
+
+    wt.fix({
+      elements: '.form-section p',
+      chars:    10,
+      method:   'letter-spacing',
+      event:    'pageshow',
+    });
+
+
+    wt.fix({
+      elements: '.form-section a',
+      chars:    20,
+      method:   'nbsp',
+      event:    'resize',
+    });
+
+    wt.fix({
+      elements: '.form-section a',
+      chars:    20,
+      method:   'nbsp',
+      event:    'orientationchange',
+    });
+
+    wt.fix({
+      elements: '.form-section a',
+      chars:    20,
+      method:   'nbsp',
+      event:    'pageshow',
+    });
+
+
   }, // END mounted
   methods: {
 
 
   }, // END methods
+  beforeUpdate() {
+
+
+  }, // END beforeUpdate
   beforeDestroy() {
 
     window.removeEventListener('resize', this.resize);
+
+    window.removeEventListener('beforeunload', this.wt);
+    window.removeEventListener('load', this.wt);
+    window.removeEventListener('orientationchange', this.wt);
+    window.removeEventListener('pageshow', this.wt);
+    window.removeEventListener('unload', this.wt);
+    window.removeEventListener('pageshow', this.wt);
+    window.removeEventListener('popstate', this.wt);
+    window.removeEventListener('unload', this.wt);
+
 
   }, // END destroyed
 

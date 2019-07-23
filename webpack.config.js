@@ -178,14 +178,15 @@ const cssLoader = PRODUCTION
 
 module.exports = {
   devtool: projectMap,
-  entry: { build, vendor: ['vue', 'vuex', 'vuex-localstorage', 'gsap/TweenMax', 'gsap/ScrollToPlugin'] },
+  entry: { build, vendor: ['vue', 'vuex', 'vuex-localstorage', 'gsap/TweenMax', 'gsap/ScrollToPlugin', 'widowtamer-npm'] },
   resolve: {
     // IMPORTANT - keep in mind that path values are relative to the file you are writing in
     // Need to research how to create an alias to the root of the build or dist folder
 
-    alias: { // chnaged dev folder structure to match production output - updated path aliases to reflect change - all files link properly in dev and prod
+    alias: { // changed dev folder structure to match production output - updated path aliases to reflect change - all files link properly in dev and prod
       'vue$': 'vue/dist/vue.esm.js',
       'vuex': 'vuex/dist/vuex.esm.js',
+      'widowtamer-npm': 'widowtamer-npm/widowtamer.js',
       modernizr$: path.resolve(__dirname, "./.modernizrrc"),
       assets: path.resolve(__dirname, './assets'),
       components: path.resolve(__dirname, './assets/components'),

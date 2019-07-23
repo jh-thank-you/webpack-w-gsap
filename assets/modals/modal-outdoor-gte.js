@@ -63,7 +63,7 @@ let slides = [
     showVideo: false,
     videoSrc:  '',
     showText:  true,
-    pText:     'U.S. Launch Campaign for GTE All On One Bill. | Released in three major markets (NYC, Chicago and LA) | Consisted of 3D Outdoor Billboards that would start off as a teaser corkboard with just push pins and the GTE logo. Eventually the tear tab sheets would appear with all tabs in place. Over the course of a month the tabs would begin to disappear. As the tabs disappeared off of the 3D billboards actors, posing as would be GTE All On One Bill customers, would begin showing up in the vicinity of the 3D billboards with the giant All On One Bill tabs in hand. The actors were provided loose All On One Bill scripts to follow when the general public would enquire about the tabs.',
+    pText:     'U.S. Launch Campaign for GTE All On One Bill. |\u00a0Released in three major markets (NYC, Chicago and LA) |\u00a0Consisted of 3D Outdoor Billboards that would start off as a teaser corkboard with just push pins and the GTE logo. Eventually the tear tab sheets would appear with all tabs in place. Over the course of a month the tabs would begin to disappear. As the tabs disappeared off of the 3D billboards actors, posing as would be GTE All On One Bill customers, would begin showing up in the vicinity of the 3D billboards with the giant All On One Bill tabs in hand. The actors were provided loose All On One Bill scripts to follow when the general public would enquire about the tabs.',
   },
 
 
