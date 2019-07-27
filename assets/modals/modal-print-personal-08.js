@@ -4,7 +4,7 @@ let slides = [
     client:    '',
     alt:       'human-eye-oil-pastel',
     showImage: true,
-    src:       require('assets/img/modal-slides/modal-personal-human-eye-oil-pastel.jpg'),
+    src:       require('assets/img/modal-slides/modal-personal-human-eye-oil-pastel.gif'),
     showVideo: false,
     videoSrc:  '',
     showText:  false,

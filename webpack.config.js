@@ -295,7 +295,9 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, './dist'),
-    publicPath: PRODUCTION ? './' : '/dist/', // changed from '/'
+    // Note: to view production build locally 
+    // run npx serve from root of dist folder
+    publicPath: PRODUCTION ? '/' : '/dist/',
     filename: PRODUCTION ? '[name].min.js' : '[name].js',
   },
 }; // END module.exports

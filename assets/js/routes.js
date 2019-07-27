@@ -10,12 +10,16 @@ import About from '../sections/section-about.vue';
 import Contact from '../sections/section-contact.vue';
 import Archive from '../sections/section-archive-work.vue';
 import Settings from '../sections/section-settings.vue';
+import NotFoundComponent from '../sections/section-404.vue';
 
 
 import slideshowModal from '../components/modal-slideshow.vue';
 
 
 let routes = [
+  {
+    path:      '*', component: NotFoundComponent,
+  },
   {
     path:      '/',
     props:     { id: 'section-home' },
@@ -111,7 +115,6 @@ let routes = [
     ],
   },
   {
-
     path:      '/archive',
     props:     { id: 'section-archived-work' },
     component: Archive,
@@ -174,6 +177,7 @@ let routes = [
 ]; // END let routes
 
 export default new VueRouter({
+  base: '/',
   mode: 'history',
   routes,
 
