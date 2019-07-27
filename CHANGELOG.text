@@ -1,11 +1,16 @@
 =============================
-2019-07-23_02.46.45-CHANGELOG
+2019-07-27_18.21.19-CHANGELOG
 =============================
 
 Note: to upade the changelog open terminal and cd into the root of the project folder, then run the command gitchangelog.
 
 
 [Current]
+
+[v0.8.6-vue-router-history-mode]
+ * Added history mode to Vue Router. Added deafault path to Vue Router. Added htaccess file to root folder for Vue Router history mode to work on Apache server.
+ * Widowtamer settings adjusted
+ *  - updated changelog
 
 [v0.8.5-added-widowtamer-n-changelog]
  *  - Added Widowtamer to text content. Added a CHANGELOG.  Set Vue Router to History Mode.
