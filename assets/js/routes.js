@@ -18,9 +18,6 @@ import slideshowModal from '../components/modal-slideshow.vue';
 
 let routes = [
   {
-    path:      '*', component: NotFoundComponent,
-  },
-  {
     path:      '/',
     props:     { id: 'section-home' },
     component: Home,
@@ -173,6 +170,12 @@ let routes = [
 
       next();
     },
+  },
+  {
+    path:      '/404',
+    alias:     '*',
+    name:      'my404',
+    component: NotFoundComponent,
   },
 ]; // END let routes
 

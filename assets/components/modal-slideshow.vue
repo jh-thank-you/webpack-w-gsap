@@ -90,7 +90,7 @@ export default {
       slides: [
 
         {
-          'navID':     '',
+          'navID':     null,
           'client':    '',
           'alt':       '',
           'showImage': '',
@@ -113,6 +113,21 @@ export default {
       sectionRouteBase:        '',
     };
   }, // END data
+  beforeRouteLeave(to, from, next) {
+
+    // Clear the Vuex Store imageSrc value
+    this.$store.dispatch('clearImageSrc');
+
+    next();
+  },
+  // beforeRouteUpdate(to, from, next) {
+
+  //   if ( this.$store.state.imageSrc == null ) {
+  //     next({ name: 'my404' });
+  //   }
+
+  //   next();
+  // },
   computed: {
 
     ...mapState(['imageSrc']), // END mapState
@@ -170,6 +185,7 @@ export default {
     } else if (this.$route.path.includes('/archive')) {
 
       this.sectionRouteBase = '/archive';
+
     }
 
 

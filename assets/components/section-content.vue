@@ -146,7 +146,7 @@ export default {
     getExamples() {
 
       if (this.$root.debug) { console.log('getExamples called'); }
-      eventBus.$emit('sendSelected'); // get the current preferece form value from the contacts-and-prefs component
+      eventBus.$emit('sendSelected'); // get the current preferece form value from the section-settings component
 
       /* ******************************************************
             
@@ -236,7 +236,7 @@ export default {
 
         // section-personal-work
 
-        if (this.$root.debug) { console.log( currentSectionID + ' = currentSectionID Persona Work'); }
+        if (this.$root.debug) { console.log( currentSectionID + ' = currentSectionID Personal Work'); }
 
         currentExamples = [
 
@@ -276,6 +276,10 @@ export default {
 
         currentExamples = [
 
+          {exampleid: 'modal-print-advil', alt: 'Advil Print Communication Pieces', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
+
+          {exampleid: 'modal-print-bayer', alt: 'Bayer Print Communication Pieces', client: 'Bayer', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
+
           {exampleid: 'modal-print-cardene-iv', alt: 'Cardene I.V. Print Communication Pieces', client: 'Cardene I.V.', sector: ['healthcare', 'pharma'], access: 'unlocked' },
 
           {exampleid: 'modal-print-cimzia', alt: 'Cimzia Print Communication Pieces', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
@@ -283,6 +287,8 @@ export default {
           {exampleid: 'modal-print-ginkoba', alt: 'Ginkoba Print Communication Pieces', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
 
           {exampleid: 'modal-print-levemir', alt: 'Levemir Print Communication Pieces', client: 'Levemir', sector: ['healthcare', 'pharma'], access: 'unlocked' },
+
+          {exampleid: 'modal-print-ny-blood-center', alt: 'NY Blood Center Print Communication Pieces', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
 
           {exampleid: 'modal-print-premarin', alt: 'Premarin 360 Campaign Communication Pieces', client: 'Premarin', sector: ['healthcare', 'pharma'], access: 'unlocked' },
 

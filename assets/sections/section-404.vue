@@ -16,7 +16,7 @@
                       <legend><h4 class="handwritten review-baseline">404 - Page Not Found</h4></legend>
                       <p class="review">Well, that really stinks. You missed out, that content is gone... forever lost. Hope you're not too sad.</p>
 
-                      <p class="review">To cheer you up here is a little joke (courtesy of Mr. Kavenough - Retired 5th grade teacher):</p>
+                      <p class="review">To cheer you up here is a little joke (courtesy of Mr. K - Retired 5th grade teacher):</p>
 
                       <div class="joke">
                         <div class="chips"></div>
@@ -27,7 +27,7 @@
 
                         <p class="review">Why didn't the 10th potato chip jump off the bridge?</p>
 
-                        <p class="review">Because it was a <b><i>Wise</i></b> potato chip!</p>
+                        <p class="review">Because, it's a <b><i>Wise</i></b> potato chip!</p>
                     </div>
 
                     </div>

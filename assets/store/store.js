@@ -27,7 +27,7 @@ export const store = new Vuex.Store({
     // modalVisibility:     '',
     // passwordStatus:      '',
     // noActiveClient:      '',
-    imageSrc:     '',
+    imageSrc:     null,
     showModal:    false,
   }, // END state
   mutations: {
@@ -65,7 +65,7 @@ export const store = new Vuex.Store({
     },
 
     resetImageSrc: state => {
-      state.imageSrc = '';
+      state.imageSrc = null;
     },
 
   }, // END mutations
