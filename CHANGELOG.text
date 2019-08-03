@@ -1,11 +1,17 @@
 =============================
-2019-07-27_18.21.19-CHANGELOG
+2019-08-03_03.06.10-CHANGELOG
 =============================
 
 Note: to upade the changelog open terminal and cd into the root of the project folder, then run the command gitchangelog.
 
 
+
 [Current]
+
+[v0.8.7-updated-pharma-content]
+ *  - updated pharma content
+ * updated htaccess comment
+ * updated changelog
 
 [v0.8.6-vue-router-history-mode]
  * Added history mode to Vue Router. Added deafault path to Vue Router. Added htaccess file to root folder for Vue Router history mode to work on Apache server.
