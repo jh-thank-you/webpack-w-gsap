@@ -13,7 +13,7 @@
                   <div id="preferences-form" class="row"> <!-- START preferences-form -->
                     <div class="form-section">
                       <legend><h4 class="handwritten">Contact Info</h4></legend>
-                      <p>Jim Hainis | Art Director | <a href="tel:973-415-8869">973.415.8869</a> |<a href="mailto:jim@hainis.net?Subject=We%20want%20to%20hire%20you%21"> jim@hainis.net</a></p>
+                      <p>Jim Hainis | Art Director | Creative Director | <a href="tel:973-415-8869">973.415.8869</a> |<a href="mailto:jim@hainis.net?Subject=We%20want%20to%20hire%20you%21"> jim@hainis.net</a></p>
 
                       <div>
                         <div class="linkedin-icon" onclick=" window.open('http://www.linkedin.com/pub/jim-hainis/3/9a5/185','_blank')"></div>
@@ -28,13 +28,23 @@
 
                     <div class="form-section">
                       <legend><h4 class="handwritten review-baseline">About</h4></legend>
-                      <p class="review">I’m a creative type – art direction.</p>
+                      <p class="review">I am a listener, researcher, thinker, doer. That’s my creative process. And long after others might quit and go home I am still thinking, crafting, pushing things to the next level.</p>
 
-                      <p class="review">I’ve been lucky to work with some exceptional people doing what I love.</p>
+                      <p class="review">Yes, I can design, art direct — but what I really am is a problem solver, an opportunity maker. I solve communication problems and create more opportunities for a product, service or brand.</p>
 
-                      <p class="review">I have worked at many of the top advertising agencies; DDB, Ogilvy and Kirshenbaum &#38; Bond to name a few. I have had the privilege of working on some of the world’s most recognized brands. That said, I am also lucky to have helped a number of small businesses and nonprofits over the years.</p>
+                      <p class="review">On the ad agency side I have worked my way up through the ranks to ACD; managing teams, timelines, deliverables, budgets and client expectations. I have worked for the Ogilvys and the Turfs of the world — from the Goliaths to the three person (or in my case one person) shops of the world.</p>
 
-                      <p class="review">I try to give back to the community by doing volunteer work, serving as an Executive Director at a nonprofit helping families in New Jersey.</p>
+                      <p class="review">As a business owner and nonprofit founder I have partnered with C-level talent and community stakeholders alike to solve the problems at hand.</p>
+
+                      <p class="review">From being Creative Director on the product launch for a multi-million dollar client — to helping a family of five fix their toilet when the slumlord refused to — I have been there to help.</p>
+
+                      <p class="review">On a good day I solve my clients’ problems. On a great day I help make the world a better place.</p>
+
+                      <legend><h4 class="handwritten review-baseline">Agency Experience</h4></legend>
+                      <p class="review">•&nbsp;Ammirati&nbsp;Puris&nbsp;Lintas, •&nbsp;BGB&nbsp;Group, •&nbsp;The&nbsp;Cement&nbsp;Works, •&nbsp;Cline&nbsp;Davis&nbsp;Mann, •&nbsp;Cossette, •&nbsp;DDB&nbsp;Needham, •&nbsp;Donath&nbsp;Communications, •&nbsp;Earle&nbsp;Palmer&nbsp;Brown, •&nbsp;FCBCURE, •&nbsp;Merkley&nbsp;+&nbsp;Partners, •&nbsp;Kirshenbaum&nbsp;Bond&nbsp;+&nbsp;Partners, •&nbsp;Lowe&nbsp;&#38;&nbsp;Partners, •&nbsp;Messner, •&nbsp;Ogilvy&nbsp;&#38;&nbsp;Mather, •&nbsp;TURF</p>
+
+                      <legend><h4 class="handwritten review-baseline">Client Experience</h4></legend>
+                      <p class="review">•&nbsp;Aetna, •&nbsp;Affinity&nbsp;Federal&nbsp;Credit&nbsp;Union, •&nbsp;American&nbsp;Museum&nbsp;of&nbsp;Natural&nbsp;History, •&nbsp;American&nbsp;Express, •&nbsp;Amtrak, •&nbsp;AstraZeneca, •&nbsp;Bank&nbsp;of&nbsp;New&nbsp;York, •&nbsp;Bayer, •&nbsp;Burger&nbsp;King, •&nbsp;CNN, •&nbsp;Cardene&nbsp;I.V., •&nbsp;CIGNA, •&nbsp;Cimzia, •&nbsp;Cimzia&nbsp;RA, •&nbsp;Compaq, •&nbsp;Credit&nbsp;Suisse&nbsp;First&nbsp;Boston, •&nbsp;Crohn’s&nbsp;&#38;&nbsp;Me, •&nbsp;CSFBdirect, •&nbsp;Dell, •&nbsp;Disney, •&nbsp;DLJdirect, •&nbsp;ESPN, •&nbsp;Fanta, •&nbsp;Florida&nbsp;Aquarium, •&nbsp;Florida&nbsp;International&nbsp;Museum, •&nbsp;Florida&nbsp;State&nbsp;Lottery, •&nbsp;Ginkoba, •&nbsp;Ginsana, •&nbsp;Goldman&nbsp;Sachs, •&nbsp;GTE, •&nbsp;H.E.A.R.T.&nbsp;Martial&nbsp;Arts, •&nbsp;Hilton&nbsp;Hotels, •&nbsp;HSBC, •&nbsp;IBM, •&nbsp;Jaguar, •&nbsp;JPMorgan&nbsp;Chase, •&nbsp;KFC, •&nbsp;Kodak, •&nbsp;KO&nbsp;Fightgear, •&nbsp;Levemir, •&nbsp;Lipitor, •&nbsp;Mally&nbsp;Beauty, •&nbsp;Mercedes-Benz, •&nbsp;Motorola, •&nbsp;Movantik, •&nbsp;New&nbsp;York&nbsp;Blood&nbsp;Center, •&nbsp;North&nbsp;Fork&nbsp;Bank, •&nbsp;Partnership&nbsp;for&nbsp;Drug&nbsp;Free&nbsp;Florida, •&nbsp;Partnership&nbsp;For&nbsp;Prescription&nbsp;Assistance, •&nbsp;Ponds, •&nbsp;Radio&nbsp;Advertising&nbsp;Bureau, •&nbsp;Sheraton&nbsp;Hotels, •&nbsp;St.&nbsp;Pete&nbsp;Clearwater&nbsp;International&nbsp;Airport, •&nbsp;St.&nbsp;Pete&nbsp;Clearwater&nbsp;Tourism &nbsp;&#38;&nbsp;Trade, •&nbsp;SkinFusion, •&nbsp;Spiriva, •&nbsp;The&nbsp;Sports&nbsp;Center&nbsp;at&nbsp;Chelsea&nbsp;Piers, •&nbsp;TIAA-CREF, •&nbsp;TradeStream, •&nbsp;Vericiguat, •&nbsp;Volvo, •&nbsp;Waterford&nbsp;Crystal</p>
                     </div>
 
                     <div class="form-section">
@@ -67,7 +77,7 @@
                     <hr>
 
                     <div class="form-section">
-                      <p class="review">Jim is a black belt martial arts guy that brings serious kung fu as an art director, creative director and designer. Every time I've needed him, whether it's for big campaign concepting, designing a new look and feel for a brand, and everything in between, Jim delivers at the highest possible level. His taste is impeccable, his breadth of aesthetics is amazing, and his conceptual thinking is non-stop. Jim has an amazing eye for everything -- photography, typography, palette, composition, and an amazing brain for ideas.</p>
+                      <p class="review">Jim is a black belt martial arts guy that brings serious kung fu as an art director, creative director and designer. Every time I've needed him, whether it's for big campaign concepting, designing a new look and feel for a brand, and everything in between, Jim delivers at the highest possible level. His taste is impeccable, his breadth of aesthetics is amazing, and his conceptual thinking is non-stop. Jim has an amazing eye for everything — photography, typography, palette, composition, and an amazing brain for ideas.</p>
 
                       <p class="review">When people work with Jim they're thrilled, kinda blown away, and whatever they're doing is successful. An extra bonus with Jim is once you've gotten to the finish line: totally production-ready process. He will bring a blank slate to a gorgeous, smart idea, execution, pool it out, and take it all the way through to production. 100% start-to-finish excellence is an accurate, not in the slightest bit exaggerated summary of what it's like to work with Jim.</p>
 
