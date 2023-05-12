@@ -1110,6 +1110,13 @@ semicolon at the end of a space seperateed list */
   background-color: rgba(0, 0, 0, 0.85);
 }
 
+
+/* fix for contact and about page rows */
+#preferences-form {
+  width: 100%;
+}
+
+
 .review-baseline,
 #section-settings h4,
 #section-contact h4,
