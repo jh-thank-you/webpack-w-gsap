@@ -1,5 +1,5 @@
 =============================
-2019-08-03_03.06.10-CHANGELOG
+2023-05-12_19.34.30-CHANGELOG
 =============================
 
 Note: to upade the changelog open terminal and cd into the root of the project folder, then run the command gitchangelog.
@@ -7,6 +7,9 @@ Note: to upade the changelog open terminal and cd into the root of the project f
 
 
 [Current]
+
+[v0.8.8-updated-css-and-meta]
+ *  - fixed about page CSS for text wrap. - fixed spelling of Strategic in meta description
 
 [v0.8.7-updated-pharma-content]
  *  - updated pharma content
