@@ -6,15 +6,13 @@
             <div v-if="slide.showImage" :style="{ 'background-image': 'url(' + slide.src + ')' }" :alt="slide.alt" class="slide-img-wrap">
             </div>
 
-            <div v-if="slide.showVideo" class="slide-img-wrap video-wrap">
-              <div class="flex-video widescreen vimeo">
-                <iframe v-if="slide.showVideo" class="" :src="slide.videoSrc" :alt="slide.alt" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-              </div>
-            </div>
+                <div v-if="slide.showVideo" :class="['fitVids-wrapper', { 'aspect-square':slide.videoSquare, 'aspect-sixteen-nine':slide.videoSixteenNine, 'aspect-nine-sixteen':slide.videoNineSixteen, 'aspect-four-three':slide.videoFourThree, }]">
+                  <iframe v-if="slide.showVideo" class="videoframe" :src="slide.videoSrc" :alt="slide.alt" :width="slide.videoWidth" :height="slide.videoHeight" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
 
             <div v-if="slide.showText" class="center-slide modal-description">
               <h1 class="handwritten">{{ slide.client }}</h1>
-              <p class="slide-paragraph"> {{ slide.pText }} </p>
+              <p class="slide-paragraph widowtamed">{{ slide.pText }}</p>
             </div>
 
         </div>
@@ -25,7 +23,7 @@
 
 <script>
 
-import { wt } from 'widowtamer-npm';
+// import { wt } from 'widowtamer-npm';
 
 
 export default {
@@ -46,38 +44,43 @@ export default {
   }, // END created
   mounted() {
 
-    wt.fix({
-      elements: '.slide-paragraph',
-      chars:    10,
-      method:   'padding-right',
-      event:    'resize',
-    });
+    // window.addEventListener('resize', this.resize);
 
-    wt.fix({
-      elements: '.slide-paragraph',
-      chars:    10,
-      method:   'padding-right',
-      event:    'orientationchange',
-    });
+    // Widowtamer settings
+    // wt.fix({
+    //   elements: '.slide-paragraph .widowtamed p',
+    //   chars:    10,
+    //   method:   'padding-right',
+    //   event:    'resize',
+    // });
 
-    wt.fix({
-      elements: '.slide-paragraph',
-      chars:    10,
-      method:   'padding-right',
-      event:    'pageshow',
-    });
+    // wt.fix({
+    //   elements: '.slide-paragraph .widowtamed p',
+    //   chars:    10,
+    //   method:   'padding-right',
+    //   event:    'orientationchange',
+    // });
+
+    // wt.fix({
+    //   elements: '.slide-paragraph .widowtamed p',
+    //   chars:    10,
+    //   method:   'padding-right',
+    //   event:    'pageshow',
+    // });
+
 
   }, // END mounted
   beforeDestroy() {
 
-    window.removeEventListener('beforeunload', this.wt);
-    window.removeEventListener('load', this.wt);
-    window.removeEventListener('orientationchange', this.wt);
-    window.removeEventListener('pageshow', this.wt);
-    window.removeEventListener('unload', this.wt);
-    window.removeEventListener('pageshow', this.wt);
-    window.removeEventListener('popstate', this.wt);
-    window.removeEventListener('unload', this.wt);
+    // window.removeEventListener('beforeunload', this.wt);
+    // window.removeEventListener('load', this.wt);
+    // window.removeEventListener('orientationchange', this.wt);
+    // window.removeEventListener('pageshow', this.wt);
+    // window.removeEventListener('unload', this.wt);
+    // window.removeEventListener('pageshow', this.wt);
+    // window.removeEventListener('popstate', this.wt);
+    // window.removeEventListener('unload', this.wt);
+    // window.removeEventListener('resize', this.wt);
 
   }, // END beforeDestroy
   methods: {
@@ -92,46 +95,62 @@ export default {
 
 <style scoped>
 
- /* video set to 4:3 aspect ratio with flex-video */
- .flex-video {
+ /* .videoframe {
     position: relative;
-    display: flex;
-    padding-top: 0;
-    width: 65vw;
-    max-width: 65vh;
-    height:  50.5vw;
-    max-height: 50.5vh;
-    overflow: hidden;
-    margin: 0 0 0 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .flex-video iframe,
-  .flex-video object,
-  .flex-video embed {
-    position: absolute;
     display: block;
-    flex-grow: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    overflow: hidden;
     width: 100%;
     height: 100%;
-    max-width: 640px;
-    max-height: 480px;
+    max-width: 1150px;
+    margin: 0 auto;
     background-color: transparent !important;
+    border: 1px solid red;
+  }*/
+
+  .fitVids-wrapper {
+    position: relative;
+    padding-bottom: 0;
+    top: 50%;
+    left: -50%;
+    transform: translate(50%, -50%);
+    /*width: 100%;*/
+    max-width: 1150px;
+    height:0;
+    /*border: 1px solid orange;*/
   }
 
-  .video-wrap {
+  .aspect-square {
+    /*padding-bottom: 100%;*/
+    width: 100%;
+    height: 100%;
+  }
+
+  .aspect-sixteen-nine {
+    /*padding-bottom: 56.25%;*/
+    width: 100%;
+    height: 100%;
+  }
+
+  .aspect-nine-sixteen {
+    /*padding-bottom: 75%;*/
+    width: 100%;
+    height: 100%;
+  }
+
+  .aspect-four-three {
+    /*padding-bottom: 75%;*/
+    width: 100%;
+    height: 100%;
+  }
+
+  .fitVids-wrapper object,
+  .fitVids-wrapper iframe {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
-    max-width: 632px;
-    max-height: 472px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*border: 1px solid red;*/
   }
 
 </style>

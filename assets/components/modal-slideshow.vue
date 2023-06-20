@@ -8,23 +8,80 @@
       <meta name="msapplication-tap-highlight" content="no">
 
       <router-link :to="this.sectionRouteBase">
-        <div id="button-close-vector" @click="closeModal">
+        <div class="button-close-vector" @click="closeModal">
           <div aria-hidden='true'>&times;</div>
         </div>
       </router-link>
+
+        <div class="btn-media-group"> <!-- START btn-media-group -->
+          <div
+               v-for="(slide, index) in slides"
+               v-if="slide.showMediaID"
+               :key="slide.id"
+               type="button" @click="currentIndex = index, currentMediaID = slide.mediaID"
+               :id="slide.mediaID"
+               :class="['btn-media', { 'btn-media-primary': index === currentIndex || currentMediaID === slide.mediaID, 'btn-media-default': index !== currentIndex }]"
+               >{{ slide.mediaID }}
+          </div>
+          <div class="btn-project-info"
+                type="button" @click="showProjectInfo = !showProjectInfo"
+          >i
+          </div>
+
+          <transition name="fade">
+            <div class="modal-project-info justify-content" v-if="showProjectInfo">
+              <div class="button-close-vector" @click="showProjectInfo = !showProjectInfo">
+              <div aria-hidden='true'>&times;</div>
+            </div>
+
+              <div
+                    v-for="(slide, index) in slides"
+                    v-if="slide.showDescipt && index === currentIndex"
+                    @shown="fixWidows()"
+                    :key="slide.id"
+                    class="current-slide-description section-content-inner-wrap flex-container">
+
+                      <div v-if="slide.showClient" class="category-description client-name"><div class="bold category">Client:</div><div class="category-content"> {{ slide.client }}</div></div>
+                      <div v-if="slide.showArtTile" class="category-description client-name"><div class="bold category">Title:</div><div class="category-content"> {{ slide.artTitlle }}</div></div>
+                      <div v-if="slide.showArtTile" class="category-description client-name"><div class="bold category">Artist:</div><div class="category-content"> {{ slide.artistName }}</div></div>
+                      <div v-if="slide.showArtTile" class="category-description client-name"><div class="bold category">Media:</div><div class="category-content"> {{ slide.mediaType }}</div></div>
+                      <div v-if="slide.showArtTile" class="category-description client-name"><div class="bold category">Size:</div><div class="category-content"> {{ slide.dimensions }}</div></div>
+
+                      <div v-if="slide.showDescriptNote" class="category-description" style="white-space: pre-wrap;">
+                        <div class="bold category">Overview:</div>
+                        <p class="category-content widowtamed">{{ slide.descriptNote }}</p>
+                      </div>
+                      <div v-if="slide.showArtDescript" class="category-description" style="white-space: pre-wrap;">
+                        <div class="bold category">Media:</div>
+                        <div class="category-content">{{ slide.descriptNote }}</div>
+                      </div>
+                      <div v-if="slide.showCreditArt" class="category-description sub-category">
+                        <div v-if="slide.showCreditAgency" class="sub-category-content"><div class="bold category">Agecny:</div><div class="category-content"> {{ slide.creditAgency }}</div></div>
+                        <div v-if="slide.showCreditLeads" class="sub-category-content"><div class="bold category">Creative Director:</div><div class="category-content"> {{ slide.creditLeads }}</div></div>
+                        <div v-if="slide.showCreditArt" class="sub-category-content"><div class="bold category">Art Director:</div><div class="category-content"> {{ slide.creditArt }}</div></div>
+                        <div v-if="slide.showCreditCopy" class="sub-category-content"><div class="bold category">Copywriter:</div><div class="category-content"> {{ slide.creditCopy }}</div></div>
+                      </div>
+
+                      <div v-if="slide.showAppsUsed" class="category-description"><div class="bold category">Apps + Tech:</div><p class="category-content widowtamed"> {{ slide.appsUsed }}</p></div>
+              </div>
+            </div>
+          </transition>
+        </div> <!-- END btn-media-group -->
+
 
       <div class="btn-group-wrap">
         <div class="btn-group">
           <div
                v-for="(slide, index) in slides"
                :key="slide.id"
-               type="button" @click="currentIndex = index"
+               type="button" @click="currentIndex = index, currentMediaID = slide.mediaID"
                :class="['btn', { 'btn-primary': index === currentIndex, 'btn-default': index !== currentIndex }]"
                >
           </div>
         </div>
+      </div>
 
-        <transition name="fade">
+       <transition name="fade">
           <div v-if="slideLeft"  @input="goToPrev()" @click="goToPrev()" class="btn-previous-wrap">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 100" style="enable-background:new 0 0 50 100;" xml:space="preserve" preserveAspectRatio="none" class="btn-previous-wrap">
             <g>
@@ -46,11 +103,9 @@
           </div>
         </transition>
 
-      </div>
-
       <div class="swipe-element">
         <div class="swipe-front">
-          <transition
+          <transition-group
             v-on:enter="enter"
             v-on:after-enter="afterEnter"
             v-on:leave="leave"
@@ -59,7 +114,7 @@
               <modal-slide :slide="slides[currentIndex]" :key="currentIndex" class="current-slide">
               </modal-slide>
 
-          </transition>
+          </transition-group>
         </div>
       </div>
       <!-- END New Slideshow -->
@@ -81,6 +136,8 @@ import { mapActions} from 'vuex';
 
 import { mapGetters} from 'vuex';
 
+import { wt } from 'widowtamer-npm';
+
 export default {
 
   components: { modalSlide }, // END components
@@ -90,15 +147,37 @@ export default {
       slides: [
 
         {
-          'navID':     null,
-          'client':    '',
-          'alt':       '',
-          'showImage': '',
-          'src':       '',
-          'showVideo': '',
-          'videoSrc':  '',
-          'showText':  '',
-          'pText':     '',
+          'navID':            null,
+          'showMediaID':      '',
+          'mediaID':          '',
+          'client':           '',
+          'showClient':       '',
+          'alt':              '',
+          'showImage':        '',
+          'src':              '',
+          'showVideo':        '',
+          'videoSrc':         '',
+          'videoWidth':       '',
+          'videoHeight':      '',
+          'videoSquare':      '',
+          'videoSixteenNine': '',
+          'videoNineSixteen': '',
+          'videoFourThree':   '',
+          'showText':         '',
+          'pText':            '',
+          'showDescriptNote': '',
+          'descriptNote':     '',
+          'showCreditAgency': '',
+          'creditAgency':     '',
+          'showCreditLeads':  '',
+          'creditLeads':      '',
+          'showCreditArt':    '',
+          'creditArt':        '',
+          'showCreditCopy':   '',
+          'creditCopy':       '',
+          'showAppsUsed':     '',
+          'appsUsed':         '',
+
         },
 
       ],
@@ -111,6 +190,9 @@ export default {
       swipeFrontElement:       [],
       swipeFronts:             [],
       sectionRouteBase:        '',
+      isAnimating:             false,
+      currentMediaID:          '',
+      showProjectInfo:         false,
     };
   }, // END data
   beforeRouteLeave(to, from, next) {
@@ -120,14 +202,6 @@ export default {
 
     next();
   },
-  // beforeRouteUpdate(to, from, next) {
-
-  //   if ( this.$store.state.imageSrc == null ) {
-  //     next({ name: 'my404' });
-  //   }
-
-  //   next();
-  // },
   computed: {
 
     ...mapState(['imageSrc']), // END mapState
@@ -217,6 +291,26 @@ export default {
     }; // END arrowHandler
 
     window.addEventListener('keyup', arrowHandler);
+
+
+    var onMouseWheel = function (event) {
+      var y = event.deltaY;
+
+      if (y <= 0) {
+        console.log('scroll-up');
+        // goToPrevSlide;
+        self.goToPrev();
+      } else {
+        console.log('scroll-down');
+        // goToNextSlide;
+        self.goToNext();
+      }
+
+    }; // END scrollHandler
+
+
+    window.addEventListener('wheel', onMouseWheel);
+
 
     if (this.$root.debug) { console.log( this.imageSrc + ' = this.imageSrc modal-slideshow created'); }
 
@@ -503,6 +597,10 @@ export default {
       this.swipeFronts[i].addEventListener('touchstart', registerInteraction);
     }
 
+    // Set Current Slide Media ID from JSON file so
+    // the CSS can be set for active button in the breadcrumb menu
+    this.setCurrentMediaID();
+
   }, // END mounted
   methods: {
 
@@ -524,35 +622,63 @@ export default {
     /* ********************** START NEW SLIDE LOGIC ******************** */
     /* ***************************************************************** */
 
+    setCurrentMediaID() {
+      // Update Current Slide Media ID from JSON file so
+      // the CSS can be set for active button in the breadcrumb menu
+      this.currentMediaID = this.slides[this.currentIndex].mediaID;
+      console.log('currentMediaID = ' + this.currentMediaID);
+    }, // END setCurrentMediaID
+
+
     goToPrev() {
-      event.preventDefault();
+      // event.preventDefault();
       event.stopPropagation();
       if ( this.currentIndex === 0 ) {
         return;
-      } else {
+      } else if (this.isAnimating == false) {
+
+        //setting animating flag to true
+        this.isAnimating = true;
+        console.log('isAnimating = true');
 
         // Set so slides come from left side
         this.slideX = -1.5;
 
         this.currentIndex--;
         console.log(this.currentIndex + ' = currentIndex - Go To Prev Slide');
+
+        this.setCurrentMediaID();
+
       }
     }, // END goToPrev
 
     goToNext() {
-      event.preventDefault();
+      // event.preventDefault();
       event.stopPropagation();
       if ( this.currentIndex === this.slides.length - 1 ) {
         return;
-      } else {
+      } else if (this.isAnimating == false) {
+
+        //setting animating flag to true
+        this.isAnimating = true;
+        console.log('isAnimating = true');
 
         // Set so slides come right right
         this.slideX = 1.5;
 
         this.currentIndex++;
         console.log(this.currentIndex + ' = currentIndex - Go To Next Slide');
+
+        this.setCurrentMediaID();
       }
     }, // END goToNext
+
+
+    onSlideChangeEnd() {
+      //setting animating flag to false
+      this.isAnimating = false;
+      console.log('isAnimating = flase');
+    },
 
     enter(el, done) {
       const tl = new TimelineMax({
@@ -580,21 +706,78 @@ export default {
     afterEnter() {
 
     },
-    leave(el, done) {
+    leave(el) {
       TweenLite.fromTo(el, 1, {
         autoAlpha: 1,
       }, {
         autoAlpha:  0,
         ease:       Power4.easeOut,
-        onComplete: done,
+        onComplete: this.onSlideChangeEnd,
       });
     },
 
+
+    // eslint-disable-next-line
+    fixWidows() {
+
+      console.log('project info modal is open');
+      // this.showProjectInfo = true;
+
+      window.addEventListener('resize', this.resize);
+
+      if (document.getElementsByClassName('widowtamed')){
+        // Widowtamer settings
+        wt.fix({
+          elements: '.slide-paragraph .widowtamed p',
+          chars:    10,
+          method:   'padding-right',
+          // method:   'nbsp',
+          event:    'resize',
+        });
+
+        wt.fix({
+          elements: '.slide-paragraph .widowtamed p',
+          chars:    10,
+          method:   'padding-right',
+          // method:   'nbsp',
+          event:    'orientationchange',
+        });
+
+        wt.fix({
+          elements: '.slide-paragraph .widowtamed p',
+          chars:    10,
+          method:   'padding-right',
+          // method:   'nbsp',
+          event:    'pageshow',
+        });
+
+        wt.fix({
+          elements: '.slide-paragraph .widowtamed p',
+          chars:    10,
+          method:   'padding-right',
+          // method:   'nbsp',
+          event:    'load',
+        });
+
+        // alert('Element exists');
+
+      } else {
+        alert('Element does not exist');
+        this.fixWidows();
+      }
+    }, // END fixWidows
+
   }, // END methods
+  updated() {
+
+    this.fixWidows();
+
+  }, // END updated
   beforeDestroy() {
 
     // remove the event listeners
     window.removeEventListener('keyup', this.arrowHandler);
+    window.removeEventListener('wheel', this.onMouseWheel);
 
     if (this.$root.debug) { console.log( this.swipeFronts.length + ' = swipeFronts.length - beforeDestroy'); }
 
@@ -664,6 +847,14 @@ export default {
 .swipe-element {
   width: 100%;
   height: 100%;
+}
+
+.client-name {
+  width:  100%;
+}
+
+.widowtamed {
+  line-height: 1;
 }
 
 </style>

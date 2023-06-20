@@ -180,53 +180,53 @@ export default {
 
         currentExamples = [
 
-          {exampleid: 'modal-print-advil', alt: 'Advil Print Communication Pieces', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-advil', alt: 'Advil Print Communication Pieces', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-amex', alt: 'Amex Print Communication Pieces', client: 'Amex', sector: ['default', 'financial'], access: 'unlocked' },
+          {exampleid: 'modal-amex', alt: 'Amex Print Communication Pieces', client: 'Amex', sector: ['default', 'financial'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-cigna', alt: 'CIGNA Print Communication Pieces', client: 'CIGNA', sector: ['default', 'btob', 'insurance', 'healthcare'], access: 'unlocked' },
+          {exampleid: 'modal-cigna', alt: 'CIGNA Print Communication Pieces', client: 'CIGNA', sector: ['default', 'btob', 'insurance', 'healthcare'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-credit-suisse', alt: 'Credit Suisse Print Communication Pieces', client: 'Credit Suisse', sector: ['default', 'financial'], access: 'unlocked' },
+          {exampleid: 'modal-credit-suisse', alt: 'Credit Suisse Print Communication Pieces', client: 'Credit Suisse', sector: ['default', 'financial'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-csfb-direct', alt: 'CSFB Direct Print Communication Pieces', client: 'CSFB Direct', sector: ['default', 'financial'], access: 'unlocked' },
+          {exampleid: 'modal-csfb-direct', alt: 'CSFB Direct Print Communication Pieces', client: 'CSFB Direct', sector: ['default', 'financial'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-eleven-sports', alt: 'Eleven Sports Network', client: 'Eleven Sports Network', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          {exampleid: 'modal-eleven-sports', alt: 'Eleven Sports Network', client: 'Eleven Sports Network', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-ellis-island', alt: 'Ellis Island Print Communication Pieces', client: 'Ellis Island', sector: ['default', 'tourism'], access: 'unlocked' },
+          {exampleid: 'modal-ellis-island', alt: 'Ellis Island Print Communication Pieces', client: 'Ellis Island', sector: ['default', 'tourism'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-fl-intl-museum', alt: 'Florida International Museum Print Communication Pieces', client: 'FL Intl. Museum', sector: ['default', 'tourism'], access: 'unlocked' },
+          {exampleid: 'modal-fl-intl-museum', alt: 'Florida International Museum Print Communication Pieces', client: 'FL Intl. Museum', sector: ['default', 'tourism'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-ginkoba', alt: 'Ginkoba Print Communication Pieces', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
+          {exampleid: 'modal-ginkoba', alt: 'Ginkoba Print Communication Pieces', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-ko-fightgear', alt: 'KO Fightgear Print Communication Pieces', client: 'KO Fightgear', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          {exampleid: 'modal-ko-fightgear', alt: 'KO Fightgear Print Communication Pieces', client: 'KO Fightgear', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-lucha-underground', alt: 'Lucha Underground Wrestling', client: 'Lucha Underground', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          {exampleid: 'modal-lucha-underground', alt: 'Lucha Underground Wrestling', client: 'Lucha Underground', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
 
-          {exampleid: 'modal-outdoor-gte', alt: 'GTE Outdoor Communication Pieces', client: 'GTE', sector: ['default', 'financial'], access: 'unlocked' },
+          {exampleid: 'modal-gte', alt: 'GTE Outdoor Communication Pieces', client: 'GTE', sector: ['default', 'financial'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-logos', alt: 'Logos Various', client: 'Logos', sector: ['default', 'branding', 'btob', 'healthcare', 'fitness', 'publicservice', 'sports'], access: 'unlocked' },
+          {exampleid: 'modal-logos', alt: 'Logos Various', client: 'Logos', sector: ['default', 'branding', 'btob', 'healthcare', 'fitness', 'publicservice', 'sports'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-mistral', alt: 'Mistral Print Communication Pieces', client: 'Mistral', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          {exampleid: 'modal-mistral', alt: 'Mistral Print Communication Pieces', client: 'Mistral', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-mta', alt: 'MTA Metro Card Print Communication Pieces', client: 'MTA', sector: ['default', 'transportation', 'tourism'], access: 'unlocked' },
+          {exampleid: 'modal-mta', alt: 'MTA Metro Card Print Communication Pieces', client: 'MTA', sector: ['default', 'transportation', 'tourism'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-ny-blood-center', alt: 'NY Blood Center Print Communication Pieces', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
+          {exampleid: 'modal-ny-blood-center', alt: 'NY Blood Center Print Communication Pieces', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-oyama-karate', alt: 'Oyama Karate Print Communication Pieces', client: 'Oyama Karate', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          {exampleid: 'modal-oyama-karate', alt: 'Oyama Karate Print Communication Pieces', client: 'Oyama Karate', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-personal', alt: 'Personal Work', client: 'Personal', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal', alt: 'Personal Work', client: 'Personal', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-pfl', alt: 'Professional Fighters League', client: 'PFL', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          {exampleid: 'modal-pfl', alt: 'Professional Fighters League', client: 'PFL', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
 
-          {exampleid: 'modal-online-self-promotion', alt: 'Online Digital Self-Promotion', client: 'Slef-promotion', sector: ['default', 'branding', 'btob', 'communication'], access: 'unlocked' },
+          {exampleid: 'modal-self-promotion', alt: 'Online Digital Self-Promotion', client: 'Slef-promotion', sector: ['default', 'branding', 'btob', 'communication'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-tradestream', alt: 'Tradestream Print Communication Pieces', client: 'Tradestream', sector: ['default', 'btob', 'shipping', 'technology'], access: 'unlocked' },
+          {exampleid: 'modal-tradestream', alt: 'Tradestream Print Communication Pieces', client: 'Tradestream', sector: ['default', 'btob', 'shipping', 'technology'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-vertex-linen', alt: 'Vertex Linens Print Communication Pieces', client: 'Vertex Linen', sector: ['default', 'btob', 'cleaning'], access: 'unlocked' },
+          {exampleid: 'modal-vertex-linen', alt: 'Vertex Linens Print Communication Pieces', client: 'Vertex Linen', sector: ['default', 'btob', 'cleaning'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-pharma', alt: 'Pharma Various Clients', client: 'Pharma Various', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
+          {exampleid: 'modal-pharma', alt: 'Pharma Various Clients', client: 'Pharma Various', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
 
-          {exampleid: 'modal-print-archive', alt: 'Various Archived Client Work', client: 'Archived Work', sector: ['default', 'btob', 'sports', 'financial', 'fitness', 'healthcare'], access: 'locked' },
+          {exampleid: 'modal-archive', alt: 'Various Archived Client Work', client: 'Archived Work', sector: ['default', 'btob', 'sports', 'financial', 'fitness', 'healthcare'], access: 'locked' },
 
         ]; // END currentExamples
 
@@ -240,29 +240,29 @@ export default {
 
         currentExamples = [
 
-          {exampleid: 'modal-print-personal-01', alt: 'Feamle Nude Ink and Conte', client: 'Nude Ink and Conte', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal-01', alt: 'Feamle Nude Ink and Conte', client: 'Nude Ink and Conte', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-personal-02', alt: 'Male Nude Charcoal', client: 'Nude Charcoal', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal-02', alt: 'Male Nude Charcoal', client: 'Nude Charcoal', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-personal-03', alt: 'Female Nude Charcoal', client: 'Nude Charcoal', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal-03', alt: 'Female Nude Charcoal', client: 'Nude Charcoal', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-personal-04', alt: 'Female Nude Charcoal', client: 'Nude Charcoal', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal-04', alt: 'Female Nude Charcoal', client: 'Nude Charcoal', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-personal-05', alt: 'Female Portrait Graphite', client: 'Portrait Graphite', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal-05', alt: 'Female Portrait Graphite', client: 'Portrait Graphite', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-personal-06', alt: 'Male Portrait Oil Pastel', client: 'Portrait Oil Pastel', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal-06', alt: 'Male Portrait Oil Pastel', client: 'Portrait Oil Pastel', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-personal-07', alt: 'Feet Graphite', client: 'Feet Graphite', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal-07', alt: 'Feet Graphite', client: 'Feet Graphite', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-personal-08', alt: 'Human Eye Oil Pastel', client: 'Human Eye Oil Pastel', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal-08', alt: 'Human Eye Oil Pastel', client: 'Human Eye Oil Pastel', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-personal-09', alt: 'Towel Graphite', client: 'Towel Graphite', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal-09', alt: 'Towel Graphite', client: 'Towel Graphite', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-personal-12', alt: 'Aids Poster - Mixed Media', client: 'Poster Mixed Media', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal-12', alt: 'Aids Poster - Mixed Media', client: 'Poster Mixed Media', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-personal-13', alt: 'CD Cover - Mixed Media', client: 'CD Cover Mixed Media', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal-13', alt: 'CD Cover - Mixed Media', client: 'CD Cover Mixed Media', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-personal-14', alt: 'Metropolis Cover Design - Mixed Media', client: 'Cover Mixed Media', sector: ['default', 'finearts'], access: 'unlocked' },
+          {exampleid: 'modal-personal-14', alt: 'Metropolis Cover Design - Mixed Media', client: 'Cover Mixed Media', sector: ['default', 'finearts'], access: 'unlocked' },
 
         ]; // END currentExamples
 
@@ -276,23 +276,23 @@ export default {
 
         currentExamples = [
 
-          {exampleid: 'modal-print-advil', alt: 'Advil Print Communication Pieces', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-advil', alt: 'Advil Print Communication Pieces', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-bayer', alt: 'Bayer Print Communication Pieces', client: 'Bayer', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-bayer', alt: 'Bayer Print Communication Pieces', client: 'Bayer', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-cardene-iv', alt: 'Cardene I.V. Print Communication Pieces', client: 'Cardene I.V.', sector: ['healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-cardene-iv', alt: 'Cardene I.V. Print Communication Pieces', client: 'Cardene I.V.', sector: ['healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-cimzia', alt: 'Cimzia Print Communication Pieces', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-cimzia', alt: 'Cimzia Print Communication Pieces', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-ginkoba', alt: 'Ginkoba Print Communication Pieces', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
+          {exampleid: 'modal-ginkoba', alt: 'Ginkoba Print Communication Pieces', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-levemir', alt: 'Levemir Print Communication Pieces', client: 'Levemir', sector: ['healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-levemir', alt: 'Levemir Print Communication Pieces', client: 'Levemir', sector: ['healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-ny-blood-center', alt: 'NY Blood Center Print Communication Pieces', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
+          {exampleid: 'modal-ny-blood-center', alt: 'NY Blood Center Print Communication Pieces', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-premarin', alt: 'Premarin 360 Campaign Communication Pieces', client: 'Premarin', sector: ['healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-premarin', alt: 'Premarin 360 Campaign Communication Pieces', client: 'Premarin', sector: ['healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-spiriva', alt: 'Spiriva Print Communication Pieces', client: 'Spiriva', sector: ['healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-spiriva', alt: 'Spiriva Print Communication Pieces', client: 'Spiriva', sector: ['healthcare', 'pharma'], access: 'unlocked' },
 
 
         ]; // END currentExamples
@@ -307,17 +307,17 @@ export default {
 
         currentExamples = [
 
-          {exampleid: 'modal-print-amtrak', alt: 'Amtrak Print Communication Pieces', client: 'Amtrak', sector: ['default', 'transportation', 'tourism'], access: 'unlocked' },
+          {exampleid: 'modal-amtrak', alt: 'Amtrak Print Communication Pieces', client: 'Amtrak', sector: ['default', 'transportation', 'tourism'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-bayer', alt: 'Bayer Print Communication Pieces', client: 'Bayer', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-bayer', alt: 'Bayer Print Communication Pieces', client: 'Bayer', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-dell', alt: 'Dell Print Communication Pieces', client: 'Dell', sector: ['default', 'technology'], access: 'unlocked' },
+          {exampleid: 'modal-dell', alt: 'Dell Print Communication Pieces', client: 'Dell', sector: ['default', 'technology'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-goldman-sachs', alt: 'Goldman Sachs Print Communication Pieces', client: 'Goldman Sachs', sector: ['financial'], access: 'unlocked' },
+          {exampleid: 'modal-goldman-sachs', alt: 'Goldman Sachs Print Communication Pieces', client: 'Goldman Sachs', sector: ['financial'], access: 'unlocked' },
 
-          {exampleid: 'modal-print-lcc', alt: 'LCC Print Communication Pieces', client: 'LCC', sector: ['publicservice'], access: 'unlocked' },
+          {exampleid: 'modal-lcc', alt: 'LCC Print Communication Pieces', client: 'LCC', sector: ['publicservice'], access: 'unlocked' },
 
-          {exampleid: 'modal-outdoor-mally-beauty', alt: 'Mally Beauty Outdoor Communication Pieces', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
+          {exampleid: 'modal-mally-beauty', alt: 'Mally Beauty Outdoor Communication Pieces', client: 'Mally Beauty', sector: ['default', 'beauty', 'fashion', 'fragrance'], access: 'unlocked' },
 
         ]; // END currentExamples
 

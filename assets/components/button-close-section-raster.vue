@@ -1,6 +1,6 @@
 <template>
 
-    <div id="button-close-raster" @click="setSectionClosed" class='close-button' aria-label='Close alert' type='button'>
+    <div @click="setSectionClosed" class='close-button button-close-raster' aria-label='Close alert' type='button'>
       <div aria-hidden='true'>&times;</div>
     </div>
 
