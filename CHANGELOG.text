@@ -2,6 +2,8 @@
 2023-06-20_00.31.42-CHANGELOG
 =============================
 
+Note: to upade the changelog open terminal and cd into the root of the project folder, then run the command gitchangelog.
+
 [Current]
  * v0.8.8-added-project-info-modal
 
