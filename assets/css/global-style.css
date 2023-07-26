@@ -20,8 +20,8 @@ html {
           box-sizing: border-box;
 }
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   -webkit-box-sizing: inherit;
      -moz-box-sizing: inherit;
           box-sizing: inherit;
@@ -393,7 +393,7 @@ semicolon at the end of a space seperateed list */
     height: 100%;
 }
 
-#nav-work .media-title:after {
+#nav-work .media-title::after {
     content: "";
     opacity: 0;
     width: 100%;
@@ -414,9 +414,9 @@ semicolon at the end of a space seperateed list */
     -o-transition: all 0.75s ease-in-out;
 }
 
-#nav-work .media-title:hover:after,
-#nav-work .media-title:focus:after,
-#nav-work .media-title:active:after  {   
+#nav-work .media-title:hover::after,
+#nav-work .media-title:focus::after,
+#nav-work .media-title:active::after  {   
     opacity: 1;
     background: url('~img/ui-elements/small-nav-button-graphic-circle.gif');
     background: url('~img/ui-elements/small-nav-button-graphic-circle.png');
@@ -478,7 +478,7 @@ semicolon at the end of a space seperateed list */
     height: 100%;
 }
 
-#nav-about .media-title:after {
+#nav-about .media-title::after {
     content: "";
     opacity: 0;
     width: 100%;
@@ -499,9 +499,9 @@ semicolon at the end of a space seperateed list */
     -o-transition: all 0.75s ease-in-out;
 }
 
-#nav-about .media-title:hover:after,
-#nav-about .media-title:focus:after,
-#nav-about .media-title:active:after  {   
+#nav-about .media-title:hover::after,
+#nav-about .media-title:focus::after,
+#nav-about .media-title:active::after  {   
     opacity: 1;
     background-image: url('~img/ui-elements/small-nav-button-graphic-circle.gif');
     background-image: url('~img/ui-elements/small-nav-button-graphic-circle.png');
@@ -564,7 +564,7 @@ semicolon at the end of a space seperateed list */
     height: 100%;
 }
 
-#nav-personal .media-title:after {
+#nav-personal .media-title::after {
     content: "";
     opacity: 0;
     width: 100%;
@@ -585,9 +585,9 @@ semicolon at the end of a space seperateed list */
     -o-transition: all 0.75s ease-in-out;
 }
 
-#nav-personal .media-title:hover:after,
-#nav-personal .media-title:focus:after,
-#nav-personal .media-title:active:after  {   
+#nav-personal .media-title:hover::after,
+#nav-personal .media-title:focus::after,
+#nav-personal .media-title:active::after  {   
     opacity: 1;
     background-image: url('~img/ui-elements/small-nav-button-graphic-circle.gif');
     background-image: url('~img/ui-elements/small-nav-button-graphic-circle.png');
@@ -650,7 +650,7 @@ semicolon at the end of a space seperateed list */
     height: 100%;
 }
 
-#nav-contact .media-title:after {
+#nav-contact .media-title::after {
     content: "";
     opacity: 0;
     width: 100%;
@@ -671,9 +671,9 @@ semicolon at the end of a space seperateed list */
     -o-transition: all 0.75s ease-in-out;
 }
 
-#nav-contact .media-title:hover:after,
-#nav-contact .media-title:focus:after,
-#nav-contact .media-title:active:after  {   
+#nav-contact .media-title:hover::after,
+#nav-contact .media-title:focus::after,
+#nav-contact .media-title:active::after  {   
     opacity: 1;
     background-image: url('~img/ui-elements/small-nav-button-graphic-circle.gif');
     background-image: url('~img/ui-elements/small-nav-button-graphic-circle.png');
@@ -1748,7 +1748,7 @@ hr {
 }
 
 /*
-#section-settings:before {
+#section-settings::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -1969,7 +1969,7 @@ hr {
 
 }
 
-.justify-content:after {
+.justify-content::after {
   display: inline-block;
   width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
   content: '';
@@ -2458,10 +2458,10 @@ input::placeholder {
   padding: 2rem;
   transform: translate(-50%, -50%);
   opacity: 1;
-  background-image: none; /* - Set by Vue DOM */
+  background-image: none, none; /* - Set by Vue DOM */
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+  background-position: center center, center center;
+  background-size: contain, contain;
 }
 
 .center-slide img {
@@ -2476,11 +2476,21 @@ input::placeholder {
   .center-slide {
     width: 85vw;
     height: 85vh;
+   /* width: 85vm;
+    height: 85vm;
+    width: 85vmin;
+    height: 85vmin;*/
     padding: 15%;
   }
   .slide-img-wrap {
     width: 65vw;
     height: 80vh;
+    /*width: 65vm;
+    height: 80vm;
+    width: 65vmin;
+    height: 80vmin;
+    width: 85vw;
+    height: 85vh;*/
   }
 }
 
@@ -2488,11 +2498,21 @@ input::placeholder {
   .center-slide {
     width: 75vw;
     height: 75vh;
+   /* width: 75vm;
+    height: 75vm;
+    width: 75vmin;
+    height: 75vmin;*/
     padding: 0;
   }
   .slide-img-wrap {
     width: 75vw;
     height: 75vh;
+    /*width: 75vm;
+    height: 75vm;
+    width: 75vmin;
+    height: 75vmin;
+    width: 75vw;
+    height: 75vh;*/
   }
 }
 
@@ -2500,11 +2520,21 @@ input::placeholder {
   .center-slide {
     width: 65vw;
     height: 65vh;
+    /*width: 65vm;
+    height: 65vm;
+    width: 65vmin;
+    height: 65vmin;*/
     padding: 0;
   }
   .slide-img-wrap {
     width: 65vw;
     height: 80vh;
+    /*width: 65vm;
+    height: 80vm;
+    width: 65vmin;
+    height: 80vmin;
+    width: 65vw;
+    height: 65vh;*/
   }
 }
 
@@ -2819,13 +2849,16 @@ input::placeholder {
 }
 
 
-/* *** Using Pseudo Class to add content befor and after *** */
+/* *** Using Pseudo Class to add content before and after *** */
 /* *** Target Vertex Banner Ads in Slideshow *** */
-div[alt|="vertex-linen-banner-ad"] { 
-  width: 100%;
-  height: 100%;
-  max-width: 336px;
-  max-height: 280px;
+div[alt|="vertex-linen-banner-ad"] {
+  width: 45vm; 
+  width: 45vmin;
+  height: calc(45vm * .83333);
+  height: calc(45vmin * .83333);
+  max-width: 45vmin;
+  max-height: calc(45vm* .83333);
+  max-height: calc(45vmin * .83333);
   cursor: pointer;
 }
 
@@ -2836,8 +2869,40 @@ div[alt|="vertex-linen-banner-ad"] ~ div > p {
   margin-left: 25px;
 }
 
-div[alt|="vertex-linen-banner-ad"]:before,
-div[alt|="vertex-linen-banner-ad"]:after { 
+div.banner-cta-text {
+  position: absolute;
+  display:  block;
+  width: 45vm; 
+  width: 45vmin;
+  height: calc(45vm * .83333);
+  height: calc(45vmin * .83333);
+  max-width: 45vmin;
+  max-height: calc(45vm* .83333);
+  max-height: calc(45vmin * .83333);
+  top: 50%;
+  left: 50%;
+  transform: translate(-20%, -62%);
+  margin:  0 auto;
+  /*border: 1px solid red;*/
+  z-index: -1;
+}
+
+/*div[alt|="professional-fighters-league-banner"] ~ div.banner-cta-text p,*/
+div[alt|="vertex-linen-banner-ad"] ~ div.banner-cta-text p {
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: 0px;
+  text-align: center;
+  font-style: italic;
+  font-size: calc(45vm * .045);
+  font-size: calc(45vmin * .045);
+  margin: 0 auto;
+  /*color: red;*/
+}
+
+div[alt|="vertex-linen-banner-ad"]::before,
+div[alt|="vertex-linen-banner-ad"]::after { 
   content: "";
   position: absolute;
   top: 50%;
@@ -2854,24 +2919,28 @@ div[alt|="vertex-linen-banner-ad"]:after {
       transition: all 0.5s ease-in-out;
 }
 
-div[alt|="vertex-linen-banner-ad"]:before { 
-  padding-bottom: 5%;
+div[alt|="vertex-linen-banner-ad"]::before { 
+  /*padding-bottom: 5%;*/
+/*  width:  100%;
+  max-width: 100%;
+  max-height: 100%;*/
   background-image: url('~img/modal-slides/vertex-banner-box-w-logo.png');
-  background-position: 50% 257px;
+  /*background-size: 100%;*/
+  background-position: 50% 34.5vmin;
   background-clip: padding-box;
 }
 
-div[alt|="vertex-linen-banner-ad"]:after {
+div[alt|="vertex-linen-banner-ad"]::after {
   opacity: 0; 
-  background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png');
-  background-position: 50% -280px;
+  background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url.png');
+  background-position: 50% 73%;
 }
 
-div[alt|="vertex-linen-banner-ad"]:hover:before,
-div[alt|="vertex-linen-banner-ad"]:focus:before,
-div[alt|="vertex-linen-banner-ad"]:active:before { 
+div[alt|="vertex-linen-banner-ad"]:hover::before,
+div[alt|="vertex-linen-banner-ad"]:focus::before,
+div[alt|="vertex-linen-banner-ad"]:active::before { 
   background-size: contain;
-  background-position: 50% 0;
+  background-position: 50% 73%;
   -webkit-animation: 
     changebackgroundstart .25s 0s 1,
     changebackgroundfinish 1s .25s infinite alternate;
@@ -2929,9 +2998,9 @@ div[alt|="vertex-linen-banner-ad"]:active:before {
     100% {background-image: url('~img/modal-slides/vertex-banner-green-box.png');}
 }
 
-div[alt|="vertex-linen-banner-ad"]:hover:after,
-div[alt|="vertex-linen-banner-ad"]:focus:after,  
-div[alt|="vertex-linen-banner-ad"]:active:after { 
+div[alt|="vertex-linen-banner-ad"]:hover::after,
+div[alt|="vertex-linen-banner-ad"]:focus::after,  
+div[alt|="vertex-linen-banner-ad"]:active::after { 
   background-position: 50% 73%;
    -webkit-animation: 
     logoserviceline .25s .25s 1,
@@ -2948,35 +3017,58 @@ div[alt|="vertex-linen-banner-ad"]:active:after {
 }
 
 @-webkit-keyframes logoserviceline {
-    0% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png'); opacity: 0;}
-    50% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png'); opacity: 1;}
-    100% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service.png'); opacity: 1;}
+    0% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url.png'); opacity: 0;}
+    50% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url.png'); opacity: 1;}
+    100% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url-cta.png'); opacity: 1;}
 }
 @-moz-keyframes logoserviceline {
-    0% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png'); opacity: 0;}
-    50% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png'); opacity: 1;}
-    100% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service.png'); opacity: 1;}
+    0% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url.png'); opacity: 0;}
+    50% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url.png'); opacity: 1;}
+    100% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url-cta.png'); opacity: 1;}
 }
 @-o-keyframes logoserviceline {
-    0% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png'); opacity: 0;}
-    50% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png'); opacity: 1;}
-    100% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service.png'); opacity: 1;}
+    0% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url.png'); opacity: 0;}
+    50% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url.png'); opacity: 1;}
+    100% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url-cta.png'); opacity: 1;}
 }
 @keyframes logoserviceline {
-    0% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png'); opacity: 0;}
-    50% {background-image: url('~img/modal-slides/vertex-banner-logo-tagline-v02.png'); opacity: 1;}
-    100% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service.png'); opacity: 1;}
+    0% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url.png'); opacity: 0;}
+    50% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url.png'); opacity: 1;}
+    100% {background-image: url('~img/modal-slides/vertex-banner-logo-w-service-and-url-cta.png'); opacity: 1;}
 }
 
 
 /* *** Using Pseudo Class to add content befor and after *** */
 /* *** Target Vertex Banner Ads in Slideshow *** */
-div[alt|="professional-fighters-league-banner"] { 
-  width: 100%;
-  height: 100%;
-  max-width: 336px;
-  max-height: 280px;
+.banner-web-mockup div[alt|="professional-fighters-league-banner"] {
+  top: 50%;
+  left: 50%;
+  transform: translate(-20%, -75%); 
+  width: 45vm; 
+  width: 45vmin;
+  height: calc(45vm * .83333);
+  height: calc(45vmin * .83333);
+  max-width: 45vmin;
+  max-height: calc(45vm* .83333);
+  max-height: calc(45vmin * .83333); /* 336x280 aspect ratiio */
   cursor: pointer;
+}
+
+.banner-web-mockup div[alt|="vertex-linen-banner-ad"] {
+  width: 45vm; 
+  width: 45vmin;
+  height: calc(45vm * .83333);
+  height: calc(45vmin * .83333);
+  max-width: 45vmin;
+  max-height: calc(45vm* .83333);
+  max-height: calc(45vmin * .83333); /* 336x280 aspect ratiio */
+  top: 50%;
+  left: 50%;
+  transform: translate(-20%, -75%);
+  /*transform: none;*/
+  /*top: 20% !important;*/
+  /*right: 10% !important;*/
+  /*border: 1px red solid;*/
 }
 
 

@@ -1,16 +1,23 @@
 =============================
-2023-06-20_00.31.42-CHANGELOG
+2023-07-26_04.05.13-CHANGELOG
 =============================
 
 Note: to upade the changelog open terminal and cd into the root of the project folder, then run the command gitchangelog.
 
+
 [Current]
- * v0.8.8-added-project-info-modal
+
+[v0.8.9-vertext-linen-social-added]
+ * Update CHANGELOG.text
+ * - added social media to vertex linen. updated banner ads. css fixes.
 
 [v0.8.8-added-project-info-modal]
+ * added-project-info-modal
  * update about section
  * added client and agency experience
  * updated changelog
+*  - fixed about page CSS for text wrap. - fixed spelling of Strategic in meta description
+
 
 [v0.8.7-updated-pharma-content]
  *  - updated pharma content

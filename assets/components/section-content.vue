@@ -190,7 +190,7 @@ export default {
 
           {exampleid: 'modal-csfb-direct', alt: 'CSFB Direct Print Communication Pieces', client: 'CSFB Direct', sector: ['default', 'financial'], access: 'unlocked' },
 
-          {exampleid: 'modal-eleven-sports', alt: 'Eleven Sports Network', client: 'Eleven Sports Network', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          {exampleid: 'modal-eleven-sports', alt: 'Eleven Sports Network', client: 'Eleven Sports Network', sector: ['default', 'entertainment', 'fitness', 'sports'], access: 'unlocked' },
 
           {exampleid: 'modal-ellis-island', alt: 'Ellis Island Print Communication Pieces', client: 'Ellis Island', sector: ['default', 'tourism'], access: 'unlocked' },
 
@@ -198,25 +198,27 @@ export default {
 
           {exampleid: 'modal-ginkoba', alt: 'Ginkoba Print Communication Pieces', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
 
-          {exampleid: 'modal-ko-fightgear', alt: 'KO Fightgear Print Communication Pieces', client: 'KO Fightgear', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          {exampleid: 'modal-ko-fightgear', alt: 'KO Fightgear Print Communication Pieces', client: 'KO Fightgear', sector: ['default', 'fitness', 'sports' ], access: 'unlocked' },
 
-          {exampleid: 'modal-lucha-underground', alt: 'Lucha Underground Wrestling', client: 'Lucha Underground', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          {exampleid: 'modal-last-week-tonight', alt: 'Last Week Tonight', client: 'Last Week Tonight', sector: ['default', 'entertainment', 'publicservice' ], access: 'unlocked' },
+
+          {exampleid: 'modal-lucha-underground', alt: 'Lucha Underground Wrestling', client: 'Lucha Underground', sector: ['default', 'entertainment', 'fitness', 'sports' ], access: 'unlocked' },
 
           {exampleid: 'modal-gte', alt: 'GTE Outdoor Communication Pieces', client: 'GTE', sector: ['default', 'financial'], access: 'unlocked' },
 
           {exampleid: 'modal-logos', alt: 'Logos Various', client: 'Logos', sector: ['default', 'branding', 'btob', 'healthcare', 'fitness', 'publicservice', 'sports'], access: 'unlocked' },
 
-          {exampleid: 'modal-mistral', alt: 'Mistral Print Communication Pieces', client: 'Mistral', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          {exampleid: 'modal-mistral', alt: 'Mistral Print Communication Pieces', client: 'Mistral', sector: ['default', 'fitness', 'sports' ], access: 'unlocked' },
 
           {exampleid: 'modal-mta', alt: 'MTA Metro Card Print Communication Pieces', client: 'MTA', sector: ['default', 'transportation', 'tourism'], access: 'unlocked' },
 
           {exampleid: 'modal-ny-blood-center', alt: 'NY Blood Center Print Communication Pieces', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
 
-          {exampleid: 'modal-oyama-karate', alt: 'Oyama Karate Print Communication Pieces', client: 'Oyama Karate', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          {exampleid: 'modal-oyama-karate', alt: 'Oyama Karate Print Communication Pieces', client: 'Oyama Karate', sector: ['default', 'fitness', 'sports' ], access: 'unlocked' },
 
           {exampleid: 'modal-personal', alt: 'Personal Work', client: 'Personal', sector: ['default', 'finearts'], access: 'unlocked' },
 
-          {exampleid: 'modal-pfl', alt: 'Professional Fighters League', client: 'PFL', sector: ['default', 'sports', 'fitness'], access: 'unlocked' },
+          {exampleid: 'modal-pfl', alt: 'Professional Fighters League', client: 'PFL', sector: ['default', 'fitness', 'sports' ], access: 'unlocked' },
 
           {exampleid: 'modal-self-promotion', alt: 'Online Digital Self-Promotion', client: 'Slef-promotion', sector: ['default', 'branding', 'btob', 'communication'], access: 'unlocked' },
 
@@ -226,7 +228,7 @@ export default {
 
           {exampleid: 'modal-pharma', alt: 'Pharma Various Clients', client: 'Pharma Various', sector: ['default', 'healthcare', 'pharma'], access: 'locked' },
 
-          {exampleid: 'modal-archive', alt: 'Various Archived Client Work', client: 'Archived Work', sector: ['default', 'btob', 'sports', 'financial', 'fitness', 'healthcare'], access: 'locked' },
+          // {exampleid: 'modal-archive', alt: 'Various Archived Client Work', client: 'Archived Work', sector: ['default', 'btob', 'financial', 'fitness', 'healthcare', 'sports' ], access: 'locked' },
 
         ]; // END currentExamples
 

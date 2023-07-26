@@ -101,7 +101,7 @@ let slides = [
   {
     navID:            'slide-4',
     showMediaID:      true,
-    mediaID:          'Banner Ads',
+    mediaID:          'Banner',
     client:           'PFL | Professional Fighters League',
     showClient:       true,
     alt:              'professional-fighters-league-banner-01',
@@ -134,7 +134,7 @@ let slides = [
   {
     navID:            'slide-5',
     showMediaID:      false,
-    mediaID:          'Banner Ads',
+    mediaID:          'Banner',
     client:           'PFL | Professional Fighters League',
     showClient:       true,
     alt:              'professional-fighters-league-banner-02',
@@ -161,7 +161,7 @@ let slides = [
   {
     navID:            'slide-5',
     showMediaID:      false,
-    mediaID:          'Banner Ads',
+    mediaID:          'Banner',
     client:           'PFL | Professional Fighters League',
     showClient:       true,
     alt:              'professional-fighters-league-banner-03',

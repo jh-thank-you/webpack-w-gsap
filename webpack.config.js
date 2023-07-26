@@ -271,6 +271,15 @@ module.exports = {
       ],
       exclude: /fonts/,
     }, {  
+      test: /\.mp4$/, 
+      use: 'file-loader?name=assets/img/modal-videos/[name]-[hash:6].[ext]', 
+    },  {  
+      test: /\.webm$/, 
+      use: 'file-loader?name=assets/img/modal-videos/[name]-[hash:6].[ext]', 
+    },  {  
+      test: /\.vtt$/, 
+      use: 'file-loader?name=assets/img/modal-videos/[name]-[hash:6].[ext]', 
+    }, {  
       test: /\.svg$/, 
       use: 'url-loader?limit=10000&mimetype=image/svg+xml&name=assets/fonts/[name].[ext]',
     }, {  

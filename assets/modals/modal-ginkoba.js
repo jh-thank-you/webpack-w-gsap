@@ -233,7 +233,7 @@ let slides = [
   {
     navID:            'slide-8',
     showMediaID:      true,
-    mediaID:          'Banner Ads',
+    mediaID:          'Banner',
     client:           'Ginkoba',
     showClient:       true,
     alt:              'Ginkoba Password Banner Ad',

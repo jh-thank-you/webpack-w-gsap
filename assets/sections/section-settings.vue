@@ -57,7 +57,7 @@ import buttonCloseSectionRaster from 'components/button-close-section-raster.vue
 var STORAGE_KEY = 'myselects-vuejs-2.0';
 var mySelectsStorage = {
   fetch: function () {
-    var myselects = JSON.parse(localStorage.getItem(STORAGE_KEY) || '["beauty","branding","cleaning","fashion","financial","fitness","healthcare","pharma","publicservice","sports","technology","tourism","transportation"]');
+    var myselects = JSON.parse(localStorage.getItem(STORAGE_KEY) || '["beauty","branding","cleaning","entertainment",fashion","financial","fitness","healthcare","pharma","publicservice","sports","technology","tourism","transportation"]');
     // myselects.forEach(function (myselect, index) {
     //   // myselect.id = index
     // })
@@ -97,6 +97,8 @@ export default {
         {id: 'cleaning', name: 'Cleaning Services', class: 'industry', default: true},
 
         {id: 'communication', name: 'Communication', class: 'industry', default: false},
+
+        {id: 'entertainment', name: 'Entertainment', class: 'industry', default: true},
 
         {id: 'fashion', name: 'Fashion', class: 'industry', default: true},
 
