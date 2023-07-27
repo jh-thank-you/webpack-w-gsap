@@ -18,7 +18,6 @@
 
 <script>
 
-// import { eventBus } from 'assets/main.js';
 
 import { mapState } from 'vuex';
 

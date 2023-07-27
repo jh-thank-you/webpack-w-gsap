@@ -11,7 +11,6 @@
 
 <script>
 
-// import { eventBus } from 'assets/main.js';
 
 import { mapActions} from 'vuex';
 

@@ -339,47 +339,6 @@ semicolon at the end of a space seperateed list */
   transform: translate(-50%, -50%) rotate(-90deg) ;
 }
 
-
-/*
-#nav-work {
-  top: 0px;
-  left: 0px;
-}
-
-
-#nav-work .media-title {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle-dark.gif');
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle-dark.png');
-  background-repeat: no-repeat;
-  background-position: top -50% left -50%;
-  background-size: 100% 100%;
-  -webkit-transition: all 0.75s ease-out;
-     -moz-transition: all 0.75s ease-out;
-       -o-transition: all 0.75s ease-out;
-          transition: all 0.75s ease-out;
-}
-
-
-#nav-work:hover .media-title,
-#nav-work:focus .media-title,
-#nav-work:active .media-title {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle.gif');
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle.png');
-  background-repeat: no-repeat;
-  background-position: top -50% left -50%;
-  background-size: 50% 50%;
-}
-*/
-
-
 #nav-work {
   top: 0px;
   left: 0px;
@@ -425,44 +384,6 @@ semicolon at the end of a space seperateed list */
     background-size: 50% 50%;
 }
 
-
-/*
-#nav-about {
-  top: 0px;
-  right: 0px;
-}
-
-#nav-about .media-title {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle-dark.gif');
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle-dark.png');
-  background-repeat: no-repeat;
-  background-position: top -50% right -50%;
-  background-size: 100% 100%;
-  -webkit-transition: all 0.75s ease-out;
-     -moz-transition: all 0.75s ease-out;
-       -o-transition: all 0.75s ease-out;
-          transition: all 0.75s ease-out;
-}
-
-
-#nav-about:hover .media-title,
-#nav-about:focus .media-title,
-#nav-about:active .media-title {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle.gif');
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle.png');
-  background-repeat: no-repeat;
-  background-position: top -50% right -50%;
-  background-size: 50% 50%;
-}
-*/
 
 
 #nav-about {
@@ -512,45 +433,6 @@ semicolon at the end of a space seperateed list */
 
 
 
-/*
-#nav-personal {
-  bottom: 0px;
-  left: 0px;
-}
-
-#nav-personal .media-title {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle-dark.gif');
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle-dark.png');
-  background-repeat: no-repeat;
-  background-position: left -50% bottom -50%;
-  background-size: 100% 100%;
-  -webkit-transition: all 0.75s ease-out;
-     -moz-transition: all 0.75s ease-out;
-       -o-transition: all 0.75s ease-out;
-          transition: all 0.75s ease-out;
-}
-
-#nav-personal:hover .media-title,
-#nav-personal:focus .media-title,
-#nav-personal:active .media-title {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle.gif');
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle.png');
-  background-repeat: no-repeat;
-  background-position: left -50% bottom -50%;
-  background-size: 50% 50%;
-}
-
-*/
-
-
 #nav-personal {
   bottom: 0px;
   left: 0px;
@@ -596,45 +478,6 @@ semicolon at the end of a space seperateed list */
     background-size: 50% 50%;
 }
 
-/*
-#nav-contact {
-  right: 0px;
-  bottom: 0px;
-}
-
-
-#nav-contact .media-title {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle-dark.gif');
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle-dark.png');
-  background-repeat: no-repeat;
-  background-position: right -50% bottom -50%;
-  background-size: 100% 100%;
-  -webkit-transition: all 0.75s ease-out;
-     -moz-transition: all 0.75s ease-out;
-       -o-transition: all 0.75s ease-out;
-          transition: all 0.75s ease-out;
-}
-
-
-#nav-contact:hover .media-title,
-#nav-contact:focus .media-title,
-#nav-contact:active .media-title {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle.gif');
-  background-image: url('~img/ui-elements/small-nav-button-graphic-circle.png');
-  background-repeat: no-repeat;
-  background-position: right -50% bottom -50%;
-  background-size: 50% 50%;
-}
-
-*/
 
 
 #nav-contact {
@@ -690,7 +533,6 @@ semicolon at the end of a space seperateed list */
 
 .corner-nav-small {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 1;
   display: block;
@@ -703,16 +545,9 @@ semicolon at the end of a space seperateed list */
 }
 
 
-/* corner-nav-small set by vue script */
-/* @media all and (min-width: 501px) and (min-height: 601px) {
-  .corner-nav-small {
-    display: none;
-  }
-} */
 
 #name-and-tag-small {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   top: 0;
   display: block;
@@ -734,9 +569,8 @@ semicolon at the end of a space seperateed list */
 
 .inner-wrap-fixed-scroll {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed); 
-  top: 130px; /* was 6rem */
+  top: 130px;
   display: block;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -803,7 +637,6 @@ semicolon at the end of a space seperateed list */
   background-image: url('~img/ui-elements/small-nav-button-graphic-bar-dark-blue.png');
   background-position: right -500px top 0;
   background-size: 500px 100%;
-  /*background-color: #080D2F;*/
   border: solid 1px #C00000;
 }
 
@@ -874,9 +707,6 @@ semicolon at the end of a space seperateed list */
     height: 50%;
     transform: perspective(1px) translateY(-50%);
   }
-  #name-and-tag-small {
-    /*margin-top: 35%;*/
-  }
   .inner-wrap-fixed-scroll {
     overflow-x: hidden;
     overflow-y: hidden;
@@ -887,27 +717,12 @@ semicolon at the end of a space seperateed list */
   .inner-wrap {
     top: 47%;
   }
-  #name-and-tag-small {
-   /* margin-top: 52%;*/
-  }
 }
 
-@media all and (min-width: 501px) and (min-height: 901px) {
-  #name-and-tag-small {
-    /*margin-top: 40%;*/
-  }
-}
-
-@media all and (min-width: 601px) and (min-height: 901px) {
-  #name-and-tag-small {
-    /*margin-top: 35%;*/
-  }
-}
 
 .small-nav-bottom-spacer {
   height: 55vh;
   min-height: 100px;
-  /* border: solid 5px blue; */
 }
 
 @media all and (max-height: 275px) {
@@ -926,7 +741,6 @@ semicolon at the end of a space seperateed list */
 
 .texture-paper-bkg {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   overflow: hidden;
   width: 100%;
@@ -965,7 +779,6 @@ semicolon at the end of a space seperateed list */
 .button-close-vector,
 .button-close-raster {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 102;
   top: 0;
@@ -1042,7 +855,6 @@ semicolon at the end of a space seperateed list */
 
 #modal-overlay {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 98;
   display: block;
@@ -1379,9 +1191,6 @@ a #preferences-form:hover {
 }
 
 @media all and (min-width: 541px) and (max-width: 800px) {
-  .checkbox-wrap {
-    /*padding-top: 60px;*/
-  }
   .checkbox-wrap label {
     width: 65%;
   }
@@ -1576,7 +1385,7 @@ a #preferences-form:hover {
 #section-bio h4 .review-baseline,
 #section-contact h4 .review-baseline,
 #section-about h4 .review-baseline {
-    margin-bottom: 0px; /* was -15px */
+    margin-bottom: 0px;
 }
 
 
@@ -1605,7 +1414,6 @@ hr {
 
 #section-content {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   width: 100%;
   height: 100%;
@@ -1631,7 +1439,6 @@ hr {
 
 #section-content {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   width: 100%;
   height: 100%;
@@ -1747,20 +1554,9 @@ hr {
   background-color: #080D2F;
 }
 
-/*
-#section-settings::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #121213;
-  background-color: rgba(0,0,0,0.85);
-}
-*/
 
 .skip {
   position: absolute;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   opacity: 0.5;
   width: 70px;
@@ -2068,7 +1864,6 @@ hr {
 .password-modal {
   font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, Helvetica, sans-serif;
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 105;
   bottom: 0;
@@ -2299,7 +2094,6 @@ input::placeholder {
 
 .overlay {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 103;
   top: 0;
@@ -2312,7 +2106,6 @@ input::placeholder {
 
 .modal-close {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 105;
   top: 2rem;
@@ -2476,21 +2269,11 @@ input::placeholder {
   .center-slide {
     width: 85vw;
     height: 85vh;
-   /* width: 85vm;
-    height: 85vm;
-    width: 85vmin;
-    height: 85vmin;*/
     padding: 15%;
   }
   .slide-img-wrap {
     width: 65vw;
     height: 80vh;
-    /*width: 65vm;
-    height: 80vm;
-    width: 65vmin;
-    height: 80vmin;
-    width: 85vw;
-    height: 85vh;*/
   }
 }
 
@@ -2498,21 +2281,11 @@ input::placeholder {
   .center-slide {
     width: 75vw;
     height: 75vh;
-   /* width: 75vm;
-    height: 75vm;
-    width: 75vmin;
-    height: 75vmin;*/
     padding: 0;
   }
   .slide-img-wrap {
     width: 75vw;
     height: 75vh;
-    /*width: 75vm;
-    height: 75vm;
-    width: 75vmin;
-    height: 75vmin;
-    width: 75vw;
-    height: 75vh;*/
   }
 }
 
@@ -2520,21 +2293,11 @@ input::placeholder {
   .center-slide {
     width: 65vw;
     height: 65vh;
-    /*width: 65vm;
-    height: 65vm;
-    width: 65vmin;
-    height: 65vmin;*/
     padding: 0;
   }
   .slide-img-wrap {
     width: 65vw;
     height: 80vh;
-    /*width: 65vm;
-    height: 80vm;
-    width: 65vmin;
-    height: 80vmin;
-    width: 65vw;
-    height: 65vh;*/
   }
 }
 
@@ -2552,7 +2315,6 @@ input::placeholder {
   font-weight: 400;
   font-style: normal;
   line-height: 1.5;
-  /* padding: 0 3% 0 3%; */
   padding: 0 2rem 0 2rem;
   text-align: left;
   color: #43657D;
@@ -2745,20 +2507,14 @@ input::placeholder {
   border-bottom: solid 1px rgba(192,0,0,1);
 }
 
-.btn.btn-default,
-.btn-media.btn-media-default {
-  /*opacity: 1;*/
-}
 
 .btn.btn-default:hover {
-  /*opacity: 1;*/
   color: #ffffff;
   border: solid 1px #c00000;
   background-color: #08385d;
 }
 
 .btn-media.btn-media-default:hover {
-  /*opacity: 1;*/
   color: #ffffff;
 }
 
@@ -2773,7 +2529,6 @@ input::placeholder {
 
 .btn-group-wrap {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   z-index: 999;
   bottom: 5%;
@@ -2824,7 +2579,6 @@ input::placeholder {
 
 .btn-previous-wrap {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   top: 45vh;
   left: 25px;
@@ -2835,7 +2589,6 @@ input::placeholder {
 
 .btn-next-wrap {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
   top: 45vh;
   right: 25px;
@@ -2901,6 +2654,77 @@ div[alt|="vertex-linen-banner-ad"] ~ div.banner-cta-text p {
   /*color: red;*/
 }
 
+
+
+@media all and (max-width: 400px) {
+  div.banner-cta-text {
+      transform: translate(-20%, -42%);
+  }
+  div[alt|="vertex-linen-banner-ad"] ~ div.banner-cta-text p {
+    font-size: calc(45vm * .08);
+    font-size: calc(45vmin * .08);
+    line-height: calc(45vm * .08);
+    line-height: calc(45vmin * .08);
+  }
+}
+
+
+@media all and (min-width: 401px) and (max-width: 600px) {
+  div.banner-cta-text {
+      transform: translate(-20%, -50%);
+  }
+  div[alt|="vertex-linen-banner-ad"] ~ div.banner-cta-text p {
+    font-size: calc(45vm * .07);
+    font-size: calc(45vmin * .07);
+    line-height: calc(45vm * .07);
+    line-height: calc(45vmin * .07);
+  }
+}
+
+@media all and (min-width: 601px) and (max-width: 800px) {
+  div.banner-cta-text {
+      transform: translate(-20%, -62%);
+  }
+  div[alt|="vertex-linen-banner-ad"] ~ div.banner-cta-text p {
+    font-size: calc(45vm * .055);
+    font-size: calc(45vmin * .055);
+    line-height: calc(45vm * .055);
+    line-height: calc(45vmin * .055);
+  }
+}
+
+
+@media all and (min-width: 801px) and (max-width: 900px) {
+  div[alt|="vertex-linen-banner-ad"] ~ div.banner-cta-text p {
+    font-size: calc(45vm * .045);
+    font-size: calc(45vmin * .045);
+    line-height: calc(45vm * .045);
+    line-height: calc(45vmin * .045);
+  }
+}
+
+
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  div.banner-cta-text {
+      transform: translate(-20%, -65%);
+  }
+  div[alt|="vertex-linen-banner-ad"] ~ div.banner-cta-text p {
+    font-size: calc(45vm * .035);
+    font-size: calc(45vmin * .035);
+    line-height: calc(45vm * .035);
+    line-height: calc(45vmin * .035);
+  }
+}
+
+
+@media all and (min-width: 1101px) {
+  div[alt|="vertex-linen-banner-ad"] ~ div.banner-cta-text p {
+    font-size: calc(45vm * .038);
+    font-size: calc(45vmin * .038);
+  }
+}
+
+
 div[alt|="vertex-linen-banner-ad"]::before,
 div[alt|="vertex-linen-banner-ad"]::after { 
   content: "";
@@ -2920,10 +2744,6 @@ div[alt|="vertex-linen-banner-ad"]::after {
 }
 
 div[alt|="vertex-linen-banner-ad"]::before { 
-  /*padding-bottom: 5%;*/
-/*  width:  100%;
-  max-width: 100%;
-  max-height: 100%;*/
   background-image: url('~img/modal-slides/vertex-banner-box-w-logo.png');
   /*background-size: 100%;*/
   background-position: 50% 34.5vmin;
@@ -3065,10 +2885,6 @@ div[alt|="vertex-linen-banner-ad"]:active::after {
   top: 50%;
   left: 50%;
   transform: translate(-20%, -75%);
-  /*transform: none;*/
-  /*top: 20% !important;*/
-  /*right: 10% !important;*/
-  /*border: 1px red solid;*/
 }
 
 
@@ -3080,9 +2896,7 @@ div[alt|="vertex-linen-banner-ad"]:active::after {
 
 #center-name-and-tag {
   position: fixed;
-  /*position: -ms-device-fixed;*/ /* causes issues in MS Edge 10 v42.x */
   position: expression(fixed);
-  /*z-index: -1;*/
   z-index: 99;
   top: 0;
   left: 0;
@@ -3125,7 +2939,6 @@ div[alt|="vertex-linen-banner-ad"]:active::after {
   background-position: 49.5% 50%;
   background-repeat: no-repeat;
   background-size: contain;
-  /*border: solid 1px red;*/
 }
 
 
@@ -3133,7 +2946,6 @@ div[alt|="vertex-linen-banner-ad"]:active::after {
 .tagline {
   width: 100%;
   height: 70px;
-  /*border: solid 1px red;*/
 }
 
 #name-title-sm,
@@ -3264,7 +3076,7 @@ div[alt|="vertex-linen-banner-ad"]:active::after {
   z-index: 97;
   top: 0;
   left: 0;
-  display: block; /* GreenSock Sets Display */
+  display: block; /* GSAP Sets Display */
   overflow: hidden;
   overflow-x: hidden;
   overflow-y: hidden;

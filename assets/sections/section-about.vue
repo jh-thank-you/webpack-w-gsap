@@ -305,7 +305,6 @@ export default {
   .slideme-enter {
     opacity: 0;
     width: 0;
-    /* height: 0; */
   }
 
   .slideme-enter-active {
@@ -315,50 +314,38 @@ export default {
 
   @media all and (min-width: 801px) {
     .slideme-enter-to {
-      /* Vue JS Default is opacity: 1; */
       width: 32%;
-      /* height: 100%; */
     }
   }
 
   @media all and (min-width: 501px) and (max-width: 800px) {
     .slideme-enter-to {
-      /* Vue JS Default is opacity: 1; */
       width: 49%;
-      /* height: 100%; */
     }
   }
 
   @media all and (max-width: 500px) {
     .slideme-enter-to {
-      /* Vue JS Default is opacity: 1; */
       width: 100%;
-      /* height: 100%; */
     }
   }
 
 
   @media all and (min-width: 801px) {
     .slideme-leave {
-      /* Vue JS Default is opacity: 1; */
       width: 32%;
-      /* height: 100%; */
     }
   }
 
   @media all and (min-width: 501px) and (max-width: 800px) {
     .slideme-leave {
-      /* Vue JS Default is opacity: 1; */
       width: 49%;
-      /* height: 100%; */
     }
   }
 
   @media all and (max-width: 500px) {
     .slideme-leave {
-      /* Vue JS Default is opacity: 1; */
       width: 100%;
-      /* height: 100%; */
     }
   }
 
@@ -374,7 +361,6 @@ export default {
   .slideme-leave-to {
     opacity: 0;
     width: 0;
-    /* height: 0; */
   }
 
   .slideme-move {
@@ -386,7 +372,6 @@ export default {
 
 .slide-up-enter {
   opacity: 1;
-  /* transform: scale(0.5,0.5); */
 }
 
 .slide-up-enter-active {
@@ -394,13 +379,6 @@ export default {
   animation: slidein 1.4s ease-out forwards;
 }
 
-.slide-up-enter-to {
-  /* transform: scale(1,1); */
-}
-
-.slide-up-leave {
-  /* transform: scale(1,1); */
-}
 
 .slide-up-leave-active {
   transition: all .35s ease;
@@ -409,7 +387,6 @@ export default {
 
 .slide-up-leave-to {
   opacity: 1;
-  /* transform: scale(0.5,0.5); */
 }
 
 @keyframes slidein {

@@ -167,7 +167,6 @@ export default {
     /*width: 100%;*/
     max-width: 1150px;
     height:0;
-    /*border: 1px solid orange;*/
   }
 
   .aspect-square {
@@ -227,22 +226,12 @@ export default {
     max-width: 600px;
   }
 
-
-    .video-wrapper {
-      /*position: absolute;*/
-      /*display: block;*/
-      /*top: 50%;*/
-      /*left: 50%;*/
-      /*transform: translate(-50%, -50%);*/
-      width: 100vmin;
-      max-width: 100vmin;
-      height: calc(100vmin * .6273);
-      /*border: 1px solid green;*/
-      /*border: 5px solid green;*/
-      padding: 0;
-      /*background: url(https://pluspng.com/img-png/free-png-laptop-mac-laptop-png-image-6759-1260.png) center center no-repeat;*/
-        /*background-size: contain;*/
-    }
+  .video-wrapper {
+    width: 100vmin;
+    max-width: 100vmin;
+    height: calc(100vmin * .6273);
+    padding: 0;
+  }
 
    .video-inner-mobile {
         box-sizing: border-box;

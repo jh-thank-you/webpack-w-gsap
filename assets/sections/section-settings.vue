@@ -265,13 +265,6 @@ export default {
     transition: opacity .35s ease-in-out;
   }
 
-  .fade-enter-to {
-    /* Vue JS Default is opacity: 1; */
-  }
-
-  .fade-leave {
-    /* Vue JS Default is opacity: 1; */
-  }
 
   .fade-leave-active {
     transition: opacity .35s ease-in-out;
