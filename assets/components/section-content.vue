@@ -278,23 +278,29 @@ export default {
 
         currentExamples = [
 
-          {exampleid: 'modal-advil', alt: 'Advil Print Communication Pieces', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-advil', alt: 'Advil Communication Pieces', client: 'Advil', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-bayer', alt: 'Bayer Print Communication Pieces', client: 'Bayer', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-bayer', alt: 'Bayer Communication Pieces', client: 'Bayer', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-cardene-iv', alt: 'Cardene I.V. Print Communication Pieces', client: 'Cardene I.V.', sector: ['healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-cardene-iv', alt: 'Cardene I.V. Communication Pieces', client: 'Cardene I.V.', sector: ['healthcare', 'pharma'], access: 'unlocked' },
 
           {exampleid: 'modal-cimzia', alt: 'Cimzia Print Communication Pieces', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-ginkoba', alt: 'Ginkoba Print Communication Pieces', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
+          {exampleid: 'modal-ginkoba', alt: 'Ginkoba Communication Pieces', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
 
-          {exampleid: 'modal-levemir', alt: 'Levemir Print Communication Pieces', client: 'Levemir', sector: ['healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-grail', alt: 'GRAIL Communication Pieces', client: 'GRAIL', sector: ['default', 'healthcare', 'pharma' ], access: 'unlocked' },
 
-          {exampleid: 'modal-ny-blood-center', alt: 'NY Blood Center Print Communication Pieces', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
+          {exampleid: 'modal-levemir', alt: 'Levemir Communication Pieces', client: 'Levemir', sector: ['healthcare', 'pharma'], access: 'unlocked' },
+
+          {exampleid: 'modal-moderna', alt: 'Moderna Communication Pieces', client: 'Moderna', sector: ['default', 'healthcare', 'pharma' ], access: 'unlocked' },
+
+          {exampleid: 'modal-nurtec', alt: 'Nurtec Communication Pieces', client: 'Nurtec', sector: ['default', 'healthcare', 'pharma' ], access: 'unlocked' },
+
+          {exampleid: 'modal-ny-blood-center', alt: 'NY Blood Center Communication Pieces', client: 'NY Blood Center', sector: ['default', 'healthcare', 'publicservice'], access: 'unlocked' },
 
           {exampleid: 'modal-premarin', alt: 'Premarin 360 Campaign Communication Pieces', client: 'Premarin', sector: ['healthcare', 'pharma'], access: 'unlocked' },
 
-          {exampleid: 'modal-spiriva', alt: 'Spiriva Print Communication Pieces', client: 'Spiriva', sector: ['healthcare', 'pharma'], access: 'unlocked' },
+          {exampleid: 'modal-spiriva', alt: 'Spiriva Communication Pieces', client: 'Spiriva', sector: ['healthcare', 'pharma'], access: 'unlocked' },
 
 
         ]; // END currentExamples

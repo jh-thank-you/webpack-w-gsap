@@ -9,7 +9,7 @@ let slides = [
     showImage:        false,
     src:              '',
     showVideo:        true,
-    videoSrc:         'http://hainis.net/dev/corky/',
+    videoSrc:         'https://hainis.net/dev/corky/',
     videoWidth:       '640',
     videoHeight:      '640',
     videoSquare:      true,
