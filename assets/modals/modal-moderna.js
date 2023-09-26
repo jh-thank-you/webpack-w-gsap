@@ -165,8 +165,8 @@ let slides = [
     appsUsed:         'After Effects, Audition, Figma, Illustrator, Photoshop, Premiere Pro, Sublime Text, Webpack, Veeva, Vue.js',
   },
   {
-    navID:            'slide-12',
-    showMediaID:      false,
+    navID:            'slide-6',
+    showMediaID:      true,
     mediaID:          'Social',
     client:           'Moderna',
     alt:              'vertex-social-instagram-ad-mobile-wine',
