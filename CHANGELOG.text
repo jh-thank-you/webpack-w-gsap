@@ -1,5 +1,5 @@
 =============================
-2023-09-26_19.46.51-CHANGELOG
+2023-09-27_20.31.00-CHANGELOG
 =============================
 
 Note: to upade the changelog open terminal and cd into the root of the project folder, then run the command gitchangelog.
@@ -8,6 +8,10 @@ Note: to upade the changelog open terminal and cd into the root of the project f
 
 
 [Current]
+
+[v0.9.4-nurtec-videos-added]
+ * Nurtec videos added
+ * v0.9.4-nurtec-videos-added
 
 [v0.9.3-https-coming-soon-JSON-updates]
  * Fixed COMING SOON JSON placeholders breadcrumb menu
