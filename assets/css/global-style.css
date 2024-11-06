@@ -2271,6 +2271,20 @@ input::placeholder {
     height: 85vh;
     padding: 15%;
   }
+  .aspect-sixteen-nine {
+    width: min(85vw, 85vh);
+    max-width: 100%;
+    height: min(47.8125vw, 47.8125vh);
+    padding-bottom: min(47.8125vw, 47.8125vh);
+    max-height: min(47.8125vw, 47.8125vh);
+  }
+  .aspect-ipad {
+    width: min(60vw, 60vh);
+    max-width: 100%;
+    height: min(44.9322vw, 44.9322vh);
+    padding-bottom: min(44.9322vw, 44.9322vh);
+    max-height: min(44.9322vw, 44.9322vh);
+  }
   .slide-img-wrap {
     width: 65vw;
     height: 80vh;
@@ -2283,6 +2297,26 @@ input::placeholder {
     height: 75vh;
     padding: 0;
   }
+  .aspect-sixteen-nine {
+    width: min(75vw, 75vh);
+    max-width: 100%;
+    height: min(42.1875vw, 42.1875vh);
+    padding-bottom: min(42.1875vw, 42.1875vh);
+    max-height: min(42.1875vw, 42.1875vh);
+  }
+  .aspect-ipad {
+    width: min(70vw, 70vh);
+    max-width: 100%;
+    height: min(52.4209vw, 52.4209vh);
+    padding-bottom: min(52.4209vw, 52.4209vh);
+    max-height: min(52.4209vw, 52.4209vh);
+  }
+  /*.aspect-ipad {
+        width: min(80vw, 80vh);
+        height: min(64.64491vw, 64.64491vh);
+        padding-bottom: min(64.64491vw, 64.64491vh);
+        max-height: min(64.64491vw, 64.64491vh);
+  }*/
   .slide-img-wrap {
     width: 75vw;
     height: 75vh;
@@ -2295,9 +2329,40 @@ input::placeholder {
     height: 65vh;
     padding: 0;
   }
+  .aspect-sixteen-nine {
+    width: min(65vw, 65vh);
+    max-width: 100%;
+    height: min(36.5625vw, 36.5625vh);
+    padding-bottom: min(36.5625vw, 36.5625vh);
+    max-height: min(36.5625vw, 36.5625vh);
+  }
+  /*.fitVids-wrapper:has(> iframe[alt|="ipad"]),*/
+  .aspect-ipad {
+    /*width: min(85vw, 85vh);*/
+    width: min(78vw, 78vh);
+    /*max-width: 100%;*/
+    /*height: min(58.41186vw, 58.41186vh);*/
+    padding-bottom: min(45.41186vw, 45.41186vh);
+    max-height: min(45.41186vw, 45.41186vh);
+  }
+  .fitVids-wrapper[alt|="ipad"] {
+    max-width:  850px;
+  }
   .slide-img-wrap {
     width: 65vw;
     height: 80vh;
+  }
+}
+
+@media all and (min-width: 100.063em) {
+  .aspect-ipad {
+    width: min(78vw, 78vh);
+    height: min(53.41186vw, 53.41186vh);
+    padding-bottom: min(53.41186vw, 53.41186vh);
+    max-height: min(53.41186vw, 53.41186vh);
+  }
+  .fitVids-wrapper[alt|="ipad"] {
+    max-width:  990px;
   }
 }
 
@@ -2601,6 +2666,10 @@ input::placeholder {
   transform: rotate(180deg);
 }
 
+/* *********************************************** */
+/*                    Banner Ads                   */
+/* *********************************************** */
+
 
 /* *** Using Pseudo Class to add content before and after *** */
 /* *** Target Vertex Banner Ads in Slideshow *** */
@@ -2614,7 +2683,6 @@ div[alt|="vertex-linen-banner-ad"] {
   max-height: calc(45vmin * .83333);
   cursor: pointer;
 }
-
 
 div[alt|="vertex-linen-banner-ad"] ~ div > p { 
   text-align: center;
@@ -2887,6 +2955,57 @@ div[alt|="vertex-linen-banner-ad"]:active::after {
   transform: translate(-20%, -75%);
 }
 
+.fitVids-wrapper:has(> iframe[alt|="eylea-hd-banner-ad-wet-amd"]),
+.fitVids-wrapper:has(> iframe[alt|="eylea-hd-banner-ad-dme"]) {
+  width: 45vm; 
+  width: 45vmin;
+  height: calc(45vm * .83333);
+  height: calc(45vmin * .83333);
+  max-width: 45vmin;
+  max-height: calc(45vm* .83333);
+  max-height: calc(45vmin * .83333); /* 336x280 aspect ratiio */
+  top: 50%;
+  left: 50%;
+  transform: translate(-20%, -75%);
+}
+
+/* hide banner cta text - since it is a video banner example */
+div.fitVids-wrapper:has(> iframe[alt|="eylea-hd-banner-ad-wet-amd"]) + div.banner-cta-text,
+div.fitVids-wrapper:has(> iframe[alt|="eylea-hd-banner-ad-dme"]) + div.banner-cta-text {
+  display: none;
+}
+
+
+/*.fitVids-wrapper:has(> iframe[alt|="ipad"]) {
+  width:  93.06%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-bottom: calc(1166 / 1557 * 93.06%);
+}*/
+
+
+/*@media all and (max-width: 40em) {
+
+  .fitVids-wrapper:has(> iframe[alt|="ipad"]) {
+    width:  99.06%;
+    padding-bottom: calc(1166 / 1557 * 99.06%);
+  }
+}*/
+
+/*@media all and (min-width: 40.063em) and (max-width: 90em) {
+  .fitVids-wrapper:has(> iframe[alt|="ipad"]) {
+    width:  99.06%;
+    padding-bottom: calc(1166 / 1557 * 75vw) * 1%;
+  }
+}*/
+
+/*@media all and (min-width: 90.063em) {
+  .fitVids-wrapper:has(> iframe[alt|="ipad"]) {
+    width:  65vw;
+    padding-bottom: calc(1166 / 1557 * 65vw) * 1%;
+  }
+}*/
 
 
 /* *********************************************** */

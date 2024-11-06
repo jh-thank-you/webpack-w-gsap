@@ -286,6 +286,8 @@ export default {
 
           {exampleid: 'modal-cimzia', alt: 'Cimzia Print Communication Pieces', client: 'Cimzia', sector: ['default', 'healthcare', 'pharma'], access: 'unlocked' },
 
+          {exampleid: 'modal-eylea-hd', alt: 'Eylea HD Communication Pieces', client: 'Eylea HD', sector: ['healthcare', 'pharma'], access: 'unlocked' },
+
           {exampleid: 'modal-ginkoba', alt: 'Ginkoba Communication Pieces', client: 'Ginkoba', sector: ['default', 'healthcare', 'pharma', 'nutrition'], access: 'unlocked' },
 
           {exampleid: 'modal-grail', alt: 'GRAIL Communication Pieces', client: 'GRAIL', sector: ['default', 'healthcare', 'pharma' ], access: 'unlocked' },

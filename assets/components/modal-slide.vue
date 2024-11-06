@@ -29,11 +29,11 @@
 
             </div>
 
-            <div v-if="slide.mediaID === 'Banner'" class="banner-cta-text"><p>click, tap or hover me</p></div>
-
-                <div v-if="slide.showVideo" :class="['fitVids-wrapper', { 'aspect-square':slide.videoSquare, 'aspect-sixteen-nine':slide.videoSixteenNine, 'aspect-nine-sixteen':slide.videoNineSixteen, 'aspect-four-three':slide.videoFourThree, 'website-frame': slide.mediaID === 'Web' || slide.mediaID === 'Social' }]">
+                <div v-if="slide.showVideo" :class="['fitVids-wrapper', { 'aspect-square':slide.videoSquare, 'aspect-sixteen-nine':slide.videoSixteenNine, 'aspect-nine-sixteen':slide.videoNineSixteen, 'aspect-four-three':slide.videoFourThree, 'aspect-ipad':slide.videoIpadAspect, 'website-frame': slide.mediaID === 'Web' || slide.mediaID === 'Social' || slide.mediaID === 'CRM-Email'}]" :alt="slide.alt">
                   <iframe v-if="slide.showVideo" class="videoframe" :src="slide.videoSrc" :alt="slide.alt" :width="slide.videoWidth" :height="slide.videoHeight" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 </div>
+
+                <div v-if="slide.mediaID === 'Banner'" class="banner-cta-text"><p>click, tap or hover me</p></div>
 
             <div v-if="slide.showText" class="center-slide modal-description">
               <h1 class="handwritten">{{ slide.client }}</h1>
@@ -158,16 +158,36 @@ export default {
   }
 
 
-  .fitVids-wrapper {
+  /*.fitVids-wrapper {
     position: relative;
     padding-bottom: 0;
     top: 50%;
     left: -50%;
     transform: translate(50%, -50%);
-    /*width: 100%;*/
     max-width: 1150px;
     height:0;
   }
+*/
+
+  .fitVids-wrapper {
+   /* position: absolute;*/
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    /*width: 100%;*/
+    max-width: 1150px;
+    height: 100%;
+  }
+
+ .fitVids-wrapper[alt|="ipad"] {
+    overflow:hidden;
+    /*padding-bottom:68%;*/
+    position:relative;
+    height:0;
+    max-width: 1050px;
+}
 
   .aspect-square {
     /*padding-bottom: 100%;*/
@@ -177,8 +197,19 @@ export default {
 
   .aspect-sixteen-nine {
     /*padding-bottom: 56.25%;*/
-    width: 100%;
-    height: 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*width: min(75vw, 75vh);*/
+    /*max-width: 100%;*/
+    /*height: min(42.1875vw, 42.1875vh);*/
+    /*padding-bottom: min(42.1875vw, 42.1875vh);*/
+    /*max-height: min(42.1875vw, 42.1875vh);*/
+
+    width: min(85vw, 85vh);
+    max-width: 100%;
+    height: min(47.8125vw, 47.8125vh);
+    padding-bottom: min(47.8125vw, 47.8125vh);
+    max-height: min(47.8125vw, 47.8125vh);
   }
 
   .aspect-nine-sixteen {

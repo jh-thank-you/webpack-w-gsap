@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eylea HD</title>
+  <style type="text/css">
+    body {
+      background-color: #292F57;
+      padding: 0;
+      margin: 0 auto;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+    .coming-soon {
+      display: block;
+      position: absolute;
+      margin: 0 auto;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 65vmin;
+      height: 65vmin;
+      max-width: 500px;
+      max-height: 500px;
+      background-image: url(assets/img/modal-coming-soon-01.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    img {
+      width: 100%;
+      padding: 0;
+      margin: 0 auto;
+    }
+
+    .desktop,
+    .mobile {
+      display: none;
+    }
+
+    @media all and (max-width: 750px) {
+      .mobile {
+        display: block;
+      }
+    }
+
+    @media all and (min-width: 751px) {
+      .desktop {
+        display: block;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <img class="desktop" src="assets/img/modal-eylea-hd-web-home-desktop.jpg">
+  <img class="mobile" src="assets/img/modal-eylea-hd-web-home-mobile.jpg">
+</body>
+</html>

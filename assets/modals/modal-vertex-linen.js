@@ -407,7 +407,7 @@ let slides = [
     mediaID:          'Web',
     client:           'Vertex Linens',
     showClient:       true,
-    alt:              'Talented Nice People Website iFrame',
+    alt:              'Vertex Linens Website iFrame',
     showImage:        false,
     src:              '',
     showVideo:        true,

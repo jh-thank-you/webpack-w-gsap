@@ -88,7 +88,8 @@ const plugins = PRODUCTION
     new FriendlyErrorsWebpackPlugin(),
     new CopyWebpackPlugin([
         // need to copy sprite sheets to assets folder since the links can't be hashed in tha canvas call
-        { from: 'assets/img/sprite-sheets', to: 'assets/img/sprite-sheets' }
+        { from: 'assets/img/sprite-sheets', to: 'assets/img/sprite-sheets',
+         from: 'assets/img/i-frame', to: 'assets/img/i-frame' }
     ]),
     new webpack.ProvidePlugin({
 
