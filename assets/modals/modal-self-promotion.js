@@ -108,7 +108,7 @@ let slides = [
     showImage:        false,
     src:              '',
     showVideo:        true,
-    videoSrc:         'https://talentednicepeople.com/',
+    videoSrc:         '/dev/talentednicepeople/',
     videoWidth:       '1150',
     videoHeight:      '647',
     videoSquare:      '',

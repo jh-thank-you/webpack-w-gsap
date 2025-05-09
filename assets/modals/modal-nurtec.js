@@ -408,7 +408,7 @@ let slides = [
     showImage:        false,
     src:              '',
     showVideo:        true,
-    videoSrc:         'https://hainis.net/dev/nurtec-website/',
+    videoSrc:         '/dev/nurtec-website/',
     videoWidth:       '1150',
     videoHeight:      '647',
     videoSquare:      '',

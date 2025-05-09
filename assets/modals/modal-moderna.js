@@ -210,7 +210,7 @@ let slides = [
     showImage:        false,
     src:              '',
     showVideo:        true,
-    videoSrc:         'https://hainis.net/dev/moderna-website/',
+    videoSrc:         '/dev/moderna-website/',
     videoWidth:       '1150',
     videoHeight:      '647',
     videoSquare:      '',

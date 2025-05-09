@@ -1,0 +1,17 @@
+# Vue Js needs this modified htaccess route 
+# when using history mode in Vue Router.
+# Make this an invisible file and place at
+# root level of the project folder.
+# See docs for details:
+# https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
+
+Header always set X-Frame-Options "SAMEORIGIN"
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

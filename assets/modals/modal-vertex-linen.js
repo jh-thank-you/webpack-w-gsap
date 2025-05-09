@@ -411,7 +411,7 @@ let slides = [
     showImage:        false,
     src:              '',
     showVideo:        true,
-    videoSrc:         'https://hainis.net/dev/vertex/',
+    videoSrc:         '/dev/vertex/',
     videoWidth:       '1150',
     videoHeight:      '647',
     videoSquare:      '',
