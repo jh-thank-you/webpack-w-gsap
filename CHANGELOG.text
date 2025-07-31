@@ -1,5 +1,5 @@
 =============================
-2023-09-27_20.31.00-CHANGELOG
+2025-07-31_18.08.15-CHANGELOG
 =============================
 
 Note: to upade the changelog open terminal and cd into the root of the project folder, then run the command gitchangelog.
@@ -9,12 +9,17 @@ Note: to upade the changelog open terminal and cd into the root of the project f
 
 [Current]
 
+[v0.9.5-added-eylea-fix-sameorigin-fix-slide-info]
+ * i-frame src links are now SAMEORIGIN - fix htaccess on server
+ * Portfolio updates
+
 [v0.9.4-nurtec-videos-added]
- * Nurtec videos added
+
+[v0.9.4]
+ * Portfolio updates
  * v0.9.4-nurtec-videos-added
 
 [v0.9.3-https-coming-soon-JSON-updates]
- * Fixed COMING SOON JSON placeholders breadcrumb menu
  * v0.9.3-https-coming-soon-JSON-updates
 
 [v0.9.2-updated-changelog]

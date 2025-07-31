@@ -2457,6 +2457,7 @@ input::placeholder {
   display:  block;
   top: 25px;
   left: 25px;
+  width: 79%;
   z-index: 1005;
 }
 
@@ -2481,6 +2482,9 @@ input::placeholder {
 }
 
 @media all and (max-height: 430px) {
+  .btn-media-group {
+    width: 55px;
+  }
   .btn-media {
     opacity: 0;
     width: 0;
